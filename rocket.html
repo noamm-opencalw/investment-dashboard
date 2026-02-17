@@ -125,155 +125,302 @@
     <svg class="w-3 h-3 inline-block align-middle mr-1" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M12 8v4m0 4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>אחזקות · לחץ להרחבה
   </div>
   
-<div class="glass-deep tappable" style="border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:.5rem;border-right:2px solid rgba(255,255,255,.07)"
-     onclick="var t=document.getElementById('t0');t.style.display=t.style.display==='none'?'block':'none'">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div class="tappable" onclick="var t=document.getElementById('t0');t.classList.toggle('open')"
+  style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+         border-right:3px solid #fb7185;border-radius:1rem;
+         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+
+  <!-- Row 1: Name + P/L badge -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
     <div>
-      <div style="font-weight:700;color:#fff;font-size:.95rem">NXTV</div>
-      <div class="l3">אחר · 52.0 יח' · ₪295.70</div>
+      <span style="font-weight:800;color:#f1f5f9;font-size:1rem">NXTV</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · אחר</span>
+    </div>
+    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
+                 background:rgba(251,113,133,.1);
+                 border:1px solid rgba(251,113,133,.25);
+                 padding:2px 9px;border-radius:999px">-0.1%</span>
+  </div>
+
+  <!-- Row 2: Value (L1) + week (L2) -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline">
+    <div>
+      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪15,376</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
     </div>
     <div style="text-align:left">
-      <div class="neg" style="font-weight:700;font-size:.9rem">-0.1%</div>
-      <div class="l3">שבוע: <span class="neg">-0.3%</span></div>
+      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
+      <span style="font-size:.82rem;font-weight:600;color:#fb7185">-0.3%</span>
     </div>
   </div>
-  <div style="display:flex;justify-content:space-between;margin-top:.6rem">
-    <div class="l3">שווי: <strong style="color:#cbd5e1">₪15,376</strong></div>
-    <div class="l3">נטו: <span class="neg">₪-15</span></div>
+
+  <!-- Row 3: Details (L3) -->
+  <div style="display:flex;gap:1rem;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569">52.0 יח' · ₪295.70</span>
+    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-15</span>
   </div>
-  <div id="t0" style="display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.72rem;color:#64748b;font-weight:600">📌 למה נבחר: </span>
-    <span style="font-size:.75rem;color:#94a3b8;line-height:1.6">+253% in 2025, moved from TA-90 to TA-35, defense tech momentum</span>
+
+  <!-- Thesis — expandable -->
+  <div id="t0" class="thesis" style="margin-top:.8rem;padding:.75rem;
+       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
+    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
+    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">נקסטוויזן — מצלמות ייצוב לרחפנים. עלה 253% ב-2025. קיבלה עסקה של 77 מיליון דולר</p>
   </div>
 </div>
-<div class="glass-deep tappable" style="border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:.5rem;border-right:2px solid rgba(255,255,255,.07)"
-     onclick="var t=document.getElementById('t1');t.style.display=t.style.display==='none'?'block':'none'">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div class="tappable" onclick="var t=document.getElementById('t1');t.classList.toggle('open')"
+  style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+         border-right:3px solid #fb7185;border-radius:1rem;
+         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+
+  <!-- Row 1: Name + P/L badge -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
     <div>
-      <div style="font-weight:700;color:#fff;font-size:.95rem">ARYT</div>
-      <div class="l3">טכנולוגיה · 18.0 יח' · ₪59.25</div>
+      <span style="font-weight:800;color:#f1f5f9;font-size:1rem">ARYT</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · טכנולוגיה</span>
+    </div>
+    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
+                 background:rgba(251,113,133,.1);
+                 border:1px solid rgba(251,113,133,.25);
+                 padding:2px 9px;border-radius:999px">-0.1%</span>
+  </div>
+
+  <!-- Row 2: Value (L1) + week (L2) -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline">
+    <div>
+      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪1,066</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
     </div>
     <div style="text-align:left">
-      <div class="neg" style="font-weight:700;font-size:.9rem">-0.1%</div>
-      <div class="l3">שבוע: <span class="neg">-1.1%</span></div>
+      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
+      <span style="font-size:.82rem;font-weight:600;color:#fb7185">-1.1%</span>
     </div>
   </div>
-  <div style="display:flex;justify-content:space-between;margin-top:.6rem">
-    <div class="l3">שווי: <strong style="color:#cbd5e1">₪1,066</strong></div>
-    <div class="l3">נטו: <span class="neg">₪-1</span></div>
+
+  <!-- Row 3: Details (L3) -->
+  <div style="display:flex;gap:1rem;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569">18.0 יח' · ₪59.25</span>
+    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-1</span>
   </div>
-  <div id="t1" style="display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.72rem;color:#64748b;font-weight:600">📌 למה נבחר: </span>
-    <span style="font-size:.75rem;color:#94a3b8;line-height:1.6">+408% in 2025! Fuse manufacturer, 2,212% since Oct 7 war start</span>
+
+  <!-- Thesis — expandable -->
+  <div id="t1" class="thesis" style="margin-top:.8rem;padding:.75rem;
+       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
+    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
+    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">ארייט — יצרן פיוזים וחומרי נפץ. עלה 408% ב-2025. מאז 7/10 — 2,212%(!)</p>
   </div>
 </div>
-<div class="glass-deep tappable" style="border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:.5rem;border-right:2px solid rgba(255,255,255,.07)"
-     onclick="var t=document.getElementById('t2');t.style.display=t.style.display==='none'?'block':'none'">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div class="tappable" onclick="var t=document.getElementById('t2');t.classList.toggle('open')"
+  style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+         border-right:3px solid #fb7185;border-radius:1rem;
+         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+
+  <!-- Row 1: Name + P/L badge -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
     <div>
-      <div style="font-weight:700;color:#fff;font-size:.95rem">MORE</div>
-      <div class="l3">קמעונאות · 115.0 יח' · ₪44.41</div>
+      <span style="font-weight:800;color:#f1f5f9;font-size:1rem">MORE</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · קמעונאות</span>
+    </div>
+    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
+                 background:rgba(251,113,133,.1);
+                 border:1px solid rgba(251,113,133,.25);
+                 padding:2px 9px;border-radius:999px">-0.1%</span>
+  </div>
+
+  <!-- Row 2: Value (L1) + week (L2) -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline">
+    <div>
+      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪5,107</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
     </div>
     <div style="text-align:left">
-      <div class="neg" style="font-weight:700;font-size:.9rem">-0.1%</div>
-      <div class="l3">שבוע: <span class="pos">—</span></div>
+      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
+      <span style="font-size:.82rem;font-weight:600;color:#34d399">—</span>
     </div>
   </div>
-  <div style="display:flex;justify-content:space-between;margin-top:.6rem">
-    <div class="l3">שווי: <strong style="color:#cbd5e1">₪5,107</strong></div>
-    <div class="l3">נטו: <span class="neg">₪-5</span></div>
+
+  <!-- Row 3: Details (L3) -->
+  <div style="display:flex;gap:1rem;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569">115.0 יח' · ₪44.41</span>
+    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-5</span>
   </div>
-  <div id="t2" style="display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.72rem;color:#64748b;font-weight:600">📌 למה נבחר: </span>
-    <span style="font-size:.75rem;color:#94a3b8;line-height:1.6">+302.9% in 2025, TA-90 leader, investment house</span>
+
+  <!-- Thesis — expandable -->
+  <div id="t2" class="thesis" style="margin-top:.8rem;padding:.75rem;
+       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
+    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
+    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">מור — בית השקעות. עלה 302% ב-2025. מנהל כסף של כולם ורוצה יותר</p>
   </div>
 </div>
-<div class="glass-deep tappable" style="border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:.5rem;border-right:2px solid rgba(255,255,255,.07)"
-     onclick="var t=document.getElementById('t3');t.style.display=t.style.display==='none'?'block':'none'">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div class="tappable" onclick="var t=document.getElementById('t3');t.classList.toggle('open')"
+  style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+         border-right:3px solid #fb7185;border-radius:1rem;
+         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+
+  <!-- Row 1: Name + P/L badge -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
     <div>
-      <div style="font-weight:700;color:#fff;font-size:.95rem">MTDS</div>
-      <div class="l3">טכנולוגיה · 95.0 יח' · ₪138.00</div>
+      <span style="font-weight:800;color:#f1f5f9;font-size:1rem">MTDS</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · טכנולוגיה</span>
+    </div>
+    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
+                 background:rgba(251,113,133,.1);
+                 border:1px solid rgba(251,113,133,.25);
+                 padding:2px 9px;border-radius:999px">-0.1%</span>
+  </div>
+
+  <!-- Row 2: Value (L1) + week (L2) -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline">
+    <div>
+      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪13,110</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
     </div>
     <div style="text-align:left">
-      <div class="neg" style="font-weight:700;font-size:.9rem">-0.1%</div>
-      <div class="l3">שבוע: <span class="pos">—</span></div>
+      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
+      <span style="font-size:.82rem;font-weight:600;color:#34d399">—</span>
     </div>
   </div>
-  <div style="display:flex;justify-content:space-between;margin-top:.6rem">
-    <div class="l3">שווי: <strong style="color:#cbd5e1">₪13,110</strong></div>
-    <div class="l3">נטו: <span class="neg">₪-13</span></div>
+
+  <!-- Row 3: Details (L3) -->
+  <div style="display:flex;gap:1rem;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569">95.0 יח' · ₪138.00</span>
+    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-13</span>
   </div>
-  <div id="t3" style="display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.72rem;color:#64748b;font-weight:600">📌 למה נבחר: </span>
-    <span style="font-size:.75rem;color:#94a3b8;line-height:1.6">+293.1% in 2025, investment banking, TA-90 top</span>
+
+  <!-- Thesis — expandable -->
+  <div id="t3" class="thesis" style="margin-top:.8rem;padding:.75rem;
+       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
+    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
+    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">מיתדס — בנקאות השקעות. עלה 293% ב-2025. מובל על ידי שוק הון פועם</p>
   </div>
 </div>
-<div class="glass-deep tappable" style="border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:.5rem;border-right:2px solid rgba(255,255,255,.07)"
-     onclick="var t=document.getElementById('t4');t.style.display=t.style.display==='none'?'block':'none'">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div class="tappable" onclick="var t=document.getElementById('t4');t.classList.toggle('open')"
+  style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+         border-right:3px solid #fb7185;border-radius:1rem;
+         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+
+  <!-- Row 1: Name + P/L badge -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
     <div>
-      <div style="font-weight:700;color:#fff;font-size:.95rem">NXTV</div>
-      <div class="l3">אחר · 26.0 יח' · ₪295.70</div>
+      <span style="font-weight:800;color:#f1f5f9;font-size:1rem">NXTV</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · אחר</span>
+    </div>
+    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
+                 background:rgba(251,113,133,.1);
+                 border:1px solid rgba(251,113,133,.25);
+                 padding:2px 9px;border-radius:999px">-0.1%</span>
+  </div>
+
+  <!-- Row 2: Value (L1) + week (L2) -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline">
+    <div>
+      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪7,688</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
     </div>
     <div style="text-align:left">
-      <div class="neg" style="font-weight:700;font-size:.9rem">-0.1%</div>
-      <div class="l3">שבוע: <span class="neg">-0.3%</span></div>
+      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
+      <span style="font-size:.82rem;font-weight:600;color:#fb7185">-0.3%</span>
     </div>
   </div>
-  <div style="display:flex;justify-content:space-between;margin-top:.6rem">
-    <div class="l3">שווי: <strong style="color:#cbd5e1">₪7,688</strong></div>
-    <div class="l3">נטו: <span class="neg">₪-8</span></div>
+
+  <!-- Row 3: Details (L3) -->
+  <div style="display:flex;gap:1rem;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569">26.0 יח' · ₪295.70</span>
+    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-8</span>
   </div>
-  <div id="t4" style="display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.72rem;color:#64748b;font-weight:600">📌 למה נבחר: </span>
-    <span style="font-size:.75rem;color:#94a3b8;line-height:1.6">—</span>
+
+  <!-- Thesis — expandable -->
+  <div id="t4" class="thesis" style="margin-top:.8rem;padding:.75rem;
+       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
+    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
+    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">נקסטוויזן — מצלמות ייצוב לרחפנים. עלה 253% ב-2025. קיבלה עסקה של 77 מיליון דולר</p>
   </div>
 </div>
-<div class="glass-deep tappable" style="border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:.5rem;border-right:2px solid rgba(255,255,255,.07)"
-     onclick="var t=document.getElementById('t5');t.style.display=t.style.display==='none'?'block':'none'">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div class="tappable" onclick="var t=document.getElementById('t5');t.classList.toggle('open')"
+  style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+         border-right:3px solid #fb7185;border-radius:1rem;
+         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+
+  <!-- Row 1: Name + P/L badge -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
     <div>
-      <div style="font-weight:700;color:#fff;font-size:.95rem">RATI</div>
-      <div class="l3">אחר · 130.0 יח' · ₪4.91</div>
+      <span style="font-weight:800;color:#f1f5f9;font-size:1rem">RATI</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · אחר</span>
+    </div>
+    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
+                 background:rgba(251,113,133,.1);
+                 border:1px solid rgba(251,113,133,.25);
+                 padding:2px 9px;border-radius:999px">-0.1%</span>
+  </div>
+
+  <!-- Row 2: Value (L1) + week (L2) -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline">
+    <div>
+      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪638</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
     </div>
     <div style="text-align:left">
-      <div class="neg" style="font-weight:700;font-size:.9rem">-0.1%</div>
-      <div class="l3">שבוע: <span class="pos">+0.5%</span></div>
+      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
+      <span style="font-size:.82rem;font-weight:600;color:#34d399">+0.5%</span>
     </div>
   </div>
-  <div style="display:flex;justify-content:space-between;margin-top:.6rem">
-    <div class="l3">שווי: <strong style="color:#cbd5e1">₪638</strong></div>
-    <div class="l3">נטו: <span class="neg">₪-1</span></div>
+
+  <!-- Row 3: Details (L3) -->
+  <div style="display:flex;gap:1rem;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569">130.0 יח' · ₪4.91</span>
+    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-1</span>
   </div>
-  <div id="t5" style="display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.72rem;color:#64748b;font-weight:600">📌 למה נבחר: </span>
-    <span style="font-size:.75rem;color:#94a3b8;line-height:1.6">Gas exploration, high risk/high reward, energy boom play</span>
+
+  <!-- Thesis — expandable -->
+  <div id="t5" class="thesis" style="margin-top:.8rem;padding:.75rem;
+       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
+    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
+    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">ג'נרג'י — חיפוש גז, סיכון גבוה. אם ימצאו → קפיצה. אם לא → ירידה</p>
   </div>
 </div>
-<div class="glass-deep tappable" style="border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:.5rem;border-right:2px solid rgba(255,255,255,.07)"
-     onclick="var t=document.getElementById('t6');t.style.display=t.style.display==='none'?'block':'none'">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div class="tappable" onclick="var t=document.getElementById('t6');t.classList.toggle('open')"
+  style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+         border-right:3px solid #fb7185;border-radius:1rem;
+         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+
+  <!-- Row 1: Name + P/L badge -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
     <div>
-      <div style="font-weight:700;color:#fff;font-size:.95rem">ENOG</div>
-      <div class="l3">אחר · 85.0 יח' · ₪35.90</div>
+      <span style="font-weight:800;color:#f1f5f9;font-size:1rem">ENOG</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · אחר</span>
+    </div>
+    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
+                 background:rgba(251,113,133,.1);
+                 border:1px solid rgba(251,113,133,.25);
+                 padding:2px 9px;border-radius:999px">-0.1%</span>
+  </div>
+
+  <!-- Row 2: Value (L1) + week (L2) -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline">
+    <div>
+      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪3,052</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
     </div>
     <div style="text-align:left">
-      <div class="neg" style="font-weight:700;font-size:.9rem">-0.1%</div>
-      <div class="l3">שבוע: <span class="neg">-1.5%</span></div>
+      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
+      <span style="font-size:.82rem;font-weight:600;color:#fb7185">-1.5%</span>
     </div>
   </div>
-  <div style="display:flex;justify-content:space-between;margin-top:.6rem">
-    <div class="l3">שווי: <strong style="color:#cbd5e1">₪3,052</strong></div>
-    <div class="l3">נטו: <span class="neg">₪-3</span></div>
+
+  <!-- Row 3: Details (L3) -->
+  <div style="display:flex;gap:1rem;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569">85.0 יח' · ₪35.90</span>
+    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-3</span>
   </div>
-  <div id="t6" style="display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.72rem;color:#64748b;font-weight:600">📌 למה נבחר: </span>
-    <span style="font-size:.75rem;color:#94a3b8;line-height:1.6">Mediterranean gas, Israel fields, explorer with production</span>
+
+  <!-- Thesis — expandable -->
+  <div id="t6" class="thesis" style="margin-top:.8rem;padding:.75rem;
+       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
+    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
+    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">אנוג'י — גז ים תיכוני, ישראל. פוטנציאל ייצוא לאירופה אחרי המלחמה</p>
   </div>
 </div>
 
-  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 08:19</div>
+  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 08:42</div>
 </div>
 
 <nav class="glass" style="position:fixed;bottom:0;left:0;right:0;height:3.5rem;

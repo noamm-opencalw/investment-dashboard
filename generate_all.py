@@ -41,6 +41,43 @@ SECTORS = {
 
 SKIP = ("BONDS:","LEVERAGE:","CRYPTO:","TLV:DEFSMALL","TLV:REIT","TLV:POLI-PR")
 
+# ─── עברית פשוטה למה הנכס נבחר ────────────────────────────────────────────────
+THESIS_HEB = {
+    # SOLID
+    "TLV:POLI":  "הבנק הגדול בישראל — יציב, מחלק דיבידנד, לא מפתיע אבל לא ירד",
+    "TLV:LUMI":  "בנק לאומי — עבר לדיגיטל מהר מהמתחרים. שווי שוק חצה 100 מיליארד",
+    "TLV:ELEC":  "חברת חשמל — מונופול ממשלתי. כל בית בישראל משלם להם. דיבידנד יציב",
+    "TLV:BEZQ":  "בזק — תשתית תקשורת בלתי נמנעת. מחלקת 7%+ דיבידנד בשנה",
+    "TLV:HARL":  "חראל ביטוח — עלה 151% ב-2025. נשמר גם כאן כ'עוגן' בטיח",
+    "ETF:GOLD":  "זהב — ריפוד אם הכל ירד. לא מרוויחים ממנו, אבל מגן מפני הפתעות",
+    # AGGRESSIVE
+    "TLV:PHOE":  "פניקס — מוביל הביטוח בישראל. עלה 165% ב-2025 כי משקיעים זרים גילו אותו",
+    "TLV:ESLT":  "אלביט — ביקוש עולמי לנשק הישראלי. תורים ארוכים, רווחים עולים. מחיר גבוה — סיכון",
+    "TLV:DEDRL": "ניומד אנרגיה — גז ישראלי. מגזר האנרגיה עלה 77% ב-2025, עדיין מפגר מול ביטוח",
+    "TLV:NXTV":  "נקסטוויזן — מצלמות ייצוב לרחפנים. עלה 253% ב-2025. קיבלה עסקה של 77 מיליון דולר",
+    "TLV:NWMD":  "ניומד — חיפוש גז בים התיכון. ספין-אוף של דלק, פוטנציאל ייצוא לאירופה",
+    "TLV:TRPZ":  "טרפז אנרגיה — עלה 238% ב-2025, אחד הכוכבים של ת\"א 90",
+    "NASDAQ:QQQ":"נאסד\"ק 100 — חשיפה לטכנולוגיה האמריקאית (אפל, מיקרוסופט, אנבידיה). גם מגן מטבע",
+    # SUPER-AGGRESSIVE
+    "TLV:ARYT":  "ארייט — יצרן פיוזים וחומרי נפץ. עלה 408% ב-2025. מאז 7/10 — 2,212%(!)",
+    "TLV:MORE":  "מור — בית השקעות. עלה 302% ב-2025. מנהל כסף של כולם ורוצה יותר",
+    "TLV:MTDS":  "מיתדס — בנקאות השקעות. עלה 293% ב-2025. מובל על ידי שוק הון פועם",
+    "TLV:RATI":  "ג'נרג'י — חיפוש גז, סיכון גבוה. אם ימצאו → קפיצה. אם לא → ירידה",
+    "TLV:ENOG":  "אנוג'י — גז ים תיכוני, ישראל. פוטנציאל ייצוא לאירופה אחרי המלחמה",
+    # SPECULATIVE
+    "TLV:FTHL":  "פאתאל מלונות — הפסקת האש = תיירות חוזרת. קנה עכשיו, מכור כשהשגרירות תיפתח מחדש",
+    # CREATIVE
+    "TLV:AZRG":  "אזריאלי — נדל\"ן עלה רק 24% ב-2025 כשהשוק עלה 51%. כשהריבית תרד → קפיצה",
+    "TLV:BIG":   "ביג קניונים — שנואים אחרי המלחמה, אבל מבקרים חוזרים. מחיר זול",
+    "TLV:SHFR":  "שופרסל — סופרמרקט. סקטור הצריכה ירד 41.7% ב-2025. אנשים חייבים לאכול",
+    "NASDAQ:TEVA":"תבע — בין ת\"א לנאסד\"ק. כולם שונאים, אבל אולי זול מדי? פארמה ג'נרית = דיבידנד",
+    "NASDAQ:CHKP":"צ'ק פוינט — אבטחת סייבר. כולם שונאים טק ישראלי. אנליסטים הורידו — אבל אולי בדיוק לכן?",
+}
+
+def get_thesis(sym: str, pos: dict) -> str:
+    """Return Hebrew thesis, fallback to English original."""
+    return THESIS_HEB.get(sym) or pos.get("thesis") or "—"
+
 # ─── SVG Icons ────────────────────────────────────────────────────────────────
 def svg(name, cls="w-4 h-4 inline-block"):
     d = {
@@ -369,7 +406,7 @@ def build_deep(raw_p, perf, history):
         nvc  = "pos" if npct>=0 else "neg"
 
         sector  = SECTORS.get(sym, "אחר")
-        thesis  = pos.get("thesis", "")
+        thesis  = get_thesis(sym, pos)
         short   = sym.split(":")[-1].replace(".TA","")
         tid     = f"t{idx}"
 
@@ -379,27 +416,52 @@ def build_deep(raw_p, perf, history):
 
         sec_totals[sector] = sec_totals.get(sector,0) + val
 
-        # Mobile card for each holding
+        # Mobile card — Oracle Design: breathable, clear hierarchy, tap for thesis
+        pnl_color = "#34d399" if npct >= 0 else "#fb7185"
+        wk_color  = "#34d399" if (wkp or 0) >= 0 else "#fb7185"
+        border_l  = "#34d399" if npct >= 0 else "#fb7185"
+
         cards_html += f"""
-<div class="glass-deep tappable" style="border-radius:.9rem;padding:1rem 1.2rem;margin-bottom:.5rem;border-right:2px solid rgba(255,255,255,.07)"
-     onclick="var t=document.getElementById('{tid}');t.style.display=t.style.display==='none'?'block':'none'">
-  <div style="display:flex;justify-content:space-between;align-items:flex-start">
+<div class="tappable" onclick="var t=document.getElementById('{tid}');t.classList.toggle('open')"
+  style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
+         border-right:3px solid {border_l};border-radius:1rem;
+         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+
+  <!-- Row 1: Name + P/L badge -->
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
     <div>
-      <div style="font-weight:700;color:#fff;font-size:.95rem">{short}</div>
-      <div class="l3">{sector} · {sh:.1f} יח' · ₪{cp:,.2f}</div>
+      <span style="font-weight:800;color:#f1f5f9;font-size:1rem">{short}</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · {sector}</span>
+    </div>
+    <span style="font-size:.78rem;font-weight:700;color:{pnl_color};
+                 background:{'rgba(52,211,153,.1)' if npct>=0 else 'rgba(251,113,133,.1)'};
+                 border:1px solid {'rgba(52,211,153,.25)' if npct>=0 else 'rgba(251,113,133,.25)'};
+                 padding:2px 9px;border-radius:999px">{npct:+.1f}%</span>
+  </div>
+
+  <!-- Row 2: Value (L1) + week (L2) -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline">
+    <div>
+      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪{val:,.0f}</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
     </div>
     <div style="text-align:left">
-      <div class="{nvc}" style="font-weight:700;font-size:.9rem">{npct:+.1f}%</div>
-      <div class="l3">שבוע: <span class="{wvc}">{wks}</span></div>
+      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
+      <span style="font-size:.82rem;font-weight:600;color:{wk_color}">{wks}</span>
     </div>
   </div>
-  <div style="display:flex;justify-content:space-between;margin-top:.6rem">
-    <div class="l3">שווי: <strong style="color:#cbd5e1">₪{val:,.0f}</strong></div>
-    <div class="l3">נטו: <span class="{nvc}">₪{nv:+,.0f}</span></div>
+
+  <!-- Row 3: Details (L3) -->
+  <div style="display:flex;gap:1rem;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569">{sh:.1f} יח' · ₪{cp:,.2f}</span>
+    <span style="font-size:.7rem;color:{pnl_color}">נטו: ₪{nv:+,.0f}</span>
   </div>
-  <div id="{tid}" style="display:none;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.72rem;color:#64748b;font-weight:600">📌 למה נבחר: </span>
-    <span style="font-size:.75rem;color:#94a3b8;line-height:1.6">{thesis or "—"}</span>
+
+  <!-- Thesis — expandable -->
+  <div id="{tid}" class="thesis" style="margin-top:.8rem;padding:.75rem;
+       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
+    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
+    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">{thesis}</p>
   </div>
 </div>"""
 
