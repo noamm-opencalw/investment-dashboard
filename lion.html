@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="he" dir="rtl">
+<title>BankOS — 🦁 AGGRESSIVE</title><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  body{font-family:'Assistant',sans-serif;background:#0f172a;color:#f1f5f9;-webkit-font-smoothing:antialiased}
+  .glass{background:rgba(30,41,59,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08)}
+  .card-hover{transition:transform .25s,box-shadow .25s}
+  .card-hover:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+  @keyframes fade-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+  .fade-up{animation:fade-up .5s ease both}
+  .fade-up:nth-child(2){animation-delay:.07s}.fade-up:nth-child(3){animation-delay:.14s}
+  .fade-up:nth-child(4){animation-delay:.21s}.fade-up:nth-child(5){animation-delay:.28s}
+  @keyframes count-up{from{opacity:0}to{opacity:1}} .count{animation:count-up .8s ease}
+</style></head>
+<body class="min-h-screen p-4 pb-24">
+<div class="max-w-2xl mx-auto">
+  <a href="index.html" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm mb-6 transition-colors">
+  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+  חזרה לתיקים
+</a>
+
+  <!-- Hero -->
+  <div class="glass rounded-3xl p-6 mb-6 text-center border-b-4 border-red-500">
+    <div class="text-5xl mb-2">🦁</div>
+    <h1 class="text-2xl font-extrabold text-white">AGGRESSIVE</h1>
+    <p class="text-slate-400 text-sm mb-4">The Lion 🦁</p>
+    <p class="text-5xl font-extrabold count">₪100,000</p>
+    <p class="text-red-400 font-bold text-lg mt-1">−₪140 נטו (-0.20%)</p>
+    <div class="flex justify-center gap-3 mt-4 text-xs text-slate-500">
+      <span class="bg-slate-800/50 px-3 py-1 rounded-full">💸 ₪140</span>
+      <span class="bg-slate-800/50 px-3 py-1 rounded-full">🏛️ ₪0</span>
+      <span class="bg-slate-800/50 px-3 py-1 rounded-full">מזומן ₪30,218</span>
+    </div>
+  </div>
+
+  <!-- Asset Allocation -->
+  <div class="glass rounded-2xl p-5 mb-6">
+    <h2 class="font-bold text-slate-200 mb-4 text-base">Asset Allocation</h2>
+    <div class="flex items-center justify-center" style="height:220px">
+      <canvas id="pieChart"></canvas>
+    </div>
+  </div>
+
+  <!-- Holdings Table -->
+  <div class="glass rounded-2xl p-5 mb-6 overflow-x-auto">
+    <h2 class="font-bold text-slate-200 mb-4 text-base">Holdings</h2>
+    <table class="w-full text-right min-w-[460px]">
+      <thead><tr class="text-slate-500 text-xs border-b border-slate-700/50">
+        <th class="pb-2 pr-3">סימבול</th><th class="pb-2">יחידות</th>
+        <th class="pb-2">מחיר</th><th class="pb-2">שווי</th>
+        <th class="pb-2">P/L נטו</th><th class="pb-2">1W</th>
+      </tr></thead>
+      <tbody>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">PHOE</td>
+  <td class="py-3 text-slate-400 text-sm">60.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪170</td>
+  <td class="py-3 font-semibold text-sm">₪10,200</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪20<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+4.2%</td>
+</tr>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">HARL</td>
+  <td class="py-3 text-slate-400 text-sm">60.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪168</td>
+  <td class="py-3 font-semibold text-sm">₪10,062</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪20<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+6.5%</td>
+</tr>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">ESLT</td>
+  <td class="py-3 text-slate-400 text-sm">5.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪2,079</td>
+  <td class="py-3 font-semibold text-sm">₪10,396</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪21<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+0.8%</td>
+</tr>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">DEDRL</td>
+  <td class="py-3 text-slate-400 text-sm">58.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪21</td>
+  <td class="py-3 font-semibold text-sm">₪1,212</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪2<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+3.3%</td>
+</tr>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">LUMI</td>
+  <td class="py-3 text-slate-400 text-sm">126.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪79</td>
+  <td class="py-3 font-semibold text-sm">₪9,933</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪20<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+1.9%</td>
+</tr>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">NXTV</td>
+  <td class="py-3 text-slate-400 text-sm">30.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪296</td>
+  <td class="py-3 font-semibold text-sm">₪8,871</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪18<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-red-400 font-semibold">-0.3%</td>
+</tr>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">NWMD</td>
+  <td class="py-3 text-slate-400 text-sm">95.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪21</td>
+  <td class="py-3 font-semibold text-sm">₪1,985</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪4<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+3.3%</td>
+</tr>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">TRPZ</td>
+  <td class="py-3 text-slate-400 text-sm">38.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪86</td>
+  <td class="py-3 font-semibold text-sm">₪3,270</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪7<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+6.1%</td>
+</tr>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">DEDRL</td>
+  <td class="py-3 text-slate-400 text-sm">58.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪21</td>
+  <td class="py-3 font-semibold text-sm">₪1,212</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪2<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+3.3%</td>
+</tr>
+<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">QQQ</td>
+  <td class="py-3 text-slate-400 text-sm">21.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪602</td>
+  <td class="py-3 font-semibold text-sm">₪12,640</td>
+  <td class="py-3 text-sm text-red-400 font-bold">−₪25<br><span class="text-xs">-0.2%</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+0.8%</td>
+</tr></tbody>
+    </table>
+  </div>
+
+  <p class="text-center text-xs text-slate-600 mb-8">עודכן 17/02/2026 06:26 · 25 מניות · net after 25% tax + 0.2% fees</p>
+</div>
+
+<nav class="fixed bottom-0 inset-x-0 glass h-14 flex justify-around items-center border-t border-slate-700/40">
+  <a href="index.html" class="text-slate-500 text-sm">◀ ראשי</a>
+  <span class="text-white text-sm font-bold">🦁 AGGRESSIVE</span>
+  <button onclick="location.reload()" class="text-slate-500 text-sm">🔄</button>
+</nav>
+
+<script>
+new Chart(document.getElementById('pieChart'),{
+  type:'doughnut',
+  data:{
+    labels:["PHOE", "HARL", "ESLT", "DEDRL", "LUMI", "NXTV", "NWMD", "TRPZ", "DEDRL", "QQQ", "מזומן"],
+    datasets:[{data:[10200, 10062, 10396, 1212, 9933, 8871, 1985, 3270, 1212, 12640, 30218],backgroundColor:["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b", "#10b981", "#0ea5e9", "#a855f7", "#d946ef", "#f97316", "#475569"],borderWidth:0,hoverOffset:8}]
+  },
+  options:{responsive:true,maintainAspectRatio:false,cutout:'60%',
+    plugins:{legend:{display:true,position:'bottom',labels:{color:'#94a3b8',font:{size:11,family:'Assistant'},padding:12}},
+    tooltip:{callbacks:{label:c=>'₪'+c.parsed.toLocaleString()}}}
+  }
+});
+</script>
+</body></html>
