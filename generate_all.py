@@ -216,16 +216,28 @@ def doc_head(title):
 
 # ─── INDEX PAGE ───────────────────────────────────────────────────────────────
 def _make_mini_bars(raw_p):
-    """Inline allocation bars — top 3 positions + cash (ref: investment-dashboard.html design)."""
+    """Inline allocation bars — top 3 + cash (ref: investment-dashboard.html design)."""
     cash = raw_p.get('cash', 0)
-    total_val = raw_p.get('totalValue', 100000) or 100000
+    base = raw_p.get('initialCapital', 100000) or 100000
+    positions = sorted(
+        raw_p.get('positions', []),
+        key=lambda x: x.get('costBasis', 0),
+        reverse=True
+    )
+    # deduplicate by symbol (Super-Agg has duplicates)
+    seen, deduped = set(), []
+    for pos in positions:
+        sym = pos.get('symbol','')
+        if sym not in seen:
+            seen.add(sym)
+            deduped.append(pos)
+    top = deduped[:3]
+    bar_colors = ["#6366f1","#f59e0b","#10b981","#3b82f6"]
     rows = []
-    # Top positions by value
-    positions = sorted(raw_p.get('positions', []), key=lambda x: x.get('currentValue', x.get('costBasis', 0)), reverse=True)[:3]
-    bar_colors = ["#6366f1", "#f59e0b", "#10b981", "#3b82f6"]
-    for i, pos in enumerate(positions):
-        val = pos.get('currentValue', pos.get('costBasis', 0))
-        pct = round(val / total_val * 100) if total_val else 0
+    for i, pos in enumerate(top):
+        val = pos.get('costBasis', 0)
+        pct = round(val / base * 100)
+        if pct < 1: continue
         name = pos.get('symbol','').replace('TLV:','').replace('NASDAQ:','').replace('ETF:','')[:6]
         rows.append(
             f'<div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem">'
@@ -235,14 +247,14 @@ def _make_mini_bars(raw_p):
             f'<span style="font-size:.6rem;color:#475569;width:1.8rem;flex-shrink:0">{pct}%</span>'
             f'</div>'
         )
-    if cash > 500:
-        cash_pct = round(cash / total_val * 100)
+    if cash > 1000:
+        cpct = round(cash / base * 100)
         rows.append(
             f'<div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem">'
             f'<span style="width:2.2rem;font-size:.6rem;color:#64748b;text-align:right;flex-shrink:0">Cash</span>'
             f'<div style="flex:1;height:2px;background:rgba(255,255,255,.06);border-radius:1px">'
-            f'<div style="width:{max(2,cash_pct)}%;height:100%;background:#334155;border-radius:1px"></div></div>'
-            f'<span style="font-size:.6rem;color:#475569;width:1.8rem;flex-shrink:0">{cash_pct}%</span>'
+            f'<div style="width:{max(2,cpct)}%;height:100%;background:#334155;border-radius:1px"></div></div>'
+            f'<span style="font-size:.6rem;color:#475569;width:1.8rem;flex-shrink:0">{cpct}%</span>'
             f'</div>'
         )
     return ''.join(rows)
