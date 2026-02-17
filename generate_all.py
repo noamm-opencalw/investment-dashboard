@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-BankOS — Full Dashboard Generator v4
-Senior FinTech Product Designer Protocol:
+Portfolio Dashboard — Full Generator v5
+Template DNA: investment-dashboard.html (Google Drive reference)
+Design System: Glassmorphism + Apple HIG + Google Stitch
   1. Whitespace  2. 3-Level Typography  3. Functional Color
-  4. Glassmorphism  5. Affordance  6. Progressive Disclosure (Rule of 5)
-  7. Net-Only Principle
+  4. h-1.5 Horizontal Bars  5. Affordance  6. Progressive Disclosure
+  7. Net-Only Principle  8. Floating Pill Nav
 """
 
 import json, sys, subprocess
@@ -216,48 +217,96 @@ def doc_head(title):
 
 # ─── INDEX PAGE ───────────────────────────────────────────────────────────────
 def _make_mini_bars(raw_p):
-    """Inline allocation bars — top 3 + cash (ref: investment-dashboard.html design)."""
+    """Template-exact h-1.5 allocation bars (investment-dashboard.html DNA)."""
     cash = raw_p.get('cash', 0)
     base = raw_p.get('initialCapital', 100000) or 100000
-    positions = sorted(
-        raw_p.get('positions', []),
-        key=lambda x: x.get('costBasis', 0),
-        reverse=True
-    )
-    # deduplicate by symbol (Super-Agg has duplicates)
+    positions = sorted(raw_p.get('positions', []), key=lambda x: x.get('costBasis', 0), reverse=True)
+    # deduplicate by symbol
     seen, deduped = set(), []
     for pos in positions:
         sym = pos.get('symbol','')
         if sym not in seen:
-            seen.add(sym)
-            deduped.append(pos)
+            seen.add(sym); deduped.append(pos)
     top = deduped[:3]
-    bar_colors = ["#6366f1","#f59e0b","#10b981","#3b82f6"]
+    # bar_colors: indigo, amber, emerald (matches template palette)
+    bar_colors = ["rgb(99,102,241)","rgb(245,158,11)","rgb(16,185,129)"]
     rows = []
     for i, pos in enumerate(top):
         val = pos.get('costBasis', 0)
         pct = round(val / base * 100)
         if pct < 1: continue
-        name = pos.get('symbol','').replace('TLV:','').replace('NASDAQ:','').replace('ETF:','')[:6]
+        name = pos.get('symbol','').replace('TLV:','').replace('NASDAQ:','').replace('ETF:','')[:5]
         rows.append(
-            f'<div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem">'
-            f'<span style="width:2.2rem;font-size:.6rem;color:#64748b;text-align:right;flex-shrink:0">{name}</span>'
-            f'<div style="flex:1;height:2px;background:rgba(255,255,255,.06);border-radius:1px">'
-            f'<div style="width:{max(2,pct)}%;height:100%;background:{bar_colors[i]};border-radius:1px"></div></div>'
+            f'<div class="flex items-center gap-2" style="margin-bottom:.25rem">'
+            f'<span style="width:2.5rem;font-size:.6rem;color:#64748b;text-align:right;flex-shrink:0">{name}</span>'
+            f'<div class="flex-1 rounded-full overflow-hidden" style="height:6px;background:rgba(255,255,255,.05)">'
+            f'<div style="width:{max(2,pct)}%;height:100%;background:{bar_colors[i]};border-radius:999px"></div></div>'
             f'<span style="font-size:.6rem;color:#475569;width:1.8rem;flex-shrink:0">{pct}%</span>'
             f'</div>'
         )
     if cash > 1000:
         cpct = round(cash / base * 100)
         rows.append(
-            f'<div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem">'
-            f'<span style="width:2.2rem;font-size:.6rem;color:#64748b;text-align:right;flex-shrink:0">Cash</span>'
-            f'<div style="flex:1;height:2px;background:rgba(255,255,255,.06);border-radius:1px">'
-            f'<div style="width:{max(2,cpct)}%;height:100%;background:#334155;border-radius:1px"></div></div>'
+            f'<div class="flex items-center gap-2" style="margin-bottom:.25rem">'
+            f'<span style="width:2.5rem;font-size:.6rem;color:#64748b;text-align:right;flex-shrink:0">Cash</span>'
+            f'<div class="flex-1 rounded-full overflow-hidden" style="height:6px;background:rgba(255,255,255,.05)">'
+            f'<div style="width:{max(2,cpct)}%;height:100%;background:rgb(51,65,85);border-radius:999px"></div></div>'
             f'<span style="font-size:.6rem;color:#475569;width:1.8rem;flex-shrink:0">{cpct}%</span>'
             f'</div>'
         )
     return ''.join(rows)
+
+
+def _make_asset_table(portfolios, raw_by_name):
+    """Asset analysis table — top holdings across all portfolios (template section 3)."""
+    # Collect top holding from each portfolio
+    rows_html = ""
+    shown = set()
+    for pf in portfolios:
+        raw = raw_by_name[pf["name"]]
+        m = PORTFOLIO_META[pf["name"]]
+        positions_sorted = sorted(raw.get('positions', []), key=lambda x: x.get('costBasis', 0), reverse=True)
+        for pos in positions_sorted[:2]:
+            sym = pos.get('symbol', '')
+            if sym in shown or any(sym.startswith(s) for s in SKIP): continue
+            shown.add(sym)
+            name_short = sym.replace('TLV:','').replace('NASDAQ:','').replace('ETF:','')[:8]
+            cost = pos.get('costBasis', 0)
+            # find portfolio net for this position
+            base_100k = 100000
+            pct_of_port = round(cost / base_100k * 100) if base_100k else 0
+            val_net = round(cost * 0.999)  # rough net (no gain = Day 0)
+            rows_html += f"""
+              <tr>
+                <td style="padding:.55rem 0;font-weight:700;color:#e2e8f0">{name_short}
+                  <span style="font-size:.55rem;color:#475569;margin-right:.3rem">{m['emoji']}</span>
+                </td>
+                <td style="padding:.55rem 0;color:#94a3b8" dir="ltr">₪{val_net:,}</td>
+                <td style="padding:.55rem 0;color:#64748b;font-style:italic">{pct_of_port}%</td>
+              </tr>"""
+            if len(shown) >= 8: break
+        if len(shown) >= 8: break
+
+    return f"""
+  <section style="margin-top:1.5rem">
+    <h3 style="font-size:.75rem;font-weight:700;color:#64748b;margin-bottom:.75rem;padding:0 .2rem">
+      {svg('trend-up','w-3 h-3 inline-block align-middle mr-1')} נכסים מרכזיים
+    </h3>
+    <div class="glass" style="border-radius:1.2rem;padding:.8rem 1rem">
+      <table style="width:100%;text-align:right;font-size:.72rem">
+        <thead>
+          <tr style="color:#475569;border-bottom:1px solid rgba(255,255,255,.05)">
+            <th style="padding-bottom:.5rem;font-weight:400">נכס</th>
+            <th style="padding-bottom:.5rem;font-weight:400">שווי</th>
+            <th style="padding-bottom:.5rem;font-weight:400">מתיק</th>
+          </tr>
+        </thead>
+        <tbody style="divide-y:rgba(255,255,255,.05)">
+          {rows_html}
+        </tbody>
+      </table>
+    </div>
+  </section>"""
 
 
 def build_index(portfolios, total, history, raw_by_name):
@@ -318,26 +367,23 @@ def build_index(portfolios, total, history, raw_by_name):
     <div class="l2" style="margin-top:.15rem">לאחר מס ועמלה</div>
   </div>
 
-  <!-- Inline mini-bars: top positions + cash -->
-  {_make_mini_bars(raw)}
+  <!-- Inline mini-bars: h-1.5 template DNA -->
+  <div style="margin-top:.5rem;margin-bottom:.6rem">
+    {_make_mini_bars(raw)}
+  </div>
 
-  <!-- Sparkline -->
-  <div style="height:28px;margin-top:.6rem"><canvas id="{sid}"></canvas></div>
-</a>
-<script>(function(){{
-  new Chart(document.getElementById('{sid}'),{{
-    type:'line',
-    data:{{datasets:[{{data:{json.dumps(sp)},borderColor:'{sc}',borderWidth:1.5,
-      pointRadius:0,fill:true,backgroundColor:'{sc}12',tension:.4}}]}},
-    options:{{responsive:true,maintainAspectRatio:false,animation:false,
-      scales:{{x:{{display:false}},y:{{display:false}}}},
-      plugins:{{legend:{{display:false}},tooltip:{{enabled:false}}}}}}
-  }});
-}})();</script>"""
+  <!-- Border-t footer: ברוטו + % change (template exact) -->
+  <div style="padding-top:.65rem;border-top:1px solid rgba(255,255,255,.05);display:flex;justify-content:space-between;align-items:center">
+    <p class="l3" style="font-style:italic">ברוטו: ₪{pg:,.0f}</p>
+    <span class="{pv}" style="font-size:.65rem;font-weight:700">
+      {pglyph} {abs(ppct):.2f}% מ-Day 0
+    </span>
+  </div>
+</a>"""
 
     # Rule of 5: exactly 5 critical numbers on index
     # 1. Total net withdrawal  2. Total gross  3. Gain amount  4. Gain %  5. Days left
-    return f"""{doc_head('BankOS — תיקי נועם 2026')}
+    return f"""{doc_head('Portfolio Dashboard — תיקי נועם 2026')}
 <body style="padding-bottom:calc(4.5rem + env(safe-area-inset-bottom))">
 
 <div style="max-width:520px;margin:0 auto;padding:1.5rem 1rem">
@@ -383,6 +429,9 @@ def build_index(portfolios, total, history, raw_by_name):
     {cards}
   </div>
 
+  <!-- Asset Analysis Table (template reference DNA) -->
+  {_make_asset_table(portfolios, raw_by_name)}
+
   <!-- Legend box -->
   <div class="glass-deep" style="margin-top:1.2rem;padding:1rem 1.2rem;border-radius:1rem">
     <div class="l3" style="line-height:1.9;color:#64748b">
@@ -406,7 +455,7 @@ def build_index(portfolios, total, history, raw_by_name):
   white-space:nowrap;
   box-shadow:0 8px 32px rgba(0,0,0,.5)">
   <span style="font-weight:700;font-size:.85rem;color:#fff;display:flex;align-items:center;gap:.3rem">
-    🏦 BankOS
+    📊 Portfolio
   </span>
   <button onclick="location.reload()" style="
     display:flex;align-items:center;gap:.3rem;font-size:.8rem;
