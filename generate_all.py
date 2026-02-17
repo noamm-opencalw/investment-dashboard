@@ -1,399 +1,483 @@
 #!/usr/bin/env python3
 """
-BankOS - Full Dashboard Generator
-Produces: index.html + 5 deep-dive pages
-Design: Robinhood/Revolut level - Glassmorphism, Sparklines, Animations
+BankOS — Full Dashboard Generator v2
+Private Banking level UI: clean typography, Lucide SVG icons, Gross (Net) display
 """
 
 import json, sys, subprocess
 from pathlib import Path
-from datetime import datetime, timedelta
+from datetime import datetime
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "investment-learning" / "scripts"))
-from tracker_unified import get_portfolio_data, fetch_all_prices, SYMBOL_MAP, AGOROT_STOCKS
+from tracker_unified import get_portfolio_data, fetch_all_prices, SYMBOL_MAP
 
-VENV_PYTHON = Path(__file__).parent.parent / "investment-learning" / ".venv-tracker" / "bin" / "python"
-OUT_DIR = Path(__file__).parent
+OUT_DIR   = Path(__file__).parent
+RAW_JSON  = Path(__file__).parent.parent / "investment-learning" / "portfolios-5way.json"
+DAILY_DIR = Path(__file__).parent.parent / "investment-learning" / "daily"
+DAILY_DIR.mkdir(exist_ok=True)
 
 PORTFOLIO_META = {
-    "SOLID":           {"slug":"turtle",     "emoji":"🐢","color":"#6366f1","gradient":"from-indigo-600 to-indigo-900"},
-    "AGGRESSIVE":      {"slug":"lion",       "emoji":"🦁","color":"#8b5cf6","gradient":"from-violet-600 to-violet-900"},
-    "SUPER-AGGRESSIVE":{"slug":"rocket",     "emoji":"🚀","color":"#ec4899","gradient":"from-pink-600 to-pink-900"},
-    "SPECULATIVE":     {"slug":"target",     "emoji":"🎯","color":"#f43f5e","gradient":"from-rose-600 to-rose-900"},
-    "CREATIVE":        {"slug":"canvas",     "emoji":"🎨","color":"#f59e0b","gradient":"from-amber-500 to-amber-800"},
+    "SOLID":            {"slug": "turtle",  "emoji": "🐢", "color": "#6366f1"},
+    "AGGRESSIVE":       {"slug": "lion",    "emoji": "🦁", "color": "#8b5cf6"},
+    "SUPER-AGGRESSIVE": {"slug": "rocket",  "emoji": "🚀", "color": "#ec4899"},
+    "SPECULATIVE":      {"slug": "target",  "emoji": "🎯", "color": "#f43f5e"},
+    "CREATIVE":         {"slug": "canvas",  "emoji": "🎨", "color": "#f59e0b"},
 }
 
-# ─────────────────────────────────────────────
-# Historical prices (1W sparkline)
-# ─────────────────────────────────────────────
-def fetch_weekly_history(yahoo_symbols: list[str]) -> dict:
-    """Returns {yahoo_symbol: [list of 7 closing prices]}"""
+SKIP_PREFIXES = ("BONDS:", "LEVERAGE:", "CRYPTO:", "TLV:DEFSMALL", "TLV:REIT", "TLV:POLI-PR")
+
+# ─── SVG icons (Lucide style) ─────────────────────────────────────────────────
+def icon(name, cls="w-4 h-4"):
+    icons = {
+        "percent":     '<svg class="{c}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2"/><circle cx="15" cy="15" r="2"/><line x1="17" y1="7" x2="7" y2="17"/></svg>',
+        "wallet":      '<svg class="{c}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 12h.01"/></svg>',
+        "trending":    '<svg class="{c}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>',
+        "arrow-left":  '<svg class="{c}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>',
+        "refresh":     '<svg class="{c}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>',
+        "chevron-right":'<svg class="{c}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>',
+    }
+    return icons.get(name, "").replace("{c}", cls)
+
+# ─── Financial helpers ────────────────────────────────────────────────────────
+def calc_net_withdrawal(gross_value: float, cost_basis: float) -> float:
+    """What you'd actually receive selling everything today."""
+    gain        = gross_value - cost_basis
+    sell_fee    = gross_value * 0.001          # 0.1% sell commission
+    capital_tax = max(0, gain) * 0.25          # 25% on gains only
+    return gross_value - sell_fee - capital_tax
+
+def week_change_pct(history: list) -> float | None:
+    if len(history) >= 2 and history[0] > 0:
+        return round((history[-1] / history[0] - 1) * 100, 2)
+    return None
+
+def fetch_weekly_history(symbols: list) -> dict:
     try:
         import yfinance as yf
-        result = {}
-        for sym in yahoo_symbols:
+        out = {}
+        for sym in symbols:
             try:
-                t = yf.Ticker(sym)
-                hist = t.history(period="7d", interval="1d")
+                hist = yf.Ticker(sym).history(period="7d", interval="1d")
                 if hist.empty:
-                    result[sym] = []
-                    continue
+                    out[sym] = []; continue
                 prices = [round(float(v), 4) for v in hist["Close"].tolist()]
-                # Agorot fix
-                if sym.endswith(".TA") and prices and prices[0] > 1000:
+                if sym.endswith(".TA") and prices and prices[0] > 500:
                     prices = [round(p/100, 4) for p in prices]
-                result[sym] = prices
+                out[sym] = prices
             except:
-                result[sym] = []
-        return result
+                out[sym] = []
+        return out
     except:
         return {}
 
-def week_change_pct(history: list) -> float | None:
-    if len(history) >= 2:
-        start, end = history[0], history[-1]
-        if start > 0:
-            return round((end/start - 1)*100, 2)
-    return None
-
-# ─────────────────────────────────────────────
-# Net P/L helpers
-# ─────────────────────────────────────────────
-def net_pnl(buy, current, shares):
-    gross = (current - buy) * shares
-    fees  = (buy * shares + current * shares) * 0.001
-    tax   = gross * 0.25 if gross > 0 else 0
-    return gross - fees - tax
-
-def fmt_ils(v, sign=False):
-    s = f"₪{abs(v):,.0f}"
-    if sign: s = ("+" if v >= 0 else "−") + s
-    return s
-
-# ─────────────────────────────────────────────
-# Shared CSS / head
-# ─────────────────────────────────────────────
-HEAD = """<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+# ─── Shared head ─────────────────────────────────────────────────────────────
+HEAD = lambda title: f"""<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{title}</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
-  body{font-family:'Assistant',sans-serif;background:#0f172a;color:#f1f5f9;-webkit-font-smoothing:antialiased}
-  .glass{background:rgba(30,41,59,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.08)}
-  .card-hover{transition:transform .25s,box-shadow .25s}
-  .card-hover:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
-  @keyframes fade-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-  .fade-up{animation:fade-up .5s ease both}
-  .fade-up:nth-child(2){animation-delay:.07s}.fade-up:nth-child(3){animation-delay:.14s}
-  .fade-up:nth-child(4){animation-delay:.21s}.fade-up:nth-child(5){animation-delay:.28s}
-  @keyframes count-up{from{opacity:0}to{opacity:1}} .count{animation:count-up .8s ease}
-</style></head>"""
+  *{{box-sizing:border-box}}
+  body{{font-family:'Assistant',sans-serif;background:#0c1220;color:#e2e8f0;-webkit-font-smoothing:antialiased;min-height:100vh}}
+  .glass{{background:rgba(15,23,42,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(148,163,184,.1)}}
+  .glass-card{{background:rgba(30,41,59,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,.08)}}
+  @keyframes rise{{from{{opacity:0;transform:translateY(16px)}}to{{opacity:1;transform:none}}}}
+  .rise{{animation:rise .4s ease both}}
+  .rise:nth-child(1){{animation-delay:.00s}}.rise:nth-child(2){{animation-delay:.06s}}
+  .rise:nth-child(3){{animation-delay:.12s}}.rise:nth-child(4){{animation-delay:.18s}}
+  .rise:nth-child(5){{animation-delay:.24s}}
+  .hover-lift{{transition:transform .2s,box-shadow .2s}}
+  .hover-lift:hover{{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.45)}}
+  .divider{{border-color:rgba(148,163,184,.1)}}
+</style>
+</head>"""
 
-NAV_BACK = """<a href="index.html" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm mb-6 transition-colors">
-  <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-  חזרה לתיקים
-</a>"""
+# ─── Index page ───────────────────────────────────────────────────────────────
+def build_index(portfolios, total, now, all_history, raw_by_name):
+    ts = now.strftime("%d/%m/%Y %H:%M")
 
-# ─────────────────────────────────────────────
-# INDEX page
-# ─────────────────────────────────────────────
-def build_index(portfolios_data, total, timestamp, all_history):
-    cards = ""
-    for i, p in enumerate(portfolios_data):
-        m = PORTFOLIO_META[p['name']]
-        pct = p['netReturnPct']
-        color_cls = "text-emerald-400" if pct >= 0 else "text-red-400"
-        badge_cls = "bg-emerald-500/15 text-emerald-400" if pct >= 0 else "bg-red-500/15 text-red-400"
-        arrow = "▲" if pct >= 0 else "▼"
+    # Total gross + net withdrawal
+    all_prices = fetch_all_prices()
+    total_cost  = 100_000 * 5   # day 0 baseline
+    total_gross = total["totalValue"]
+    total_net   = calc_net_withdrawal(total_gross, total_cost)
+    total_gain  = total_gross - total_cost
+    total_pct   = (total_gain / total_cost * 100)
 
-        # Sparkline data (portfolio-wide: sum of position values per day)
-        spark_data = _portfolio_sparkline(p, all_history)
-        spark_color = "#10b981" if pct >= 0 else "#f43f5e"
-        spark_id = f"spark{i}"
+    sign = "+" if total_gain >= 0 else "−"
+    val_color = "text-emerald-400" if total_gain >= 0 else "text-red-400"
 
-        cards += f"""
-<a href="{m['slug']}.html" class="glass rounded-2xl p-5 card-hover fade-up block">
+    # Portfolio cards
+    cards_html = ""
+    for i, p in enumerate(portfolios):
+        m = PORTFOLIO_META[p["name"]]
+        raw = raw_by_name[p["name"]]
+
+        # Calc gross / net for this portfolio
+        p_cost   = 100_000
+        p_gross  = p["totalValue"]
+        p_net    = calc_net_withdrawal(p_gross, p_cost)
+        p_gain   = p_gross - p_cost
+        p_pct    = (p_gain / p_cost * 100)
+        p_sign   = "+" if p_gain >= 0 else "−"
+        p_vcls   = "text-emerald-400" if p_gain >= 0 else "text-red-400"
+        p_bcls   = "bg-emerald-500/10 text-emerald-400 border border-emerald-500/20" if p_gain >= 0 else "bg-red-500/10 text-red-400 border border-red-500/20"
+
+        # Sparkline
+        spark = _sparkline_data(raw, all_history, 7)
+        spark_color = "#10b981" if p_gain >= 0 else "#ef4444"
+        sid = f"sp{i}"
+
+        cards_html += f"""
+<a href="{m['slug']}.html" class="glass-card rounded-2xl p-5 hover-lift rise block no-underline">
   <div class="flex justify-between items-start mb-4">
-    <div>
-      <div class="text-2xl mb-1">{m['emoji']}</div>
-      <h3 class="font-bold text-white text-base leading-tight">{p['name']}</h3>
-      <p class="text-slate-500 text-xs">{p['nickname']}</p>
+    <div class="flex items-center gap-3">
+      <span class="text-2xl">{m['emoji']}</span>
+      <div>
+        <p class="font-bold text-white text-sm leading-none">{p['name']}</p>
+        <p class="text-slate-500 text-xs mt-0.5">{p['nickname']}</p>
+      </div>
     </div>
-    <span class="{badge_cls} text-xs font-bold px-3 py-1 rounded-full">{arrow} {abs(pct):.2f}%</span>
+    <span class="text-xs font-bold px-2.5 py-1 rounded-full {p_bcls}">{p_sign}{abs(p_pct):.2f}%</span>
   </div>
-  <p class="text-3xl font-extrabold count mb-1">{fmt_ils(p['totalValue'])}</p>
-  <p class="{color_cls} text-sm font-semibold mb-4">{fmt_ils(p['netPnL'], sign=True)} נטו</p>
-  <div style="height:44px"><canvas id="{spark_id}"></canvas></div>
+
+  <div class="mb-1">
+    <span class="text-2xl font-extrabold text-white">₪{p_gross:,.0f}</span>
+    <span class="text-slate-400 text-sm mr-1">(₪{p_net:,.0f})</span>
+  </div>
+  <p class="{p_vcls} text-xs font-semibold mb-4">{p_sign}₪{abs(p_gain):,.0f} {p_sign}{abs(p_pct):.2f}%</p>
+
+  <div style="height:36px;"><canvas id="{sid}"></canvas></div>
+  <div class="flex justify-between items-center mt-3">
+    <span class="text-slate-600 text-xs">{p['positionsCount']} נכסים</span>
+    <span class="text-slate-600">{icon('chevron-right','w-3.5 h-3.5')}</span>
+  </div>
 </a>
 <script>
 (function(){{
-  var d={json.dumps(spark_data)};
-  new Chart(document.getElementById('{spark_id}'),{{
-    type:'line',data:{{datasets:[{{data:d,borderColor:'{spark_color}',borderWidth:2,
-    pointRadius:0,fill:true,backgroundColor:'{spark_color}22',tension:.4}}]}},
-    options:{{responsive:true,maintainAspectRatio:false,
-    scales:{{x:{{display:false}},y:{{display:false}}}},
-    plugins:{{legend:{{display:false}},tooltip:{{enabled:false}}}}}}
+  var d={json.dumps(spark)};
+  new Chart(document.getElementById('{sid}'),{{
+    type:'line',
+    data:{{datasets:[{{data:d,borderColor:'{spark_color}',borderWidth:1.5,
+      pointRadius:0,fill:true,backgroundColor:'{spark_color}18',tension:.45}}]}},
+    options:{{responsive:true,maintainAspectRatio:false,animation:false,
+      scales:{{x:{{display:false}},y:{{display:false}}}},
+      plugins:{{legend:{{display:false}},tooltip:{{enabled:false}}}}}}
   }});
 }})();
 </script>"""
 
-    total_pct = total['netReturnPct']
-    total_arrow = "▲" if total_pct >= 0 else "▼"
-    total_cls = "text-emerald-400" if total_pct >= 0 else "text-red-400"
+    return f"""{HEAD('BankOS — תיקי נועם 2026')}
+<body class="pb-20">
 
-    return f"""<!DOCTYPE html><html lang="he" dir="rtl">
-<title>BankOS — תיקי נועם 2026</title>{HEAD}
-<body class="min-h-screen p-4 pb-24">
-<header class="text-center pt-6 mb-8">
-  <div class="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-1 text-xs text-emerald-400 mb-3">
-    <span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>LIVE
+<!-- Header -->
+<header class="px-5 pt-8 pb-6">
+  <div class="flex items-center gap-2 mb-3">
+    <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
+    <span class="text-emerald-400 text-xs tracking-widest font-semibold uppercase">Live · Day 0</span>
   </div>
-  <h1 class="text-3xl font-extrabold text-white tracking-tight">BankOS</h1>
-  <p class="text-slate-500 text-sm">תיקי נועם · פברואר 2026 · עודכן {timestamp}</p>
+  <h1 class="text-2xl font-extrabold text-white tracking-tight">BankOS</h1>
+  <p class="text-slate-500 text-xs mt-1">עודכן {ts} · net after tax &amp; fees</p>
 </header>
 
-<div class="glass rounded-3xl p-6 mb-8 text-center border-b-4 {'border-emerald-500' if total_pct>=0 else 'border-red-500'}">
-  <p class="text-slate-400 text-sm mb-1">שווי כולל — נטו</p>
-  <p class="text-5xl font-extrabold count">{fmt_ils(total['totalValue'])}</p>
-  <p class="{total_cls} font-bold text-lg mt-2">{total_arrow} {fmt_ils(total['netPnL'],sign=True)} ({total_pct:+.2f}%)</p>
-  <div class="flex justify-center gap-3 mt-4 text-xs text-slate-500">
-    <span class="bg-slate-800/50 px-3 py-1 rounded-full">💸 עמלות {fmt_ils(total['fees'])}</span>
-    <span class="bg-slate-800/50 px-3 py-1 rounded-full">🏛️ מס {fmt_ils(total['tax'])}</span>
+<!-- Total hero -->
+<div class="mx-4 mb-6 glass rounded-2xl p-5">
+  <p class="text-slate-400 text-xs mb-2 uppercase tracking-wide font-medium">סה"כ תיקים</p>
+  <div class="flex items-baseline gap-2 flex-wrap">
+    <span class="text-4xl font-extrabold text-white">₪{total_gross:,.0f}</span>
+    <span class="text-slate-400 text-base">(₪{total_net:,.0f} נטו)</span>
+  </div>
+  <p class="{val_color} text-sm font-semibold mt-1">{sign}₪{abs(total_gain):,.0f} · {sign}{abs(total_pct):.2f}%</p>
+
+  <div class="divider border-t mt-4 pt-4 flex gap-4 text-xs text-slate-500">
+    <span class="flex items-center gap-1.5">{icon('percent','w-3.5 h-3.5')} עמלות ₪{total['fees']:,.0f}</span>
+    <span class="flex items-center gap-1.5">{icon('trending','w-3.5 h-3.5')} מס ₪{total['tax']:,.0f}</span>
+    <span class="flex items-center gap-1.5">{icon('wallet','w-3.5 h-3.5')} ₪500,000 base</span>
   </div>
 </div>
 
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">{cards}</div>
+<!-- Portfolio cards -->
+<div class="px-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
+  {cards_html}
+</div>
 
-<nav class="fixed bottom-0 inset-x-0 glass h-14 flex justify-around items-center border-t border-slate-700/40">
-  <span class="text-blue-400 text-sm font-bold">📊 תיקים</span>
-  <button onclick="location.reload()" class="text-slate-500 text-sm">🔄 רענן</button>
-  <span class="text-slate-600 text-xs">{timestamp}</span>
+<!-- Footer note -->
+<p class="text-center text-slate-600 text-xs mt-6 mb-2">
+  ₪X,XXX = שווי שוק · (₪X,XXX) = לאחר מס 25% + עמלה 0.1%
+</p>
+
+<!-- Bottom nav -->
+<nav class="fixed bottom-0 inset-x-0 glass border-t divider h-14 flex items-center justify-between px-6">
+  <span class="text-white text-sm font-bold">📊 תיקים</span>
+  <button onclick="location.reload()" class="flex items-center gap-1.5 text-slate-400 hover:text-white text-sm transition-colors">
+    {icon('refresh','w-4 h-4')} רענן
+  </button>
 </nav>
 </body></html>"""
 
-def _portfolio_sparkline(p, all_history):
-    """Return list of daily total values for the portfolio (last 7 days)"""
-    days = 7
-    result = [0.0] * days
-    for pos in p.get('_raw_positions', []):
-        sym_orig = pos.get('symbol','')
-        yahoo = _orig_to_yahoo(sym_orig)
-        if not yahoo:
+
+# ─── Deep-dive page ───────────────────────────────────────────────────────────
+def build_deep(raw_portfolio, perf, all_history):
+    name  = raw_portfolio["name"]
+    m     = PORTFOLIO_META[name]
+    now   = datetime.now().strftime("%d/%m/%Y %H:%M")
+    prices = fetch_all_prices()
+    cash   = raw_portfolio.get("cash", 0)
+
+    # Calc totals
+    cost_basis = 100_000
+    p_gross = perf["totalValue"]
+    p_net   = calc_net_withdrawal(p_gross, cost_basis)
+    p_gain  = p_gross - cost_basis
+    p_pct   = (p_gain / cost_basis * 100)
+    p_sign  = "+" if p_gain >= 0 else "−"
+    vcls    = "text-emerald-400" if p_gain >= 0 else "text-red-400"
+    bcls    = "border-emerald-500" if p_gain >= 0 else "border-red-500"
+
+    # Holdings + pie
+    rows, pie_l, pie_v, pie_c = "", [], [], []
+    PALETTE = ["#6366f1","#8b5cf6","#ec4899","#f43f5e","#f59e0b","#10b981","#0ea5e9","#a855f7","#d946ef","#f97316","#84cc16","#14b8a6"]
+
+    idx = 0
+    for pos in raw_portfolio["positions"]:
+        sym = pos["symbol"]
+        if any(sym.startswith(p) for p in SKIP_PREFIXES):
             continue
-        hist = all_history.get(yahoo, [])
-        if len(hist) == 0:
-            # flat at current value
-            val = pos.get('buyPrice', 0) * pos.get('shares', 0)
-            for d in range(days):
-                result[d] += val
-        else:
-            # Pad/trim to exactly 7 entries
-            h = (hist[-days:] if len(hist) >= days else [hist[0]]*(days-len(hist)) + hist)
-            for d, price in enumerate(h):
-                result[d] += price * pos.get('shares', 0)
-    # Add cash as flat
-    cash = p.get('cash', 0)
-    result = [round(v + cash, 0) for v in result]
-    return result
-
-def _orig_to_yahoo(sym):
-    from tracker_unified import SYMBOL_MAP
-    return SYMBOL_MAP.get(sym)
-
-# ─────────────────────────────────────────────
-# DEEP-DIVE page per portfolio
-# ─────────────────────────────────────────────
-def build_deep(portfolio_raw, portfolio_data, all_history, portfolio_json):
-    name = portfolio_raw['name']
-    m = PORTFOLIO_META[name]
-    p = portfolio_data
-    prices_now = fetch_all_prices()
-    today = datetime.now().strftime("%d/%m/%Y %H:%M")
-
-    # Holdings rows
-    rows_html = ""
-    pie_labels, pie_vals, pie_colors = [], [], []
-    PALETTE = ["#6366f1","#8b5cf6","#ec4899","#f43f5e","#f59e0b","#10b981","#0ea5e9","#a855f7","#d946ef","#f97316"]
-
-    for i, pos in enumerate(portfolio_raw['positions']):
-        sym = pos['symbol']
-        if sym.startswith('BONDS:') or sym.startswith('LEVERAGE:') or sym.startswith('CRYPTO:') or 'DEFSMALL' in sym or 'REIT' in sym or 'POLI-PR' in sym:
-            continue
-        shares = pos.get('shares', 0)
+        shares = pos.get("shares", 0)
         if shares == 0:
             continue
-        buy_p  = pos.get('buyPrice', 0)
-        cur_p  = prices_now.get(sym, buy_p)
-        value  = shares * cur_p
-        np_val = net_pnl(buy_p, cur_p, shares)
-        np_pct = (np_val / (buy_p * shares) * 100) if buy_p > 0 else 0
 
-        yahoo = _orig_to_yahoo(sym)
-        hist  = all_history.get(yahoo, [])
+        buy_p  = pos.get("buyPrice", 0)
+        cur_p  = prices.get(sym, buy_p)
+        val    = shares * cur_p
+        gain   = (cur_p - buy_p) * shares
+        sell_fee = val * 0.001
+        tax_c  = max(0, gain) * 0.25
+        net_p  = gain - sell_fee - tax_c
+        net_pct = (net_p / (buy_p * shares) * 100) if buy_p * shares > 0 else 0
+
+        yahoo = SYMBOL_MAP.get(sym)
+        hist  = all_history.get(yahoo, []) if yahoo else []
         wk_pct = week_change_pct(hist)
         wk_str = f"{wk_pct:+.1f}%" if wk_pct is not None else "—"
         wk_cls = "text-emerald-400" if (wk_pct or 0) >= 0 else "text-red-400"
+        np_cls = "text-emerald-400" if net_pct >= 0 else "text-red-400"
 
-        pnl_cls = "text-emerald-400" if np_pct >= 0 else "text-red-400"
-        short_sym = sym.split(":")[-1]
+        short = sym.split(":")[-1].replace(".TA","")
 
-        rows_html += f"""
-<tr class="border-b border-slate-700/30 hover:bg-slate-700/20 transition-colors">
-  <td class="py-3 pr-3 font-bold text-sm text-white">{short_sym}</td>
-  <td class="py-3 text-slate-400 text-sm">{shares:.1f}</td>
-  <td class="py-3 text-slate-300 text-sm">{fmt_ils(cur_p)}</td>
-  <td class="py-3 font-semibold text-sm">{fmt_ils(value)}</td>
-  <td class="py-3 text-sm {pnl_cls} font-bold">{fmt_ils(np_val,sign=True)}<br><span class="text-xs">{np_pct:+.1f}%</span></td>
-  <td class="py-3 text-sm {wk_cls} font-semibold">{wk_str}</td>
+        rows += f"""<tr class="border-b divider hover:bg-slate-800/30 transition-colors">
+  <td class="py-3 pr-3 font-bold text-sm text-white">{short}</td>
+  <td class="py-3 text-slate-400 text-sm text-left">{shares:.1f}</td>
+  <td class="py-3 text-slate-300 text-sm text-left">₪{cur_p:,.2f}</td>
+  <td class="py-3 text-white text-sm font-semibold text-left">₪{val:,.0f}</td>
+  <td class="py-3 text-sm text-left {np_cls}"><span class="font-semibold">{net_pct:+.1f}%</span><br><span class="text-xs opacity-70">₪{net_p:+,.0f}</span></td>
+  <td class="py-3 text-sm text-left {wk_cls} font-semibold">{wk_str}</td>
 </tr>"""
 
-        color = PALETTE[i % len(PALETTE)]
-        pie_labels.append(short_sym)
-        pie_vals.append(round(value))
-        pie_colors.append(color)
+        color = PALETTE[idx % len(PALETTE)]
+        pie_l.append(short); pie_v.append(round(val)); pie_c.append(color)
+        idx += 1
 
-    # Cash row in pie
-    cash = portfolio_raw.get('cash', 0)
     if cash > 0:
-        pie_labels.append("מזומן")
-        pie_vals.append(round(cash))
-        pie_colors.append("#475569")
+        pie_l.append("מזומן"); pie_v.append(round(cash)); pie_c.append("#475569")
 
-    pct = p['netReturnPct']
-    color_cls = "text-emerald-400" if pct >= 0 else "text-red-400"
-    border_cls = "border-emerald-500" if pct >= 0 else "border-red-500"
+    return f"""{HEAD(f'BankOS — {m["emoji"]} {name}')}
+<body class="pb-20">
 
-    return f"""<!DOCTYPE html><html lang="he" dir="rtl">
-<title>BankOS — {m['emoji']} {name}</title>{HEAD}
-<body class="min-h-screen p-4 pb-24">
-<div class="max-w-2xl mx-auto">
-  {NAV_BACK}
+<div class="max-w-xl mx-auto px-4">
+
+  <!-- Back -->
+  <div class="pt-6 pb-4">
+    <a href="index.html" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm transition-colors">
+      {icon('arrow-left','w-4 h-4')} חזרה לתיקים
+    </a>
+  </div>
 
   <!-- Hero -->
-  <div class="glass rounded-3xl p-6 mb-6 text-center border-b-4 {border_cls}">
-    <div class="text-5xl mb-2">{m['emoji']}</div>
-    <h1 class="text-2xl font-extrabold text-white">{name}</h1>
-    <p class="text-slate-400 text-sm mb-4">{p['nickname']}</p>
-    <p class="text-5xl font-extrabold count">{fmt_ils(p['totalValue'])}</p>
-    <p class="{color_cls} font-bold text-lg mt-1">{fmt_ils(p['netPnL'],sign=True)} נטו ({pct:+.2f}%)</p>
-    <div class="flex justify-center gap-3 mt-4 text-xs text-slate-500">
-      <span class="bg-slate-800/50 px-3 py-1 rounded-full">💸 {fmt_ils(p['fees'])}</span>
-      <span class="bg-slate-800/50 px-3 py-1 rounded-full">🏛️ {fmt_ils(p['tax'])}</span>
-      <span class="bg-slate-800/50 px-3 py-1 rounded-full">מזומן {fmt_ils(cash)}</span>
+  <div class="glass-card rounded-2xl p-6 mb-5 border-r-4 {bcls}">
+    <div class="flex items-center gap-3 mb-4">
+      <span class="text-4xl">{m['emoji']}</span>
+      <div>
+        <h1 class="text-xl font-extrabold text-white">{name}</h1>
+        <p class="text-slate-400 text-sm">{perf['nickname']}</p>
+      </div>
+    </div>
+    <div class="flex items-baseline gap-2 flex-wrap mb-1">
+      <span class="text-3xl font-extrabold text-white">₪{p_gross:,.0f}</span>
+      <span class="text-slate-400">(₪{p_net:,.0f} נטו)</span>
+    </div>
+    <p class="{vcls} text-sm font-semibold">{p_sign}₪{abs(p_gain):,.0f} · {p_sign}{abs(p_pct):.2f}%</p>
+    <div class="divider border-t mt-4 pt-4 grid grid-cols-3 gap-2 text-xs text-slate-500">
+      <span class="flex items-center gap-1">{icon('percent','w-3 h-3')} ₪{perf['fees']:,.0f}</span>
+      <span class="flex items-center gap-1">{icon('trending','w-3 h-3')} ₪{perf['tax']:,.0f}</span>
+      <span class="flex items-center gap-1">{icon('wallet','w-3 h-3')} ₪{cash:,.0f}</span>
     </div>
   </div>
 
   <!-- Asset Allocation -->
-  <div class="glass rounded-2xl p-5 mb-6">
-    <h2 class="font-bold text-slate-200 mb-4 text-base">Asset Allocation</h2>
-    <div class="flex items-center justify-center" style="height:220px">
-      <canvas id="pieChart"></canvas>
+  <div class="glass-card rounded-2xl p-5 mb-5">
+    <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wide mb-4">Asset Allocation</h2>
+    <div class="flex items-center justify-center" style="height:200px">
+      <canvas id="pie"></canvas>
     </div>
   </div>
 
   <!-- Holdings Table -->
-  <div class="glass rounded-2xl p-5 mb-6 overflow-x-auto">
-    <h2 class="font-bold text-slate-200 mb-4 text-base">Holdings</h2>
-    <table class="w-full text-right min-w-[460px]">
-      <thead><tr class="text-slate-500 text-xs border-b border-slate-700/50">
-        <th class="pb-2 pr-3">סימבול</th><th class="pb-2">יחידות</th>
-        <th class="pb-2">מחיר</th><th class="pb-2">שווי</th>
-        <th class="pb-2">P/L נטו</th><th class="pb-2">1W</th>
-      </tr></thead>
-      <tbody>{rows_html}</tbody>
+  <div class="glass-card rounded-2xl p-5 mb-5 overflow-x-auto">
+    <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wide mb-4">Holdings</h2>
+    <table class="w-full text-right" style="min-width:440px">
+      <thead>
+        <tr class="text-slate-500 text-xs border-b divider">
+          <th class="pb-2 pr-3 text-right">סימבול</th>
+          <th class="pb-2 text-left">יחידות</th>
+          <th class="pb-2 text-left">מחיר</th>
+          <th class="pb-2 text-left">שווי</th>
+          <th class="pb-2 text-left">P/L נטו</th>
+          <th class="pb-2 text-left">1W</th>
+        </tr>
+      </thead>
+      <tbody>{rows}</tbody>
     </table>
+    {'<p class="text-slate-600 text-xs mt-3">+ מזומן ₪' + f"{cash:,.0f}</p>" if cash > 0 else ''}
   </div>
 
-  <p class="text-center text-xs text-slate-600 mb-8">עודכן {today} · 25 מניות · net after 25% tax + 0.2% fees</p>
+  <p class="text-center text-slate-600 text-xs mb-8">עודכן {now} · Day 0 Baseline</p>
 </div>
 
-<nav class="fixed bottom-0 inset-x-0 glass h-14 flex justify-around items-center border-t border-slate-700/40">
-  <a href="index.html" class="text-slate-500 text-sm">◀ ראשי</a>
-  <span class="text-white text-sm font-bold">{m['emoji']} {name}</span>
-  <button onclick="location.reload()" class="text-slate-500 text-sm">🔄</button>
+<!-- Bottom nav -->
+<nav class="fixed bottom-0 inset-x-0 glass border-t divider h-14 flex items-center justify-between px-6">
+  <a href="index.html" class="flex items-center gap-1.5 text-slate-400 hover:text-white text-sm transition-colors">
+    {icon('arrow-left','w-4 h-4')} ראשי
+  </a>
+  <span class="text-white text-sm font-semibold">{m['emoji']} {name}</span>
+  <button onclick="location.reload()" class="flex items-center gap-1.5 text-slate-400 hover:text-white text-sm transition-colors">
+    {icon('refresh','w-4 h-4')}
+  </button>
 </nav>
 
 <script>
-new Chart(document.getElementById('pieChart'),{{
-  type:'doughnut',
-  data:{{
-    labels:{json.dumps(pie_labels, ensure_ascii=False)},
-    datasets:[{{data:{json.dumps(pie_vals)},backgroundColor:{json.dumps(pie_colors)},borderWidth:0,hoverOffset:8}}]
+new Chart(document.getElementById('pie'), {{
+  type: 'doughnut',
+  data: {{
+    labels: {json.dumps(pie_l, ensure_ascii=False)},
+    datasets: [{{ data: {json.dumps(pie_v)}, backgroundColor: {json.dumps(pie_c)}, borderWidth: 0, hoverOffset: 6 }}]
   }},
-  options:{{responsive:true,maintainAspectRatio:false,cutout:'60%',
-    plugins:{{legend:{{display:true,position:'bottom',labels:{{color:'#94a3b8',font:{{size:11,family:'Assistant'}},padding:12}}}},
-    tooltip:{{callbacks:{{label:c=>'₪'+c.parsed.toLocaleString()}}}}}}
+  options: {{
+    responsive: true, maintainAspectRatio: false, cutout: '62%',
+    plugins: {{
+      legend: {{ display: true, position: 'bottom',
+        labels: {{ color: '#94a3b8', font: {{ size: 11, family: 'Assistant' }}, padding: 14 }} }},
+      tooltip: {{ callbacks: {{ label: c => '₪' + c.parsed.toLocaleString() }} }}
+    }}
   }}
 }});
 </script>
 </body></html>"""
 
-# ─────────────────────────────────────────────
-# Main
-# ─────────────────────────────────────────────
+
+# ─── Sparkline helper ─────────────────────────────────────────────────────────
+def _sparkline_data(raw_portfolio, all_history, days=7):
+    totals = [0.0] * days
+    for pos in raw_portfolio["positions"]:
+        sym = pos["symbol"]
+        if any(sym.startswith(p) for p in SKIP_PREFIXES): continue
+        shares = pos.get("shares", 0)
+        if shares == 0: continue
+        yahoo = SYMBOL_MAP.get(sym)
+        hist  = all_history.get(yahoo, []) if yahoo else []
+        if not hist:
+            v = pos.get("buyPrice", 0) * shares
+            for d in range(days): totals[d] += v
+        else:
+            h = hist[-days:] if len(hist) >= days else [hist[0]] * (days - len(hist)) + hist
+            for d, price in enumerate(h): totals[d] += price * shares
+    cash = raw_portfolio.get("cash", 0)
+    return [round(v + cash) for v in totals]
+
+
+# ─── Main ────────────────────────────────────────────────────────────────────
 def main():
-    print(f"\n{'='*64}")
-    print(f"🚀 BankOS Full Generator — {datetime.now().strftime('%H:%M:%S')}")
-    print(f"{'='*64}\n")
+    print(f"\n{'─'*56}")
+    print(f"  BankOS Generator v2  ·  {datetime.now().strftime('%H:%M:%S')}")
+    print(f"{'─'*56}\n")
 
-    # 1. Fetch data
-    print("📡 Fetching portfolio data…")
+    print("  Fetching prices …")
     data = get_portfolio_data()
-    print(f"✅ {data['pricesCount']} prices fetched")
+    print(f"  ✓ {data['pricesCount']} prices")
 
-    # 2. Load raw portfolios for deep-dive pages
-    raw_json = Path(__file__).parent.parent / "investment-learning" / "portfolios-5way.json"
-    raw_data = json.loads(raw_json.read_text(encoding='utf-8'))
+    raw_data   = json.loads(RAW_JSON.read_text(encoding="utf-8"))
+    raw_by_name = {p["name"]: p for p in raw_data["portfolios"]}
+    for p in data["portfolios"]:
+        p["_raw_positions"] = raw_by_name[p["name"]]["positions"]
 
-    # Attach raw positions to performance dicts
-    raw_by_name = {p['name']: p for p in raw_data['portfolios']}
-    for p in data['portfolios']:
-        p['_raw_positions'] = raw_by_name[p['name']]['positions']
+    print("  Fetching 7-day history …")
+    all_yahoo   = list(set(v for v in SYMBOL_MAP.values() if v))
+    all_history = {}
+    try:
+        import yfinance as yf
+        for sym in all_yahoo:
+            try:
+                hist = yf.Ticker(sym).history(period="7d", interval="1d")
+                if not hist.empty:
+                    prices = [round(float(v), 4) for v in hist["Close"].tolist()]
+                    if sym.endswith(".TA") and prices and prices[0] > 500:
+                        prices = [round(p/100, 4) for p in prices]
+                    all_history[sym] = prices
+                else:
+                    all_history[sym] = []
+            except:
+                all_history[sym] = []
+    except:
+        pass
+    print(f"  ✓ history for {sum(1 for h in all_history.values() if h)} symbols")
 
-    # 3. Fetch 1W history
-    print("📈 Fetching 7-day history…")
-    all_yahoo = list(set(v for v in SYMBOL_MAP.values() if v))
-    all_history = fetch_weekly_history(all_yahoo)
-    print(f"✅ History for {sum(1 for h in all_history.values() if h)} symbols")
+    now = datetime.now()
+    ts  = now.strftime("%d/%m/%Y %H:%M")
 
-    timestamp = datetime.now().strftime("%d/%m/%Y %H:%M")
+    # Build index
+    print("  Building index.html …")
+    idx = build_index(data["portfolios"], data["total"], now, all_history, raw_by_name)
+    (OUT_DIR / "index.html").write_text(idx, encoding="utf-8")
+    print(f"  ✓ index.html ({len(idx):,} bytes)")
 
-    # 4. Build index
-    print("🎨 Building index.html…")
-    index_html = build_index(data['portfolios'], data['total'], timestamp, all_history)
-    (OUT_DIR / "index.html").write_text(index_html, encoding='utf-8')
-    print(f"   ✅ index.html ({len(index_html):,} bytes)")
+    # Build deep-dive pages
+    for p_perf in data["portfolios"]:
+        name = p_perf["name"]
+        m    = PORTFOLIO_META[name]
+        print(f"  Building {m['slug']}.html …")
+        html = build_deep(raw_by_name[name], p_perf, all_history)
+        (OUT_DIR / f"{m['slug']}.html").write_text(html, encoding="utf-8")
+        print(f"  ✓ {m['slug']}.html ({len(html):,} bytes)")
 
-    # 5. Build deep-dive pages
-    for p_perf in data['portfolios']:
-        name = p_perf['name']
-        m = PORTFOLIO_META[name]
-        print(f"🎨 Building {m['slug']}.html…")
-        raw_p = raw_by_name[name]
-        deep_html = build_deep(raw_p, p_perf, all_history, raw_json)
-        (OUT_DIR / f"{m['slug']}.html").write_text(deep_html, encoding='utf-8')
-        print(f"   ✅ {m['slug']}.html ({len(deep_html):,} bytes)")
+    # Save daily snapshot
+    snap = DAILY_DIR / f"{now.strftime('%Y-%m-%d')}-snapshot.txt"
+    lines = [f"BankOS Snapshot — {ts}", f"Total: ₪{data['total']['totalValue']:,.2f}", ""]
+    for p in data["portfolios"]:
+        lines.append(f"{p['name']:20s} ₪{p['totalValue']:>12,.2f}  net {p['netReturnPct']:+.2f}%")
+    snap.write_text("\n".join(lines), encoding="utf-8")
 
-    # 6. Git push
-    print("\n📤 Pushing to GitHub…")
+    # Git push
+    print("\n  Pushing to GitHub …")
     for cmd in [
         ["git", "-C", str(OUT_DIR), "add", "-A"],
-        ["git", "-C", str(OUT_DIR), "commit", "-m",
-         f"Live Update {datetime.now().strftime('%Y-%m-%d %H:%M')}"],
+        ["git", "-C", str(OUT_DIR), "commit", "-m", f"Live {now.strftime('%Y-%m-%d %H:%M')}"],
         ["git", "-C", str(OUT_DIR), "push"],
     ]:
         r = subprocess.run(cmd, capture_output=True, text=True)
-        if "nothing to commit" in r.stdout:
-            print("   ⏭️  Nothing changed")
-            break
-        if r.returncode != 0 and "nothing to commit" not in r.stderr:
-            print(f"   ⚠️  {r.stderr[:120]}")
+        if "nothing to commit" in (r.stdout + r.stderr):
+            print("  ↳ nothing changed"); break
+    else:
+        if r.returncode == 0:
+            print("  ✓ pushed")
+        else:
+            print(f"  ✗ push error: {r.stderr[:100]}")
 
-    print("   ✅ Pushed!")
-    print(f"\n🌐 Live: https://noamm-opencalw.github.io/investment-dashboard/")
-    print(f"{'='*64}\n")
+    print(f"\n  Live → https://noamm-opencalw.github.io/investment-dashboard/")
+    print(f"{'─'*56}\n")
 
 if __name__ == "__main__":
     main()
