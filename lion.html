@@ -120,8 +120,8 @@
 </div>
 
   <!-- Charts: Bar Chart Rule (computed before f-string) -->
-  <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem"><div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור נכסים</div><div style="height:286px"><canvas id="c1"></canvas></div></div>
-  <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem"><div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור סקטורים</div><div style="height:156px"><canvas id="c2"></canvas></div></div>
+  <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem"><div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור נכסים</div><div style="position:relative;height:308px;width:100%"><canvas id="c1" style="position:absolute;top:0;left:0;width:100%;height:100%"></canvas></div></div>
+  <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem"><div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור סקטורים</div><div style="position:relative;height:168px;width:100%"><canvas id="c2" style="position:absolute;top:0;left:0;width:100%;height:100%"></canvas></div></div>
 
   <!-- Holdings cards (mobile-first, no table) -->
   <div class="l3" style="margin-bottom:.7rem;font-style:normal;font-weight:600;color:#64748b;padding-right:.2rem">
@@ -609,7 +609,7 @@
   </div>
 </div>
 
-  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 09:36</div>
+  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 09:38</div>
 </div>
 
 <!-- FIX #5: no bottom nav on detail pages — back button is already at top -->
@@ -655,21 +655,41 @@ function renderChart(id,labels,values,colors,legendId){
     });
     if(legendId)makeLegend(legendId,labels,colors,values);
   }else{
-    // Horizontal Bar — clear for many items
+    // Horizontal Bar — clean for many items, RTL-safe
+    var maxVal=Math.max.apply(null,values);
     new Chart(canvas,{type:'bar',
       data:{
         labels:labels,
-        datasets:[{data:values,backgroundColor:colors,borderWidth:0,borderRadius:4}]
+        datasets:[{
+          data:values,
+          backgroundColor:colors.map(c=>c+'cc'),
+          borderColor:colors,
+          borderWidth:1,
+          borderRadius:5,
+          borderSkipped:false
+        }]
       },
       options:{
         indexAxis:'y',responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{display:false},
-          tooltip:{callbacks:{label:c=>'₪'+c.parsed.x.toLocaleString()}}
+        layout:{padding:{right:50}},
+        plugins:{
+          legend:{display:false},
+          tooltip:{callbacks:{label:c=>'₪'+Math.round(c.parsed.x).toLocaleString()}},
+          datalabels:{display:false}
         },
         scales:{
-          x:{display:false,grid:{display:false}},
+          x:{
+            display:true,max:maxVal*1.15,
+            grid:{color:'rgba(255,255,255,.05)',drawBorder:false},
+            ticks:{
+              color:'#334155',
+              callback:v=>v===0?'₪0':v>999?'₪'+(v/1000).toFixed(0)+'K':v,
+              font:{size:9}
+            },
+            border:{display:false}
+          },
           y:{
-            ticks:{color:'#94a3b8',font:{size:11,family:'Assistant'}},
+            ticks:{color:'#94a3b8',font:{size:11,family:'Assistant'},padding:4},
             grid:{display:false},border:{display:false}
           }
         }

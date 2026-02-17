@@ -510,12 +510,13 @@ def build_deep(raw_p, perf, history):
                     f'<div id="{lid}" style="display:flex;flex-direction:column;gap:.4rem"></div>'
                     f'</div></div>')
         else:
-            h = max(120, len(labels) * 26)
+            h = max(140, len(labels) * 28)
             return (f'<div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem">'
                     f'<div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">'
                     f'{"פיזור נכסים" if cid=="c1" else "פיזור סקטורים"}</div>'
-                    f'<div style="height:{h}px"><canvas id="{cid}"></canvas></div>'
-                    f'</div>')
+                    f'<div style="position:relative;height:{h}px;width:100%">'
+                    f'<canvas id="{cid}" style="position:absolute;top:0;left:0;width:100%;height:100%"></canvas>'
+                    f'</div></div>')
 
     _chart_html_c1 = _chart_html("c1", "leg1", pie_l, len(pie_l) <= 5)
     _chart_html_c2 = _chart_html("c2", "leg2", sl, len(sl) <= 5)
@@ -633,21 +634,41 @@ function renderChart(id,labels,values,colors,legendId){{
     }});
     if(legendId)makeLegend(legendId,labels,colors,values);
   }}else{{
-    // Horizontal Bar — clear for many items
+    // Horizontal Bar — clean for many items, RTL-safe
+    var maxVal=Math.max.apply(null,values);
     new Chart(canvas,{{type:'bar',
       data:{{
         labels:labels,
-        datasets:[{{data:values,backgroundColor:colors,borderWidth:0,borderRadius:4}}]
+        datasets:[{{
+          data:values,
+          backgroundColor:colors.map(c=>c+'cc'),
+          borderColor:colors,
+          borderWidth:1,
+          borderRadius:5,
+          borderSkipped:false
+        }}]
       }},
       options:{{
         indexAxis:'y',responsive:true,maintainAspectRatio:false,
-        plugins:{{legend:{{display:false}},
-          tooltip:{{callbacks:{{label:c=>'₪'+c.parsed.x.toLocaleString()}}}}
+        layout:{{padding:{{right:50}}}},
+        plugins:{{
+          legend:{{display:false}},
+          tooltip:{{callbacks:{{label:c=>'₪'+Math.round(c.parsed.x).toLocaleString()}}}},
+          datalabels:{{display:false}}
         }},
         scales:{{
-          x:{{display:false,grid:{{display:false}}}},
+          x:{{
+            display:true,max:maxVal*1.15,
+            grid:{{color:'rgba(255,255,255,.05)',drawBorder:false}},
+            ticks:{{
+              color:'#334155',
+              callback:v=>v===0?'₪0':v>999?'₪'+(v/1000).toFixed(0)+'K':v,
+              font:{{size:9}}
+            }},
+            border:{{display:false}}
+          }},
           y:{{
-            ticks:{{color:'#94a3b8',font:{{size:11,family:'Assistant'}}}},
+            ticks:{{color:'#94a3b8',font:{{size:11,family:'Assistant'}},padding:4}},
             grid:{{display:false}},border:{{display:false}}
           }}
         }}
