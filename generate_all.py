@@ -506,7 +506,7 @@ def build_deep(raw_p, perf, history):
                     f'<div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">'
                     f'{"פיזור נכסים" if cid=="c1" else "פיזור סקטורים"}</div>'
                     f'<div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center">'
-                    f'<div style="height:140px"><canvas id="{cid}"></canvas></div>'
+                    f'<div dir="ltr" style="height:140px"><canvas id="{cid}"></canvas></div>'
                     f'<div id="{lid}" style="display:flex;flex-direction:column;gap:.4rem"></div>'
                     f'</div></div>')
         else:
@@ -514,8 +514,8 @@ def build_deep(raw_p, perf, history):
             return (f'<div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem">'
                     f'<div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">'
                     f'{"פיזור נכסים" if cid=="c1" else "פיזור סקטורים"}</div>'
-                    f'<div style="position:relative;height:{h}px;width:100%">'
-                    f'<canvas id="{cid}" style="position:absolute;top:0;left:0;width:100%;height:100%"></canvas>'
+                    f'<div dir="ltr" style="position:relative;height:{h}px;width:100%">'  # LTR — charts must be LTR even in RTL page
+                    f'<canvas id="{cid}"></canvas>'
                     f'</div></div>')
 
     _chart_html_c1 = _chart_html("c1", "leg1", pie_l, len(pie_l) <= 5)
