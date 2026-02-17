@@ -183,19 +183,30 @@ SHARED_CSS = """
   .rise:nth-child(3){animation-delay:.1s} .rise:nth-child(4){animation-delay:.15s}
   .rise:nth-child(5){animation-delay:.2s}
 
-  /* Thesis row */
+  /* Thesis panel */
   .thesis{display:none;background:rgba(0,0,0,.3)}
-  .thesis.open{display:table-row}
-  .divider{border-color:rgba(255,255,255,.06)}
+  .thesis.open{display:block}
+
+  /* iPhone 17 Pro — Safe areas & fluid type */
+  body{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}
+  .l1{font-size:clamp(2rem,8vw,3rem);font-weight:800;line-height:1;letter-spacing:-.04em;color:#fff}
+  .l1-lg{font-size:clamp(2.4rem,10vw,3.5rem);font-weight:800;line-height:1;letter-spacing:-.05em;color:#fff}
+  /* Tap targets — Apple HIG 44pt min */
+  .tappable{min-height:44px}
+  /* Momentum scroll */
+  .scroll-x{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .scroll-x::-webkit-scrollbar{display:none}
 """
 
 def doc_head(title):
     return f"""<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,minimum-scale=1">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="theme-color" content="#0a0f1e">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#080d1a">
 <title>{title}</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
@@ -545,21 +556,15 @@ def build_deep(raw_p, perf, history):
 
   {bw_html}
 
-  <!-- Charts: 2 donuts stacked vertically -->
+  <!-- Charts: Bar Chart Rule — donut ≤5 segments, horizontal bar >5 -->
   <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.2rem">
     <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem">
-      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.7rem">פיזור נכסים</div>
-      <div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center">
-        <div style="height:140px"><canvas id="c1"></canvas></div>
-        <div id="leg1" style="display:flex;flex-direction:column;gap:.4rem"></div>
-      </div>
+      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור נכסים</div>
+      {'<div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center"><div style="height:140px"><canvas id=\\"c1\\"></canvas></div><div id=\\"leg1\\" style=\\"display:flex;flex-direction:column;gap:.4rem\\"></div></div>' if len(pie_l) <= 5 else '<div style="height:' + str(max(120, len(pie_l)*28)) + 'px"><canvas id=\\"c1\\"></canvas></div>'}
     </div>
     <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem">
-      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.7rem">פיזור סקטורים</div>
-      <div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center">
-        <div style="height:140px"><canvas id="c2"></canvas></div>
-        <div id="leg2" style="display:flex;flex-direction:column;gap:.4rem"></div>
-      </div>
+      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור סקטורים</div>
+      {'<div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center"><div style="height:140px"><canvas id=\\"c2\\"></canvas></div><div id=\\"leg2\\" style=\\"display:flex;flex-direction:column;gap:.4rem\\"></div></div>' if len(sl) <= 5 else '<div style="height:' + str(max(120, len(sl)*28)) + 'px"><canvas id=\\"c2\\"></canvas></div>'}
     </div>
   </div>
 
@@ -587,33 +592,58 @@ def build_deep(raw_p, perf, history):
 </div>
 
 <script>
-function makeLegend(legendId, labels, colors, values) {{
-  var el = document.getElementById(legendId);
-  var total = values.reduce((a,b)=>a+b,0);
-  labels.forEach((l,i) => {{
-    var pct = total > 0 ? Math.round(values[i]/total*100) : 0;
-    var s = document.createElement('div');
-    s.style.cssText = 'display:flex;align-items:center;gap:6px;direction:rtl';
-    s.innerHTML =
-      '<span style="width:8px;height:8px;border-radius:2px;background:'+colors[i]+';flex-shrink:0;margin-top:1px"></span>'+
+// Bar Chart Rule: donut ≤5, horizontal bar >5
+function makeLegend(id,labels,colors,values){{
+  var el=document.getElementById(id); if(!el)return;
+  var tot=values.reduce((a,b)=>a+b,0);
+  labels.forEach((l,i)=>{{
+    var pct=tot>0?Math.round(values[i]/tot*100):0;
+    var d=document.createElement('div');
+    d.style.cssText='display:flex;align-items:center;gap:6px;direction:rtl';
+    d.innerHTML='<span style="width:8px;height:8px;border-radius:2px;background:'+colors[i]+';flex-shrink:0"></span>'+
       '<span style="font-size:.75rem;color:#94a3b8;flex:1">'+l+'</span>'+
-      '<span style="font-size:.72rem;color:#475569;font-variant-numeric:tabular-nums">'+pct+'%</span>';
-    el.appendChild(s);
+      '<span style="font-size:.72rem;color:#475569">'+pct+'%</span>';
+    el.appendChild(d);
   }});
 }}
-function donut(id,labels,data,colors) {{
-  new Chart(document.getElementById(id),{{
-    type:'doughnut',
-    data:{{labels,datasets:[{{data,backgroundColor:colors,borderWidth:0,hoverOffset:6}}]}},
-    options:{{responsive:true,maintainAspectRatio:false,cutout:'65%',
-      plugins:{{legend:{{display:false}},tooltip:{{callbacks:{{label:c=>c.label+' ₪'+c.parsed.toLocaleString()}}}}}}
-    }}
-  }});
+function renderChart(id,labels,values,colors,legendId){{
+  var canvas=document.getElementById(id);
+  if(!canvas)return;
+  if(labels.length<=5){{
+    // Donut — beautiful for few items
+    new Chart(canvas,{{type:'doughnut',
+      data:{{labels,datasets:[{{data:values,backgroundColor:colors,borderWidth:0,hoverOffset:6}}]}},
+      options:{{responsive:true,maintainAspectRatio:false,cutout:'65%',
+        plugins:{{legend:{{display:false}},
+          tooltip:{{callbacks:{{label:c=>c.label+' ₪'+c.parsed.toLocaleString()}}}}}}
+      }}
+    }});
+    if(legendId)makeLegend(legendId,labels,colors,values);
+  }}else{{
+    // Horizontal Bar — clear for many items
+    new Chart(canvas,{{type:'bar',
+      data:{{
+        labels:labels,
+        datasets:[{{data:values,backgroundColor:colors,borderWidth:0,borderRadius:4}}]
+      }},
+      options:{{
+        indexAxis:'y',responsive:true,maintainAspectRatio:false,
+        plugins:{{legend:{{display:false}},
+          tooltip:{{callbacks:{{label:c=>'₪'+c.parsed.x.toLocaleString()}}}}
+        }},
+        scales:{{
+          x:{{display:false,grid:{{display:false}}}},
+          y:{{
+            ticks:{{color:'#94a3b8',font:{{size:11,family:'Assistant'}}}},
+            grid:{{display:false}},border:{{display:false}}
+          }}
+        }}
+      }}
+    }});
+  }}
 }}
-donut('c1',{json.dumps(pie_l,ensure_ascii=False)},{json.dumps(pie_v)},{json.dumps(pie_c)});
-donut('c2',{json.dumps(sl,ensure_ascii=False)},{json.dumps(sv)},{json.dumps(sc[:len(sl)])});
-makeLegend('leg1',{json.dumps(pie_l,ensure_ascii=False)},{json.dumps(pie_c)},{json.dumps(pie_v)});
-makeLegend('leg2',{json.dumps(sl,ensure_ascii=False)},{json.dumps(sc[:len(sl)])},{json.dumps(sv)});
+renderChart('c1',{json.dumps(pie_l,ensure_ascii=False)},{json.dumps(pie_v)},{json.dumps(pie_c)},'leg1');
+renderChart('c2',{json.dumps(sl,ensure_ascii=False)},{json.dumps(sv)},{json.dumps(sc[:len(sl)])},'leg2');
 </script>
 </body></html>"""
 
