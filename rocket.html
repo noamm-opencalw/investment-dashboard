@@ -56,7 +56,7 @@
   .divider{border-color:rgba(255,255,255,.06)}
 </style>
 </head>
-<body style="padding-bottom:6.5rem"><!-- FIX: extra padding so nav doesn't cover last card -->
+<body style="padding-bottom:8rem"><!-- FIX: generous padding to clear sticky bottom nav -->
 <div style="max-width:520px;margin:0 auto;padding:1rem">
 
   <!-- Back -->
@@ -113,12 +113,12 @@
     <div class="glass-deep" style="padding:1rem;border-radius:1rem">
       <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">נכסים</div>
       <div style="height:120px"><canvas id="c1"></canvas></div>
-      <div id="leg1" style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center"></div>
+      <div id="leg1" style="margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.35rem .5rem;justify-content:center;padding:0 .2rem"></div>
     </div>
     <div class="glass-deep" style="padding:1rem;border-radius:1rem">
       <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">סקטורים</div>
       <div style="height:120px"><canvas id="c2"></canvas></div>
-      <div id="leg2" style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center"></div>
+      <div id="leg2" style="margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.35rem .5rem;justify-content:center;padding:0 .2rem"></div>
     </div>
   </div>
 
@@ -152,10 +152,14 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
-  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
-    <span style="font-size:.7rem;color:#475569" dir="ltr">52 יח' · ₪295.7</span>
-    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-15</span>
+  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
+  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      52&thinsp;יח'&nbsp;·&nbsp;₪295.7
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      נטו&nbsp;₪-15
+    </span>
   </div>
 
   <!-- Thesis — expandable, hidden by default -->
@@ -190,10 +194,14 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
-  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
-    <span style="font-size:.7rem;color:#475569" dir="ltr">18 יח' · ₪59.2</span>
-    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-1</span>
+  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
+  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      18&thinsp;יח'&nbsp;·&nbsp;₪59.2
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      נטו&nbsp;₪-1
+    </span>
   </div>
 
   <!-- Thesis — expandable, hidden by default -->
@@ -228,10 +236,14 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
-  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
-    <span style="font-size:.7rem;color:#475569" dir="ltr">115 יח' · ₪44.4</span>
-    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-5</span>
+  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
+  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      115&thinsp;יח'&nbsp;·&nbsp;₪44.4
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      נטו&nbsp;₪-5
+    </span>
   </div>
 
   <!-- Thesis — expandable, hidden by default -->
@@ -266,10 +278,14 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
-  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
-    <span style="font-size:.7rem;color:#475569" dir="ltr">95 יח' · ₪138.0</span>
-    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-13</span>
+  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
+  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      95&thinsp;יח'&nbsp;·&nbsp;₪138.0
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      נטו&nbsp;₪-13
+    </span>
   </div>
 
   <!-- Thesis — expandable, hidden by default -->
@@ -304,10 +320,14 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
-  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
-    <span style="font-size:.7rem;color:#475569" dir="ltr">26 יח' · ₪295.7</span>
-    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-8</span>
+  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
+  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      26&thinsp;יח'&nbsp;·&nbsp;₪295.7
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      נטו&nbsp;₪-8
+    </span>
   </div>
 
   <!-- Thesis — expandable, hidden by default -->
@@ -342,10 +362,14 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
-  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
-    <span style="font-size:.7rem;color:#475569" dir="ltr">130 יח' · ₪4.9</span>
-    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-1</span>
+  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
+  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      130&thinsp;יח'&nbsp;·&nbsp;₪4.9
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      נטו&nbsp;₪-1
+    </span>
   </div>
 
   <!-- Thesis — expandable, hidden by default -->
@@ -380,10 +404,14 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
-  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
-    <span style="font-size:.7rem;color:#475569" dir="ltr">85 יח' · ₪35.9</span>
-    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-3</span>
+  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
+  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      85&thinsp;יח'&nbsp;·&nbsp;₪35.9
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      נטו&nbsp;₪-3
+    </span>
   </div>
 
   <!-- Thesis — expandable, hidden by default -->
@@ -394,7 +422,7 @@
   </div>
 </div>
 
-  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 08:54</div>
+  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 08:58</div>
 </div>
 
 <nav class="glass" style="position:fixed;bottom:0;left:0;right:0;height:3.5rem;
@@ -414,8 +442,8 @@ function makeLegend(legendId, labels, colors) {
   var el = document.getElementById(legendId);
   labels.forEach((l,i) => {
     var s = document.createElement('span');
-    s.style.cssText = 'display:inline-flex;align-items:center;gap:3px;font-size:10px;color:#64748b';
-    s.innerHTML = '<span style="width:8px;height:8px;border-radius:50%;background:'+colors[i]+';display:inline-block;flex-shrink:0"></span>'+l;
+    s.style.cssText = 'display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#64748b;direction:rtl';
+    s.innerHTML = '<span style="width:7px;height:7px;border-radius:50%;background:'+colors[i]+';flex-shrink:0"></span>'+l;
     el.appendChild(s);
   });
 }

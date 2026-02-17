@@ -452,10 +452,14 @@ def build_deep(raw_p, perf, history):
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
-  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
-    <span style="font-size:.7rem;color:#475569" dir="ltr">{sh:.0f} יח' · ₪{cp:,.1f}</span>
-    <span dir="ltr" style="font-size:.7rem;color:{pnl_color}">נטו ₪{nv:+,.0f}</span>
+  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
+  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
+    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
+      {sh:.0f}&thinsp;יח'&nbsp;·&nbsp;₪{cp:,.1f}
+    </span>
+    <span style="font-size:.7rem;color:{pnl_color};unicode-bidi:isolate;direction:ltr;display:inline-block">
+      נטו&nbsp;₪{nv:+,.0f}
+    </span>
   </div>
 
   <!-- Thesis — expandable, hidden by default -->
@@ -495,7 +499,7 @@ def build_deep(raw_p, perf, history):
 </div>"""
 
     return f"""{doc_head(f'BankOS — {m["emoji"]} {name}')}
-<body style="padding-bottom:6.5rem"><!-- FIX: extra padding so nav doesn't cover last card -->
+<body style="padding-bottom:8rem"><!-- FIX: generous padding to clear sticky bottom nav -->
 <div style="max-width:520px;margin:0 auto;padding:1rem">
 
   <!-- Back -->
@@ -540,12 +544,12 @@ def build_deep(raw_p, perf, history):
     <div class="glass-deep" style="padding:1rem;border-radius:1rem">
       <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">נכסים</div>
       <div style="height:120px"><canvas id="c1"></canvas></div>
-      <div id="leg1" style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center"></div>
+      <div id="leg1" style="margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.35rem .5rem;justify-content:center;padding:0 .2rem"></div>
     </div>
     <div class="glass-deep" style="padding:1rem;border-radius:1rem">
       <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">סקטורים</div>
       <div style="height:120px"><canvas id="c2"></canvas></div>
-      <div id="leg2" style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center"></div>
+      <div id="leg2" style="margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.35rem .5rem;justify-content:center;padding:0 .2rem"></div>
     </div>
   </div>
 
@@ -575,8 +579,8 @@ function makeLegend(legendId, labels, colors) {{
   var el = document.getElementById(legendId);
   labels.forEach((l,i) => {{
     var s = document.createElement('span');
-    s.style.cssText = 'display:inline-flex;align-items:center;gap:3px;font-size:10px;color:#64748b';
-    s.innerHTML = '<span style="width:8px;height:8px;border-radius:50%;background:'+colors[i]+';display:inline-block;flex-shrink:0"></span>'+l;
+    s.style.cssText = 'display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#64748b;direction:rtl';
+    s.innerHTML = '<span style="width:7px;height:7px;border-radius:50%;background:'+colors[i]+';flex-shrink:0"></span>'+l;
     el.appendChild(s);
   }});
 }}
