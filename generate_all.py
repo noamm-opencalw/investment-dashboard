@@ -215,6 +215,39 @@ def doc_head(title):
 </head>"""
 
 # ─── INDEX PAGE ───────────────────────────────────────────────────────────────
+def _make_mini_bars(raw_p):
+    """Inline allocation bars — top 3 positions + cash (ref: investment-dashboard.html design)."""
+    cash = raw_p.get('cash', 0)
+    total_val = raw_p.get('totalValue', 100000) or 100000
+    rows = []
+    # Top positions by value
+    positions = sorted(raw_p.get('positions', []), key=lambda x: x.get('currentValue', x.get('costBasis', 0)), reverse=True)[:3]
+    bar_colors = ["#6366f1", "#f59e0b", "#10b981", "#3b82f6"]
+    for i, pos in enumerate(positions):
+        val = pos.get('currentValue', pos.get('costBasis', 0))
+        pct = round(val / total_val * 100) if total_val else 0
+        name = pos.get('symbol','').replace('TLV:','').replace('NASDAQ:','').replace('ETF:','')[:6]
+        rows.append(
+            f'<div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem">'
+            f'<span style="width:2.2rem;font-size:.6rem;color:#64748b;text-align:right;flex-shrink:0">{name}</span>'
+            f'<div style="flex:1;height:2px;background:rgba(255,255,255,.06);border-radius:1px">'
+            f'<div style="width:{max(2,pct)}%;height:100%;background:{bar_colors[i]};border-radius:1px"></div></div>'
+            f'<span style="font-size:.6rem;color:#475569;width:1.8rem;flex-shrink:0">{pct}%</span>'
+            f'</div>'
+        )
+    if cash > 500:
+        cash_pct = round(cash / total_val * 100)
+        rows.append(
+            f'<div style="display:flex;align-items:center;gap:.4rem;margin-bottom:.2rem">'
+            f'<span style="width:2.2rem;font-size:.6rem;color:#64748b;text-align:right;flex-shrink:0">Cash</span>'
+            f'<div style="flex:1;height:2px;background:rgba(255,255,255,.06);border-radius:1px">'
+            f'<div style="width:{max(2,cash_pct)}%;height:100%;background:#334155;border-radius:1px"></div></div>'
+            f'<span style="font-size:.6rem;color:#475569;width:1.8rem;flex-shrink:0">{cash_pct}%</span>'
+            f'</div>'
+        )
+    return ''.join(rows)
+
+
 def build_index(portfolios, total, history, raw_by_name):
     now  = datetime.now()
     ts   = now.strftime("%d/%m/%Y %H:%M")
@@ -252,8 +285,8 @@ def build_index(portfolios, total, history, raw_by_name):
         medal = ("🥇" if rk==1 else "🥈" if rk==2 else "🥉" if rk==3 else f"#{rk}")
 
         cards += f"""
-<a href="{m['slug']}.html" class="glass rounded-2xl tappable rise block no-underline {pb}" style="padding:1.4rem">
-  <div class="flex justify-between items-start mb-5">
+<a href="{m['slug']}.html" class="glass rounded-3xl tappable rise block no-underline {pb}" style="padding:1.4rem">
+  <div class="flex justify-between items-start mb-4">
     <div class="flex items-center gap-3">
       <span style="font-size:1.6rem;line-height:1">{m['emoji']}</span>
       <div>
@@ -266,21 +299,18 @@ def build_index(portfolios, total, history, raw_by_name):
     </span>
   </div>
 
-  <!-- L1: Net value = THE number -->
-  <div style="margin-bottom:.25rem">
-    <div class="l1" style="font-size:2.2rem">₪{pnw:,.0f}</div>
-    <div class="l2" style="margin-top:.2rem">לאחר מס ועמלה</div>
+  <!-- L1: Net value — gradient green when positive -->
+  <div style="margin-bottom:.2rem">
+    <div class="l1" style="font-size:2.2rem;{('background:linear-gradient(135deg,#10b981,#059669);-webkit-background-clip:text;-webkit-text-fill-color:transparent' if pgain>=0 else 'color:#fb7185')}"
+    >₪{pnw:,.0f}</div>
+    <div class="l2" style="margin-top:.15rem">לאחר מס ועמלה</div>
   </div>
 
-  <!-- L2: Gross as secondary -->
-  <div class="l3" style="margin-top:.3rem;margin-bottom:1rem">
-    שווי שוק: ₪{pg:,.0f}
-    &nbsp;·&nbsp;
-    <span class="{pv}">{pglyph} ₪{abs(pgain):,.0f}</span> מ-Day&nbsp;0
-  </div>
+  <!-- Inline mini-bars: top 2 positions -->
+  {_make_mini_bars(p)}
 
   <!-- Sparkline -->
-  <div style="height:30px"><canvas id="{sid}"></canvas></div>
+  <div style="height:28px;margin-top:.6rem"><canvas id="{sid}"></canvas></div>
 </a>
 <script>(function(){{
   new Chart(document.getElementById('{sid}'),{{
@@ -353,22 +383,24 @@ def build_index(portfolios, total, history, raw_by_name):
   <div class="l3" style="text-align:center;margin-top:1rem">עודכן {ts}</div>
 </div>
 
-<!-- Bottom nav — iPhone 17 Pro safe areas -->
+<!-- Bottom nav — floating pill (inspired by reference design) -->
 <nav class="glass" style="
-  position:fixed;bottom:0;left:0;right:0;
-  height:calc(3.25rem + env(safe-area-inset-bottom));
-  padding:0 1.5rem env(safe-area-inset-bottom);
-  display:flex;justify-content:space-between;align-items:flex-start;
-  padding-top:.7rem;
-  border-top:1px solid rgba(255,255,255,.07)">
-  <span style="color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:.35rem">
-    🏦 <span>BankOS</span>
+  position:fixed;
+  bottom:calc(1.2rem + env(safe-area-inset-bottom));
+  left:50%;transform:translateX(-50%);
+  border-radius:999px;
+  padding:.75rem 2rem;
+  display:flex;gap:2rem;align-items:center;
+  white-space:nowrap;
+  box-shadow:0 8px 32px rgba(0,0,0,.5)">
+  <span style="font-weight:700;font-size:.85rem;color:#fff;display:flex;align-items:center;gap:.3rem">
+    🏦 BankOS
   </span>
-  <button onclick="location.reload()" class="l2 tappable" style="
-    display:flex;align-items:center;gap:.4rem;
-    padding:.35rem .8rem;border-radius:.6rem;
-    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)">
-    {svg('refresh','w-4 h-4')} רענן
+  <button onclick="location.reload()" style="
+    display:flex;align-items:center;gap:.3rem;font-size:.8rem;
+    color:#94a3b8;background:none;border:none;cursor:pointer;
+    font-family:Assistant,sans-serif;padding:0">
+    {svg('refresh','w-3 h-3')} רענן
   </button>
 </nav>
 
