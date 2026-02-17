@@ -257,7 +257,7 @@ def build_index(portfolios, total, history, raw_by_name):
     <div class="flex items-center gap-3">
       <span style="font-size:1.6rem;line-height:1">{m['emoji']}</span>
       <div>
-        <div style="font-size:.95rem;font-weight:700;color:#fff;line-height:1.2">{p['name']}</div>
+        <div style="font-size:clamp(.75rem,.95rem,1rem);font-weight:700;color:#fff;line-height:1.2;white-space:nowrap">{p['name']}</div>
         <div class="l3">{m['heb']} · {medal}</div>
       </div>
     </div>
@@ -296,7 +296,7 @@ def build_index(portfolios, total, history, raw_by_name):
     # Rule of 5: exactly 5 critical numbers on index
     # 1. Total net withdrawal  2. Total gross  3. Gain amount  4. Gain %  5. Days left
     return f"""{doc_head('BankOS — תיקי נועם 2026')}
-<body style="padding-bottom:5rem">
+<body style="padding-bottom:calc(4.5rem + env(safe-area-inset-bottom))">
 
 <div style="max-width:520px;margin:0 auto;padding:1.5rem 1rem">
 
@@ -353,12 +353,21 @@ def build_index(portfolios, total, history, raw_by_name):
   <div class="l3" style="text-align:center;margin-top:1rem">עודכן {ts}</div>
 </div>
 
-<!-- Bottom nav -->
-<nav class="glass" style="position:fixed;bottom:0;left:0;right:0;height:3.5rem;
-  display:flex;justify-content:space-between;align-items:center;padding:0 1.5rem;
-  border-top:1px solid rgba(255,255,255,.06)">
-  <span style="color:#fff;font-weight:700;font-size:.9rem">📊 BankOS</span>
-  <button onclick="location.reload()" class="l2 tappable" style="display:flex;align-items:center;gap:.4rem;padding:.4rem .8rem;border-radius:.5rem">
+<!-- Bottom nav — iPhone 17 Pro safe areas -->
+<nav class="glass" style="
+  position:fixed;bottom:0;left:0;right:0;
+  height:calc(3.25rem + env(safe-area-inset-bottom));
+  padding:0 1.5rem env(safe-area-inset-bottom);
+  display:flex;justify-content:space-between;align-items:flex-start;
+  padding-top:.7rem;
+  border-top:1px solid rgba(255,255,255,.07)">
+  <span style="color:#fff;font-weight:700;font-size:.9rem;display:flex;align-items:center;gap:.35rem">
+    🏦 <span>BankOS</span>
+  </span>
+  <button onclick="location.reload()" class="l2 tappable" style="
+    display:flex;align-items:center;gap:.4rem;
+    padding:.35rem .8rem;border-radius:.6rem;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08)">
     {svg('refresh','w-4 h-4')} רענן
   </button>
 </nav>
