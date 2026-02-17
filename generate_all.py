@@ -499,27 +499,48 @@ def build_deep(raw_p, perf, history):
     sv = [round(v) for v in sec_totals.values()]
     sc = ["#6366f1","#8b5cf6","#ec4899","#f43f5e","#f59e0b","#10b981","#0ea5e9","#334155"]
 
-    # Bar Chart Rule — computed BEFORE f-string (no escaping needed)
-    def _chart_html(cid, lid, labels, use_donut):
-        if use_donut:
-            return (f'<div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem">'
-                    f'<div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">'
-                    f'{"פיזור נכסים" if cid=="c1" else "פיזור סקטורים"}</div>'
-                    f'<div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center">'
-                    f'<div dir="ltr" style="height:140px"><canvas id="{cid}"></canvas></div>'
-                    f'<div id="{lid}" style="display:flex;flex-direction:column;gap:.4rem"></div>'
-                    f'</div></div>')
-        else:
-            h = max(140, len(labels) * 28)
-            return (f'<div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem">'
-                    f'<div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">'
-                    f'{"פיזור נכסים" if cid=="c1" else "פיזור סקטורים"}</div>'
-                    f'<div dir="ltr" style="position:relative;height:{h}px;width:100%">'  # LTR — charts must be LTR even in RTL page
-                    f'<canvas id="{cid}"></canvas>'
-                    f'</div></div>')
+    # Bar Chart Rule — CSS bars (no canvas RTL issues)
+    def _css_bar_chart(title, labels, values, colors):
+        """Pure CSS horizontal bar chart — RTL-safe, no canvas."""
+        total = sum(values) or 1
+        rows = ""
+        for i, (lbl, val, col) in enumerate(zip(labels, values, colors)):
+            pct = round(val / total * 100)
+            bar_w = max(2, pct)
+            rows += (
+                f'<div style="display:flex;align-items:center;gap:.6rem;margin-bottom:.45rem">'
+                f'<div style="width:3.5rem;font-size:.72rem;color:#94a3b8;text-align:right;flex-shrink:0">{lbl}</div>'
+                f'<div style="flex:1;height:8px;background:rgba(255,255,255,.06);border-radius:4px;overflow:hidden">'
+                f'<div style="width:{bar_w}%;height:100%;background:{col};border-radius:4px;'
+                f'transition:width .6s ease"></div></div>'
+                f'<div style="width:2.5rem;font-size:.68rem;color:#475569;text-align:left;flex-shrink:0">{pct}%</div>'
+                f'</div>'
+            )
+        return (f'<div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem">'
+                f'<div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.9rem">{title}</div>'
+                f'{rows}</div>')
 
-    _chart_html_c1 = _chart_html("c1", "leg1", pie_l, len(pie_l) <= 5)
-    _chart_html_c2 = _chart_html("c2", "leg2", sl, len(sl) <= 5)
+    def _donut_chart(cid, lid, title):
+        return (f'<div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem">'
+                f'<div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">{title}</div>'
+                f'<div style="display:grid;grid-template-columns:130px 1fr;gap:1rem;align-items:center">'
+                f'<div dir="ltr" style="height:130px"><canvas id="{cid}"></canvas></div>'
+                f'<div id="{lid}" style="display:flex;flex-direction:column;gap:.4rem"></div>'
+                f'</div></div>')
+
+    PAL_C1 = pie_c[:len(pie_l)]
+    PAL_C2 = sc[:len(sl)]
+
+    # Apply Bar Chart Rule: donut ≤5, CSS bars >5
+    if len(pie_l) <= 5:
+        _chart_html_c1 = _donut_chart("c1", "leg1", "פיזור נכסים")
+    else:
+        _chart_html_c1 = _css_bar_chart("פיזור נכסים", pie_l, pie_v, PAL_C1)
+
+    if len(sl) <= 5:
+        _chart_html_c2 = _donut_chart("c2", "leg2", "פיזור סקטורים")
+    else:
+        _chart_html_c2 = _css_bar_chart("פיזור סקטורים", sl, sv, PAL_C2)
 
     bw_html = ""
     if best[0] and worst[0] and best[0] != worst[0]:
