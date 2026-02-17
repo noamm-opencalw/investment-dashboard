@@ -452,13 +452,17 @@ def build_deep(raw_p, perf, history):
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
-  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      {sh:.0f}&thinsp;יח'&nbsp;·&nbsp;₪{cp:,.1f}
+  <!-- Row 3: Meta (L3) — FIX #6: split into separate bidi-isolated spans -->
+  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.35rem;direction:ltr">
+    <span style="font-size:.7rem;color:#475569">
+      <bdi>{sh:.0f}</bdi>&nbsp;יח'
     </span>
-    <span style="font-size:.7rem;color:{pnl_color};unicode-bidi:isolate;direction:ltr;display:inline-block">
-      נטו&nbsp;₪{nv:+,.0f}
+    <span style="font-size:.7rem;color:#334155">·</span>
+    <span style="font-size:.7rem;color:#475569">
+      ₪<bdi>{cp:,.1f}</bdi>
+    </span>
+    <span style="font-size:.7rem;color:{pnl_color}">
+      נטו ₪<bdi>{nv:+,.0f}</bdi>
     </span>
   </div>
 
@@ -499,7 +503,7 @@ def build_deep(raw_p, perf, history):
 </div>"""
 
     return f"""{doc_head(f'BankOS — {m["emoji"]} {name}')}
-<body style="padding-bottom:8rem"><!-- FIX: generous padding to clear sticky bottom nav -->
+<body style="padding-bottom:1rem"><!-- sticky nav is in-flow, no padding needed -->
 <div style="max-width:520px;margin:0 auto;padding:1rem">
 
   <!-- Back -->
@@ -562,8 +566,10 @@ def build_deep(raw_p, perf, history):
   <div class="l3" style="text-align:center;margin-top:1rem">עודכן {now}</div>
 </div>
 
-<nav class="glass" style="position:fixed;bottom:0;left:0;right:0;height:3.5rem;
-  display:flex;justify-content:space-between;align-items:center;padding:0 1.2rem;
+<!-- FIX #5: sticky nav at end of flow — no fixed overlay -->
+<div class="glass" style="position:sticky;bottom:0;margin-top:2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 1.2rem;height:3.5rem;
   border-top:1px solid rgba(255,255,255,.06)">
   <a href="index.html" class="tappable l2" style="display:flex;align-items:center;gap:.4rem;text-decoration:none;padding:.3rem .6rem;border-radius:.4rem">
     {svg('arrow-left','w-4 h-4')} ראשי
@@ -572,7 +578,7 @@ def build_deep(raw_p, perf, history):
   <button onclick="location.reload()" class="tappable l2" style="display:flex;align-items:center;gap:.4rem;padding:.3rem .6rem;border-radius:.4rem">
     {svg('refresh','w-4 h-4')}
   </button>
-</nav>
+</div>
 
 <script>
 function makeLegend(legendId, labels, colors) {{

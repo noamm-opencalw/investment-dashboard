@@ -56,7 +56,7 @@
   .divider{border-color:rgba(255,255,255,.06)}
 </style>
 </head>
-<body style="padding-bottom:8rem"><!-- FIX: generous padding to clear sticky bottom nav -->
+<body style="padding-bottom:1rem"><!-- sticky nav is in-flow, no padding needed -->
 <div style="max-width:520px;margin:0 auto;padding:1rem">
 
   <!-- Back -->
@@ -152,13 +152,17 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
-  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      52&thinsp;יח'&nbsp;·&nbsp;₪295.7
+  <!-- Row 3: Meta (L3) — FIX #6: split into separate bidi-isolated spans -->
+  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.35rem;direction:ltr">
+    <span style="font-size:.7rem;color:#475569">
+      <bdi>52</bdi>&nbsp;יח'
     </span>
-    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      נטו&nbsp;₪-15
+    <span style="font-size:.7rem;color:#334155">·</span>
+    <span style="font-size:.7rem;color:#475569">
+      ₪<bdi>295.7</bdi>
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8">
+      נטו ₪<bdi>-15</bdi>
     </span>
   </div>
 
@@ -194,13 +198,17 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
-  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      18&thinsp;יח'&nbsp;·&nbsp;₪59.2
+  <!-- Row 3: Meta (L3) — FIX #6: split into separate bidi-isolated spans -->
+  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.35rem;direction:ltr">
+    <span style="font-size:.7rem;color:#475569">
+      <bdi>18</bdi>&nbsp;יח'
     </span>
-    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      נטו&nbsp;₪-1
+    <span style="font-size:.7rem;color:#334155">·</span>
+    <span style="font-size:.7rem;color:#475569">
+      ₪<bdi>59.2</bdi>
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8">
+      נטו ₪<bdi>-1</bdi>
     </span>
   </div>
 
@@ -236,13 +244,17 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
-  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      115&thinsp;יח'&nbsp;·&nbsp;₪44.4
+  <!-- Row 3: Meta (L3) — FIX #6: split into separate bidi-isolated spans -->
+  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.35rem;direction:ltr">
+    <span style="font-size:.7rem;color:#475569">
+      <bdi>115</bdi>&nbsp;יח'
     </span>
-    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      נטו&nbsp;₪-5
+    <span style="font-size:.7rem;color:#334155">·</span>
+    <span style="font-size:.7rem;color:#475569">
+      ₪<bdi>44.4</bdi>
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8">
+      נטו ₪<bdi>-5</bdi>
     </span>
   </div>
 
@@ -278,13 +290,17 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
-  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      95&thinsp;יח'&nbsp;·&nbsp;₪138.0
+  <!-- Row 3: Meta (L3) — FIX #6: split into separate bidi-isolated spans -->
+  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.35rem;direction:ltr">
+    <span style="font-size:.7rem;color:#475569">
+      <bdi>95</bdi>&nbsp;יח'
     </span>
-    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      נטו&nbsp;₪-13
+    <span style="font-size:.7rem;color:#334155">·</span>
+    <span style="font-size:.7rem;color:#475569">
+      ₪<bdi>138.0</bdi>
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8">
+      נטו ₪<bdi>-13</bdi>
     </span>
   </div>
 
@@ -320,13 +336,17 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
-  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      26&thinsp;יח'&nbsp;·&nbsp;₪295.7
+  <!-- Row 3: Meta (L3) — FIX #6: split into separate bidi-isolated spans -->
+  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.35rem;direction:ltr">
+    <span style="font-size:.7rem;color:#475569">
+      <bdi>26</bdi>&nbsp;יח'
     </span>
-    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      נטו&nbsp;₪-8
+    <span style="font-size:.7rem;color:#334155">·</span>
+    <span style="font-size:.7rem;color:#475569">
+      ₪<bdi>295.7</bdi>
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8">
+      נטו ₪<bdi>-8</bdi>
     </span>
   </div>
 
@@ -362,13 +382,17 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
-  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      130&thinsp;יח'&nbsp;·&nbsp;₪4.9
+  <!-- Row 3: Meta (L3) — FIX #6: split into separate bidi-isolated spans -->
+  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.35rem;direction:ltr">
+    <span style="font-size:.7rem;color:#475569">
+      <bdi>130</bdi>&nbsp;יח'
     </span>
-    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      נטו&nbsp;₪-1
+    <span style="font-size:.7rem;color:#334155">·</span>
+    <span style="font-size:.7rem;color:#475569">
+      ₪<bdi>4.9</bdi>
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8">
+      נטו ₪<bdi>-1</bdi>
     </span>
   </div>
 
@@ -404,13 +428,17 @@
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — isolate each value to prevent RTL BiDi flip -->
-  <div style="display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      85&thinsp;יח'&nbsp;·&nbsp;₪35.9
+  <!-- Row 3: Meta (L3) — FIX #6: split into separate bidi-isolated spans -->
+  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.35rem;direction:ltr">
+    <span style="font-size:.7rem;color:#475569">
+      <bdi>85</bdi>&nbsp;יח'
     </span>
-    <span style="font-size:.7rem;color:#94a3b8;unicode-bidi:isolate;direction:ltr;display:inline-block">
-      נטו&nbsp;₪-3
+    <span style="font-size:.7rem;color:#334155">·</span>
+    <span style="font-size:.7rem;color:#475569">
+      ₪<bdi>35.9</bdi>
+    </span>
+    <span style="font-size:.7rem;color:#94a3b8">
+      נטו ₪<bdi>-3</bdi>
     </span>
   </div>
 
@@ -422,11 +450,13 @@
   </div>
 </div>
 
-  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 08:58</div>
+  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 09:04</div>
 </div>
 
-<nav class="glass" style="position:fixed;bottom:0;left:0;right:0;height:3.5rem;
-  display:flex;justify-content:space-between;align-items:center;padding:0 1.2rem;
+<!-- FIX #5: sticky nav at end of flow — no fixed overlay -->
+<div class="glass" style="position:sticky;bottom:0;margin-top:2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 1.2rem;height:3.5rem;
   border-top:1px solid rgba(255,255,255,.06)">
   <a href="index.html" class="tappable l2" style="display:flex;align-items:center;gap:.4rem;text-decoration:none;padding:.3rem .6rem;border-radius:.4rem">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg> ראשי
@@ -435,7 +465,7 @@
   <button onclick="location.reload()" class="tappable l2" style="display:flex;align-items:center;gap:.4rem;padding:.3rem .6rem;border-radius:.4rem">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
   </button>
-</nav>
+</div>
 
 <script>
 function makeLegend(legendId, labels, colors) {
