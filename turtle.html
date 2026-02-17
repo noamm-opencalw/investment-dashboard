@@ -56,7 +56,7 @@
   .divider{border-color:rgba(255,255,255,.06)}
 </style>
 </head>
-<body style="padding-bottom:5rem">
+<body style="padding-bottom:6.5rem"><!-- FIX: extra padding so nav doesn't cover last card -->
 <div style="max-width:520px;margin:0 auto;padding:1rem">
 
   <!-- Back -->
@@ -81,8 +81,8 @@
     <div class="l3" style="margin-bottom:.9rem">שווי שוק: ₪100,000</div>
 
     <div style="display:flex;align-items:center;gap:.7rem;flex-wrap:wrap">
-      <span class="neg" style="font-weight:700;font-size:1.05rem">▼ ₪0</span>
-      <span class="neg neg-bg" style="padding:3px 10px;border-radius:999px;font-weight:700;font-size:.78rem">▼ 0.00%</span>
+      <!-- FIX: Day 0 hero — show neutral badge, not false red -->
+      <span style="font-size:.82rem;color:#64748b;background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.15);padding:3px 12px;border-radius:999px">Day 0 · Baseline</span>
     </div>
 
     <div style="border-top:1px solid rgba(255,255,255,.06);margin-top:1rem;padding-top:.7rem">
@@ -96,27 +96,29 @@
 
   
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.2rem">
-  <div class="glass-deep pos-border" style="padding:.9rem 1rem;border-radius:.9rem">
-    <div class="l3">🏆 שבוע</div>
-    <div style="font-weight:700;color:#fff;font-size:.9rem;margin-top:.2rem">HARL</div>
-    <div class="pos" style="font-weight:700;font-size:.85rem">+6.5%</div>
+  <div class="glass-deep pos-border" style="padding:.9rem 1rem;border-radius:.9rem;min-height:70px">
+    <div style="font-size:.68rem;color:#475569;margin-bottom:.3rem">🏆 הכי חזק השבוע</div>
+    <div style="font-weight:700;color:#fff;font-size:.95rem">HARL</div>
+    <div dir="ltr" class="pos" style="font-weight:700;font-size:.85rem;margin-top:.15rem">+6.5%</div>
   </div>
-  <div class="glass-deep neg-border" style="padding:.9rem 1rem;border-radius:.9rem">
-    <div class="l3">📉 שבוע</div>
-    <div style="font-weight:700;color:#fff;font-size:.9rem;margin-top:.2rem">BEZQ</div>
-    <div class="neg" style="font-weight:700;font-size:.85rem">+0.7%</div>
+  <div class="glass-deep neg-border" style="padding:.9rem 1rem;border-radius:.9rem;min-height:70px">
+    <div style="font-size:.68rem;color:#475569;margin-bottom:.3rem">📉 הכי חלש השבוע</div>
+    <div style="font-weight:700;color:#fff;font-size:.95rem">BEZQ</div>
+    <div dir="ltr" class="neg" style="font-weight:700;font-size:.85rem;margin-top:.15rem">+0.7%</div>
   </div>
 </div>
 
-  <!-- Charts: 2 donuts side-by-side -->
+  <!-- Charts: 2 donuts — with mini legend below each -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.2rem">
     <div class="glass-deep" style="padding:1rem;border-radius:1rem">
-      <div class="l3" style="text-align:center;margin-bottom:.5rem;font-style:normal;font-weight:600;color:#64748b">נכסים</div>
-      <div style="height:130px"><canvas id="c1"></canvas></div>
+      <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">נכסים</div>
+      <div style="height:120px"><canvas id="c1"></canvas></div>
+      <div id="leg1" style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center"></div>
     </div>
     <div class="glass-deep" style="padding:1rem;border-radius:1rem">
-      <div class="l3" style="text-align:center;margin-bottom:.5rem;font-style:normal;font-weight:600;color:#64748b">סקטורים</div>
-      <div style="height:130px"><canvas id="c2"></canvas></div>
+      <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">סקטורים</div>
+      <div style="height:120px"><canvas id="c2"></canvas></div>
+      <div id="leg2" style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center"></div>
     </div>
   </div>
 
@@ -127,258 +129,234 @@
   
 <div class="tappable" onclick="var t=document.getElementById('t0');t.classList.toggle('open')"
   style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-         border-right:3px solid #fb7185;border-radius:1rem;
-         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+         border-right:3px solid #334155;border-radius:1rem;
+         padding:1.2rem 1.3rem 1rem;margin-bottom:.65rem">
 
-  <!-- Row 1: Name + P/L badge -->
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
+  <!-- Row 1: Name + badge -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
     <div>
       <span style="font-weight:800;color:#f1f5f9;font-size:1rem">POLI</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · בנקאות</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> · בנקאות</span>
     </div>
-    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
-                 background:rgba(251,113,133,.1);
-                 border:1px solid rgba(251,113,133,.25);
-                 padding:2px 9px;border-radius:999px">-0.1%</span>
+    <span dir="ltr" style="font-size:.76rem;font-weight:700;color:#94a3b8;
+      background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.2);
+      padding:2px 10px;border-radius:999px;white-space:nowrap">Day 0</span>
   </div>
 
-  <!-- Row 2: Value (L1) + week (L2) -->
-  <div style="display:flex;justify-content:space-between;align-items:baseline">
-    <div>
-      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪9,881</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
-    </div>
+  <!-- Row 2: Value (L1) + week change -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem">
+    <span style="font-size:1.2rem;font-weight:700;color:#fff" dir="ltr">₪9,881</span>
     <div style="text-align:left">
-      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
-      <span style="font-size:.82rem;font-weight:600;color:#34d399">+1.6%</span>
+      <span style="font-size:.73rem;color:#475569">שבוע </span>
+      <span dir="ltr" style="font-size:.82rem;font-weight:600;color:#34d399">+1.6%</span>
     </div>
   </div>
 
-  <!-- Row 3: Details (L3) -->
-  <div style="display:flex;gap:1rem;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569">120.0 יח' · ₪82.34</span>
-    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-10</span>
+  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+    <span style="font-size:.7rem;color:#475569" dir="ltr">120 יח' · ₪82.3</span>
+    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-10</span>
   </div>
 
-  <!-- Thesis — expandable -->
-  <div id="t0" class="thesis" style="margin-top:.8rem;padding:.75rem;
-       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
-    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">הבנק הגדול בישראל — יציב, מחלק דיבידנד, לא מפתיע אבל לא ירד</p>
+  <!-- Thesis — expandable, hidden by default -->
+  <div id="t0" class="thesis" style="margin-top:.85rem;padding:.8rem;
+       background:rgba(0,0,0,.3);border-radius:.65rem;border:1px solid rgba(99,102,241,.2)">
+    <div style="font-size:.68rem;color:#6366f1;font-weight:700;letter-spacing:.05em;margin-bottom:.3rem">📌 למה נבחר</div>
+    <div style="font-size:.82rem;color:#94a3b8;line-height:1.7">הבנק הגדול בישראל — יציב, מחלק דיבידנד, לא מפתיע אבל לא ירד</div>
   </div>
 </div>
 <div class="tappable" onclick="var t=document.getElementById('t1');t.classList.toggle('open')"
   style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-         border-right:3px solid #fb7185;border-radius:1rem;
-         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+         border-right:3px solid #334155;border-radius:1rem;
+         padding:1.2rem 1.3rem 1rem;margin-bottom:.65rem">
 
-  <!-- Row 1: Name + P/L badge -->
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
+  <!-- Row 1: Name + badge -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
     <div>
       <span style="font-weight:800;color:#f1f5f9;font-size:1rem">LUMI</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · בנקאות</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> · בנקאות</span>
     </div>
-    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
-                 background:rgba(251,113,133,.1);
-                 border:1px solid rgba(251,113,133,.25);
-                 padding:2px 9px;border-radius:999px">-0.1%</span>
+    <span dir="ltr" style="font-size:.76rem;font-weight:700;color:#94a3b8;
+      background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.2);
+      padding:2px 10px;border-radius:999px;white-space:nowrap">Day 0</span>
   </div>
 
-  <!-- Row 2: Value (L1) + week (L2) -->
-  <div style="display:flex;justify-content:space-between;align-items:baseline">
-    <div>
-      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪9,933</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
-    </div>
+  <!-- Row 2: Value (L1) + week change -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem">
+    <span style="font-size:1.2rem;font-weight:700;color:#fff" dir="ltr">₪9,933</span>
     <div style="text-align:left">
-      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
-      <span style="font-size:.82rem;font-weight:600;color:#34d399">+1.9%</span>
+      <span style="font-size:.73rem;color:#475569">שבוע </span>
+      <span dir="ltr" style="font-size:.82rem;font-weight:600;color:#34d399">+1.9%</span>
     </div>
   </div>
 
-  <!-- Row 3: Details (L3) -->
-  <div style="display:flex;gap:1rem;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569">126.0 יח' · ₪78.83</span>
-    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-10</span>
+  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+    <span style="font-size:.7rem;color:#475569" dir="ltr">126 יח' · ₪78.8</span>
+    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-10</span>
   </div>
 
-  <!-- Thesis — expandable -->
-  <div id="t1" class="thesis" style="margin-top:.8rem;padding:.75rem;
-       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
-    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">בנק לאומי — עבר לדיגיטל מהר מהמתחרים. שווי שוק חצה 100 מיליארד</p>
+  <!-- Thesis — expandable, hidden by default -->
+  <div id="t1" class="thesis" style="margin-top:.85rem;padding:.8rem;
+       background:rgba(0,0,0,.3);border-radius:.65rem;border:1px solid rgba(99,102,241,.2)">
+    <div style="font-size:.68rem;color:#6366f1;font-weight:700;letter-spacing:.05em;margin-bottom:.3rem">📌 למה נבחר</div>
+    <div style="font-size:.82rem;color:#94a3b8;line-height:1.7">בנק לאומי — עבר לדיגיטל מהר מהמתחרים. שווי שוק חצה 100 מיליארד</div>
   </div>
 </div>
 <div class="tappable" onclick="var t=document.getElementById('t2');t.classList.toggle('open')"
   style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-         border-right:3px solid #fb7185;border-radius:1rem;
-         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+         border-right:3px solid #334155;border-radius:1rem;
+         padding:1.2rem 1.3rem 1rem;margin-bottom:.65rem">
 
-  <!-- Row 1: Name + P/L badge -->
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
+  <!-- Row 1: Name + badge -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
     <div>
       <span style="font-weight:800;color:#f1f5f9;font-size:1rem">ELEC</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · אנרגיה</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> · אנרגיה</span>
     </div>
-    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
-                 background:rgba(251,113,133,.1);
-                 border:1px solid rgba(251,113,133,.25);
-                 padding:2px 9px;border-radius:999px">-0.1%</span>
+    <span dir="ltr" style="font-size:.76rem;font-weight:700;color:#94a3b8;
+      background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.2);
+      padding:2px 10px;border-radius:999px;white-space:nowrap">Day 0</span>
   </div>
 
-  <!-- Row 2: Value (L1) + week (L2) -->
-  <div style="display:flex;justify-content:space-between;align-items:baseline">
-    <div>
-      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪40</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
-    </div>
+  <!-- Row 2: Value (L1) + week change -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem">
+    <span style="font-size:1.2rem;font-weight:700;color:#fff" dir="ltr">₪40</span>
     <div style="text-align:left">
-      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
-      <span style="font-size:.82rem;font-weight:600;color:#34d399">—</span>
+      <span style="font-size:.73rem;color:#475569">שבוע </span>
+      <span dir="ltr" style="font-size:.82rem;font-weight:600;color:#34d399">—</span>
     </div>
   </div>
 
-  <!-- Row 3: Details (L3) -->
-  <div style="display:flex;gap:1rem;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569">35.0 יח' · ₪1.15</span>
-    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-0</span>
+  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+    <span style="font-size:.7rem;color:#475569" dir="ltr">35 יח' · ₪1.2</span>
+    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-0</span>
   </div>
 
-  <!-- Thesis — expandable -->
-  <div id="t2" class="thesis" style="margin-top:.8rem;padding:.75rem;
-       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
-    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">חברת חשמל — מונופול ממשלתי. כל בית בישראל משלם להם. דיבידנד יציב</p>
+  <!-- Thesis — expandable, hidden by default -->
+  <div id="t2" class="thesis" style="margin-top:.85rem;padding:.8rem;
+       background:rgba(0,0,0,.3);border-radius:.65rem;border:1px solid rgba(99,102,241,.2)">
+    <div style="font-size:.68rem;color:#6366f1;font-weight:700;letter-spacing:.05em;margin-bottom:.3rem">📌 למה נבחר</div>
+    <div style="font-size:.82rem;color:#94a3b8;line-height:1.7">חברת חשמל — מונופול ממשלתי. כל בית בישראל משלם להם. דיבידנד יציב</div>
   </div>
 </div>
 <div class="tappable" onclick="var t=document.getElementById('t3');t.classList.toggle('open')"
   style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-         border-right:3px solid #fb7185;border-radius:1rem;
-         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+         border-right:3px solid #334155;border-radius:1rem;
+         padding:1.2rem 1.3rem 1rem;margin-bottom:.65rem">
 
-  <!-- Row 1: Name + P/L badge -->
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
+  <!-- Row 1: Name + badge -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
     <div>
       <span style="font-weight:800;color:#f1f5f9;font-size:1rem">BEZQ</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · אחר</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> · אחר</span>
     </div>
-    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
-                 background:rgba(251,113,133,.1);
-                 border:1px solid rgba(251,113,133,.25);
-                 padding:2px 9px;border-radius:999px">-0.1%</span>
+    <span dir="ltr" style="font-size:.76rem;font-weight:700;color:#94a3b8;
+      background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.2);
+      padding:2px 10px;border-radius:999px;white-space:nowrap">Day 0</span>
   </div>
 
-  <!-- Row 2: Value (L1) + week (L2) -->
-  <div style="display:flex;justify-content:space-between;align-items:baseline">
-    <div>
-      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪3,171</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
-    </div>
+  <!-- Row 2: Value (L1) + week change -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem">
+    <span style="font-size:1.2rem;font-weight:700;color:#fff" dir="ltr">₪3,171</span>
     <div style="text-align:left">
-      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
-      <span style="font-size:.82rem;font-weight:600;color:#34d399">+0.7%</span>
+      <span style="font-size:.73rem;color:#475569">שבוע </span>
+      <span dir="ltr" style="font-size:.82rem;font-weight:600;color:#34d399">+0.7%</span>
     </div>
   </div>
 
-  <!-- Row 3: Details (L3) -->
-  <div style="display:flex;gap:1rem;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569">385.0 יח' · ₪8.24</span>
-    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-3</span>
+  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+    <span style="font-size:.7rem;color:#475569" dir="ltr">385 יח' · ₪8.2</span>
+    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-3</span>
   </div>
 
-  <!-- Thesis — expandable -->
-  <div id="t3" class="thesis" style="margin-top:.8rem;padding:.75rem;
-       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
-    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">בזק — תשתית תקשורת בלתי נמנעת. מחלקת 7%+ דיבידנד בשנה</p>
+  <!-- Thesis — expandable, hidden by default -->
+  <div id="t3" class="thesis" style="margin-top:.85rem;padding:.8rem;
+       background:rgba(0,0,0,.3);border-radius:.65rem;border:1px solid rgba(99,102,241,.2)">
+    <div style="font-size:.68rem;color:#6366f1;font-weight:700;letter-spacing:.05em;margin-bottom:.3rem">📌 למה נבחר</div>
+    <div style="font-size:.82rem;color:#94a3b8;line-height:1.7">בזק — תשתית תקשורת בלתי נמנעת. מחלקת 7%+ דיבידנד בשנה</div>
   </div>
 </div>
 <div class="tappable" onclick="var t=document.getElementById('t4');t.classList.toggle('open')"
   style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-         border-right:3px solid #fb7185;border-radius:1rem;
-         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+         border-right:3px solid #334155;border-radius:1rem;
+         padding:1.2rem 1.3rem 1rem;margin-bottom:.65rem">
 
-  <!-- Row 1: Name + P/L badge -->
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
+  <!-- Row 1: Name + badge -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
     <div>
       <span style="font-weight:800;color:#f1f5f9;font-size:1rem">HARL</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · ביטוח</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> · ביטוח</span>
     </div>
-    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
-                 background:rgba(251,113,133,.1);
-                 border:1px solid rgba(251,113,133,.25);
-                 padding:2px 9px;border-radius:999px">-0.1%</span>
+    <span dir="ltr" style="font-size:.76rem;font-weight:700;color:#94a3b8;
+      background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.2);
+      padding:2px 10px;border-radius:999px;white-space:nowrap">Day 0</span>
   </div>
 
-  <!-- Row 2: Value (L1) + week (L2) -->
-  <div style="display:flex;justify-content:space-between;align-items:baseline">
-    <div>
-      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪5,031</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
-    </div>
+  <!-- Row 2: Value (L1) + week change -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem">
+    <span style="font-size:1.2rem;font-weight:700;color:#fff" dir="ltr">₪5,031</span>
     <div style="text-align:left">
-      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
-      <span style="font-size:.82rem;font-weight:600;color:#34d399">+6.5%</span>
+      <span style="font-size:.73rem;color:#475569">שבוע </span>
+      <span dir="ltr" style="font-size:.82rem;font-weight:600;color:#34d399">+6.5%</span>
     </div>
   </div>
 
-  <!-- Row 3: Details (L3) -->
-  <div style="display:flex;gap:1rem;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569">30.0 יח' · ₪167.70</span>
-    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-5</span>
+  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+    <span style="font-size:.7rem;color:#475569" dir="ltr">30 יח' · ₪167.7</span>
+    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-5</span>
   </div>
 
-  <!-- Thesis — expandable -->
-  <div id="t4" class="thesis" style="margin-top:.8rem;padding:.75rem;
-       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
-    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">חראל ביטוח — עלה 151% ב-2025. נשמר גם כאן כ'עוגן' בטיח</p>
+  <!-- Thesis — expandable, hidden by default -->
+  <div id="t4" class="thesis" style="margin-top:.85rem;padding:.8rem;
+       background:rgba(0,0,0,.3);border-radius:.65rem;border:1px solid rgba(99,102,241,.2)">
+    <div style="font-size:.68rem;color:#6366f1;font-weight:700;letter-spacing:.05em;margin-bottom:.3rem">📌 למה נבחר</div>
+    <div style="font-size:.82rem;color:#94a3b8;line-height:1.7">חראל ביטוח — עלה 151% ב-2025. נשמר גם כאן כ'עוגן' בטיח</div>
   </div>
 </div>
 <div class="tappable" onclick="var t=document.getElementById('t5');t.classList.toggle('open')"
   style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
-         border-right:3px solid #fb7185;border-radius:1rem;
-         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+         border-right:3px solid #334155;border-radius:1rem;
+         padding:1.2rem 1.3rem 1rem;margin-bottom:.65rem">
 
-  <!-- Row 1: Name + P/L badge -->
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
+  <!-- Row 1: Name + badge -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
     <div>
       <span style="font-weight:800;color:#f1f5f9;font-size:1rem">GOLD</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · אחר</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> · אחר</span>
     </div>
-    <span style="font-size:.78rem;font-weight:700;color:#fb7185;
-                 background:rgba(251,113,133,.1);
-                 border:1px solid rgba(251,113,133,.25);
-                 padding:2px 9px;border-radius:999px">-0.1%</span>
+    <span dir="ltr" style="font-size:.76rem;font-weight:700;color:#94a3b8;
+      background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.2);
+      padding:2px 10px;border-radius:999px;white-space:nowrap">Day 0</span>
   </div>
 
-  <!-- Row 2: Value (L1) + week (L2) -->
-  <div style="display:flex;justify-content:space-between;align-items:baseline">
-    <div>
-      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪5,551</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
-    </div>
+  <!-- Row 2: Value (L1) + week change -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem">
+    <span style="font-size:1.2rem;font-weight:700;color:#fff" dir="ltr">₪5,551</span>
     <div style="text-align:left">
-      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
-      <span style="font-size:.82rem;font-weight:600;color:#34d399">+4.7%</span>
+      <span style="font-size:.73rem;color:#475569">שבוע </span>
+      <span dir="ltr" style="font-size:.82rem;font-weight:600;color:#34d399">+4.7%</span>
     </div>
   </div>
 
-  <!-- Row 3: Details (L3) -->
-  <div style="display:flex;gap:1rem;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569">12.0 יח' · ₪462.62</span>
-    <span style="font-size:.7rem;color:#fb7185">נטו: ₪-6</span>
+  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+    <span style="font-size:.7rem;color:#475569" dir="ltr">12 יח' · ₪462.6</span>
+    <span dir="ltr" style="font-size:.7rem;color:#94a3b8">נטו ₪-6</span>
   </div>
 
-  <!-- Thesis — expandable -->
-  <div id="t5" class="thesis" style="margin-top:.8rem;padding:.75rem;
-       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
-    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">זהב — ריפוד אם הכל ירד. לא מרוויחים ממנו, אבל מגן מפני הפתעות</p>
+  <!-- Thesis — expandable, hidden by default -->
+  <div id="t5" class="thesis" style="margin-top:.85rem;padding:.8rem;
+       background:rgba(0,0,0,.3);border-radius:.65rem;border:1px solid rgba(99,102,241,.2)">
+    <div style="font-size:.68rem;color:#6366f1;font-weight:700;letter-spacing:.05em;margin-bottom:.3rem">📌 למה נבחר</div>
+    <div style="font-size:.82rem;color:#94a3b8;line-height:1.7">זהב — ריפוד אם הכל ירד. לא מרוויחים ממנו, אבל מגן מפני הפתעות</div>
   </div>
 </div>
 
-  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 08:42</div>
+  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 08:54</div>
 </div>
 
 <nav class="glass" style="position:fixed;bottom:0;left:0;right:0;height:3.5rem;
@@ -394,14 +372,27 @@
 </nav>
 
 <script>
-const donut=(id,labels,data,colors)=>new Chart(document.getElementById(id),{
-  type:'doughnut',
-  data:{labels,datasets:[{data,backgroundColor:colors,borderWidth:0,hoverOffset:6}]},
-  options:{responsive:true,maintainAspectRatio:false,cutout:'65%',
-    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.label+' ₪'+c.parsed.toLocaleString()}}}
-  }
-});
+function makeLegend(legendId, labels, colors) {
+  var el = document.getElementById(legendId);
+  labels.forEach((l,i) => {
+    var s = document.createElement('span');
+    s.style.cssText = 'display:inline-flex;align-items:center;gap:3px;font-size:10px;color:#64748b';
+    s.innerHTML = '<span style="width:8px;height:8px;border-radius:50%;background:'+colors[i]+';display:inline-block;flex-shrink:0"></span>'+l;
+    el.appendChild(s);
+  });
+}
+function donut(id,labels,data,colors) {
+  new Chart(document.getElementById(id),{
+    type:'doughnut',
+    data:{labels,datasets:[{data,backgroundColor:colors,borderWidth:0,hoverOffset:6}]},
+    options:{responsive:true,maintainAspectRatio:false,cutout:'65%',
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.label+' ₪'+c.parsed.toLocaleString()}}}
+    }
+  });
+}
 donut('c1',["POLI", "LUMI", "ELEC", "BEZQ", "HARL", "GOLD", "מזומן"],[9881, 9933, 40, 3171, 5031, 5551, 66393],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b", "#10b981", "#334155"]);
 donut('c2',["בנקאות", "אנרגיה", "אחר", "ביטוח", "מזומן"],[19813, 40, 8723, 5031, 66393],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b"]);
+makeLegend('leg1',["POLI", "LUMI", "ELEC", "BEZQ", "HARL", "GOLD", "מזומן"],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b", "#10b981", "#334155"]);
+makeLegend('leg2',["בנקאות", "אנרגיה", "אחר", "ביטוח", "מזומן"],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b"]);
 </script>
 </body></html>

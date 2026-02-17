@@ -416,52 +416,53 @@ def build_deep(raw_p, perf, history):
 
         sec_totals[sector] = sec_totals.get(sector,0) + val
 
-        # Mobile card — Oracle Design: breathable, clear hierarchy, tap for thesis
-        pnl_color = "#34d399" if npct >= 0 else "#fb7185"
+        # FIX: Day 0 — all stocks show -0.1% (buy fee). Show "Day 0" badge instead of misleading red
+        is_day0  = abs(npct) < 0.15 and abs(npct) > 0
+        badge_txt = "Day 0" if is_day0 else f"{npct:+.1f}%"
+        pnl_color = "#94a3b8" if is_day0 else ("#34d399" if npct >= 0 else "#fb7185")
+        pnl_bg    = "rgba(148,163,184,.08)" if is_day0 else ("rgba(52,211,153,.1)" if npct>=0 else "rgba(251,113,133,.1)")
+        pnl_bdr   = "rgba(148,163,184,.2)" if is_day0 else ("rgba(52,211,153,.25)" if npct>=0 else "rgba(251,113,133,.25)")
         wk_color  = "#34d399" if (wkp or 0) >= 0 else "#fb7185"
-        border_l  = "#34d399" if npct >= 0 else "#fb7185"
+        border_l  = "#334155" if is_day0 else ("#34d399" if npct >= 0 else "#fb7185")
 
+        # FIX: RTL+numbers — wrap all numeric values in dir=ltr spans
         cards_html += f"""
 <div class="tappable" onclick="var t=document.getElementById('{tid}');t.classList.toggle('open')"
   style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);
          border-right:3px solid {border_l};border-radius:1rem;
-         padding:1.1rem 1.2rem 1rem;margin-bottom:.6rem">
+         padding:1.2rem 1.3rem 1rem;margin-bottom:.65rem">
 
-  <!-- Row 1: Name + P/L badge -->
-  <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.5rem">
+  <!-- Row 1: Name + badge -->
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.6rem">
     <div>
       <span style="font-weight:800;color:#f1f5f9;font-size:1rem">{short}</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.5rem"> · {sector}</span>
+      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> · {sector}</span>
     </div>
-    <span style="font-size:.78rem;font-weight:700;color:{pnl_color};
-                 background:{'rgba(52,211,153,.1)' if npct>=0 else 'rgba(251,113,133,.1)'};
-                 border:1px solid {'rgba(52,211,153,.25)' if npct>=0 else 'rgba(251,113,133,.25)'};
-                 padding:2px 9px;border-radius:999px">{npct:+.1f}%</span>
+    <span dir="ltr" style="font-size:.76rem;font-weight:700;color:{pnl_color};
+      background:{pnl_bg};border:1px solid {pnl_bdr};
+      padding:2px 10px;border-radius:999px;white-space:nowrap">{badge_txt}</span>
   </div>
 
-  <!-- Row 2: Value (L1) + week (L2) -->
-  <div style="display:flex;justify-content:space-between;align-items:baseline">
-    <div>
-      <span style="font-size:1.25rem;font-weight:700;color:#fff">₪{val:,.0f}</span>
-      <span style="font-size:.72rem;color:#475569;margin-right:.4rem"> שווי שוק</span>
-    </div>
+  <!-- Row 2: Value (L1) + week change -->
+  <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.35rem">
+    <span style="font-size:1.2rem;font-weight:700;color:#fff" dir="ltr">₪{val:,.0f}</span>
     <div style="text-align:left">
-      <span style="font-size:.78rem;color:#64748b">שבוע: </span>
-      <span style="font-size:.82rem;font-weight:600;color:{wk_color}">{wks}</span>
+      <span style="font-size:.73rem;color:#475569">שבוע </span>
+      <span dir="ltr" style="font-size:.82rem;font-weight:600;color:{wk_color}">{wks}</span>
     </div>
   </div>
 
-  <!-- Row 3: Details (L3) -->
-  <div style="display:flex;gap:1rem;margin-top:.35rem">
-    <span style="font-size:.7rem;color:#475569">{sh:.1f} יח' · ₪{cp:,.2f}</span>
-    <span style="font-size:.7rem;color:{pnl_color}">נטו: ₪{nv:+,.0f}</span>
+  <!-- Row 3: Meta (L3) — LTR numbers to prevent RTL flip -->
+  <div style="display:flex;gap:.8rem;flex-wrap:wrap">
+    <span style="font-size:.7rem;color:#475569" dir="ltr">{sh:.0f} יח' · ₪{cp:,.1f}</span>
+    <span dir="ltr" style="font-size:.7rem;color:{pnl_color}">נטו ₪{nv:+,.0f}</span>
   </div>
 
-  <!-- Thesis — expandable -->
-  <div id="{tid}" class="thesis" style="margin-top:.8rem;padding:.75rem;
-       background:rgba(0,0,0,.25);border-radius:.6rem;border:1px solid rgba(255,255,255,.06)">
-    <span style="font-size:.7rem;color:#6366f1;font-weight:700;letter-spacing:.04em">📌 למה נבחר</span>
-    <p style="margin:.3rem 0 0;font-size:.82rem;color:#94a3b8;line-height:1.65">{thesis}</p>
+  <!-- Thesis — expandable, hidden by default -->
+  <div id="{tid}" class="thesis" style="margin-top:.85rem;padding:.8rem;
+       background:rgba(0,0,0,.3);border-radius:.65rem;border:1px solid rgba(99,102,241,.2)">
+    <div style="font-size:.68rem;color:#6366f1;font-weight:700;letter-spacing:.05em;margin-bottom:.3rem">📌 למה נבחר</div>
+    <div style="font-size:.82rem;color:#94a3b8;line-height:1.7">{thesis}</div>
   </div>
 </div>"""
 
@@ -481,20 +482,20 @@ def build_deep(raw_p, perf, history):
     if best[0] and worst[0] and best[0] != worst[0]:
         bw_html = f"""
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-bottom:1.2rem">
-  <div class="glass-deep pos-border" style="padding:.9rem 1rem;border-radius:.9rem">
-    <div class="l3">🏆 שבוע</div>
-    <div style="font-weight:700;color:#fff;font-size:.9rem;margin-top:.2rem">{best[0]}</div>
-    <div class="pos" style="font-weight:700;font-size:.85rem">{best[1]:+.1f}%</div>
+  <div class="glass-deep pos-border" style="padding:.9rem 1rem;border-radius:.9rem;min-height:70px">
+    <div style="font-size:.68rem;color:#475569;margin-bottom:.3rem">🏆 הכי חזק השבוע</div>
+    <div style="font-weight:700;color:#fff;font-size:.95rem">{best[0]}</div>
+    <div dir="ltr" class="pos" style="font-weight:700;font-size:.85rem;margin-top:.15rem">{best[1]:+.1f}%</div>
   </div>
-  <div class="glass-deep neg-border" style="padding:.9rem 1rem;border-radius:.9rem">
-    <div class="l3">📉 שבוע</div>
-    <div style="font-weight:700;color:#fff;font-size:.9rem;margin-top:.2rem">{worst[0]}</div>
-    <div class="neg" style="font-weight:700;font-size:.85rem">{worst[1]:+.1f}%</div>
+  <div class="glass-deep neg-border" style="padding:.9rem 1rem;border-radius:.9rem;min-height:70px">
+    <div style="font-size:.68rem;color:#475569;margin-bottom:.3rem">📉 הכי חלש השבוע</div>
+    <div style="font-weight:700;color:#fff;font-size:.95rem">{worst[0]}</div>
+    <div dir="ltr" class="neg" style="font-weight:700;font-size:.85rem;margin-top:.15rem">{worst[1]:+.1f}%</div>
   </div>
 </div>"""
 
     return f"""{doc_head(f'BankOS — {m["emoji"]} {name}')}
-<body style="padding-bottom:5rem">
+<body style="padding-bottom:6.5rem"><!-- FIX: extra padding so nav doesn't cover last card -->
 <div style="max-width:520px;margin:0 auto;padding:1rem">
 
   <!-- Back -->
@@ -519,8 +520,8 @@ def build_deep(raw_p, perf, history):
     <div class="l3" style="margin-bottom:.9rem">שווי שוק: ₪{pg:,.0f}</div>
 
     <div style="display:flex;align-items:center;gap:.7rem;flex-wrap:wrap">
-      <span class="{vc}" style="font-weight:700;font-size:1.05rem">{glyph} ₪{abs(pgain):,.0f}</span>
-      <span class="{vc} {vbg}" style="padding:3px 10px;border-radius:999px;font-weight:700;font-size:.78rem">{glyph} {abs(ppct):.2f}%</span>
+      <!-- FIX: Day 0 hero — show neutral badge, not false red -->
+      {f'<span dir="ltr" class="{vc}" style="font-weight:700;font-size:1.05rem">{glyph} ₪{abs(pgain):,.0f}</span><span dir="ltr" class="{vc} {vbg}" style="padding:3px 10px;border-radius:999px;font-weight:700;font-size:.78rem">{glyph} {abs(ppct):.2f}%</span>' if abs(pgain) > 150 else '<span style="font-size:.82rem;color:#64748b;background:rgba(148,163,184,.08);border:1px solid rgba(148,163,184,.15);padding:3px 12px;border-radius:999px">Day 0 · Baseline</span>'}
     </div>
 
     <div style="border-top:1px solid rgba(255,255,255,.06);margin-top:1rem;padding-top:.7rem">
@@ -534,15 +535,17 @@ def build_deep(raw_p, perf, history):
 
   {bw_html}
 
-  <!-- Charts: 2 donuts side-by-side -->
+  <!-- Charts: 2 donuts — with mini legend below each -->
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.2rem">
     <div class="glass-deep" style="padding:1rem;border-radius:1rem">
-      <div class="l3" style="text-align:center;margin-bottom:.5rem;font-style:normal;font-weight:600;color:#64748b">נכסים</div>
-      <div style="height:130px"><canvas id="c1"></canvas></div>
+      <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">נכסים</div>
+      <div style="height:120px"><canvas id="c1"></canvas></div>
+      <div id="leg1" style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center"></div>
     </div>
     <div class="glass-deep" style="padding:1rem;border-radius:1rem">
-      <div class="l3" style="text-align:center;margin-bottom:.5rem;font-style:normal;font-weight:600;color:#64748b">סקטורים</div>
-      <div style="height:130px"><canvas id="c2"></canvas></div>
+      <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">סקטורים</div>
+      <div style="height:120px"><canvas id="c2"></canvas></div>
+      <div id="leg2" style="margin-top:.5rem;display:flex;flex-wrap:wrap;gap:.3rem;justify-content:center"></div>
     </div>
   </div>
 
@@ -568,15 +571,28 @@ def build_deep(raw_p, perf, history):
 </nav>
 
 <script>
-const donut=(id,labels,data,colors)=>new Chart(document.getElementById(id),{{
-  type:'doughnut',
-  data:{{labels,datasets:[{{data,backgroundColor:colors,borderWidth:0,hoverOffset:6}}]}},
-  options:{{responsive:true,maintainAspectRatio:false,cutout:'65%',
-    plugins:{{legend:{{display:false}},tooltip:{{callbacks:{{label:c=>c.label+' ₪'+c.parsed.toLocaleString()}}}}}}
-  }}
-}});
+function makeLegend(legendId, labels, colors) {{
+  var el = document.getElementById(legendId);
+  labels.forEach((l,i) => {{
+    var s = document.createElement('span');
+    s.style.cssText = 'display:inline-flex;align-items:center;gap:3px;font-size:10px;color:#64748b';
+    s.innerHTML = '<span style="width:8px;height:8px;border-radius:50%;background:'+colors[i]+';display:inline-block;flex-shrink:0"></span>'+l;
+    el.appendChild(s);
+  }});
+}}
+function donut(id,labels,data,colors) {{
+  new Chart(document.getElementById(id),{{
+    type:'doughnut',
+    data:{{labels,datasets:[{{data,backgroundColor:colors,borderWidth:0,hoverOffset:6}}]}},
+    options:{{responsive:true,maintainAspectRatio:false,cutout:'65%',
+      plugins:{{legend:{{display:false}},tooltip:{{callbacks:{{label:c=>c.label+' ₪'+c.parsed.toLocaleString()}}}}}}
+    }}
+  }});
+}}
 donut('c1',{json.dumps(pie_l,ensure_ascii=False)},{json.dumps(pie_v)},{json.dumps(pie_c)});
 donut('c2',{json.dumps(sl,ensure_ascii=False)},{json.dumps(sv)},{json.dumps(sc[:len(sl)])});
+makeLegend('leg1',{json.dumps(pie_l,ensure_ascii=False)},{json.dumps(pie_c)});
+makeLegend('leg2',{json.dumps(sl,ensure_ascii=False)},{json.dumps(sc[:len(sl)])});
 </script>
 </body></html>"""
 
