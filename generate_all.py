@@ -318,8 +318,8 @@ def build_index(portfolios, total, history, raw_by_name):
     <div class="l2" style="margin-top:.15rem">לאחר מס ועמלה</div>
   </div>
 
-  <!-- Inline mini-bars: top 2 positions -->
-  {_make_mini_bars(p)}
+  <!-- Inline mini-bars: top positions + cash -->
+  {_make_mini_bars(raw)}
 
   <!-- Sparkline -->
   <div style="height:28px;margin-top:.6rem"><canvas id="{sid}"></canvas></div>
