@@ -452,18 +452,20 @@ def build_deep(raw_p, perf, history):
     </div>
   </div>
 
-  <!-- Row 3: Meta (L3) — FIX #6: split into separate bidi-isolated spans -->
-  <div style="display:flex;gap:.7rem;flex-wrap:wrap;margin-top:.35rem;direction:ltr">
-    <span style="font-size:.7rem;color:#475569">
-      <bdi>{sh:.0f}</bdi>&nbsp;יח'
-    </span>
-    <span style="font-size:.7rem;color:#334155">·</span>
-    <span style="font-size:.7rem;color:#475569">
-      ₪<bdi>{cp:,.1f}</bdi>
-    </span>
-    <span style="font-size:.7rem;color:{pnl_color}">
-      נטו ₪<bdi>{nv:+,.0f}</bdi>
-    </span>
+  <!-- Row 3: Meta (L3) — each label+number in own span, direction per segment -->
+  <div style="display:flex;justify-content:space-between;margin-top:.4rem;padding-top:.3rem;border-top:1px solid rgba(255,255,255,.04)">
+    <div>
+      <span style="font-size:.68rem;color:#475569">יח' </span>
+      <span dir="ltr" style="font-size:.7rem;color:#94a3b8;font-variant-numeric:tabular-nums">{sh:.0f}</span>
+    </div>
+    <div>
+      <span style="font-size:.68rem;color:#475569">מחיר </span>
+      <span dir="ltr" style="font-size:.7rem;color:#94a3b8">₪{cp:,.1f}</span>
+    </div>
+    <div>
+      <span style="font-size:.68rem;color:#475569">נטו </span>
+      <span dir="ltr" style="font-size:.7rem;color:{pnl_color}">₪{nv:+,.0f}</span>
+    </div>
   </div>
 
   <!-- Thesis — expandable, hidden by default -->
@@ -566,17 +568,17 @@ def build_deep(raw_p, perf, history):
   <div class="l3" style="text-align:center;margin-top:1rem">עודכן {now}</div>
 </div>
 
-<!-- FIX #5: sticky nav at end of flow — no fixed overlay -->
-<div class="glass" style="position:sticky;bottom:0;margin-top:2rem;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:0 1.2rem;height:3.5rem;
-  border-top:1px solid rgba(255,255,255,.06)">
-  <a href="index.html" class="tappable l2" style="display:flex;align-items:center;gap:.4rem;text-decoration:none;padding:.3rem .6rem;border-radius:.4rem">
-    {svg('arrow-left','w-4 h-4')} ראשי
+<!-- FIX #5: no bottom nav on detail pages — back button is already at top -->
+<div style="display:flex;justify-content:center;gap:1.5rem;padding:1.5rem 0 2rem">
+  <a href="index.html" class="tappable" style="display:inline-flex;align-items:center;gap:.4rem;
+     background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+     color:#94a3b8;text-decoration:none;padding:.5rem 1.2rem;border-radius:.6rem;font-size:.85rem">
+    {svg('arrow-left','w-4 h-4')} חזרה לתיקים
   </a>
-  <span style="font-size:.95rem;font-weight:700;color:#fff">{m['emoji']} {name}</span>
-  <button onclick="location.reload()" class="tappable l2" style="display:flex;align-items:center;gap:.4rem;padding:.3rem .6rem;border-radius:.4rem">
-    {svg('refresh','w-4 h-4')}
+  <button onclick="location.reload()" class="tappable" style="display:inline-flex;align-items:center;gap:.4rem;
+     background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
+     color:#94a3b8;padding:.5rem 1rem;border-radius:.6rem;font-size:.85rem">
+    {svg('refresh','w-4 h-4')} רענן
   </button>
 </div>
 
