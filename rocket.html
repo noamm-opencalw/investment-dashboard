@@ -108,17 +108,21 @@
   </div>
 </div>
 
-  <!-- Charts: 2 donuts — with mini legend below each -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin-bottom:1.2rem">
-    <div class="glass-deep" style="padding:1rem;border-radius:1rem">
-      <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">נכסים</div>
-      <div style="height:120px"><canvas id="c1"></canvas></div>
-      <div id="leg1" style="margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.35rem .5rem;justify-content:center;padding:0 .2rem"></div>
+  <!-- Charts: 2 donuts stacked vertically -->
+  <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.2rem">
+    <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem">
+      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.7rem">פיזור נכסים</div>
+      <div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center">
+        <div style="height:140px"><canvas id="c1"></canvas></div>
+        <div id="leg1" style="display:flex;flex-direction:column;gap:.4rem"></div>
+      </div>
     </div>
-    <div class="glass-deep" style="padding:1rem;border-radius:1rem">
-      <div style="font-size:.68rem;text-align:center;margin-bottom:.5rem;font-weight:600;color:#64748b;letter-spacing:.04em">סקטורים</div>
-      <div style="height:120px"><canvas id="c2"></canvas></div>
-      <div id="leg2" style="margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.35rem .5rem;justify-content:center;padding:0 .2rem"></div>
+    <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem">
+      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.7rem">פיזור סקטורים</div>
+      <div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center">
+        <div style="height:140px"><canvas id="c2"></canvas></div>
+        <div id="leg2" style="display:flex;flex-direction:column;gap:.4rem"></div>
+      </div>
     </div>
   </div>
 
@@ -464,7 +468,7 @@
   </div>
 </div>
 
-  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 09:07</div>
+  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 09:17</div>
 </div>
 
 <!-- FIX #5: no bottom nav on detail pages — back button is already at top -->
@@ -482,12 +486,17 @@
 </div>
 
 <script>
-function makeLegend(legendId, labels, colors) {
+function makeLegend(legendId, labels, colors, values) {
   var el = document.getElementById(legendId);
+  var total = values.reduce((a,b)=>a+b,0);
   labels.forEach((l,i) => {
-    var s = document.createElement('span');
-    s.style.cssText = 'display:inline-flex;align-items:center;gap:4px;font-size:11px;color:#64748b;direction:rtl';
-    s.innerHTML = '<span style="width:7px;height:7px;border-radius:50%;background:'+colors[i]+';flex-shrink:0"></span>'+l;
+    var pct = total > 0 ? Math.round(values[i]/total*100) : 0;
+    var s = document.createElement('div');
+    s.style.cssText = 'display:flex;align-items:center;gap:6px;direction:rtl';
+    s.innerHTML =
+      '<span style="width:8px;height:8px;border-radius:2px;background:'+colors[i]+';flex-shrink:0;margin-top:1px"></span>'+
+      '<span style="font-size:.75rem;color:#94a3b8;flex:1">'+l+'</span>'+
+      '<span style="font-size:.72rem;color:#475569;font-variant-numeric:tabular-nums">'+pct+'%</span>';
     el.appendChild(s);
   });
 }
@@ -502,7 +511,7 @@ function donut(id,labels,data,colors) {
 }
 donut('c1',["NXTV", "ARYT", "MORE", "MTDS", "NXTV", "RATI", "ENOG", "מזומן"],[15376, 1066, 5107, 13110, 7688, 638, 3052, 53963],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b", "#10b981", "#0ea5e9", "#334155"]);
 donut('c2',["אחר", "טכנולוגיה", "קמעונאות", "מזומן"],[26754, 14176, 5107, 53963],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e"]);
-makeLegend('leg1',["NXTV", "ARYT", "MORE", "MTDS", "NXTV", "RATI", "ENOG", "מזומן"],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b", "#10b981", "#0ea5e9", "#334155"]);
-makeLegend('leg2',["אחר", "טכנולוגיה", "קמעונאות", "מזומן"],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e"]);
+makeLegend('leg1',["NXTV", "ARYT", "MORE", "MTDS", "NXTV", "RATI", "ENOG", "מזומן"],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b", "#10b981", "#0ea5e9", "#334155"],[15376, 1066, 5107, 13110, 7688, 638, 3052, 53963]);
+makeLegend('leg2',["אחר", "טכנולוגיה", "קמעונאות", "מזומן"],["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e"],[26754, 14176, 5107, 53963]);
 </script>
 </body></html>
