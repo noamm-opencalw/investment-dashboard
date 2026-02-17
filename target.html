@@ -119,17 +119,9 @@
   </div>
 </div>
 
-  <!-- Charts: Bar Chart Rule — donut ≤5 segments, horizontal bar >5 -->
-  <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.2rem">
-    <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem">
-      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור נכסים</div>
-      <div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center"><div style="height:140px"><canvas id=\"c1\"></canvas></div><div id=\"leg1\" style=\"display:flex;flex-direction:column;gap:.4rem\"></div></div>
-    </div>
-    <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem">
-      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור סקטורים</div>
-      <div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center"><div style="height:140px"><canvas id=\"c2\"></canvas></div><div id=\"leg2\" style=\"display:flex;flex-direction:column;gap:.4rem\"></div></div>
-    </div>
-  </div>
+  <!-- Charts: Bar Chart Rule (computed before f-string) -->
+  <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem"><div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור נכסים</div><div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center"><div style="height:140px"><canvas id="c1"></canvas></div><div id="leg1" style="display:flex;flex-direction:column;gap:.4rem"></div></div></div>
+  <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem"><div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור סקטורים</div><div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center"><div style="height:140px"><canvas id="c2"></canvas></div><div id="leg2" style="display:flex;flex-direction:column;gap:.4rem"></div></div></div>
 
   <!-- Holdings cards (mobile-first, no table) -->
   <div class="l3" style="margin-bottom:.7rem;font-style:normal;font-weight:600;color:#64748b;padding-right:.2rem">
@@ -281,7 +273,7 @@
   </div>
 </div>
 
-  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 09:35</div>
+  <div class="l3" style="text-align:center;margin-top:1rem">עודכן 17/02/2026 09:37</div>
 </div>
 
 <!-- FIX #5: no bottom nav on detail pages — back button is already at top -->

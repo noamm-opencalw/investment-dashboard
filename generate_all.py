@@ -499,6 +499,27 @@ def build_deep(raw_p, perf, history):
     sv = [round(v) for v in sec_totals.values()]
     sc = ["#6366f1","#8b5cf6","#ec4899","#f43f5e","#f59e0b","#10b981","#0ea5e9","#334155"]
 
+    # Bar Chart Rule — computed BEFORE f-string (no escaping needed)
+    def _chart_html(cid, lid, labels, use_donut):
+        if use_donut:
+            return (f'<div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem">'
+                    f'<div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">'
+                    f'{"פיזור נכסים" if cid=="c1" else "פיזור סקטורים"}</div>'
+                    f'<div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center">'
+                    f'<div style="height:140px"><canvas id="{cid}"></canvas></div>'
+                    f'<div id="{lid}" style="display:flex;flex-direction:column;gap:.4rem"></div>'
+                    f'</div></div>')
+        else:
+            h = max(120, len(labels) * 26)
+            return (f'<div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem;margin-bottom:.7rem">'
+                    f'<div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">'
+                    f'{"פיזור נכסים" if cid=="c1" else "פיזור סקטורים"}</div>'
+                    f'<div style="height:{h}px"><canvas id="{cid}"></canvas></div>'
+                    f'</div>')
+
+    _chart_html_c1 = _chart_html("c1", "leg1", pie_l, len(pie_l) <= 5)
+    _chart_html_c2 = _chart_html("c2", "leg2", sl, len(sl) <= 5)
+
     bw_html = ""
     if best[0] and worst[0] and best[0] != worst[0]:
         bw_html = f"""
@@ -556,17 +577,9 @@ def build_deep(raw_p, perf, history):
 
   {bw_html}
 
-  <!-- Charts: Bar Chart Rule — donut ≤5 segments, horizontal bar >5 -->
-  <div style="display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.2rem">
-    <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem">
-      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור נכסים</div>
-      {'<div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center"><div style="height:140px"><canvas id=\\"c1\\"></canvas></div><div id=\\"leg1\\" style=\\"display:flex;flex-direction:column;gap:.4rem\\"></div></div>' if len(pie_l) <= 5 else '<div style="height:' + str(max(120, len(pie_l)*28)) + 'px"><canvas id=\\"c1\\"></canvas></div>'}
-    </div>
-    <div class="glass-deep" style="padding:1.1rem 1.2rem;border-radius:1rem">
-      <div style="font-size:.7rem;font-weight:600;color:#64748b;letter-spacing:.04em;margin-bottom:.8rem">פיזור סקטורים</div>
-      {'<div style="display:grid;grid-template-columns:140px 1fr;gap:1rem;align-items:center"><div style="height:140px"><canvas id=\\"c2\\"></canvas></div><div id=\\"leg2\\" style=\\"display:flex;flex-direction:column;gap:.4rem\\"></div></div>' if len(sl) <= 5 else '<div style="height:' + str(max(120, len(sl)*28)) + 'px"><canvas id=\\"c2\\"></canvas></div>'}
-    </div>
-  </div>
+  <!-- Charts: Bar Chart Rule (computed before f-string) -->
+  {_chart_html_c1}
+  {_chart_html_c2}
 
   <!-- Holdings cards (mobile-first, no table) -->
   <div class="l3" style="margin-bottom:.7rem;font-style:normal;font-weight:600;color:#64748b;padding-right:.2rem">
