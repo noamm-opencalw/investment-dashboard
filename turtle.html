@@ -1,133 +1,212 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BankOS — 🐢 SOLID</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box}
-  body{font-family:'Assistant',sans-serif;background:#0c1220;color:#e2e8f0;-webkit-font-smoothing:antialiased;min-height:100vh}
-  .glass{background:rgba(15,23,42,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(148,163,184,.1)}
-  .glass-card{background:rgba(30,41,59,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,.08)}
-  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-  .rise{animation:rise .4s ease both}
-  .rise:nth-child(1){animation-delay:.00s}.rise:nth-child(2){animation-delay:.06s}
+  body{font-family:'Assistant',sans-serif;background:#0c1220;color:#e2e8f0;-webkit-font-smoothing:antialiased}
+  .glass{background:rgba(15,23,42,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(148,163,184,.1)}
+  .card{background:rgba(22,33,55,.6);backdrop-filter:blur(10px);border:1px solid rgba(148,163,184,.07)}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .rise{animation:rise .38s ease both}
+  .rise:nth-child(1){animation-delay:0s}.rise:nth-child(2){animation-delay:.06s}
   .rise:nth-child(3){animation-delay:.12s}.rise:nth-child(4){animation-delay:.18s}
   .rise:nth-child(5){animation-delay:.24s}
-  .hover-lift{transition:transform .2s,box-shadow .2s}
-  .hover-lift:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.45)}
-  .divider{border-color:rgba(148,163,184,.1)}
+  .lift{transition:transform .18s,box-shadow .18s}
+  .lift:hover{transform:translateY(-3px);box-shadow:0 20px 48px rgba(0,0,0,.5)}
+  hr{border-color:rgba(148,163,184,.1)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;font-weight:600}
+  .thesis-row{display:none;background:rgba(15,23,42,.6)}
+  .thesis-row.open{display:table-row}
 </style>
 </head>
-<body class="pb-20">
-
+<body class="pb-24">
 <div class="max-w-xl mx-auto px-4">
 
   <!-- Back -->
-  <div class="pt-6 pb-4">
-    <a href="index.html" class="inline-flex items-center gap-2 text-slate-400 hover:text-white text-sm transition-colors">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> חזרה לתיקים
+  <div class="pt-6 pb-3">
+    <a href="index.html" class="inline-flex items-center gap-2 text-slate-500 hover:text-white text-sm transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> חזרה
     </a>
   </div>
 
   <!-- Hero -->
-  <div class="glass-card rounded-2xl p-6 mb-5 border-r-4 border-red-500">
+  <div class="glass rounded-2xl p-5 mb-5 border-r-4 border-red-500">
     <div class="flex items-center gap-3 mb-4">
       <span class="text-4xl">🐢</span>
       <div>
         <h1 class="text-xl font-extrabold text-white">SOLID</h1>
-        <p class="text-slate-400 text-sm">The Turtle 🐢</p>
+        <p class="text-slate-400 text-sm">שמרני · 30 ימים לסיום</p>
       </div>
     </div>
-    <div class="flex items-baseline gap-2 flex-wrap mb-1">
+
+    <div class="mb-0.5">
       <span class="text-3xl font-extrabold text-white">₪100,000</span>
-      <span class="text-slate-400">(₪99,900 נטו)</span>
+      <span class="text-slate-500 text-sm mr-2">שווי שוק</span>
     </div>
-    <p class="text-red-400 text-sm font-semibold">−₪0 · −0.00%</p>
-    <div class="divider border-t mt-4 pt-4 grid grid-cols-3 gap-2 text-xs text-slate-500">
-      <span class="flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2"/><circle cx="15" cy="15" r="2"/><line x1="17" y1="7" x2="7" y2="17"/></svg> ₪67</span>
-      <span class="flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> ₪0</span>
-      <span class="flex items-center gap-1"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 12h.01"/></svg> ₪66,393</span>
+    <div class="flex items-baseline gap-1.5 mb-2">
+      <span class="text-slate-400 text-xs">לאחר מכירה:</span>
+      <span class="text-slate-200 font-bold text-lg">₪99,900</span>
+    </div>
+    <p class="text-red-400 text-sm font-semibold">−₪0 · −0.00% מ-Day 0</p>
+
+    <hr class="my-3">
+    <div class="grid grid-cols-3 gap-2 text-xs text-slate-500">
+      <div><svg class="w-3 h-3 inline ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2"/><circle cx="15" cy="15" r="2"/><line x1="17" y1="7" x2="7" y2="17"/></svg> ₪67 עמלות</div>
+      <div><svg class="w-3 h-3 inline ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> ₪0 מס</div>
+      <div><svg class="w-3 h-3 inline ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 12V8H6a2 2 0 0 1 0-4h14v4"/><path d="M20 12v4H6a2 2 0 0 0 0 4h14v-4"/></svg> ₪66,393 מזומן</div>
     </div>
   </div>
 
-  <!-- Asset Allocation -->
-  <div class="glass-card rounded-2xl p-5 mb-5">
-    <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wide mb-4">Asset Allocation</h2>
-    <div class="flex items-center justify-center" style="height:200px">
-      <canvas id="pie"></canvas>
+  <!-- Best/Worst this week -->
+  <div class="grid grid-cols-2 gap-3 mb-5"><div class="card rounded-xl p-3 border-r-2 border-emerald-500"><p class="text-slate-500 text-xs mb-1">🏆 שבוע</p><p class="text-white font-bold text-sm">HARL</p><p class="text-emerald-400 text-xs">+6.5%</p></div><div class="card rounded-xl p-3 border-r-2 border-red-500"><p class="text-slate-500 text-xs mb-1">📉 שבוע</p><p class="text-white font-bold text-sm">BEZQ</p><p class="text-red-400 text-xs">+0.7%</p></div></div>
+
+  <!-- Charts row -->
+  <div class="grid grid-cols-2 gap-3 mb-5">
+    <div class="card rounded-2xl p-4">
+      <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3">פיזור נכסים</h2>
+      <div style="height:160px"><canvas id="pie1"></canvas></div>
+    </div>
+    <div class="card rounded-2xl p-4">
+      <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3">סקטורים</h2>
+      <div style="height:160px"><canvas id="pie2"></canvas></div>
     </div>
   </div>
 
   <!-- Holdings Table -->
-  <div class="glass-card rounded-2xl p-5 mb-5 overflow-x-auto">
-    <h2 class="text-sm font-bold text-slate-300 uppercase tracking-wide mb-4">Holdings</h2>
-    <table class="w-full text-right" style="min-width:440px">
+  <div class="card rounded-2xl p-4 mb-5 overflow-x-auto">
+    <h2 class="text-xs font-bold text-slate-400 uppercase tracking-wide mb-3">
+      אחזקות
+      <span class="text-slate-600 font-normal normal-case mr-2">לחץ על שורה לראות סיבת הבחירה</span>
+    </h2>
+    <table class="w-full text-right" style="min-width:420px">
       <thead>
-        <tr class="text-slate-500 text-xs border-b divider">
-          <th class="pb-2 pr-3 text-right">סימבול</th>
-          <th class="pb-2 text-left">יחידות</th>
-          <th class="pb-2 text-left">מחיר</th>
-          <th class="pb-2 text-left">שווי</th>
-          <th class="pb-2 text-left">P/L נטו</th>
-          <th class="pb-2 text-left">1W</th>
+        <tr class="text-slate-500 text-xs border-b border-slate-700/30">
+          <th class="pb-2 pr-3">נכס</th>
+          <th class="pb-2">יחידות</th>
+          <th class="pb-2">מחיר</th>
+          <th class="pb-2">שווי</th>
+          <th class="pb-2">P/L נטו</th>
+          <th class="pb-2">1W</th>
+          <th class="pb-2"></th>
         </tr>
       </thead>
-      <tbody><tr class="border-b divider hover:bg-slate-800/30 transition-colors">
-  <td class="py-3 pr-3 font-bold text-sm text-white">POLI</td>
-  <td class="py-3 text-slate-400 text-sm text-left">120.0</td>
-  <td class="py-3 text-slate-300 text-sm text-left">₪82.34</td>
-  <td class="py-3 text-white text-sm font-semibold text-left">₪9,881</td>
-  <td class="py-3 text-sm text-left text-red-400"><span class="font-semibold">-0.1%</span><br><span class="text-xs opacity-70">₪-10</span></td>
-  <td class="py-3 text-sm text-left text-emerald-400 font-semibold">+1.6%</td>
-</tr><tr class="border-b divider hover:bg-slate-800/30 transition-colors">
-  <td class="py-3 pr-3 font-bold text-sm text-white">LUMI</td>
-  <td class="py-3 text-slate-400 text-sm text-left">126.0</td>
-  <td class="py-3 text-slate-300 text-sm text-left">₪78.83</td>
-  <td class="py-3 text-white text-sm font-semibold text-left">₪9,933</td>
-  <td class="py-3 text-sm text-left text-red-400"><span class="font-semibold">-0.1%</span><br><span class="text-xs opacity-70">₪-10</span></td>
-  <td class="py-3 text-sm text-left text-emerald-400 font-semibold">+1.9%</td>
-</tr><tr class="border-b divider hover:bg-slate-800/30 transition-colors">
-  <td class="py-3 pr-3 font-bold text-sm text-white">ELEC</td>
-  <td class="py-3 text-slate-400 text-sm text-left">35.0</td>
-  <td class="py-3 text-slate-300 text-sm text-left">₪1.15</td>
-  <td class="py-3 text-white text-sm font-semibold text-left">₪40</td>
-  <td class="py-3 text-sm text-left text-red-400"><span class="font-semibold">-0.1%</span><br><span class="text-xs opacity-70">₪-0</span></td>
-  <td class="py-3 text-sm text-left text-emerald-400 font-semibold">—</td>
-</tr><tr class="border-b divider hover:bg-slate-800/30 transition-colors">
-  <td class="py-3 pr-3 font-bold text-sm text-white">BEZQ</td>
-  <td class="py-3 text-slate-400 text-sm text-left">385.0</td>
-  <td class="py-3 text-slate-300 text-sm text-left">₪8.24</td>
-  <td class="py-3 text-white text-sm font-semibold text-left">₪3,171</td>
-  <td class="py-3 text-sm text-left text-red-400"><span class="font-semibold">-0.1%</span><br><span class="text-xs opacity-70">₪-3</span></td>
-  <td class="py-3 text-sm text-left text-emerald-400 font-semibold">+0.7%</td>
-</tr><tr class="border-b divider hover:bg-slate-800/30 transition-colors">
-  <td class="py-3 pr-3 font-bold text-sm text-white">HARL</td>
-  <td class="py-3 text-slate-400 text-sm text-left">30.0</td>
-  <td class="py-3 text-slate-300 text-sm text-left">₪167.70</td>
-  <td class="py-3 text-white text-sm font-semibold text-left">₪5,031</td>
-  <td class="py-3 text-sm text-left text-red-400"><span class="font-semibold">-0.1%</span><br><span class="text-xs opacity-70">₪-5</span></td>
-  <td class="py-3 text-sm text-left text-emerald-400 font-semibold">+6.5%</td>
-</tr><tr class="border-b divider hover:bg-slate-800/30 transition-colors">
-  <td class="py-3 pr-3 font-bold text-sm text-white">GOLD</td>
-  <td class="py-3 text-slate-400 text-sm text-left">12.0</td>
-  <td class="py-3 text-slate-300 text-sm text-left">₪462.62</td>
-  <td class="py-3 text-white text-sm font-semibold text-left">₪5,551</td>
-  <td class="py-3 text-sm text-left text-red-400"><span class="font-semibold">-0.1%</span><br><span class="text-xs opacity-70">₪-6</span></td>
-  <td class="py-3 text-sm text-left text-emerald-400 font-semibold">+4.7%</td>
+      <tbody><tr class="border-b border-slate-700/20 hover:bg-slate-800/20 cursor-pointer transition-colors"
+     onclick="document.getElementById('row_0').classList.toggle('open')">
+  <td class="py-3 pr-3">
+    <div class="font-bold text-sm text-white leading-none">POLI</div>
+    <div class="text-xs text-slate-500 mt-0.5">בנקאות</div>
+  </td>
+  <td class="py-3 text-slate-400 text-sm">120.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪82.34</td>
+  <td class="py-3 text-white text-sm font-semibold">₪9,881</td>
+  <td class="py-3 text-sm text-red-400"><b>-0.1%</b><br><span class="text-xs opacity-60">₪-10</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+1.6%</td>
+  <td class="py-3 text-slate-600 text-xs"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></td>
+</tr>
+<tr id="row_0" class="thesis-row">
+  <td colspan="7" class="px-4 py-3 text-sm text-slate-300 leading-relaxed">
+    <span class="text-slate-500 font-semibold">📌 למה נבחר:</span> Largest Israeli bank, stable dividend, defensive play
+  </td>
+</tr><tr class="border-b border-slate-700/20 hover:bg-slate-800/20 cursor-pointer transition-colors"
+     onclick="document.getElementById('row_1').classList.toggle('open')">
+  <td class="py-3 pr-3">
+    <div class="font-bold text-sm text-white leading-none">LUMI</div>
+    <div class="text-xs text-slate-500 mt-0.5">בנקאות</div>
+  </td>
+  <td class="py-3 text-slate-400 text-sm">126.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪78.83</td>
+  <td class="py-3 text-white text-sm font-semibold">₪9,933</td>
+  <td class="py-3 text-sm text-red-400"><b>-0.1%</b><br><span class="text-xs opacity-60">₪-10</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+1.9%</td>
+  <td class="py-3 text-slate-600 text-xs"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></td>
+</tr>
+<tr id="row_1" class="thesis-row">
+  <td colspan="7" class="px-4 py-3 text-sm text-slate-300 leading-relaxed">
+    <span class="text-slate-500 font-semibold">📌 למה נבחר:</span> Second largest bank, digital transformation, quality
+  </td>
+</tr><tr class="border-b border-slate-700/20 hover:bg-slate-800/20 cursor-pointer transition-colors"
+     onclick="document.getElementById('row_2').classList.toggle('open')">
+  <td class="py-3 pr-3">
+    <div class="font-bold text-sm text-white leading-none">ELEC</div>
+    <div class="text-xs text-slate-500 mt-0.5">אנרגיה</div>
+  </td>
+  <td class="py-3 text-slate-400 text-sm">35.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪1.15</td>
+  <td class="py-3 text-white text-sm font-semibold">₪40</td>
+  <td class="py-3 text-sm text-red-400"><b>-0.1%</b><br><span class="text-xs opacity-60">₪-0</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">—</td>
+  <td class="py-3 text-slate-600 text-xs"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></td>
+</tr>
+<tr id="row_2" class="thesis-row">
+  <td colspan="7" class="px-4 py-3 text-sm text-slate-300 leading-relaxed">
+    <span class="text-slate-500 font-semibold">📌 למה נבחר:</span> Monopoly utility, stable, dividend
+  </td>
+</tr><tr class="border-b border-slate-700/20 hover:bg-slate-800/20 cursor-pointer transition-colors"
+     onclick="document.getElementById('row_3').classList.toggle('open')">
+  <td class="py-3 pr-3">
+    <div class="font-bold text-sm text-white leading-none">BEZQ</div>
+    <div class="text-xs text-slate-500 mt-0.5">אחר</div>
+  </td>
+  <td class="py-3 text-slate-400 text-sm">385.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪8.24</td>
+  <td class="py-3 text-white text-sm font-semibold">₪3,171</td>
+  <td class="py-3 text-sm text-red-400"><b>-0.1%</b><br><span class="text-xs opacity-60">₪-3</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+0.7%</td>
+  <td class="py-3 text-slate-600 text-xs"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></td>
+</tr>
+<tr id="row_3" class="thesis-row">
+  <td colspan="7" class="px-4 py-3 text-sm text-slate-300 leading-relaxed">
+    <span class="text-slate-500 font-semibold">📌 למה נבחר:</span> Telecom leader, high dividend yield (7%+), defensive
+  </td>
+</tr><tr class="border-b border-slate-700/20 hover:bg-slate-800/20 cursor-pointer transition-colors"
+     onclick="document.getElementById('row_4').classList.toggle('open')">
+  <td class="py-3 pr-3">
+    <div class="font-bold text-sm text-white leading-none">HARL</div>
+    <div class="text-xs text-slate-500 mt-0.5">ביטוח</div>
+  </td>
+  <td class="py-3 text-slate-400 text-sm">30.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪167.70</td>
+  <td class="py-3 text-white text-sm font-semibold">₪5,031</td>
+  <td class="py-3 text-sm text-red-400"><b>-0.1%</b><br><span class="text-xs opacity-60">₪-5</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+6.5%</td>
+  <td class="py-3 text-slate-600 text-xs"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></td>
+</tr>
+<tr id="row_4" class="thesis-row">
+  <td colspan="7" class="px-4 py-3 text-sm text-slate-300 leading-relaxed">
+    <span class="text-slate-500 font-semibold">📌 למה נבחר:</span> Insurance leader, quality, but not overweight (already ran +151% in 2025)
+  </td>
+</tr><tr class="border-b border-slate-700/20 hover:bg-slate-800/20 cursor-pointer transition-colors"
+     onclick="document.getElementById('row_5').classList.toggle('open')">
+  <td class="py-3 pr-3">
+    <div class="font-bold text-sm text-white leading-none">GOLD</div>
+    <div class="text-xs text-slate-500 mt-0.5">אחר</div>
+  </td>
+  <td class="py-3 text-slate-400 text-sm">12.0</td>
+  <td class="py-3 text-slate-300 text-sm">₪462.62</td>
+  <td class="py-3 text-white text-sm font-semibold">₪5,551</td>
+  <td class="py-3 text-sm text-red-400"><b>-0.1%</b><br><span class="text-xs opacity-60">₪-6</span></td>
+  <td class="py-3 text-sm text-emerald-400 font-semibold">+4.7%</td>
+  <td class="py-3 text-slate-600 text-xs"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></td>
+</tr>
+<tr id="row_5" class="thesis-row">
+  <td colspan="7" class="px-4 py-3 text-sm text-slate-300 leading-relaxed">
+    <span class="text-slate-500 font-semibold">📌 למה נבחר:</span> Inflation hedge, diversification, volatility damper
+  </td>
 </tr></tbody>
     </table>
-    <p class="text-slate-600 text-xs mt-3">+ מזומן ₪66,393</p>
   </div>
 
-  <p class="text-center text-slate-600 text-xs mb-8">עודכן 17/02/2026 07:56 · Day 0 Baseline</p>
+  <p class="text-center text-slate-600 text-xs mb-8">
+    עודכן 17/02/2026 08:15 · מס 25% על רווח בלבד · עמלה 0.1% קנייה + 0.1% מכירה
+  </p>
 </div>
 
-<!-- Bottom nav -->
-<nav class="fixed bottom-0 inset-x-0 glass border-t divider h-14 flex items-center justify-between px-6">
+<nav class="fixed bottom-0 inset-x-0 glass border-t h-14 flex items-center justify-between px-6">
   <a href="index.html" class="flex items-center gap-1.5 text-slate-400 hover:text-white text-sm transition-colors">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg> ראשי
   </a>
@@ -138,19 +217,22 @@
 </nav>
 
 <script>
-new Chart(document.getElementById('pie'), {
-  type: 'doughnut',
-  data: {
-    labels: ["POLI", "LUMI", "ELEC", "BEZQ", "HARL", "GOLD", "מזומן"],
-    datasets: [{ data: [9881, 9933, 40, 3171, 5031, 5551, 66393], backgroundColor: ["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b", "#10b981", "#475569"], borderWidth: 0, hoverOffset: 6 }]
-  },
-  options: {
-    responsive: true, maintainAspectRatio: false, cutout: '62%',
-    plugins: {
-      legend: { display: true, position: 'bottom',
-        labels: { color: '#94a3b8', font: { size: 11, family: 'Assistant' }, padding: 14 } },
-      tooltip: { callbacks: { label: c => '₪' + c.parsed.toLocaleString() } }
-    }
+// Asset allocation pie
+new Chart(document.getElementById('pie1'),{
+  type:'doughnut',
+  data:{labels:["POLI", "LUMI", "ELEC", "BEZQ", "HARL", "GOLD", "מזומן"],
+    datasets:[{data:[9881, 9933, 40, 3171, 5031, 5551, 66393],backgroundColor:["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b", "#10b981", "#334155"],borderWidth:0,hoverOffset:5}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'₪'+c.parsed.toLocaleString()}}}
+  }
+});
+// Sector pie
+new Chart(document.getElementById('pie2'),{
+  type:'doughnut',
+  data:{labels:["בנקאות", "אנרגיה", "אחר", "ביטוח", "מזומן"],
+    datasets:[{data:[19813, 40, 8723, 5031, 66393],backgroundColor:["#6366f1", "#8b5cf6", "#ec4899", "#f43f5e", "#f59e0b"],borderWidth:0,hoverOffset:5}]},
+  options:{responsive:true,maintainAspectRatio:false,cutout:'62%',
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.label+': ₪'+c.parsed.toLocaleString()}}}
   }
 });
 </script>

@@ -1,252 +1,309 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>BankOS — תיקי נועם 2026</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *{box-sizing:border-box}
-  body{font-family:'Assistant',sans-serif;background:#0c1220;color:#e2e8f0;-webkit-font-smoothing:antialiased;min-height:100vh}
-  .glass{background:rgba(15,23,42,.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(148,163,184,.1)}
-  .glass-card{background:rgba(30,41,59,.45);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(148,163,184,.08)}
-  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
-  .rise{animation:rise .4s ease both}
-  .rise:nth-child(1){animation-delay:.00s}.rise:nth-child(2){animation-delay:.06s}
+  body{font-family:'Assistant',sans-serif;background:#0c1220;color:#e2e8f0;-webkit-font-smoothing:antialiased}
+  .glass{background:rgba(15,23,42,.75);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(148,163,184,.1)}
+  .card{background:rgba(22,33,55,.6);backdrop-filter:blur(10px);border:1px solid rgba(148,163,184,.07)}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  .rise{animation:rise .38s ease both}
+  .rise:nth-child(1){animation-delay:0s}.rise:nth-child(2){animation-delay:.06s}
   .rise:nth-child(3){animation-delay:.12s}.rise:nth-child(4){animation-delay:.18s}
   .rise:nth-child(5){animation-delay:.24s}
-  .hover-lift{transition:transform .2s,box-shadow .2s}
-  .hover-lift:hover{transform:translateY(-3px);box-shadow:0 16px 40px rgba(0,0,0,.45)}
-  .divider{border-color:rgba(148,163,184,.1)}
+  .lift{transition:transform .18s,box-shadow .18s}
+  .lift:hover{transform:translateY(-3px);box-shadow:0 20px 48px rgba(0,0,0,.5)}
+  hr{border-color:rgba(148,163,184,.1)}
+  .tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:99px;font-weight:600}
+  .thesis-row{display:none;background:rgba(15,23,42,.6)}
+  .thesis-row.open{display:table-row}
 </style>
 </head>
-<body class="pb-20">
+<body class="pb-24 px-4">
 
-<!-- Header -->
-<header class="px-5 pt-8 pb-6">
-  <div class="flex items-center gap-2 mb-3">
+<header class="pt-8 pb-5">
+  <div class="flex items-center gap-2 mb-2">
     <span class="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse"></span>
-    <span class="text-emerald-400 text-xs tracking-widest font-semibold uppercase">Live · Day 0</span>
+    <span class="text-emerald-400 text-xs font-semibold tracking-widest uppercase">Live</span>
   </div>
-  <h1 class="text-2xl font-extrabold text-white tracking-tight">BankOS</h1>
-  <p class="text-slate-500 text-xs mt-1">עודכן 17/02/2026 07:55 · net after tax &amp; fees</p>
+  <div class="flex items-start justify-between">
+    <div>
+      <h1 class="text-2xl font-extrabold text-white">BankOS</h1>
+      <p class="text-slate-500 text-xs mt-0.5">עודכן 17/02/2026 08:15</p>
+    </div>
+    <div class="text-right">
+      <span class="flex items-center gap-1 text-slate-400 text-xs justify-end"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> 30 ימים לסיום</span>
+      <span class="text-slate-600 text-xs">19 מרץ 2026</span>
+    </div>
+  </div>
 </header>
 
 <!-- Total hero -->
-<div class="mx-4 mb-6 glass rounded-2xl p-5">
-  <p class="text-slate-400 text-xs mb-2 uppercase tracking-wide font-medium">סה"כ תיקים</p>
-  <div class="flex items-baseline gap-2 flex-wrap">
+<div class="glass rounded-2xl p-5 mb-5 border-r-4 border-emerald-500">
+  <p class="text-slate-500 text-xs uppercase tracking-wide mb-2 font-medium">סך הכל — 5 תיקים</p>
+  <div class="flex items-baseline gap-2 flex-wrap mb-1">
     <span class="text-4xl font-extrabold text-white">₪500,000</span>
-    <span class="text-slate-400 text-base">(₪499,500 נטו)</span>
+    <span class="text-slate-400 text-sm">שווי שוק</span>
   </div>
-  <p class="text-emerald-400 text-sm font-semibold mt-1">+₪0 · +0.00%</p>
+  <div class="flex items-baseline gap-1.5 mb-2">
+    <span class="text-slate-400 text-xs">לאחר מכירת הכל:</span>
+    <span class="text-slate-200 font-bold">₪499,500</span>
+    <span class="text-slate-600 text-xs">(מס 25% + עמלה 0.1%)</span>
+  </div>
+  <p class="text-emerald-400 text-sm font-semibold">+₪0 · +0.00% מ-Day 0</p>
 
-  <div class="divider border-t mt-4 pt-4 flex gap-4 text-xs text-slate-500">
-    <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2"/><circle cx="15" cy="15" r="2"/><line x1="17" y1="7" x2="7" y2="17"/></svg> עמלות ₪699</span>
-    <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> מס ₪0</span>
-    <span class="flex items-center gap-1.5"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M16 12h.01"/></svg> ₪500,000 base</span>
+  <hr class="my-3">
+  <div class="grid grid-cols-3 gap-3 text-xs text-slate-500">
+    <div class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="9" r="2"/><circle cx="15" cy="15" r="2"/><line x1="17" y1="7" x2="7" y2="17"/></svg> עמלות ₪699</div>
+    <div class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg> מס ₪0</div>
+    <div class="flex items-center gap-1"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20 12V8H6a2 2 0 0 1 0-4h14v4"/><path d="M20 12v4H6a2 2 0 0 0 0 4h14v-4"/></svg> base ₪500K</div>
   </div>
 </div>
 
-<!-- Portfolio cards -->
-<div class="px-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-  
-<a href="turtle.html" class="glass-card rounded-2xl p-5 hover-lift rise block no-underline">
-  <div class="flex justify-between items-start mb-4">
+<!-- Best/Worst strip -->
+<div class="grid grid-cols-2 gap-3 mb-5">
+  <div class="card rounded-xl p-3 border-r-2 border-emerald-500">
+    <p class="text-slate-500 text-xs mb-1">🏆 מוביל</p>
+    <p class="text-white font-bold text-sm">SOLID</p>
+    <p class="text-emerald-400 text-xs">-0.20%</p>
+  </div>
+  <div class="card rounded-xl p-3 border-r-2 border-red-500">
+    <p class="text-slate-500 text-xs mb-1">📉 מפגר</p>
+    <p class="text-white font-bold text-sm">CREATIVE</p>
+    <p class="text-red-400 text-xs">-0.20%</p>
+  </div>
+</div>
+
+<!-- Cards -->
+<div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+
+<a href="turtle.html" class="card rounded-2xl p-5 lift rise block no-underline">
+  <div class="flex justify-between items-start mb-3">
     <div class="flex items-center gap-3">
       <span class="text-2xl">🐢</span>
       <div>
-        <p class="font-bold text-white text-sm leading-none">SOLID</p>
-        <p class="text-slate-500 text-xs mt-0.5">The Turtle 🐢</p>
+        <p class="font-bold text-white text-sm leading-tight">SOLID</p>
+        <p class="text-slate-500 text-xs">שמרני</p>
       </div>
     </div>
-    <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">−0.00%</span>
+    <div class="text-right">
+      <span class="tag bg-amber-500/20 text-amber-400 border border-amber-500/30 mr-1">🥇 מוביל</span>
+      <span class="tag bg-red-500/10 text-red-400 border border-red-500/20">−0.00%</span>
+    </div>
   </div>
 
-  <div class="mb-1">
+  <div class="mb-0.5">
     <span class="text-2xl font-extrabold text-white">₪100,000</span>
-    <span class="text-slate-400 text-sm mr-1">(₪99,900)</span>
   </div>
-  <p class="text-red-400 text-xs font-semibold mb-4">−₪0 −0.00%</p>
+  <div class="flex items-baseline gap-1.5 mb-3">
+    <span class="text-slate-400 text-xs">בנק:</span>
+    <span class="text-slate-300 text-sm font-semibold">₪99,900</span>
+    <span class="text-slate-600 text-xs">(לאחר מס ועמלה)</span>
+  </div>
+  <div class="text-red-400 text-xs font-semibold mb-3">−₪0 מ-Day 0</div>
 
-  <div style="height:36px;"><canvas id="sp0"></canvas></div>
+  <div style="height:32px"><canvas id="sp0"></canvas></div>
   <div class="flex justify-between items-center mt-3">
     <span class="text-slate-600 text-xs">6 נכסים</span>
     <span class="text-slate-600"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
   </div>
 </a>
-<script>
-(function(){
+<script>(function(){
   var d=[99079, 99242, 99381, 100213, 100060, 100267, 100000];
   new Chart(document.getElementById('sp0'),{
-    type:'line',
-    data:{datasets:[{data:d,borderColor:'#ef4444',borderWidth:1.5,
-      pointRadius:0,fill:true,backgroundColor:'#ef444418',tension:.45}]},
+    type:'line',data:{datasets:[{data:d,borderColor:'#ef4444',borderWidth:1.5,
+      pointRadius:0,fill:true,backgroundColor:'#ef444415',tension:.4}]},
     options:{responsive:true,maintainAspectRatio:false,animation:false,
       scales:{x:{display:false},y:{display:false}},
-      plugins:{legend:{display:false},tooltip:{enabled:false}}}
+      plugins:{legend:{display:false},tooltip:{enabled:false}}
+    }
   });
-})();
-</script>
-<a href="lion.html" class="glass-card rounded-2xl p-5 hover-lift rise block no-underline">
-  <div class="flex justify-between items-start mb-4">
+})();</script>
+<a href="lion.html" class="card rounded-2xl p-5 lift rise block no-underline">
+  <div class="flex justify-between items-start mb-3">
     <div class="flex items-center gap-3">
       <span class="text-2xl">🦁</span>
       <div>
-        <p class="font-bold text-white text-sm leading-none">AGGRESSIVE</p>
-        <p class="text-slate-500 text-xs mt-0.5">The Lion 🦁</p>
+        <p class="font-bold text-white text-sm leading-tight">AGGRESSIVE</p>
+        <p class="text-slate-500 text-xs">אגרסיבי</p>
       </div>
     </div>
-    <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-red-500/10 text-red-400 border border-red-500/20">−0.00%</span>
+    <div class="text-right">
+      
+      <span class="tag bg-red-500/10 text-red-400 border border-red-500/20">−0.00%</span>
+    </div>
   </div>
 
-  <div class="mb-1">
+  <div class="mb-0.5">
     <span class="text-2xl font-extrabold text-white">₪100,000</span>
-    <span class="text-slate-400 text-sm mr-1">(₪99,900)</span>
   </div>
-  <p class="text-red-400 text-xs font-semibold mb-4">−₪0 −0.00%</p>
+  <div class="flex items-baseline gap-1.5 mb-3">
+    <span class="text-slate-400 text-xs">בנק:</span>
+    <span class="text-slate-300 text-sm font-semibold">₪99,900</span>
+    <span class="text-slate-600 text-xs">(לאחר מס ועמלה)</span>
+  </div>
+  <div class="text-red-400 text-xs font-semibold mb-3">−₪0 מ-Day 0</div>
 
-  <div style="height:36px;"><canvas id="sp1"></canvas></div>
+  <div style="height:32px"><canvas id="sp1"></canvas></div>
   <div class="flex justify-between items-center mt-3">
     <span class="text-slate-600 text-xs">10 נכסים</span>
     <span class="text-slate-600"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
   </div>
 </a>
-<script>
-(function(){
+<script>(function(){
   var d=[98297, 98562, 98660, 100325, 99645, 99735, 100000];
   new Chart(document.getElementById('sp1'),{
-    type:'line',
-    data:{datasets:[{data:d,borderColor:'#ef4444',borderWidth:1.5,
-      pointRadius:0,fill:true,backgroundColor:'#ef444418',tension:.45}]},
+    type:'line',data:{datasets:[{data:d,borderColor:'#ef4444',borderWidth:1.5,
+      pointRadius:0,fill:true,backgroundColor:'#ef444415',tension:.4}]},
     options:{responsive:true,maintainAspectRatio:false,animation:false,
       scales:{x:{display:false},y:{display:false}},
-      plugins:{legend:{display:false},tooltip:{enabled:false}}}
+      plugins:{legend:{display:false},tooltip:{enabled:false}}
+    }
   });
-})();
-</script>
-<a href="rocket.html" class="glass-card rounded-2xl p-5 hover-lift rise block no-underline">
-  <div class="flex justify-between items-start mb-4">
+})();</script>
+<a href="rocket.html" class="card rounded-2xl p-5 lift rise block no-underline">
+  <div class="flex justify-between items-start mb-3">
     <div class="flex items-center gap-3">
       <span class="text-2xl">🚀</span>
       <div>
-        <p class="font-bold text-white text-sm leading-none">SUPER-AGGRESSIVE</p>
-        <p class="text-slate-500 text-xs mt-0.5">The Rocket 🚀</p>
+        <p class="font-bold text-white text-sm leading-tight">SUPER-AGGRESSIVE</p>
+        <p class="text-slate-500 text-xs">סופר-אגרסיבי</p>
       </div>
     </div>
-    <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+0.00%</span>
+    <div class="text-right">
+      
+      <span class="tag bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+0.00%</span>
+    </div>
   </div>
 
-  <div class="mb-1">
+  <div class="mb-0.5">
     <span class="text-2xl font-extrabold text-white">₪100,000</span>
-    <span class="text-slate-400 text-sm mr-1">(₪99,900)</span>
   </div>
-  <p class="text-emerald-400 text-xs font-semibold mb-4">+₪0 +0.00%</p>
+  <div class="flex items-baseline gap-1.5 mb-3">
+    <span class="text-slate-400 text-xs">בנק:</span>
+    <span class="text-slate-300 text-sm font-semibold">₪99,900</span>
+    <span class="text-slate-600 text-xs">(לאחר מס ועמלה)</span>
+  </div>
+  <div class="text-emerald-400 text-xs font-semibold mb-3">+₪0 מ-Day 0</div>
 
-  <div style="height:36px;"><canvas id="sp2"></canvas></div>
+  <div style="height:32px"><canvas id="sp2"></canvas></div>
   <div class="flex justify-between items-center mt-3">
     <span class="text-slate-600 text-xs">7 נכסים</span>
     <span class="text-slate-600"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
   </div>
 </a>
-<script>
-(function(){
+<script>(function(){
   var d=[162922, 162922, 162922, 165388, 164348, 163613, 163127];
   new Chart(document.getElementById('sp2'),{
-    type:'line',
-    data:{datasets:[{data:d,borderColor:'#10b981',borderWidth:1.5,
-      pointRadius:0,fill:true,backgroundColor:'#10b98118',tension:.45}]},
+    type:'line',data:{datasets:[{data:d,borderColor:'#10b981',borderWidth:1.5,
+      pointRadius:0,fill:true,backgroundColor:'#10b98115',tension:.4}]},
     options:{responsive:true,maintainAspectRatio:false,animation:false,
       scales:{x:{display:false},y:{display:false}},
-      plugins:{legend:{display:false},tooltip:{enabled:false}}}
+      plugins:{legend:{display:false},tooltip:{enabled:false}}
+    }
   });
-})();
-</script>
-<a href="target.html" class="glass-card rounded-2xl p-5 hover-lift rise block no-underline">
-  <div class="flex justify-between items-start mb-4">
+})();</script>
+<a href="target.html" class="card rounded-2xl p-5 lift rise block no-underline">
+  <div class="flex justify-between items-start mb-3">
     <div class="flex items-center gap-3">
       <span class="text-2xl">🎯</span>
       <div>
-        <p class="font-bold text-white text-sm leading-none">SPECULATIVE</p>
-        <p class="text-slate-500 text-xs mt-0.5">The Hunter 🎯</p>
+        <p class="font-bold text-white text-sm leading-tight">SPECULATIVE</p>
+        <p class="text-slate-500 text-xs">ספקולטיבי</p>
       </div>
     </div>
-    <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+0.00%</span>
+    <div class="text-right">
+      
+      <span class="tag bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+0.00%</span>
+    </div>
   </div>
 
-  <div class="mb-1">
+  <div class="mb-0.5">
     <span class="text-2xl font-extrabold text-white">₪100,000</span>
-    <span class="text-slate-400 text-sm mr-1">(₪99,900)</span>
   </div>
-  <p class="text-emerald-400 text-xs font-semibold mb-4">+₪0 +0.00%</p>
+  <div class="flex items-baseline gap-1.5 mb-3">
+    <span class="text-slate-400 text-xs">בנק:</span>
+    <span class="text-slate-300 text-sm font-semibold">₪99,900</span>
+    <span class="text-slate-600 text-xs">(לאחר מס ועמלה)</span>
+  </div>
+  <div class="text-emerald-400 text-xs font-semibold mb-3">+₪0 מ-Day 0</div>
 
-  <div style="height:36px;"><canvas id="sp3"></canvas></div>
+  <div style="height:32px"><canvas id="sp3"></canvas></div>
   <div class="flex justify-between items-center mt-3">
     <span class="text-slate-600 text-xs">3 נכסים</span>
     <span class="text-slate-600"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
   </div>
 </a>
-<script>
-(function(){
+<script>(function(){
   var d=[98263, 98263, 98263, 99671, 99446, 98139, 100000];
   new Chart(document.getElementById('sp3'),{
-    type:'line',
-    data:{datasets:[{data:d,borderColor:'#10b981',borderWidth:1.5,
-      pointRadius:0,fill:true,backgroundColor:'#10b98118',tension:.45}]},
+    type:'line',data:{datasets:[{data:d,borderColor:'#10b981',borderWidth:1.5,
+      pointRadius:0,fill:true,backgroundColor:'#10b98115',tension:.4}]},
     options:{responsive:true,maintainAspectRatio:false,animation:false,
       scales:{x:{display:false},y:{display:false}},
-      plugins:{legend:{display:false},tooltip:{enabled:false}}}
+      plugins:{legend:{display:false},tooltip:{enabled:false}}
+    }
   });
-})();
-</script>
-<a href="canvas.html" class="glass-card rounded-2xl p-5 hover-lift rise block no-underline">
-  <div class="flex justify-between items-start mb-4">
+})();</script>
+<a href="canvas.html" class="card rounded-2xl p-5 lift rise block no-underline">
+  <div class="flex justify-between items-start mb-3">
     <div class="flex items-center gap-3">
       <span class="text-2xl">🎨</span>
       <div>
-        <p class="font-bold text-white text-sm leading-none">CREATIVE</p>
-        <p class="text-slate-500 text-xs mt-0.5">The Contrarian 🎨</p>
+        <p class="font-bold text-white text-sm leading-tight">CREATIVE</p>
+        <p class="text-slate-500 text-xs">קריאטיבי</p>
       </div>
     </div>
-    <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+0.00%</span>
+    <div class="text-right">
+      <span class="tag bg-slate-600/30 text-slate-400 border border-slate-600/30 mr-1">מפגר</span>
+      <span class="tag bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">+0.00%</span>
+    </div>
   </div>
 
-  <div class="mb-1">
+  <div class="mb-0.5">
     <span class="text-2xl font-extrabold text-white">₪100,000</span>
-    <span class="text-slate-400 text-sm mr-1">(₪99,900)</span>
   </div>
-  <p class="text-emerald-400 text-xs font-semibold mb-4">+₪0 +0.00%</p>
+  <div class="flex items-baseline gap-1.5 mb-3">
+    <span class="text-slate-400 text-xs">בנק:</span>
+    <span class="text-slate-300 text-sm font-semibold">₪99,900</span>
+    <span class="text-slate-600 text-xs">(לאחר מס ועמלה)</span>
+  </div>
+  <div class="text-emerald-400 text-xs font-semibold mb-3">+₪0 מ-Day 0</div>
 
-  <div style="height:36px;"><canvas id="sp4"></canvas></div>
+  <div style="height:32px"><canvas id="sp4"></canvas></div>
   <div class="flex justify-between items-center mt-3">
     <span class="text-slate-600 text-xs">7 נכסים</span>
     <span class="text-slate-600"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></span>
   </div>
 </a>
-<script>
-(function(){
+<script>(function(){
   var d=[98030, 98079, 98005, 100554, 99743, 100826, 100000];
   new Chart(document.getElementById('sp4'),{
-    type:'line',
-    data:{datasets:[{data:d,borderColor:'#10b981',borderWidth:1.5,
-      pointRadius:0,fill:true,backgroundColor:'#10b98118',tension:.45}]},
+    type:'line',data:{datasets:[{data:d,borderColor:'#10b981',borderWidth:1.5,
+      pointRadius:0,fill:true,backgroundColor:'#10b98115',tension:.4}]},
     options:{responsive:true,maintainAspectRatio:false,animation:false,
       scales:{x:{display:false},y:{display:false}},
-      plugins:{legend:{display:false},tooltip:{enabled:false}}}
+      plugins:{legend:{display:false},tooltip:{enabled:false}}
+    }
   });
-})();
-</script>
+})();</script>
 </div>
 
-<!-- Footer note -->
-<p class="text-center text-slate-600 text-xs mt-6 mb-2">
-  ₪X,XXX = שווי שוק · (₪X,XXX) = לאחר מס 25% + עמלה 0.1%
-</p>
+<!-- Legend -->
+<div class="card rounded-xl p-4 mt-5 text-xs text-slate-500 leading-relaxed">
+  <p class="font-semibold text-slate-400 mb-2"><svg class="w-3.5 h-3.5 inline-block ml-1" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg> מה המספרים אומרים</p>
+  <p><span class="text-white font-semibold">₪X,XXX (שווי שוק)</span> — מחיר כל הנכסים + מזומן כרגע</p>
+  <p class="mt-1"><span class="text-white font-semibold">בנק: ₪X,XXX</span> — מה ייכנס לחשבון אם תמכור הכל היום</p>
+  <p class="mt-1">ניכויים: מס רווחי הון 25% (על רווח בלבד) + עמלת מכירה 0.1%</p>
+  <p class="mt-1 text-slate-600">ביום 0: בנק = שווי שוק − ₪100 עמלה = ₪99,900 ✓</p>
+</div>
 
-<!-- Bottom nav -->
-<nav class="fixed bottom-0 inset-x-0 glass border-t divider h-14 flex items-center justify-between px-6">
+<nav class="fixed bottom-0 inset-x-0 glass border-t h-14 flex items-center justify-between px-6">
   <span class="text-white text-sm font-bold">📊 תיקים</span>
   <button onclick="location.reload()" class="flex items-center gap-1.5 text-slate-400 hover:text-white text-sm transition-colors">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg> רענן
