@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תיק Solid - פרטים מלאים</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Heebo', sans-serif;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .stat-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(148, 163, 184, 0.2);
+        }
+        @media print {
+            body { background: white; color: black; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-50 p-4 md:p-8">
+    
+    <!-- Back Button -->
+    <div class="max-w-7xl mx-auto mb-6 no-print">
+        <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 glass rounded-lg hover:bg-slate-700/50 transition">
+            <span>←</span>
+            <span>חזרה לדשבורד</span>
+        </a>
+    </div>
+    
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto glass rounded-2xl p-6 md:p-8 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">
+                    🐢 תיק Solid - שמרני
+                </h1>
+                <p class="text-slate-400">עדכון אחרון: 19/02/2026 14:30</p>
+            </div>
+            <div class="text-left">
+                <div class="text-4xl md:text-5xl font-bold text-green-400">
+                    ↗ +165.85%
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Summary Cards -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="stat-card rounded-xl p-6">
+            <div class="text-slate-400 text-sm mb-2">סה"כ נכסים נטו</div>
+            <div class="text-3xl font-bold">₪265,850</div>
+            <div class="text-xs text-slate-500 mt-1">אחרי מס 25% + עמלות</div>
+        </div>
+        <div class="stat-card rounded-xl p-6">
+            <div class="text-slate-400 text-sm mb-2">תשואה כוללת</div>
+            <div class="text-3xl font-bold text-green-400">+165.85%</div>
+            <div class="text-xs text-slate-500 mt-1">₪165,850 רווח נטו</div>
+        </div>
+        <div class="stat-card rounded-xl p-6">
+            <div class="text-slate-400 text-sm mb-2">מניות בתיק</div>
+            <div class="text-3xl font-bold">4</div>
+            <div class="text-xs text-slate-500 mt-1">+ ₪52,019 מזומן</div>
+        </div>
+    </div>
+    
+    <!-- Charts Row -->
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <!-- Category Breakdown -->
+        <div class="glass rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-4">חלוקה לפי תחומים</h2>
+            <canvas id="categoryChart"></canvas>
+        </div>
+        
+        <!-- Strategy Note -->
+        <div class="glass rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-4">אסטרטגיית התיק</h2>
+            <div class="text-slate-300 space-y-3">
+                <p class="font-bold text-slate-100">🎯 מטרה: שמירת הון</p>
+                <p>תיק שמרני המתמקד בנכסים יציבים ובטוחים עם דיבידנד קבוע.</p>
+                <ul class="list-disc list-inside space-y-1 text-sm">
+                    <li>משקל גבוה ל-ETF (QQQ, זהב)</li>
+                    <li>חשיפה מוגבלת למניות בודדות</li>
+                    <li>אחזקת מזומן משמעותית (52%)</li>
+                    <li>מסלול החזר מקסימלי: 2% בחודש</li>
+                </ul>
+                <div class="mt-4 p-3 bg-blue-500/10 rounded-lg border border-blue-500/20">
+                    <p class="text-sm"><span class="font-bold">המלצת אלמה:</span> להעביר ₪52K מזומן למק"מ (קרן כספית) - תשואה 4.25% שנתי = ₪184/חודש במקום ₪0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Holdings Table -->
+    <div class="max-w-7xl mx-auto glass rounded-2xl p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-6">מניות בתיק - פירוט מלא</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-slate-700">
+                        <th class="text-right py-3 px-4">סימול</th>
+                        <th class="text-right py-3 px-4">שם החברה</th>
+                        <th class="text-right py-3 px-4">סוג</th>
+                        <th class="text-right py-3 px-4">יחידות</th>
+                        <th class="text-right py-3 px-4">מחיר קנייה</th>
+                        <th class="text-right py-3 px-4">שווי</th>
+                        <th class="text-right py-3 px-4">% מהתיק</th>
+                        <th class="text-right py-3 px-4">הרציונל</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">NASDAQ:QQQ</td>
+                        <td class="py-3 px-4">Invesco QQQ Trust</td>
+                        <td class="py-3 px-4 text-slate-400">ETF</td>
+                        <td class="py-3 px-4">23</td>
+                        <td class="py-3 px-4">$601.92</td>
+                        <td class="py-3 px-4 font-bold">₪13,844</td>
+                        <td class="py-3 px-4">5.2%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">נאסד"ק 100 - פיזור אוטומטי ב-100 חברות הטק הגדולות</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">ETF:GOLD</td>
+                        <td class="py-3 px-4">SPDR Gold Shares</td>
+                        <td class="py-3 px-4 text-slate-400">ETF</td>
+                        <td class="py-3 px-4">54</td>
+                        <td class="py-3 px-4">$462.62</td>
+                        <td class="py-3 px-4 font-bold">₪24,981</td>
+                        <td class="py-3 px-4">9.4%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">זהב פיזי - הגנה מפני אינפלציה ואי-ודאות</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:ESLT</td>
+                        <td class="py-3 px-4">אלביט סיסטמס</td>
+                        <td class="py-3 px-4 text-slate-400">מניה</td>
+                        <td class="py-3 px-4">4</td>
+                        <td class="py-3 px-4">₪2,114.30</td>
+                        <td class="py-3 px-4 font-bold">₪8,457</td>
+                        <td class="py-3 px-4">3.2%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">ביטחון ישראלי - עולה עם עסקאות נשק, ביקוש עולמי</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:HARL</td>
+                        <td class="py-3 px-4">חראל ביטוח</td>
+                        <td class="py-3 px-4 text-slate-400">מניה</td>
+                        <td class="py-3 px-4">10</td>
+                        <td class="py-3 px-4">₪166.10</td>
+                        <td class="py-3 px-4 font-bold">₪1,661</td>
+                        <td class="py-3 px-4">0.6%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">ביטוח יציב - דיבידנד קבוע, רגולציה מגוננת</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30 bg-slate-700/30">
+                        <td class="py-3 px-4 font-mono font-bold">CASH</td>
+                        <td class="py-3 px-4 font-bold">מזומן</td>
+                        <td class="py-3 px-4 text-slate-400">-</td>
+                        <td class="py-3 px-4">-</td>
+                        <td class="py-3 px-4">-</td>
+                        <td class="py-3 px-4 font-bold">₪52,019</td>
+                        <td class="py-3 px-4">19.6%</td>
+                        <td class="py-3 px-4 text-xs text-blue-400">💡 להעביר למק"מ - תשואה 4.25% = ₪184/חודש</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="max-w-7xl mx-auto flex gap-4 justify-center mb-8 no-print">
+        <button onclick="window.print()" class="px-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg transition">
+            🖨️ הדפס דוח
+        </button>
+        <button onclick="exportToCSV()" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg transition">
+            📊 ייצוא לExcel
+        </button>
+    </div>
+    
+    <script>
+        // Category Pie Chart
+        const categoryData = {
+            labels: ['ETF טכנולוגיה', 'זהב', 'ביטחון', 'ביטוח', 'מזומן'],
+            datasets: [{
+                data: [13844, 24981, 8457, 1661, 52019],
+                backgroundColor: [
+                    'rgba(59, 130, 246, 0.8)',
+                    'rgba(245, 158, 11, 0.8)',
+                    'rgba(239, 68, 68, 0.8)',
+                    'rgba(16, 185, 129, 0.8)',
+                    'rgba(148, 163, 184, 0.6)',
+                ],
+                borderColor: 'rgba(30, 41, 59, 1)',
+                borderWidth: 2
+            }]
+        };
+        
+        const categoryChart = new Chart(
+            document.getElementById('categoryChart'),
+            {
+                type: 'pie',
+                data: categoryData,
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#f1f5f9',
+                                font: { size: 14 }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const value = context.parsed;
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((value / total) * 100).toFixed(1);
+                                    return context.label + ': ₪' + value.toLocaleString('he-IL') + ' (' + percentage + '%)';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        );
+        
+        // Export to CSV
+        function exportToCSV() {
+            const rows = [
+                ['סימול', 'שם החברה', 'סוג', 'יחידות', 'מחיר קנייה', 'שווי', '% מהתיק', 'הרציונל'],
+                ['NASDAQ:QQQ', 'Invesco QQQ Trust', 'ETF', '23', '$601.92', '₪13,844', '5.2%', 'נאסד"ק 100'],
+                ['ETF:GOLD', 'SPDR Gold Shares', 'ETF', '54', '$462.62', '₪24,981', '9.4%', 'זהב פיזי'],
+                ['TLV:ESLT', 'אלביט סיסטמס', 'מניה', '4', '₪2,114.30', '₪8,457', '3.2%', 'ביטחון'],
+                ['TLV:HARL', 'חראל ביטוח', 'מניה', '10', '₪166.10', '₪1,661', '0.6%', 'ביטוח'],
+                ['CASH', 'מזומן', '-', '-', '-', '₪52,019', '19.6%', 'מזומן פנוי']
+            ];
+            
+            const csvContent = rows.map(row => row.join(',')).join('\n');
+            const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'solid_portfolio_details.csv';
+            link.click();
+        }
+    </script>
+</body>
+</html>
