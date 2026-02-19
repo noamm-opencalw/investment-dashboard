@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תיק Aggressive - פרטים מלאים</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Heebo', sans-serif;
+        }
+        .glass {
+            background: rgba(15, 23, 42, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        .stat-card {
+            background: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s ease;
+        }
+        .stat-card:hover {
+            background: rgba(30, 41, 59, 0.6);
+            border-color: rgba(148, 163, 184, 0.2);
+        }
+        @media print {
+            body { background: white; color: black; }
+            .no-print { display: none; }
+        }
+    </style>
+</head>
+<body class="min-h-screen text-slate-50 p-4 md:p-8">
+    
+    <div class="max-w-7xl mx-auto mb-6 no-print">
+        <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 glass rounded-lg hover:bg-slate-700/50 transition">
+            <span>←</span>
+            <span>חזרה לדשבורד</span>
+        </a>
+    </div>
+    
+    <div class="max-w-7xl mx-auto glass rounded-2xl p-6 md:p-8 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">
+                    🦁 תיק Aggressive - אגרסיבי
+                </h1>
+                <p class="text-slate-400">עדכון אחרון: 19/02/2026 14:30</p>
+            </div>
+            <div class="text-left">
+                <div class="text-4xl md:text-5xl font-bold text-green-400">
+                    ↗ +72.12%
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="stat-card rounded-xl p-6">
+            <div class="text-slate-400 text-sm mb-2">סה"כ נכסים נטו</div>
+            <div class="text-3xl font-bold">₪172,120</div>
+            <div class="text-xs text-slate-500 mt-1">אחרי מס 25% + עמלות</div>
+        </div>
+        <div class="stat-card rounded-xl p-6">
+            <div class="text-slate-400 text-sm mb-2">תשואה כוללת</div>
+            <div class="text-3xl font-bold text-green-400">+72.12%</div>
+            <div class="text-xs text-slate-500 mt-1">₪72,120 רווח נטו</div>
+        </div>
+        <div class="stat-card rounded-xl p-6">
+            <div class="text-slate-400 text-sm mb-2">מניות בתיק</div>
+            <div class="text-3xl font-bold">10</div>
+            <div class="text-xs text-slate-500 mt-1">+ ₪30,218 מזומן</div>
+        </div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div class="glass rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-4">חלוקה לפי תחומים</h2>
+            <canvas id="categoryChart"></canvas>
+        </div>
+        
+        <div class="glass rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-4">אסטרטגיית התיק</h2>
+            <div class="text-slate-300 space-y-3">
+                <p class="font-bold text-slate-100">🎯 מטרה: ניצחון TA-125 ב-10%+</p>
+                <p>תיק אגרסיבי המתמקד בביטוח, ביטחון ואנרגיה - המנצחים של 2025.</p>
+                <ul class="list-disc list-inside space-y-1 text-sm">
+                    <li>50% Core (ביטוח + ביטחון + בנקים)</li>
+                    <li>20% Small-cap (צמיחה מהירה)</li>
+                    <li>15% Tactical (ענף אנרגיה כפול)</li>
+                    <li>10% US Tech (QQQ)</li>
+                </ul>
+                <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20">
+                    <p class="text-sm"><span class="font-bold">הערה:</span> אנרגיה משוקלל כפול (DEDRL פעמיים) - הימור על המשך עלייה בענף (+77% ב-2025)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto glass rounded-2xl p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-6">מניות בתיק - פירוט מלא</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-slate-700">
+                        <th class="text-right py-3 px-4">סימול</th>
+                        <th class="text-right py-3 px-4">שם החברה</th>
+                        <th class="text-right py-3 px-4">קטגוריה</th>
+                        <th class="text-right py-3 px-4">יחידות</th>
+                        <th class="text-right py-3 px-4">מחיר קנייה</th>
+                        <th class="text-right py-3 px-4">שווי</th>
+                        <th class="text-right py-3 px-4">% מהתיק</th>
+                        <th class="text-right py-3 px-4">הרציונל</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:PHOE</td>
+                        <td class="py-3 px-4">Phoenix Holdings</td>
+                        <td class="py-3 px-4 text-slate-400">ביטוח</td>
+                        <td class="py-3 px-4">60</td>
+                        <td class="py-3 px-4">₪168.20</td>
+                        <td class="py-3 px-4 font-bold">₪10,092</td>
+                        <td class="py-3 px-4">5.9%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">+165% ב-2025, אהוב על זרים</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:HARL</td>
+                        <td class="py-3 px-4">חראל ביטוח</td>
+                        <td class="py-3 px-4 text-slate-400">ביטוח</td>
+                        <td class="py-3 px-4">60</td>
+                        <td class="py-3 px-4">₪166.10</td>
+                        <td class="py-3 px-4 font-bold">₪9,966</td>
+                        <td class="py-3 px-4">5.8%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">+151% ב-2025, הנהגה יציבה</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:ESLT</td>
+                        <td class="py-3 px-4">אלביט סיסטמס</td>
+                        <td class="py-3 px-4 text-slate-400">ביטחון</td>
+                        <td class="py-3 px-4">5</td>
+                        <td class="py-3 px-4">₪2,114.30</td>
+                        <td class="py-3 px-4 font-bold">₪10,572</td>
+                        <td class="py-3 px-4">6.1%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">תיק הזמנות עצום, אבל גבוה - זהירות</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:DEDRL</td>
+                        <td class="py-3 px-4">דלק קידוחים</td>
+                        <td class="py-3 px-4 text-slate-400">אנרגיה</td>
+                        <td class="py-3 px-4">58</td>
+                        <td class="py-3 px-4">₪20.83</td>
+                        <td class="py-3 px-4 font-bold">₪1,208</td>
+                        <td class="py-3 px-4">0.7%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">גז לייצוא, ענף +77% ב-2025</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:LUMI</td>
+                        <td class="py-3 px-4">בנק לאומי</td>
+                        <td class="py-3 px-4 text-slate-400">בנקאות</td>
+                        <td class="py-3 px-4">126</td>
+                        <td class="py-3 px-4">₪77.98</td>
+                        <td class="py-3 px-4 font-bold">₪9,825</td>
+                        <td class="py-3 px-4">5.7%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">דיגיטל מוביל, הגיע ל-₪100B שווי</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:NXTV</td>
+                        <td class="py-3 px-4">NextVision</td>
+                        <td class="py-3 px-4 text-slate-400">Small-cap</td>
+                        <td class="py-3 px-4">30</td>
+                        <td class="py-3 px-4">₪292.00</td>
+                        <td class="py-3 px-4 font-bold">₪8,760</td>
+                        <td class="py-3 px-4">5.1%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">+253% ב-2025! מצלמות לרחפנים</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:NWMD</td>
+                        <td class="py-3 px-4">NewMed Energy</td>
+                        <td class="py-3 px-4 text-slate-400">Small-cap</td>
+                        <td class="py-3 px-4">95</td>
+                        <td class="py-3 px-4">₪20.83</td>
+                        <td class="py-3 px-4 font-bold">₪1,979</td>
+                        <td class="py-3 px-4">1.1%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">חיפושי גז, צמיחה</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:TRPZ</td>
+                        <td class="py-3 px-4">טורפז תעשיות</td>
+                        <td class="py-3 px-4 text-slate-400">Small-cap</td>
+                        <td class="py-3 px-4">38</td>
+                        <td class="py-3 px-4">₪84.36</td>
+                        <td class="py-3 px-4 font-bold">₪3,206</td>
+                        <td class="py-3 px-4">1.9%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">+238% ב-2025, TA-90 מוביל</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:DEDRL</td>
+                        <td class="py-3 px-4">דלק קידוחים (טקטי)</td>
+                        <td class="py-3 px-4 text-slate-400">אנרגיה</td>
+                        <td class="py-3 px-4">58</td>
+                        <td class="py-3 px-4">₪20.83</td>
+                        <td class="py-3 px-4 font-bold">₪1,208</td>
+                        <td class="py-3 px-4">0.7%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">כפילות - הימור על רוטציה לאנרגיה</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">NASDAQ:QQQ</td>
+                        <td class="py-3 px-4">Invesco QQQ</td>
+                        <td class="py-3 px-4 text-slate-400">US Tech</td>
+                        <td class="py-3 px-4">21</td>
+                        <td class="py-3 px-4">$601.92</td>
+                        <td class="py-3 px-4 font-bold">₪12,640</td>
+                        <td class="py-3 px-4">7.3%</td>
+                        <td class="py-3 px-4 text-xs text-slate-400">חשיפה לנאסד"ק, גידור דולר</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto flex gap-4 justify-center mb-8 no-print">
+        <button onclick="window.print()" class="px-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg transition">
+            🖨️ הדפס דוח
+        </button>
+        <button onclick="exportToCSV()" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg transition">
+            📊 ייצוא לExcel
+        </button>
+    </div>
+    
+    <script>
+        const categoryData = {
+            labels: ['ביטוח', 'ביטחון', 'אנרגיה', 'בנקאות', 'Small-cap', 'US Tech'],
+            datasets: [{
+                data: [20058, 10572, 2416, 9825, 13945, 12640],
+                backgroundColor: [
+                    'rgba(59, 130, 246, 0.8)',
+                    'rgba(239, 68, 68, 0.8)',
+                    'rgba(245, 158, 11, 0.8)',
+                    'rgba(16, 185, 129, 0.8)',
+                    'rgba(139, 92, 246, 0.8)',
+                    'rgba(236, 72, 153, 0.8)',
+                ],
+                borderColor: 'rgba(30, 41, 59, 1)',
+                borderWidth: 2
+            }]
+        };
+        
+        new Chart(document.getElementById('categoryChart'), {
+            type: 'pie',
+            data: categoryData,
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { color: '#f1f5f9', font: { size: 14 } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                const value = context.parsed;
+                                const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                const percentage = ((value / total) * 100).toFixed(1);
+                                return context.label + ': ₪' + value.toLocaleString('he-IL') + ' (' + percentage + '%)';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+        
+        function exportToCSV() {
+            const rows = [
+                ['סימול', 'שם', 'קטגוריה', 'יחידות', 'מחיר', 'שווי', '%', 'הרציונל'],
+                ['TLV:PHOE', 'Phoenix', 'ביטוח', '60', '168.20', '10092', '5.9', '+165% ב-2025'],
+                ['TLV:HARL', 'חראל', 'ביטוח', '60', '166.10', '9966', '5.8', '+151% ב-2025'],
+                ['TLV:ESLT', 'אלביט', 'ביטחון', '5', '2114.30', '10572', '6.1', 'זהירות'],
+                ['TLV:DEDRL', 'דלק', 'אנרגיה', '58', '20.83', '1208', '0.7', 'ייצוא גז'],
+                ['TLV:LUMI', 'לאומי', 'בנקאות', '126', '77.98', '9825', '5.7', 'דיגיטל'],
+                ['TLV:NXTV', 'NextVision', 'Small-cap', '30', '292', '8760', '5.1', '+253%'],
+                ['TLV:NWMD', 'NewMed', 'Small-cap', '95', '20.83', '1979', '1.1', 'חיפושי גז'],
+                ['TLV:TRPZ', 'טורפז', 'Small-cap', '38', '84.36', '3206', '1.9', '+238%'],
+                ['TLV:DEDRL', 'דלק (2)', 'אנרגיה', '58', '20.83', '1208', '0.7', 'טקטי'],
+                ['NASDAQ:QQQ', 'QQQ', 'US Tech', '21', '$601.92', '12640', '7.3', 'נאסד"ק']
+            ];
+            
+            const csvContent = rows.map(row => row.join(',')).join('\n');
+            const blob = new Blob(['\ufeff' + csvContent], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'aggressive_portfolio.csv';
+            link.click();
+        }
+    </script>
+</body>
+</html>

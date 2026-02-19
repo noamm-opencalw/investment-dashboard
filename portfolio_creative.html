@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>תיק Creative - פרטים מלאים</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Heebo',sans-serif;}
+        .glass{background:rgba(15,23,42,0.6);backdrop-filter:blur(10px);border:1px solid rgba(148,163,184,0.1);}
+        .stat-card{background:rgba(30,41,59,0.4);border:1px solid rgba(148,163,184,0.1);transition:all 0.3s ease;}
+        .stat-card:hover{background:rgba(30,41,59,0.6);border-color:rgba(148,163,184,0.2);}
+        @media print{body{background:white;color:black;}.no-print{display:none;}}
+    </style>
+</head>
+<body class="min-h-screen text-slate-50 p-4 md:p-8">
+    <div class="max-w-7xl mx-auto mb-6 no-print">
+        <a href="index.html" class="inline-flex items-center gap-2 px-4 py-2 glass rounded-lg hover:bg-slate-700/50 transition">
+            <span>←</span><span>חזרה לדשבורד</span>
+        </a>
+    </div>
+    <div class="max-w-7xl mx-auto glass rounded-2xl p-6 md:p-8 mb-6">
+        <div class="flex items-center justify-between flex-wrap gap-4">
+            <div>
+                <h1 class="text-3xl md:text-4xl font-bold mb-2">🎨 תיק Creative - קונטרריאן</h1>
+                <p class="text-slate-400">עדכון אחרון: 19/02/2026 14:30</p>
+            </div>
+            <div class="text-left"><div class="text-4xl md:text-5xl font-bold text-red-400">↘ -96.99%</div></div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+        <div class="stat-card rounded-xl p-6">
+            <div class="text-slate-400 text-sm mb-2">סה"כ נכסים נטו</div>
+            <div class="text-3xl font-bold">₪3,010</div>
+            <div class="text-xs text-slate-500 mt-1">אחרי מס 25% + עמלות</div>
+        </div>
+        <div class="stat-card rounded-xl p-6">
+            <div class="text-slate-400 text-sm mb-2">תשואה כוללת</div>
+            <div class="text-3xl font-bold text-red-400">-96.99%</div>
+            <div class="text-xs text-slate-500 mt-1">-₪96,990 הפסד</div>
+        </div>
+        <div class="stat-card rounded-xl p-6">
+            <div class="text-slate-400 text-sm mb-2">פוזיציות בתיק</div>
+            <div class="text-3xl font-bold">11</div>
+            <div class="text-xs text-slate-500 mt-1">contrarian + distressed</div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <div class="glass rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-4">חלוקה לפי תחומים</h2>
+            <canvas id="categoryChart"></canvas>
+        </div>
+        <div class="glass rounded-2xl p-6">
+            <h2 class="text-xl font-bold mb-4">אסטרטגיית התיק</h2>
+            <div class="text-slate-300 space-y-3">
+                <p class="font-bold text-red-400">🎨 מטרה: לקנות מה שכולם שונאים</p>
+                <p class="font-bold text-red-400">⚠️ סטטוס: הפסד -97%</p>
+                <ul class="list-disc list-inside space-y-1 text-sm">
+                    <li>30% Contrarian (נדל"ן, קמעונאות, תיירות)</li>
+                    <li>20% Arbitrage (דואליות TEVA/CHKP)</li>
+                    <li>15% Distressed bonds</li>
+                    <li>10% Preferreds + REITs</li>
+                </ul>
+                <div class="mt-4 p-3 bg-red-500/10 rounded-lg border border-red-500/20">
+                    <p class="text-sm font-bold">מה קרה:</p>
+                    <p class="text-xs">הכל ירד עוד יותר. נדל"ן לא התאושש, טק ישראלי המשיך למטה, distressed bonds נפלו עוד. "קנה בזול" הפך ל"קנה באסון".</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto glass rounded-2xl p-6 mb-6">
+        <h2 class="text-2xl font-bold mb-6">פוזיציות בתיק - פירוט מלא</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm">
+                <thead>
+                    <tr class="border-b border-slate-700">
+                        <th class="text-right py-3 px-4">סימול</th>
+                        <th class="text-right py-3 px-4">שם</th>
+                        <th class="text-right py-3 px-4">קטגוריה</th>
+                        <th class="text-right py-3 px-4">שווי רכישה</th>
+                        <th class="text-right py-3 px-4">רציונל</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:AZRG</td>
+                        <td class="py-3 px-4">עזריאלי</td>
+                        <td class="py-3 px-4 text-slate-400">נדל"ן</td>
+                        <td class="py-3 px-4 font-bold">₪6,936</td>
+                        <td class="py-3 px-4 text-xs text-red-400">+24.7% ב-2025, עדיין ירד</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:BIG</td>
+                        <td class="py-3 px-4">ביג</td>
+                        <td class="py-3 px-4 text-slate-400">קמעונאות</td>
+                        <td class="py-3 px-4 font-bold">₪50,293</td>
+                        <td class="py-3 px-4 text-xs text-red-400">קניונים שנואים, לא חזרו</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:SHFR</td>
+                        <td class="py-3 px-4">שופרסל</td>
+                        <td class="py-3 px-4 text-slate-400">קמעונאות</td>
+                        <td class="py-3 px-4 font-bold">₪5,427</td>
+                        <td class="py-3 px-4 text-xs text-red-400">-41.7% בענף, המשיך למטה</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:FTHL</td>
+                        <td class="py-3 px-4">פתאל</td>
+                        <td class="py-3 px-4 text-slate-400">תיירות</td>
+                        <td class="py-3 px-4 font-bold">₪14,772</td>
+                        <td class="py-3 px-4 text-xs text-red-400">2027 התאוששות? עדיין מוקדם</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">NASDAQ:TEVA</td>
+                        <td class="py-3 px-4">טבע</td>
+                        <td class="py-3 px-4 text-slate-400">ארביטראז'</td>
+                        <td class="py-3 px-4 font-bold">₪12,472</td>
+                        <td class="py-3 px-4 text-xs text-red-400">פארמה שנואה, לא עבד</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">NASDAQ:CHKP</td>
+                        <td class="py-3 px-4">צ'ק פוינט</td>
+                        <td class="py-3 px-4 text-slate-400">טכנולוגיה</td>
+                        <td class="py-3 px-4 font-bold">₪3,289</td>
+                        <td class="py-3 px-4 text-xs text-red-400">Wedbush הוריד יעד</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:NICE</td>
+                        <td class="py-3 px-4">Nice</td>
+                        <td class="py-3 px-4 text-slate-400">טכנולוגיה</td>
+                        <td class="py-3 px-4 font-bold">₪6,111</td>
+                        <td class="py-3 px-4 text-xs text-red-400">טק ישראלי שנוא</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">BONDS:RE-DIST</td>
+                        <td class="py-3 px-4">אגח נדל"ן</td>
+                        <td class="py-3 px-4 text-slate-400">Distressed</td>
+                        <td class="py-3 px-4 font-bold">₪10,000</td>
+                        <td class="py-3 px-4 text-xs text-red-400">7% yield, נפלו עוד</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">BONDS:RETAIL</td>
+                        <td class="py-3 px-4">אגח קמעונאות</td>
+                        <td class="py-3 px-4 text-slate-400">Distressed</td>
+                        <td class="py-3 px-4 font-bold">₪5,000</td>
+                        <td class="py-3 px-4 text-xs text-red-400">6.5% yield, סיכון מימוש</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:POLI-PR</td>
+                        <td class="py-3 px-4">פועלים מ"מ</td>
+                        <td class="py-3 px-4 text-slate-400">Preferreds</td>
+                        <td class="py-3 px-4 font-bold">₪4,950</td>
+                        <td class="py-3 px-4 text-xs text-red-400">דיבידנד גבוה, אבל ירד</td>
+                    </tr>
+                    <tr class="border-b border-slate-800 hover:bg-slate-800/30">
+                        <td class="py-3 px-4 font-mono">TLV:REIT-MIX</td>
+                        <td class="py-3 px-4">קרן נדל"ן</td>
+                        <td class="py-3 px-4 text-slate-400">REITs</td>
+                        <td class="py-3 px-4 font-bold">₪4,900</td>
+                        <td class="py-3 px-4 text-xs text-red-400">תשואה, אבל נדל"ן נפל</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="max-w-7xl mx-auto flex gap-4 justify-center mb-8 no-print">
+        <button onclick="window.print()" class="px-6 py-3 bg-slate-700 hover:bg-slate-600 rounded-lg transition">🖨️ הדפס דוח</button>
+        <button onclick="exportToCSV()" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg transition">📊 ייצוא לExcel</button>
+    </div>
+    <script>
+        const categoryData={labels:['Contrarian','Arbitrage','Distressed','Alternatives'],datasets:[{data:[77429,15761,15000,9850],backgroundColor:['rgba(59,130,246,0.8)','rgba(236,72,153,0.8)','rgba(239,68,68,0.8)','rgba(245,158,11,0.8)'],borderColor:'rgba(30,41,59,1)',borderWidth:2}]};
+        new Chart(document.getElementById('categoryChart'),{type:'pie',data:categoryData,options:{responsive:true,plugins:{legend:{position:'bottom',labels:{color:'#f1f5f9',font:{size:14}}},tooltip:{callbacks:{label:function(context){const value=context.parsed;const total=context.dataset.data.reduce((a,b)=>a+b,0);const percentage=((value/total)*100).toFixed(1);return context.label+': ₪'+value.toLocaleString('he-IL')+' ('+percentage+'%)';}}}}}});
+        function exportToCSV(){const rows=[['סימול','שם','קטגוריה','שווי','רציונל'],['TLV:AZRG','עזריאלי','נדל"ן','6936','ירד'],['TLV:BIG','ביג','קמעונאות','50293','לא חזר'],['TLV:SHFR','שופרסל','קמעונאות','5427','המשיך למטה'],['TLV:FTHL','פתאל','תיירות','14772','מוקדם'],['NASDAQ:TEVA','טבע','ארביטראז','12472','לא עבד'],['NASDAQ:CHKP','צ\'ק פוינט','טכנולוגיה','3289','הורדת יעד'],['TLV:NICE','Nice','טכנולוגיה','6111','שנוא'],['BONDS:RE-DIST','אגח נדל"ן','Distressed','10000','נפל עוד'],['BONDS:RETAIL','אגח קמעונאות','Distressed','5000','סיכון'],['TLV:POLI-PR','פועלים מ"מ','Preferreds','4950','ירד'],['TLV:REIT-MIX','קרן נדל"ן','REITs','4900','נפל']];const csvContent=rows.map(row=>row.join(',')).join('\n');const blob=new Blob(['\ufeff'+csvContent],{type:'text/csv;charset=utf-8;'});const link=document.createElement('a');link.href=URL.createObjectURL(blob);link.download='creative_portfolio.csv';link.click();}
+    </script>
+</body>
+</html>
