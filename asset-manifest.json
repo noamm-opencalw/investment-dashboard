@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.574501ad.css",
-    "main.js": "/static/js/main.91df3fab.js",
-    "index.html": "/index.html",
-    "main.574501ad.css.map": "/static/css/main.574501ad.css.map",
-    "main.91df3fab.js.map": "/static/js/main.91df3fab.js.map"
+    "main.css": "/investment-dashboard/static/css/main.574501ad.css",
+    "main.js": "/investment-dashboard/static/js/main.91df3fab.js",
+    "index.html": "/investment-dashboard/index.html",
+    "main.574501ad.css.map": "/investment-dashboard/static/css/main.574501ad.css.map",
+    "main.91df3fab.js.map": "/investment-dashboard/static/js/main.91df3fab.js.map"
   },
   "entrypoints": [
     "static/css/main.574501ad.css",
