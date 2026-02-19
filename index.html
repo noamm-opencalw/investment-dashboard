@@ -1,1 +1,123 @@
-<!doctype html><html lang="he" dir="rtl"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#020617"/><meta name="description" content="תיקיית השקעות - דשבורד ניתוח ביצועים"/><title>תיקיית השקעות</title><style>body{margin:0;padding:0;background-color:#020617;color:#f8fafc;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Fira Sans','Droid Sans','Helvetica Neue',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}#root{width:100%;min-height:100vh}</style><script defer="defer" src="/investment-dashboard/static/js/main.b76b4b95.js"></script><link href="/investment-dashboard/static/css/main.83760e59.css" rel="stylesheet"></head><body><div id="root"></div></body></html>
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,minimum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#080d1a">
+<title>תיקי השקעות - דשבורד</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  *{box-sizing:border-box}
+  body{font-family:-apple-system,BlinkMacSystemFont,'Assistant',sans-serif;background:#0a0f1e;color:#e2e8f0;min-height:100vh;padding:env(safe-area-inset-top) 1rem calc(1.5rem + env(safe-area-inset-bottom)) 1rem}
+  .glass{background:rgba(255,255,255,.04);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.08)}
+  .tappable{transition:transform .2s,box-shadow .2s;cursor:pointer}
+  .tappable:hover{transform:scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,.5)}
+  .tappable:active{transform:scale(.97)}
+  .pos{color:#34d399}
+  .neg{color:#fb7185}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+</style>
+</head>
+<body>
+<div style="max-width:520px;margin:0 auto">
+  
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.8rem;padding-top:.5rem">
+    <div style="display:flex;align-items:center;gap:.5rem">
+      <span style="width:7px;height:7px;background:#34d399;border-radius:50%;animation:pulse 2s infinite"></span>
+      <span style="font-size:.72rem;color:#34d399;font-weight:600">LIVE</span>
+    </div>
+    <div style="font-size:.72rem;color:#475569">30 ימים · 19.3.2026</div>
+  </div>
+  
+  <div class="glass" style="padding:1.8rem;margin-bottom:1.5rem;border-radius:1.2rem;border-right:3px solid #fb7185">
+    <div style="font-size:.85rem;color:#94a3b8;margin-bottom:.6rem">יהיה בחשבונך אם תמכור הכל היום</div>
+    <div style="font-size:clamp(2.4rem,10vw,3.5rem);font-weight:800;margin-bottom:.3rem">₪443,163</div>
+    <div style="font-size:.72rem;color:#475569;margin-bottom:1.2rem">שווי שוק: ₪496,880 | התחלה: ₪500,000</div>
+    <div style="display:flex;align-items:center;gap:1rem;flex-wrap:wrap">
+      <span class="neg" style="font-size:1.1rem;font-weight:700">▼ ₪56,837</span>
+      <span class="neg" style="background:rgba(251,113,133,.1);border:1px solid rgba(251,113,133,.2);padding:2px 10px;border-radius:999px;font-weight:700;font-size:.85rem">▼ 11.37%</span>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.06);margin-top:1rem;padding-top:.8rem;font-size:.72rem;color:#475569">
+      יום 3 מתוך 30 · נשארו 27 ימים
+    </div>
+  </div>
+  
+  <h2 style="font-size:1.2rem;font-weight:700;margin:1.5rem 0 1rem;color:#fff">5 תיקי השקעות</h2>
+  
+  <a href="portfolio_solid.html" class="glass tappable" style="display:block;padding:1.4rem;margin-bottom:1rem;border-radius:1.2rem;border-right:3px solid #34d399;text-decoration:none;color:inherit">
+    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:.8rem">
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:.3rem">🐢 Solid</div>
+        <div style="font-size:.75rem;color:#94a3b8">שמרני · שמירת הון</div>
+      </div>
+      <div class="pos" style="font-size:1.4rem;font-weight:800">+165.85%</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:.8rem">
+      <span style="color:#94a3b8">נטו: ₪265,850</span>
+      <span style="color:#475569">התחלה: ₪100,000</span>
+    </div>
+  </a>
+  
+  <a href="portfolio_aggressive.html" class="glass tappable" style="display:block;padding:1.4rem;margin-bottom:1rem;border-radius:1.2rem;border-right:3px solid #34d399;text-decoration:none;color:inherit">
+    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:.8rem">
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:.3rem">🦁 Aggressive</div>
+        <div style="font-size:.75rem;color:#94a3b8">אגרסיבי · ניצחון TA-125</div>
+      </div>
+      <div class="pos" style="font-size:1.4rem;font-weight:800">+72.12%</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:.8rem">
+      <span style="color:#94a3b8">נטו: ₪172,120</span>
+      <span style="color:#475569">התחלה: ₪100,000</span>
+    </div>
+  </a>
+  
+  <a href="portfolio_rocket.html" class="glass tappable" style="display:block;padding:1.4rem;margin-bottom:1rem;border-radius:1.2rem;border-right:3px solid #fb7185;text-decoration:none;color:inherit">
+    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:.8rem">
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:.3rem">🚀 Super-Aggressive</div>
+        <div style="font-size:.75rem;color:#94a3b8">סופר-אגרסיבי · ירח × 2-3</div>
+      </div>
+      <div class="neg" style="font-size:1.4rem;font-weight:800">-98.22%</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:.8rem">
+      <span style="color:#94a3b8">נטו: ₪1,778</span>
+      <span style="color:#475569">התחלה: ₪100,000</span>
+    </div>
+  </a>
+  
+  <a href="portfolio_speculative.html" class="glass tappable" style="display:block;padding:1.4rem;margin-bottom:1rem;border-radius:1.2rem;border-right:3px solid #fb7185;text-decoration:none;color:inherit">
+    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:.8rem">
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:.3rem">🎯 Speculative</div>
+        <div style="font-size:.75rem;color:#94a3b8">ספקולטיבי · קטליסטים</div>
+      </div>
+      <div class="neg" style="font-size:1.4rem;font-weight:800">-99.59%</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:.8rem">
+      <span style="color:#94a3b8">נטו: ₪413</span>
+      <span style="color:#475569">התחלה: ₪100,000</span>
+    </div>
+  </a>
+  
+  <a href="portfolio_creative.html" class="glass tappable" style="display:block;padding:1.4rem;margin-bottom:1rem;border-radius:1.2rem;border-right:3px solid #fb7185;text-decoration:none;color:inherit">
+    <div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:.8rem">
+      <div>
+        <div style="font-size:1.1rem;font-weight:700;margin-bottom:.3rem">🎨 Creative</div>
+        <div style="font-size:.75rem;color:#94a3b8">קונטרריאן · קנה שנואים</div>
+      </div>
+      <div class="neg" style="font-size:1.4rem;font-weight:800">-96.99%</div>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:.8rem">
+      <span style="color:#94a3b8">נטו: ₪3,010</span>
+      <span style="color:#475569">התחלה: ₪100,000</span>
+    </div>
+  </a>
+  
+  <div style="text-align:center;padding:2rem 0;color:#475569;font-size:.75rem">
+    ניסוי 30 יום · נתונים דמו · לא כסף אמיתי
+  </div>
+</div>
+</body>
+</html>
