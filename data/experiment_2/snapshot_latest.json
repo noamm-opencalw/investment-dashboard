@@ -1,342 +1,391 @@
 {
-  "timestamp": "2026-02-20T09:07:42.731313+00:00",
-  "exchange_rate_usd_ils": 3.65,
+  "timestamp": "2026-02-20T12:28:51.306950",
+  "date": "2026-02-20",
   "portfolios": [
     {
-      "id": 1,
-      "name": "SOLID",
+      "portfolioId": 1,
+      "portfolioName": "SOLID",
       "emoji": "🏛️",
+      "initialCapital": 100000,
+      "cash": 8505.06,
+      "positionsValue": 91464.7,
+      "totalValue": 99969.76,
+      "pnl": -30.24,
+      "returnPct": -0.03,
       "positions": [
         {
-          "symbol": "MSFT",
+          "symbol": "ESLT.TA",
+          "shares": 7,
+          "initialPrice": 2324.0,
+          "currentPrice": 2323.2,
+          "initialValue": 16268.0,
+          "currentValue": 16262.4,
+          "pnl": -5.6,
+          "pnlPct": -0.03
+        },
+        {
+          "symbol": "HARL.TA",
+          "shares": 131,
+          "initialPrice": 166.0,
+          "currentPrice": 166.0,
+          "initialValue": 21746.0,
+          "currentValue": 21746.0,
+          "pnl": 0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "PHOE.TA",
+          "shares": 123,
+          "initialPrice": 167.6,
+          "currentPrice": 167.4,
+          "initialValue": 20614.8,
+          "currentValue": 20590.2,
+          "pnl": -24.6,
+          "pnlPct": -0.12
+        },
+        {
+          "symbol": "AZRG.TA",
+          "shares": 34,
+          "initialPrice": 473.3,
+          "currentPrice": 473.3,
+          "initialValue": 16092.2,
+          "currentValue": 16092.2,
+          "pnl": 0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "GLD",
           "shares": 10,
-          "initial_price_ils": 1454.38,
-          "current_price_ils": 1454.38,
-          "initial_value": 14543.79,
-          "current_value": 14543.8,
-          "pnl": 0.01,
-          "pnl_pct": 0.0
-        },
-        {
-          "symbol": "GOOGL",
-          "shares": 13,
-          "initial_price_ils": 1105.4,
-          "current_price_ils": 1105.4,
-          "initial_value": 14370.23,
-          "current_value": 14370.2,
-          "pnl": -0.03,
-          "pnl_pct": -0.0
-        },
-        {
-          "symbol": "NVDA",
-          "shares": 29,
-          "initial_price_ils": 685.84,
-          "current_price_ils": 685.84,
-          "initial_value": 19889.22,
-          "current_value": 19889.36,
-          "pnl": 0.14,
-          "pnl_pct": 0.0
-        },
-        {
-          "symbol": "ESLT.TA",
-          "shares": 13,
-          "initial_price_ils": 2251.0,
-          "current_price_ils": 2320.0,
-          "initial_value": 29263.0,
-          "current_value": 30160.0,
-          "pnl": 897.0,
-          "pnl_pct": 3.07
-        },
-        {
-          "symbol": "LUMI.TA",
-          "shares": 193,
-          "initial_price_ils": 77.49,
-          "current_price_ils": 77.0,
-          "initial_value": 14955.57,
-          "current_value": 14861.0,
-          "pnl": -94.57,
-          "pnl_pct": -0.63
-        }
-      ],
-      "cash": 5000.0,
-      "total_value": 98824.36,
-      "initial_capital": 100000,
-      "pnl": -1175.64,
-      "return_pct": -1.18
-    },
-    {
-      "id": 2,
-      "name": "AGGRESSIVE",
-      "emoji": "🔥",
-      "positions": [
-        {
-          "symbol": "ESLT.TA",
-          "shares": 8,
-          "initial_price_ils": 2251.0,
-          "current_price_ils": 2320.0,
-          "initial_value": 18008.0,
-          "current_value": 18560.0,
-          "pnl": 552.0,
-          "pnl_pct": 3.07
-        },
-        {
-          "symbol": "NICE.TA",
-          "shares": 43,
-          "initial_price_ils": 342.0,
-          "current_price_ils": 360.8,
-          "initial_value": 14706.0,
-          "current_value": 15514.4,
-          "pnl": 808.4,
-          "pnl_pct": 5.5
-        },
-        {
-          "symbol": "NWMD.TA",
-          "shares": 599,
-          "initial_price_ils": 20.85,
-          "current_price_ils": 21.02,
-          "initial_value": 12489.15,
-          "current_value": 12590.98,
-          "pnl": 101.83,
-          "pnl_pct": 0.82
-        },
-        {
-          "symbol": "ENOG.TA",
-          "shares": 345,
-          "initial_price_ils": 36.15,
-          "current_price_ils": 36.46,
-          "initial_value": 12471.75,
-          "current_value": 12578.7,
-          "pnl": 106.95,
-          "pnl_pct": 0.86
-        },
-        {
-          "symbol": "NVDA",
-          "shares": 21,
-          "initial_price_ils": 685.84,
-          "current_price_ils": 685.84,
-          "initial_value": 14402.53,
-          "current_value": 14402.64,
-          "pnl": 0.11,
-          "pnl_pct": 0.0
-        },
-        {
-          "symbol": "MNDY",
-          "shares": 36,
-          "initial_price_ils": 277.4,
-          "current_price_ils": 277.4,
-          "initial_value": 9986.4,
-          "current_value": 9986.4,
-          "pnl": 0.0,
-          "pnl_pct": 0.0
-        }
-      ],
-      "cash": 15000.0,
-      "total_value": 98633.12,
-      "initial_capital": 100000,
-      "pnl": -1366.88,
-      "return_pct": -1.37
-    },
-    {
-      "id": 3,
-      "name": "SUPER_AGGRESSIVE",
-      "emoji": "🚀",
-      "positions": [
-        {
-          "symbol": "NVDA",
-          "shares": 36,
-          "initial_price_ils": 685.84,
-          "current_price_ils": 685.84,
-          "initial_value": 24690.06,
-          "current_value": 24690.24,
-          "pnl": 0.18,
-          "pnl_pct": 0.0
-        },
-        {
-          "symbol": "MNDY",
-          "shares": 54,
-          "initial_price_ils": 277.4,
-          "current_price_ils": 277.4,
-          "initial_value": 14979.6,
-          "current_value": 14979.6,
-          "pnl": 0.0,
-          "pnl_pct": 0.0
-        },
-        {
-          "symbol": "QQQ",
-          "shares": 4,
-          "initial_price_ils": 2202.67,
-          "current_price_ils": 2202.67,
-          "initial_value": 8810.66,
-          "current_value": 8810.68,
-          "pnl": 0.02,
-          "pnl_pct": 0.0
-        },
-        {
-          "symbol": "NICE.TA",
-          "shares": 43,
-          "initial_price_ils": 342.0,
-          "current_price_ils": 360.8,
-          "initial_value": 14706.0,
-          "current_value": 15514.4,
-          "pnl": 808.4,
-          "pnl_pct": 5.5
-        },
-        {
-          "symbol": "NWMD.TA",
-          "shares": 719,
-          "initial_price_ils": 20.85,
-          "current_price_ils": 21.02,
-          "initial_value": 14991.15,
-          "current_value": 15113.38,
-          "pnl": 122.23,
-          "pnl_pct": 0.82
-        }
-      ],
-      "cash": 20000.0,
-      "total_value": 99108.3,
-      "initial_capital": 100000,
-      "pnl": -891.7,
-      "return_pct": -0.89
-    },
-    {
-      "id": 4,
-      "name": "SPECULATIVE",
-      "emoji": "🎲",
-      "positions": [
-        {
-          "symbol": "ESLT.TA",
-          "shares": 8,
-          "initial_price_ils": 2251.0,
-          "current_price_ils": 2320.0,
-          "initial_value": 18008.0,
-          "current_value": 18560.0,
-          "pnl": 552.0,
-          "pnl_pct": 3.07
-        },
-        {
-          "symbol": "NWMD.TA",
-          "shares": 959,
-          "initial_price_ils": 20.85,
-          "current_price_ils": 21.02,
-          "initial_value": 19995.15,
-          "current_value": 20158.18,
-          "pnl": 163.03,
-          "pnl_pct": 0.82
-        },
-        {
-          "symbol": "ENOG.TA",
-          "shares": 276,
-          "initial_price_ils": 36.15,
-          "current_price_ils": 36.46,
-          "initial_value": 9977.4,
-          "current_value": 10062.96,
-          "pnl": 85.56,
-          "pnl_pct": 0.86
-        },
-        {
-          "symbol": "CHKP",
-          "shares": 17,
-          "initial_price_ils": 580.53,
-          "current_price_ils": 580.53,
-          "initial_value": 9869.05,
-          "current_value": 9869.01,
+          "initialPrice": 1677.39,
+          "currentPrice": 1677.39,
+          "initialValue": 16773.94,
+          "currentValue": 16773.9,
           "pnl": -0.04,
-          "pnl_pct": -0.0
+          "pnlPct": 0.0
+        }
+      ]
+    },
+    {
+      "portfolioId": 2,
+      "portfolioName": "AGGRESSIVE",
+      "emoji": "🔥",
+      "initialCapital": 100000,
+      "cash": 6623.93,
+      "positionsValue": 93352.62,
+      "totalValue": 99976.55,
+      "pnl": -23.45,
+      "returnPct": -0.02,
+      "positions": [
+        {
+          "symbol": "HARL.TA",
+          "shares": 100,
+          "initialPrice": 166.0,
+          "currentPrice": 166.0,
+          "initialValue": 16600.0,
+          "currentValue": 16600.0,
+          "pnl": 0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "PHOE.TA",
+          "shares": 93,
+          "initialPrice": 167.6,
+          "currentPrice": 167.4,
+          "initialValue": 15586.8,
+          "currentValue": 15568.2,
+          "pnl": -18.6,
+          "pnlPct": -0.12
+        },
+        {
+          "symbol": "ESLT.TA",
+          "shares": 6,
+          "initialPrice": 2324.0,
+          "currentPrice": 2323.2,
+          "initialValue": 13944.0,
+          "currentValue": 13939.2,
+          "pnl": -4.8,
+          "pnlPct": -0.03
+        },
+        {
+          "symbol": "AZRG.TA",
+          "shares": 25,
+          "initialPrice": 473.3,
+          "currentPrice": 473.3,
+          "initialValue": 11832.5,
+          "currentValue": 11832.5,
+          "pnl": 0.0,
+          "pnlPct": 0.0
         },
         {
           "symbol": "GLD",
           "shares": 8,
-          "initial_price_ils": 1677.39,
-          "current_price_ils": 1677.39,
-          "initial_value": 13419.15,
-          "current_value": 13419.12,
+          "initialPrice": 1677.39,
+          "currentPrice": 1677.39,
+          "initialValue": 13419.15,
+          "currentValue": 13419.12,
           "pnl": -0.03,
-          "pnl_pct": -0.0
-        }
-      ],
-      "cash": 25000.0,
-      "total_value": 97069.27,
-      "initial_capital": 100000,
-      "pnl": -2930.73,
-      "return_pct": -2.93
-    },
-    {
-      "id": 5,
-      "name": "CREATIVE",
-      "emoji": "🎨",
-      "positions": [
-        {
-          "symbol": "AZRG.TA",
-          "shares": 32,
-          "initial_price_ils": 461.3,
-          "current_price_ils": 468.4,
-          "initial_value": 14761.6,
-          "current_value": 14988.8,
-          "pnl": 227.2,
-          "pnl_pct": 1.54
-        },
-        {
-          "symbol": "BIG.TA",
-          "shares": 19,
-          "initial_price_ils": 783.7,
-          "current_price_ils": 777.7,
-          "initial_value": 14890.3,
-          "current_value": 14776.3,
-          "pnl": -114.0,
-          "pnl_pct": -0.77
+          "pnlPct": 0.0
         },
         {
           "symbol": "POLI.TA",
-          "shares": 123,
-          "initial_price_ils": 81.16,
-          "current_price_ils": 81.07,
-          "initial_value": 9982.68,
-          "current_value": 9971.61,
-          "pnl": -11.07,
-          "pnl_pct": -0.11
+          "shares": 150,
+          "initialPrice": 80.3,
+          "currentPrice": 80.3,
+          "initialValue": 12045.0,
+          "currentValue": 12045.0,
+          "pnl": 0.0,
+          "pnlPct": 0.0
         },
         {
           "symbol": "GOOGL",
-          "shares": 13,
-          "initial_price_ils": 1105.4,
-          "current_price_ils": 1105.4,
-          "initial_value": 14370.23,
-          "current_value": 14370.2,
-          "pnl": -0.03,
-          "pnl_pct": -0.0
+          "shares": 9,
+          "initialPrice": 1105.4,
+          "currentPrice": 1105.4,
+          "initialValue": 9948.62,
+          "currentValue": 9948.6,
+          "pnl": -0.02,
+          "pnlPct": 0.0
+        }
+      ]
+    },
+    {
+      "portfolioId": 3,
+      "portfolioName": "SUPER_AGGRESSIVE",
+      "emoji": "🚀",
+      "initialCapital": 100000,
+      "cash": 8979.37,
+      "positionsValue": 91005.09,
+      "totalValue": 99984.46,
+      "pnl": -15.54,
+      "returnPct": -0.02,
+      "positions": [
+        {
+          "symbol": "ESLT.TA",
+          "shares": 4,
+          "initialPrice": 2324.0,
+          "currentPrice": 2323.2,
+          "initialValue": 9296.0,
+          "currentValue": 9292.8,
+          "pnl": -3.2,
+          "pnlPct": -0.03
         },
         {
-          "symbol": "PHOE.TA",
-          "shares": 89,
-          "initial_price_ils": 167.0,
-          "current_price_ils": 167.4,
-          "initial_value": 14863.0,
-          "current_value": 14898.6,
-          "pnl": 35.6,
-          "pnl_pct": 0.24
+          "symbol": "POLI.TA",
+          "shares": 108,
+          "initialPrice": 80.3,
+          "currentPrice": 80.3,
+          "initialValue": 8672.4,
+          "currentValue": 8672.4,
+          "pnl": 0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "LUMI.TA",
+          "shares": 109,
+          "initialPrice": 76.7,
+          "currentPrice": 76.71,
+          "initialValue": 8360.3,
+          "currentValue": 8361.39,
+          "pnl": 1.09,
+          "pnlPct": 0.01
         },
         {
           "symbol": "HARL.TA",
-          "shares": 61,
-          "initial_price_ils": 163.9,
-          "current_price_ils": 165.7,
-          "initial_value": 9997.9,
-          "current_value": 10107.7,
-          "pnl": 109.8,
-          "pnl_pct": 1.1
+          "shares": 72,
+          "initialPrice": 166.0,
+          "currentPrice": 166.0,
+          "initialValue": 11952.0,
+          "currentValue": 11952.0,
+          "pnl": 0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "PHOE.TA",
+          "shares": 67,
+          "initialPrice": 167.6,
+          "currentPrice": 167.4,
+          "initialValue": 11229.2,
+          "currentValue": 11215.8,
+          "pnl": -13.4,
+          "pnlPct": -0.12
+        },
+        {
+          "symbol": "AZRG.TA",
+          "shares": 18,
+          "initialPrice": 473.3,
+          "currentPrice": 473.3,
+          "initialValue": 8519.4,
+          "currentValue": 8519.4,
+          "pnl": 0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "BIG.TA",
+          "shares": 9,
+          "initialPrice": 779.9,
+          "currentPrice": 779.9,
+          "initialValue": 7019.1,
+          "currentValue": 7019.1,
+          "pnl": -0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "NWMD.TA",
+          "shares": 363,
+          "initialPrice": 21.06,
+          "currentPrice": 21.06,
+          "initialValue": 7644.78,
+          "currentValue": 7644.78,
+          "pnl": 0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "GOOGL",
+          "shares": 7,
+          "initialPrice": 1105.4,
+          "currentPrice": 1105.4,
+          "initialValue": 7737.82,
+          "currentValue": 7737.8,
+          "pnl": -0.02,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "QQQ",
+          "shares": 1,
+          "initialPrice": 2202.67,
+          "currentPrice": 2202.67,
+          "initialValue": 2202.67,
+          "currentValue": 2202.67,
+          "pnl": 0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "GLD",
+          "shares": 5,
+          "initialPrice": 1677.39,
+          "currentPrice": 1677.39,
+          "initialValue": 8386.97,
+          "currentValue": 8386.95,
+          "pnl": -0.02,
+          "pnlPct": 0.0
         }
-      ],
-      "cash": 10000.0,
-      "total_value": 89113.21,
-      "initial_capital": 100000,
-      "pnl": -10886.79,
-      "return_pct": -10.89
+      ]
+    },
+    {
+      "portfolioId": 4,
+      "portfolioName": "SPECULATIVE",
+      "emoji": "🎲",
+      "initialCapital": 100000,
+      "cash": 5961.11,
+      "positionsValue": 93995.62,
+      "totalValue": 99956.73,
+      "pnl": -43.27,
+      "returnPct": -0.04,
+      "positions": [
+        {
+          "symbol": "NVDA",
+          "shares": 14,
+          "initialPrice": 685.83,
+          "currentPrice": 685.83,
+          "initialValue": 9601.69,
+          "currentValue": 9601.62,
+          "pnl": -0.07,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "HARL.TA",
+          "shares": 181,
+          "initialPrice": 166.0,
+          "currentPrice": 166.0,
+          "initialValue": 30046.0,
+          "currentValue": 30046.0,
+          "pnl": 0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "PHOE.TA",
+          "shares": 172,
+          "initialPrice": 167.6,
+          "currentPrice": 167.4,
+          "initialValue": 28827.2,
+          "currentValue": 28792.8,
+          "pnl": -34.4,
+          "pnlPct": -0.12
+        },
+        {
+          "symbol": "ESLT.TA",
+          "shares": 11,
+          "initialPrice": 2324.0,
+          "currentPrice": 2323.2,
+          "initialValue": 25564.0,
+          "currentValue": 25555.2,
+          "pnl": -8.8,
+          "pnlPct": -0.03
+        }
+      ]
+    },
+    {
+      "portfolioId": 5,
+      "portfolioName": "CREATIVE",
+      "emoji": "🎨",
+      "initialCapital": 100000,
+      "cash": 5869.79,
+      "positionsValue": 94140.22,
+      "totalValue": 100010.01,
+      "pnl": 10.01,
+      "returnPct": 0.01,
+      "positions": [
+        {
+          "symbol": "MNDY",
+          "shares": 68,
+          "initialPrice": 277.4,
+          "currentPrice": 277.4,
+          "initialValue": 18863.2,
+          "currentValue": 18863.2,
+          "pnl": -0.0,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "NICE.TA",
+          "shares": 52,
+          "initialPrice": 361.6,
+          "currentPrice": 361.4,
+          "initialValue": 18803.2,
+          "currentValue": 18792.8,
+          "pnl": -10.4,
+          "pnlPct": -0.06
+        },
+        {
+          "symbol": "CHKP",
+          "shares": 32,
+          "initialPrice": 580.53,
+          "currentPrice": 580.53,
+          "initialValue": 18577.04,
+          "currentValue": 18576.96,
+          "pnl": -0.08,
+          "pnlPct": 0.0
+        },
+        {
+          "symbol": "ENOG.TA",
+          "shares": 512,
+          "initialPrice": 37.07,
+          "currentPrice": 37.11,
+          "initialValue": 18979.84,
+          "currentValue": 19000.32,
+          "pnl": 20.48,
+          "pnlPct": 0.11
+        },
+        {
+          "symbol": "MSFT",
+          "shares": 13,
+          "initialPrice": 1454.38,
+          "currentPrice": 1454.38,
+          "initialValue": 18906.93,
+          "currentValue": 18906.94,
+          "pnl": 0.01,
+          "pnlPct": 0.0
+        }
+      ]
     }
-  ],
-  "overall": {
-    "total_capital": 500000,
-    "total_value": 482748.26,
-    "pnl": -17251.74,
-    "return_pct": -3.45
-  }
+  ]
 }
