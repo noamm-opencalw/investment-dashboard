@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>BankOS - ניסוי 2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0a0a0a;
+            color: #e0e0e0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-variant-numeric: tabular-nums;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            min-height: 100vh;
+            padding: 1rem;
+        }
+        
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+        }
+        
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .header {
+            margin-bottom: 1.5rem;
+        }
+        
+        .title {
+            font-size: clamp(1.75rem, 5vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 640px) {
+            .summary-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .summary-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 700;
+        }
+        
+        .stat-sub {
+            font-size: 0.75rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .profit {
+            color: #10b981;
+        }
+        
+        .loss {
+            color: #ef4444;
+        }
+        
+        .neutral {
+            color: #6b7280;
+        }
+        
+        .portfolios-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .portfolio-card {
+            cursor: pointer;
+        }
+        
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        
+        .emoji {
+            font-size: 1.5rem;
+        }
+        
+        .portfolio-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+        
+        .mini-stat-label {
+            font-size: 0.625rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .mini-stat-value {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 0.25rem;
+        }
+        
+        .positions {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+        }
+        
+        .positions.expanded {
+            display: block;
+        }
+        
+        .position-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .position-row:last-child {
+            border-bottom: none;
+        }
+        
+        .position-symbol {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .position-shares {
+            font-size: 0.75rem;
+            color: #9ca3af;
+        }
+        
+        .position-value {
+            text-align: left;
+            font-size: 0.875rem;
+        }
+        
+        .position-pnl {
+            font-size: 0.75rem;
+            margin-top: 0.125rem;
+        }
+        
+        .chart-container {
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            height: 300px;
+        }
+        
+        @media (min-width: 768px) {
+            .chart-wrapper {
+                height: 400px;
+            }
+        }
+        
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            flex: 1;
+            min-width: 140px;
+            padding: 0.75rem 1.25rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.875rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: #e0e0e0;
+            text-align: center;
+            min-height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn:active {
+            transform: scale(0.98);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-size: 0.625rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .badge-low {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+        }
+        
+        .badge-medium {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+        }
+        
+        .badge-high {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                color: black;
+            }
+            .glass {
+                background: white;
+                border: 1px solid #ccc;
+            }
+            .btn {
+                display: none;
+            }
+            .positions {
+                display: block !important;
+            }
+            .chart-wrapper {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1 class="title">BankOS - ניסוי 2</h1>
+            <p class="subtitle">מעקב יומי • 5 תיקים • 30 יום</p>
+        </div>
+        
+        <!-- Overall Summary -->
+        <div class="summary-grid">
+            <div class="glass">
+                <div class="stat-label">סה"כ שווי כל התיקים</div>
+                <div class="stat-value" id="totalValue">₪0</div>
+                <div class="stat-sub">הון התחלתי: ₪500,000</div>
+            </div>
+            
+            <div class="glass">
+                <div class="stat-label">רווח/הפסד כולל</div>
+                <div class="stat-value" id="totalPnL">₪0</div>
+                <div class="stat-sub" id="totalPnLPct">0%</div>
+            </div>
+            
+            <div class="glass">
+                <div class="stat-label">הביצועים הטובים ביותר</div>
+                <div class="stat-value" id="bestPerformer">-</div>
+                <div class="stat-sub" id="bestPerformerPnL">-</div>
+            </div>
+            
+            <div class="glass">
+                <div class="stat-label">ימים שנותרו</div>
+                <div class="stat-value" id="daysRemaining">30</div>
+                <div class="stat-sub">עד סיום הניסוי</div>
+            </div>
+        </div>
+        
+        <!-- Chart -->
+        <div class="chart-container">
+            <div class="glass">
+                <h2 style="font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem;">התפתחות ערך התיקים</h2>
+                <div class="chart-wrapper">
+                    <canvas id="portfolioChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Portfolio Cards -->
+        <div class="portfolios-grid" id="portfoliosContainer"></div>
+        
+        <!-- Action Buttons -->
+        <div class="actions">
+            <button class="btn" onclick="exportCSV()">📥 ייצוא ל-CSV</button>
+            <button class="btn" onclick="window.print()">🖨️ הדפס דוח</button>
+            <button class="btn" onclick="location.reload()">🔄 רענן נתונים</button>
+        </div>
+    </div>
+
+    <script>
+        // Data source
+        const DATA_PATH = 'data/experiment_2/snapshot_latest.json';
+        
+        let snapshotData = null;
+        
+        // Load data
+        async function loadData() {
+            try {
+                const response = await fetch(DATA_PATH);
+                snapshotData = await response.json();
+                renderDashboard();
+            } catch (error) {
+                console.error('Failed to load data:', error);
+                document.body.innerHTML = '<div style="text-align: center; padding: 2rem; color: #ef4444;">שגיאה בטעינת נתונים</div>';
+            }
+        }
+        
+        // Format currency
+        function formatCurrency(value) {
+            return '₪' + Math.round(value).toLocaleString('he-IL');
+        }
+        
+        // Format percentage
+        function formatPercent(value) {
+            const sign = value >= 0 ? '+' : '';
+            return sign + value.toFixed(2) + '%';
+        }
+        
+        // Get risk level
+        function getRiskLevel(portfolioName) {
+            const riskMap = {
+                'SOLID': 'low',
+                'AGGRESSIVE': 'medium',
+                'SUPER_AGGRESSIVE': 'high',
+                'SPECULATIVE': 'high',
+                'CREATIVE': 'medium'
+            };
+            return riskMap[portfolioName] || 'medium';
+        }
+        
+        // Render dashboard
+        function renderDashboard() {
+            if (!snapshotData) return;
+            
+            const portfolios = snapshotData.portfolios;
+            
+            // Calculate overall stats
+            const totalValue = portfolios.reduce((sum, p) => sum + p.totalValue, 0);
+            const totalPnL = portfolios.reduce((sum, p) => sum + p.pnl, 0);
+            const totalPnLPct = (totalPnL / 500000) * 100;
+            
+            // Find best performer
+            const bestPerformer = portfolios.reduce((best, p) => 
+                p.returnPct > best.returnPct ? p : best
+            );
+            
+            // Calculate days remaining (assuming 30-day experiment, day 1)
+            const daysRemaining = 29;
+            
+            // Update summary
+            document.getElementById('totalValue').textContent = formatCurrency(totalValue);
+            
+            const pnlElement = document.getElementById('totalPnL');
+            pnlElement.textContent = formatCurrency(totalPnL);
+            pnlElement.className = 'stat-value ' + (totalPnL >= 0 ? 'profit' : 'loss');
+            
+            const pnlPctElement = document.getElementById('totalPnLPct');
+            pnlPctElement.textContent = formatPercent(totalPnLPct);
+            pnlPctElement.className = 'stat-sub ' + (totalPnL >= 0 ? 'profit' : 'loss');
+            
+            document.getElementById('bestPerformer').textContent = bestPerformer.emoji + ' ' + bestPerformer.portfolioName;
+            document.getElementById('bestPerformerPnL').textContent = formatPercent(bestPerformer.returnPct);
+            document.getElementById('bestPerformerPnL').className = 'stat-sub ' + (bestPerformer.returnPct >= 0 ? 'profit' : 'loss');
+            
+            document.getElementById('daysRemaining').textContent = daysRemaining;
+            
+            // Render portfolio cards
+            const container = document.getElementById('portfoliosContainer');
+            container.innerHTML = portfolios.map((p, index) => {
+                const riskLevel = getRiskLevel(p.portfolioName);
+                const riskBadgeClass = 'badge-' + riskLevel;
+                const riskText = riskLevel === 'low' ? 'סיכון נמוך' : riskLevel === 'medium' ? 'סיכון בינוני' : 'סיכון גבוה';
+                
+                return `
+                    <div class="glass portfolio-card" onclick="togglePositions(${index})">
+                        <div class="portfolio-header">
+                            <div class="portfolio-title">
+                                <span class="emoji">${p.emoji}</span>
+                                <span>${p.portfolioName}</span>
+                            </div>
+                            <span class="badge ${riskBadgeClass}">${riskText}</span>
+                        </div>
+                        
+                        <div class="portfolio-stats">
+                            <div>
+                                <div class="mini-stat-label">שווי כולל</div>
+                                <div class="mini-stat-value">${formatCurrency(p.totalValue)}</div>
+                            </div>
+                            <div>
+                                <div class="mini-stat-label">רווח/הפסד</div>
+                                <div class="mini-stat-value ${p.pnl >= 0 ? 'profit' : 'loss'}">
+                                    ${formatCurrency(p.pnl)}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mini-stat-label">תשואה %</div>
+                                <div class="mini-stat-value ${p.returnPct >= 0 ? 'profit' : 'loss'}">
+                                    ${formatPercent(p.returnPct)}
+                                </div>
+                            </div>
+                            <div>
+                                <div class="mini-stat-label">מזומן</div>
+                                <div class="mini-stat-value">${formatCurrency(p.cash)}</div>
+                            </div>
+                        </div>
+                        
+                        <div class="positions" id="positions-${index}">
+                            <div style="font-weight: 600; margin-bottom: 0.75rem; font-size: 0.875rem;">
+                                ${p.positions.length} עמדות פתוחות
+                            </div>
+                            ${p.positions.map(pos => `
+                                <div class="position-row">
+                                    <div>
+                                        <div class="position-symbol">${pos.symbol}</div>
+                                        <div class="position-shares">${pos.shares} יחידות</div>
+                                    </div>
+                                    <div class="position-value">
+                                        <div>${formatCurrency(pos.currentValue)}</div>
+                                        <div class="position-pnl ${pos.pnl >= 0 ? 'profit' : 'loss'}">
+                                            ${formatCurrency(pos.pnl)} (${formatPercent(pos.pnlPct)})
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            
+            // Render chart
+            renderChart();
+        }
+        
+        // Toggle positions visibility
+        function togglePositions(index) {
+            const positionsElement = document.getElementById(`positions-${index}`);
+            positionsElement.classList.toggle('expanded');
+        }
+        
+        // Render chart
+        function renderChart() {
+            const ctx = document.getElementById('portfolioChart').getContext('2d');
+            
+            // For now, show initial values (multi-day data will come later)
+            const portfolios = snapshotData.portfolios;
+            const labels = portfolios.map(p => p.emoji + ' ' + p.portfolioName);
+            const data = portfolios.map(p => p.totalValue);
+            
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'שווי נוכחי (₪)',
+                        data: data,
+                        backgroundColor: portfolios.map(p => 
+                            p.returnPct >= 0 ? 'rgba(16, 185, 129, 0.6)' : 'rgba(239, 68, 68, 0.6)'
+                        ),
+                        borderColor: portfolios.map(p => 
+                            p.returnPct >= 0 ? 'rgba(16, 185, 129, 1)' : 'rgba(239, 68, 68, 1)'
+                        ),
+                        borderWidth: 2,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                            titleColor: '#e0e0e0',
+                            bodyColor: '#e0e0e0',
+                            borderColor: 'rgba(255, 255, 255, 0.1)',
+                            borderWidth: 1,
+                            padding: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    const portfolio = portfolios[context.dataIndex];
+                                    return [
+                                        'שווי: ' + formatCurrency(portfolio.totalValue),
+                                        'תשואה: ' + formatPercent(portfolio.returnPct),
+                                        'רווח/הפסד: ' + formatCurrency(portfolio.pnl)
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.05)',
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: '#9ca3af',
+                                callback: function(value) {
+                                    return '₪' + (value / 1000).toFixed(0) + 'K';
+                                }
+                            }
+                        },
+                        x: {
+                            grid: {
+                                display: false,
+                                drawBorder: false
+                            },
+                            ticks: {
+                                color: '#9ca3af',
+                                maxRotation: 0,
+                                minRotation: 0
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Export to CSV
+        function exportCSV() {
+            if (!snapshotData) return;
+            
+            const BOM = '\uFEFF';
+            const headers = ['תיק', 'שווי', 'רווח/הפסד', 'תשואה %', 'מזומן', 'עמדות'];
+            
+            const rows = snapshotData.portfolios.map(p => [
+                p.emoji + ' ' + p.portfolioName,
+                formatCurrency(p.totalValue),
+                formatCurrency(p.pnl),
+                formatPercent(p.returnPct),
+                formatCurrency(p.cash),
+                p.positions.length
+            ]);
+            
+            const csv = BOM + [
+                headers.join(','),
+                ...rows.map(row => row.join(','))
+            ].join('\n');
+            
+            const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+            const link = document.createElement('a');
+            const date = snapshotData.date;
+            link.href = URL.createObjectURL(blob);
+            link.download = `bankos_ניסוי2_${date}.csv`;
+            link.click();
+        }
+        
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>
