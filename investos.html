@@ -215,22 +215,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:1
   <div style="margin-top:20px">
     <div class="sec-title">🧠 תובנות מערכת</div>
     <div class="alerts-wrap" id="alertsWrap">
-      <div class="alert info">
-        <div class="alert-icon">💡</div>
-        <div class="alert-body">
-          <div class="alert-agent" style="color:var(--blue)">Synergy</div>
-          <div class="alert-text">המערכת בשלב Backtesting. Synergy זיהה: אין מתחרה AI רציני לשוק ת"א — InvestOS נכנס לנישה כמעט ריקה. המלצה ראשונית: קרנות מחקות S&P500 NIS-Hedged כבסיס לתיק Solid.</div>
-          <div class="alert-time">היום · יום 1 פיילוט</div>
-        </div>
-      </div>
-      <div class="alert warn">
-        <div class="alert-icon">⚠️</div>
-        <div class="alert-body">
-          <div class="alert-agent" style="color:var(--yellow)">Trader</div>
-          <div class="alert-text">תיק Super-Agg: ריכוזיות גבוהה בסקטור קריפטו (20%). Backtest נדרש לפני הפעלה. Drawdown מקסימלי מותר: 10%.</div>
-          <div class="alert-time">היום · ממתין לאישור</div>
-        </div>
-      </div>
+      <div style="color:var(--muted);font-size:12px;padding:10px 0" id="alertsEmpty">טוען תובנות מסוכנים...</div>
     </div>
   </div>
 
@@ -530,12 +515,42 @@ function showMain() {
 }
 
 // ─── Init ─────────────────────────────────────────
+async function renderAlerts() {
+  const d = await load('insights.json');
+  const wrap = document.getElementById('alertsWrap');
+  if (!d) return;
+  const items = [d.latest, ...(d.history||[])].filter(Boolean);
+  if (!items.length) {
+    wrap.innerHTML = '<div style="color:var(--muted);font-size:12px;padding:8px 0">אין תובנות עדיין — הסוכנים טרם הופעלו.</div>';
+    return;
+  }
+  const agentColors = { Synergy:'var(--blue)', Trader:'var(--yellow)', Hunter:'var(--cyan)', Vibe:'var(--purple)', InvestOS:'var(--green)' };
+  const agentIcons = { Synergy:'🔬', Trader:'📐', Hunter:'🔭', Vibe:'🎨', InvestOS:'⚙️' };
+  const levelClass = { warn:'warn', alert:'warn', info:'info' };
+  wrap.innerHTML = items.map(item => {
+    const agent = item.agent || 'InvestOS';
+    const color = agentColors[agent] || 'var(--muted)';
+    const icon = agentIcons[agent] || '💡';
+    const cls = levelClass[item.level] || 'info';
+    const ts = item.timestamp ? new Date(item.timestamp).toLocaleString('he-IL') : 'עדכון אחרון';
+    return `<div class="alert ${cls}">
+      <div class="alert-icon">${icon}</div>
+      <div class="alert-body">
+        <div class="alert-agent" style="color:${color}">${agent}</div>
+        <div class="alert-text">${item.text}</div>
+        <div class="alert-time">${ts}${item.action_taken ? ' · ' + item.action_taken : ''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
 async function init() {
   const data = await load('portfolios.json');
   if (!data) return;
   renderTarget(data);
   renderTable(data);
   renderFormula(document.getElementById('formulaRender'));
+  await renderAlerts();
 }
 init();
 setInterval(init, 300000); // refresh every 5 min
