@@ -1,37 +1,35 @@
 {
-  "updated_at": "2026-02-23T16:22:00+02:00",
+  "updated_at": "2026-02-23T20:02:13.597742",
   "candidates": [
     {
-      "id": "sp500_nis_hedged",
+      "id": 1,
+      "portfolio_id": "all",
       "name": "קרן מחקה S&P500 NIS-Hedged",
       "type": "passive",
       "status": "backtesting",
-      "backtest_result": null,
-      "proposed_allocation_pct": null
+      "backtest_return_pct": null,
+      "backtest_sharpe": null,
+      "backtest_max_drawdown": null
     },
     {
-      "id": "telbond_ta90",
+      "id": 2,
+      "portfolio_id": "all",
       "name": "תל-בונד 60 + ת\"א 90",
       "type": "balanced",
       "status": "backtesting",
-      "backtest_result": null,
-      "proposed_allocation_pct": null
+      "backtest_return_pct": null,
+      "backtest_sharpe": null,
+      "backtest_max_drawdown": null
     },
     {
-      "id": "momentum_sentiment",
+      "id": 3,
+      "portfolio_id": "all",
       "name": "Momentum + סנטימנט חדשות",
       "type": "ai_active",
       "status": "proposed",
-      "backtest_result": null,
-      "proposed_allocation_pct": null
-    },
-    {
-      "id": "regime_adaptive",
-      "name": "Regime-Adaptive Ensemble",
-      "type": "advanced",
-      "status": "pending",
-      "backtest_result": null,
-      "proposed_allocation_pct": null
+      "backtest_return_pct": null,
+      "backtest_sharpe": null,
+      "backtest_max_drawdown": null
     }
   ],
   "selected_strategy": null,
