@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-02-23T16:22:00+02:00",
+  "phase": "pilot",
+  "pilot_day": 1,
+  "pilot_total_days": 30,
+  "portfolio": {
+    "currency": "ILS",
+    "initial_capital": null,
+    "current_value": null,
+    "unrealized_pnl": null,
+    "fx_exposure_pct": 0
+  },
+  "agents": {
+    "hunter": {"status": "learning", "last_scan": null},
+    "trader": {"status": "backtesting", "active_strategy": null},
+    "ledger": {"status": "ready", "last_calc": null},
+    "investos": {"status": "active", "pipeline_stage": "hunt"}
+  }
+}

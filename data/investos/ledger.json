@@ -1,0 +1,7 @@
+{
+  "formula": "Net = Gross - (Profit * 0.25) - Fees",
+  "currency": "ILS",
+  "target_net": 100000,
+  "transactions": [],
+  "monthly_summary": []
+}

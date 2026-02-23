@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>InvestOS Dashboard</title>
+  <style>
+    :root {
+      --bg: #080d1a; --surface: #0d1524; --surface2: #131c2e;
+      --border: #1e2d45; --accent: #3b82f6; --green: #22c55e;
+      --red: #ef4444; --yellow: #eab308; --purple: #a855f7;
+      --text: #e2e8f0; --muted: #64748b; --dim: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: -apple-system, 'Assistant', sans-serif; min-height: 100vh; }
+
+    /* Header */
+    .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .logo { display: flex; align-items: center; gap: 10px; }
+    .logo-icon { width: 34px; height: 34px; background: linear-gradient(135deg, #3b82f6, #a855f7); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
+    .logo-name { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; }
+    .logo-sub { font-size: 11px; color: var(--muted); }
+    .header-right { display: flex; align-items: center; gap: 16px; }
+    .badge-live { display: flex; align-items: center; gap: 5px; background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25); color: var(--green); padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+    .dot-live { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
+    .clock { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+    /* Pilot bar */
+    .pilot { background: rgba(234,179,8,.07); border-bottom: 1px solid rgba(234,179,8,.2); padding: 9px 24px; display: flex; align-items: center; gap: 12px; }
+    .pilot-label { font-size: 12px; color: var(--yellow); }
+    .pilot-label strong { font-weight: 700; }
+    .pilot-track { width: 140px; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; margin-right: auto; }
+    .pilot-fill { height: 100%; background: linear-gradient(90deg, var(--yellow), var(--purple)); border-radius: 3px; transition: width 1s; }
+    .pilot-pct { font-size: 11px; color: var(--muted); }
+
+    /* Grid */
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 20px 24px; }
+    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+    .card-title { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 10px; }
+    .card-value { font-size: 26px; font-weight: 800; line-height: 1; }
+    .card-sub { font-size: 11px; color: var(--muted); margin-top: 5px; }
+    .col2 { grid-column: span 2; }
+    .col3 { grid-column: span 3; }
+    .col4 { grid-column: span 4; }
+
+    /* Insight */
+    .insight-wrap { background: linear-gradient(135deg, rgba(59,130,246,.07), rgba(168,85,247,.07)); border: 1px solid rgba(59,130,246,.2); border-radius: 8px; padding: 14px; }
+    .insight-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .insight-tag { font-size: 11px; font-weight: 700; color: var(--accent); }
+    .insight-ts { font-size: 10px; color: var(--muted); margin-right: auto; }
+    .insight-body { font-size: 13px; line-height: 1.65; }
+    .insight-body em { color: var(--accent); font-style: normal; font-weight: 600; }
+
+    /* Net calc */
+    .net-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(30,45,69,.8); font-size: 13px; }
+    .net-row:last-child { border-bottom: none; border-top: 1px solid var(--border); margin-top: 4px; padding-top: 10px; }
+    .net-lbl { color: var(--muted); }
+    .net-val { font-weight: 700; }
+    .net-total-val { font-size: 20px; color: var(--green); font-weight: 800; }
+
+    /* Agents */
+    .agents-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .agent { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
+    .agent-head { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+    .agent-icon { font-size: 22px; }
+    .agent-info { flex: 1; }
+    .agent-name { font-weight: 700; font-size: 14px; }
+    .agent-role { font-size: 11px; color: var(--muted); }
+    .status-tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; margin-top: 6px; }
+    .s-learn { background: rgba(59,130,246,.15); color: var(--accent); }
+    .s-ready { background: rgba(34,197,94,.12); color: var(--green); }
+    .s-active { background: rgba(168,85,247,.15); color: var(--purple); }
+    .s-back { background: rgba(234,179,8,.12); color: var(--yellow); }
+    .agent-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
+
+    /* Strategy table */
+    .strat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .strat-table th { text-align: right; padding: 8px; color: var(--muted); font-size: 10px; font-weight: 600; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    .strat-table td { padding: 9px 8px; border-bottom: 1px solid rgba(30,45,69,.6); vertical-align: middle; }
+    .strat-table tr:last-child td { border-bottom: none; }
+    .strat-table tr:hover td { background: rgba(255,255,255,.02); }
+    .tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; }
+    .t-test { background: rgba(59,130,246,.15); color: var(--accent); }
+    .t-prop { background: rgba(168,85,247,.15); color: var(--purple); }
+    .t-pend { background: rgba(234,179,8,.12); color: var(--yellow); }
+    .t-ok { background: rgba(34,197,94,.12); color: var(--green); }
+
+    /* Hunter feed */
+    .feed-item { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(30,45,69,.6); }
+    .feed-item:last-child { border-bottom: none; }
+    .feed-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
+    .feed-text { font-size: 12px; line-height: 1.5; flex: 1; }
+    .feed-meta { font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+    /* Footer */
+    .footer { border-top: 1px solid var(--border); padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--dim); }
+
+    @media(max-width: 900px) {
+      .grid { grid-template-columns: repeat(2,1fr); padding: 12px; gap: 10px; }
+      .col3,.col4 { grid-column: span 2; }
+      .agents-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media(max-width: 500px) {
+      .grid { grid-template-columns: 1fr; gap: 8px; }
+      .col2,.col3,.col4 { grid-column: span 1; }
+      .agents-grid { grid-template-columns: 1fr; }
+      .pilot-track { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div class="logo">
+    <div class="logo-icon">📈</div>
+    <div>
+      <div class="logo-name">InvestOS</div>
+      <div class="logo-sub">מערכת ניהול השקעות חכמה</div>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="badge-live"><div class="dot-live"></div>מערכת פעילה</div>
+    <div class="clock" id="clock">--:--:--</div>
+  </div>
+</div>
+
+<div class="pilot">
+  <span>🧪</span>
+  <span class="pilot-label"><strong>פיילוט למידה — חודש 1</strong> · בדיקה וכיוונון. אין עסקאות ללא אישור.</span>
+  <div class="pilot-track"><div class="pilot-fill" id="pilotFill" style="width:3%"></div></div>
+  <span class="pilot-pct" id="pilotTxt">יום 1/30</span>
+</div>
+
+<div class="grid">
+
+  <!-- KPI -->
+  <div class="card">
+    <div class="card-title">💰 שווי פורטפוליו</div>
+    <div class="card-value" id="kpi-value" style="color:var(--accent)">—</div>
+    <div class="card-sub">ממתין לנתוני פיילוט</div>
+  </div>
+  <div class="card">
+    <div class="card-title">📈 תשואה מצטברת</div>
+    <div class="card-value" id="kpi-return" style="color:var(--muted)">—%</div>
+    <div class="card-sub">Backtesting בתהליך</div>
+  </div>
+  <div class="card">
+    <div class="card-title">🔒 חשיפת מט"ח</div>
+    <div class="card-value" id="kpi-fx" style="color:var(--green)">0%</div>
+    <div class="card-sub">ניטרול מלא (NIS-Hedged) ✓</div>
+  </div>
+  <div class="card">
+    <div class="card-title">⚡ Sharpe Ratio</div>
+    <div class="card-value" id="kpi-sharpe" style="color:var(--muted)">—</div>
+    <div class="card-sub">יעד: ≥ 1.5</div>
+  </div>
+
+  <!-- AI Insight -->
+  <div class="card col2">
+    <div class="card-title">🧠 AI Insight — Vibe</div>
+    <div class="insight-wrap" id="insightBox">
+      <div class="insight-top">
+        <span>💡</span>
+        <span class="insight-tag">Vibe</span>
+        <span class="insight-ts" id="insightTs">—</span>
+      </div>
+      <div class="insight-body" id="insightText">טוען...</div>
+    </div>
+  </div>
+
+  <!-- Net Calc -->
+  <div class="card col2">
+    <div class="card-title">🧾 חישוב נטו — Ledger</div>
+    <div>
+      <div class="net-row"><span class="net-lbl">Gross (ברוטו)</span><span class="net-val" id="net-gross">—</span></div>
+      <div class="net-row"><span class="net-lbl">מס רווח הון 25%</span><span class="net-val" style="color:var(--red)" id="net-tax">—</span></div>
+      <div class="net-row"><span class="net-lbl">עמלות</span><span class="net-val" style="color:var(--red)" id="net-fees">—</span></div>
+      <div class="net-row"><span class="net-lbl" style="font-weight:700;color:var(--text)">נטו שקלי</span><span class="net-total-val" id="net-total">—</span></div>
+    </div>
+    <div style="margin-top:10px;font-size:10px;color:var(--muted)">
+      Net = Gross − (Profit × 0.25) − Fees &nbsp;|&nbsp; יעד: ₪100,000
+    </div>
+  </div>
+
+  <!-- Agents -->
+  <div class="card col4">
+    <div class="card-title">🤖 סוכני המערכת</div>
+    <div class="agents-grid">
+      <div class="agent">
+        <div class="agent-head">
+          <div class="agent-icon">🔭</div>
+          <div class="agent-info">
+            <div class="agent-name">Hunter</div>
+            <div class="agent-role">סורק שוק שקלי</div>
+            <span class="status-tag s-learn" id="hunter-status">לומד</span>
+          </div>
+        </div>
+        <div class="agent-desc">סריקת מדדי ת"א מול גלובליים · זיהוי Arbitrage ופערי עמלות</div>
+      </div>
+      <div class="agent">
+        <div class="agent-head">
+          <div class="agent-icon">📐</div>
+          <div class="agent-info">
+            <div class="agent-name">Trader</div>
+            <div class="agent-role">מנהל אסטרטגיה</div>
+            <span class="status-tag s-back" id="trader-status">Backtest</span>
+          </div>
+        </div>
+        <div class="agent-desc">אסטרטגיה דינמית · Backtest חובה · סנטימנט + מאקרו</div>
+      </div>
+      <div class="agent">
+        <div class="agent-head">
+          <div class="agent-icon">📒</div>
+          <div class="agent-info">
+            <div class="agent-name">Ledger</div>
+            <div class="agent-role">חשבונאות שקלית</div>
+            <span class="status-tag s-ready" id="ledger-status">מוכן</span>
+          </div>
+        </div>
+        <div class="agent-desc">נטו לכל עסקה · P&L חודשי · דו"ח מס רווח הון</div>
+      </div>
+      <div class="agent">
+        <div class="agent-head">
+          <div class="agent-icon">⚙️</div>
+          <div class="agent-info">
+            <div class="agent-name">InvestOS</div>
+            <div class="agent-role">מתאם מערכת</div>
+            <span class="status-tag s-active" id="investos-status">פעיל</span>
+          </div>
+        </div>
+        <div class="agent-desc">Hunt→Analyze→Backtest→Propose→<strong>Approve</strong>→Execute</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Strategy -->
+  <div class="card col2">
+    <div class="card-title">🗂 מועמדי אסטרטגיה</div>
+    <table class="strat-table" id="stratTable">
+      <thead><tr><th>אסטרטגיה</th><th>סוג</th><th>סטטוס</th><th>Backtest</th></tr></thead>
+      <tbody id="stratBody">
+        <tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">טוען...</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Hunter Feed -->
+  <div class="card col2">
+    <div class="card-title">🔭 Hunter — תובנות</div>
+    <div id="hunterFeed">
+      <div style="color:var(--muted);font-size:12px">טוען...</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="footer">
+  <span>InvestOS v0.1 · Pilot Phase · כל ביצוע מחייב אישור נועם · <a href="index.html" style="color:var(--accent);text-decoration:none">← BankOS</a></span>
+  <span id="footerDate"></span>
+</div>
+
+<script>
+const BASE = 'data/investos/';
+
+// Clock
+function tick() {
+  const now = new Date();
+  document.getElementById('clock').textContent = now.toLocaleTimeString('he-IL');
+  document.getElementById('footerDate').textContent = now.toLocaleDateString('he-IL', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
+}
+setInterval(tick, 1000); tick();
+
+// Load JSON helper
+async function load(file) {
+  try {
+    const r = await fetch(BASE + file + '?t=' + Date.now());
+    return r.ok ? r.json() : null;
+  } catch { return null; }
+}
+
+// Format ILS
+function ils(v) { return v == null ? '—' : '₪' + Number(v).toLocaleString('he-IL'); }
+function pct(v) { return v == null ? '—%' : (v > 0 ? '+' : '') + v.toFixed(2) + '%'; }
+
+// Status tag maps
+const statusMap = {
+  learning: ['s-learn','לומד'], backtesting: ['s-back','Backtest'],
+  ready: ['s-ready','מוכן'], active: ['s-active','פעיל'], idle: ['s-learn','עצור']
+};
+const stratStatusMap = {
+  backtesting: ['t-test','בבדיקה'], proposed: ['t-prop','הוצע'],
+  pending: ['t-pend','ממתין'], approved: ['t-ok','אושר'], active: ['t-ok','פעיל']
+};
+const typeMap = { passive: 'פסיבי', balanced: 'מאוזן', ai_active: 'AI-Active', advanced: 'מתקדם' };
+
+// Render state
+async function renderState() {
+  const d = await load('state.json');
+  if (!d) return;
+  const day = d.pilot_day || 1, total = d.pilot_total_days || 30;
+  const pct_fill = Math.min(100, (day / total) * 100);
+  document.getElementById('pilotFill').style.width = pct_fill + '%';
+  document.getElementById('pilotTxt').textContent = `יום ${day}/${total}`;
+  const p = d.portfolio;
+  document.getElementById('kpi-value').textContent = ils(p.current_value);
+  document.getElementById('kpi-fx').textContent = (p.fx_exposure_pct || 0) + '%';
+  const agents = d.agents || {};
+  ['hunter','trader','ledger','investos'].forEach(id => {
+    const el = document.getElementById(id + '-status');
+    if (!el || !agents[id]) return;
+    const [cls, label] = statusMap[agents[id].status] || ['s-learn', agents[id].status];
+    el.className = 'status-tag ' + cls;
+    el.textContent = label;
+  });
+}
+
+// Render insights
+async function renderInsights() {
+  const d = await load('insights.json');
+  if (!d || !d.latest) return;
+  const l = d.latest;
+  document.getElementById('insightTs').textContent = l.timestamp ? new Date(l.timestamp).toLocaleString('he-IL') : '';
+  document.getElementById('insightText').innerHTML = l.text.replace(/«(.+?)»/g, '<em>$1</em>');
+}
+
+// Render ledger
+async function renderLedger() {
+  const d = await load('ledger.json');
+  if (!d) return;
+  const last = d.monthly_summary?.slice(-1)[0];
+  document.getElementById('net-gross').textContent = ils(last?.gross);
+  document.getElementById('net-tax').textContent = last?.tax ? '−' + ils(last.tax) : '—';
+  document.getElementById('net-fees').textContent = last?.fees ? '−' + ils(last.fees) : '—';
+  document.getElementById('net-total').textContent = ils(last?.net);
+}
+
+// Render strategies
+async function renderStrategies() {
+  const d = await load('strategies.json');
+  if (!d) return;
+  const tbody = document.getElementById('stratBody');
+  tbody.innerHTML = d.candidates.map(s => {
+    const [cls, label] = stratStatusMap[s.status] || ['t-pend', s.status];
+    const bt = s.backtest_result;
+    const btStr = bt ? `${bt.return_pct > 0 ? '+' : ''}${bt.return_pct.toFixed(1)}% / Sharpe ${bt.sharpe}` : '—';
+    return `<tr>
+      <td>${s.name}</td>
+      <td style="color:var(--muted)">${typeMap[s.type] || s.type}</td>
+      <td><span class="tag ${cls}">${label}</span></td>
+      <td style="color:var(--muted)">${btStr}</td>
+    </tr>`;
+  }).join('');
+}
+
+// Render hunter feed
+async function renderHunter() {
+  const d = await load('hunter-feed.json');
+  if (!d) return;
+  const feed = document.getElementById('hunterFeed');
+  const items = [...(d.arbitrage_opportunities || []), ...(d.benchmark_insights || [])];
+  if (!items.length) { feed.innerHTML = '<div style="color:var(--muted);font-size:12px">ממתין לסריקה ראשונה...</div>'; return; }
+  const colors = { fee_advantage: 'var(--green)', arbitrage: 'var(--accent)', benchmark: 'var(--yellow)', info: 'var(--purple)' };
+  feed.innerHTML = items.map(i => `
+    <div class="feed-item">
+      <div class="feed-dot" style="background:${colors[i.type] || 'var(--muted)'}"></div>
+      <div class="feed-text">${i.insight || i.description}
+        <div class="feed-meta">${i.source || ''} · ${i.date || ''}</div>
+      </div>
+    </div>`).join('');
+}
+
+// Init
+async function init() {
+  await Promise.all([renderState(), renderInsights(), renderLedger(), renderStrategies(), renderHunter()]);
+}
+init();
+// Auto-refresh every 5 min
+setInterval(init, 300000);
+</script>
+</body>
+</html>

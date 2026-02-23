@@ -1,0 +1,21 @@
+{
+  "updated_at": "2026-02-23T16:22:00+02:00",
+  "instruments": [],
+  "arbitrage_opportunities": [],
+  "benchmark_insights": [
+    {
+      "source": "Synergy Research",
+      "date": "2026-02-23",
+      "insight": "קרנות מחקות S&P500 NIS-Hedged — חיסכון עמלות המרה 0.3%-0.8% לעסקה",
+      "type": "fee_advantage",
+      "confidence": "high"
+    },
+    {
+      "source": "Synergy Research",
+      "date": "2026-02-23",
+      "insight": "Numerai benchmark: 25.45% נטו ב-2024, Sharpe 2.75 — יעד ריאלי לטווח שנה",
+      "type": "benchmark",
+      "confidence": "high"
+    }
+  ]
+}
