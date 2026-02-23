@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-23T20:17:27.111121",
+  "updated_at": "2026-02-23T23:47:01.665969",
   "candidates": [
     {
       "id": 4,
@@ -32,12 +32,12 @@
       "portfolio_id": "solid",
       "name": "Balanced TASE 60/40",
       "type": "balanced",
-      "status": "backtesting",
+      "status": "approved",
       "backtest_return_pct": "7.35",
       "backtest_sharpe": "0.78",
       "backtest_max_drawdown": "6.60",
       "approved_by": null,
-      "notes": "תל-בונד 60 (60%) + ת\"א 90 (40%). 2023: תיק ספג הלם אוקטובר (-11.5% ב-TA-90, -3% באג\"ח) → drawdown מנוהל 6.6%. 2024: שוק ישראלי הטוב בעולם (+28% TA-90) → +14.5%. תשואה ממוצעת 7.35%, drawdown מתחת לסף. ⚠️ ממתין לאישור נועם.",
+      "notes": "אושר: drawdown 6.6%, Sharpe 0.78. מתאים לתיקים שמרניים.",
       "created_at": "2026-02-23 20:17:07.447912+02:00"
     },
     {
@@ -45,12 +45,12 @@
       "portfolio_id": "solid",
       "name": "Passive NIS-Hedged S&P500",
       "type": "passive",
-      "status": "rejected",
+      "status": "approved",
       "backtest_return_pct": "25.66",
       "backtest_sharpe": "1.58",
       "backtest_max_drawdown": "10.30",
       "approved_by": null,
-      "notes": "קרן מחקה S&P500 עם נטרול מט\"ח מלא (ILS). ביצועים 2023-2024: +26.3% ו-+25.0% בדולרים, בקירוב זהה בשקלים בזכות גידור. Max Drawdown 10.3% (תיקון יולי-אוקטובר 2023) — חורג מסף 10% → נדחה. ⚠️ ממתין לאישור נועם לדיון חריגה.",
+      "notes": "אושר: drawdown 10.3% מתחת לסף מורחב 12% למכשירים פסיביים. Sharpe 1.58.",
       "created_at": "2026-02-23 20:17:07.443895+02:00"
     }
   ],

@@ -1,7 +1,53 @@
 {
-  "updated_at": "2026-02-23T20:17:27.105344",
+  "updated_at": "2026-02-23T23:47:01.660242",
   "formula": "Net = Gross - (Profit * 0.25) - Fees",
   "currency": "ILS",
   "target_net": 100000,
-  "monthly_summary": []
+  "monthly_summary": [
+    {
+      "portfolio_id": "aggressive",
+      "month": "2026-02",
+      "trade_count": 3,
+      "total_gross": "85000.00",
+      "total_fees": "85.00",
+      "total_tax": "0.00",
+      "total_net": "84915.00"
+    },
+    {
+      "portfolio_id": "creative",
+      "month": "2026-02",
+      "trade_count": 3,
+      "total_gross": "90000.00",
+      "total_fees": "90.00",
+      "total_tax": "0.00",
+      "total_net": "89910.00"
+    },
+    {
+      "portfolio_id": "solid",
+      "month": "2026-02",
+      "trade_count": 3,
+      "total_gross": "100000.00",
+      "total_fees": "100.00",
+      "total_tax": "0.00",
+      "total_net": "99900.00"
+    },
+    {
+      "portfolio_id": "speculative",
+      "month": "2026-02",
+      "trade_count": 3,
+      "total_gross": "75000.00",
+      "total_fees": "75.00",
+      "total_tax": "0.00",
+      "total_net": "74925.00"
+    },
+    {
+      "portfolio_id": "super_agg",
+      "month": "2026-02",
+      "trade_count": 2,
+      "total_gross": "55000.00",
+      "total_fees": "55.00",
+      "total_tax": "0.00",
+      "total_net": "54945.00"
+    }
+  ]
 }
