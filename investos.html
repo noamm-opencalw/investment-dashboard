@@ -1,382 +1,544 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>InvestOS Dashboard</title>
-  <style>
-    :root {
-      --bg: #080d1a; --surface: #0d1524; --surface2: #131c2e;
-      --border: #1e2d45; --accent: #3b82f6; --green: #22c55e;
-      --red: #ef4444; --yellow: #eab308; --purple: #a855f7;
-      --text: #e2e8f0; --muted: #64748b; --dim: #334155;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--text); font-family: -apple-system, 'Assistant', sans-serif; min-height: 100vh; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>InvestOS — נועם 2026</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<style>
+:root{
+  --bg:#07090f;--s1:#0c1018;--s2:#101520;--s3:#141a24;
+  --b1:#1c2535;--b2:#243044;
+  --blue:#4f8ef7;--green:#22c55e;--red:#f05252;
+  --yellow:#eab308;--purple:#a855f7;--cyan:#22d3ee;
+  --text:#dde4f0;--muted:#5a6a82;--dim:#2a3548;
+  --font:-apple-system,'Assistant','Segoe UI',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;font-size:14px}
 
-    /* Header */
-    .header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
-    .logo { display: flex; align-items: center; gap: 10px; }
-    .logo-icon { width: 34px; height: 34px; background: linear-gradient(135deg, #3b82f6, #a855f7); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 16px; }
-    .logo-name { font-size: 18px; font-weight: 800; letter-spacing: -0.5px; }
-    .logo-sub { font-size: 11px; color: var(--muted); }
-    .header-right { display: flex; align-items: center; gap: 16px; }
-    .badge-live { display: flex; align-items: center; gap: 5px; background: rgba(34,197,94,.1); border: 1px solid rgba(34,197,94,.25); color: var(--green); padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
-    .dot-live { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 2s infinite; }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:.3} }
-    .clock { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+/* ── Header ── */
+.hdr{background:var(--s1);border-bottom:1px solid var(--b1);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;backdrop-filter:blur(12px)}
+.hdr-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.hdr-logo-icon{width:32px;height:32px;background:linear-gradient(135deg,#4f8ef7,#a855f7);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px}
+.hdr-title{font-size:17px;font-weight:800;letter-spacing:-.4px}
+.hdr-sub{font-size:10px;color:var(--muted)}
+.hdr-r{display:flex;align-items:center;gap:14px}
+.badge-on{display:flex;align-items:center;gap:5px;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.25);color:var(--green);padding:3px 10px;border-radius:20px;font-size:10px;font-weight:700}
+.pulse{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.clock{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
 
-    /* Pilot bar */
-    .pilot { background: rgba(234,179,8,.07); border-bottom: 1px solid rgba(234,179,8,.2); padding: 9px 24px; display: flex; align-items: center; gap: 12px; }
-    .pilot-label { font-size: 12px; color: var(--yellow); }
-    .pilot-label strong { font-weight: 700; }
-    .pilot-track { width: 140px; height: 5px; background: var(--border); border-radius: 3px; overflow: hidden; margin-right: auto; }
-    .pilot-fill { height: 100%; background: linear-gradient(90deg, var(--yellow), var(--purple)); border-radius: 3px; transition: width 1s; }
-    .pilot-pct { font-size: 11px; color: var(--muted); }
+/* ── 100K Bar ── */
+.target-bar{background:linear-gradient(90deg,rgba(79,142,247,.06),rgba(168,85,247,.06));border-bottom:1px solid rgba(79,142,247,.15);padding:10px 20px}
+.target-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.target-label{font-size:11px;font-weight:700;color:var(--blue)}
+.target-family{font-size:10px;color:var(--muted)}
+.target-track{height:7px;background:var(--b1);border-radius:4px;overflow:hidden}
+.target-fill{height:100%;background:linear-gradient(90deg,var(--blue),var(--purple));border-radius:4px;transition:width 1.5s cubic-bezier(.4,0,.2,1)}
+.target-stats{display:flex;gap:20px;margin-top:6px}
+.tstat{font-size:10px;color:var(--muted)}
+.tstat span{color:var(--text);font-weight:700}
 
-    /* Grid */
-    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; padding: 20px 24px; }
-    .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
-    .card-title { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--muted); margin-bottom: 10px; }
-    .card-value { font-size: 26px; font-weight: 800; line-height: 1; }
-    .card-sub { font-size: 11px; color: var(--muted); margin-top: 5px; }
-    .col2 { grid-column: span 2; }
-    .col3 { grid-column: span 3; }
-    .col4 { grid-column: span 4; }
+/* ── Main layout ── */
+.wrap{padding:16px 20px;max-width:1200px;margin:0 auto}
+.view{display:none}
+.view.active{display:block}
 
-    /* Insight */
-    .insight-wrap { background: linear-gradient(135deg, rgba(59,130,246,.07), rgba(168,85,247,.07)); border: 1px solid rgba(59,130,246,.2); border-radius: 8px; padding: 14px; }
-    .insight-top { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
-    .insight-tag { font-size: 11px; font-weight: 700; color: var(--accent); }
-    .insight-ts { font-size: 10px; color: var(--muted); margin-right: auto; }
-    .insight-body { font-size: 13px; line-height: 1.65; }
-    .insight-body em { color: var(--accent); font-style: normal; font-weight: 600; }
+/* ── Section title ── */
+.sec-title{font-size:10px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:10px;display:flex;align-items:center;gap:6px}
 
-    /* Net calc */
-    .net-row { display: flex; justify-content: space-between; padding: 7px 0; border-bottom: 1px solid rgba(30,45,69,.8); font-size: 13px; }
-    .net-row:last-child { border-bottom: none; border-top: 1px solid var(--border); margin-top: 4px; padding-top: 10px; }
-    .net-lbl { color: var(--muted); }
-    .net-val { font-weight: 700; }
-    .net-total-val { font-size: 20px; color: var(--green); font-weight: 800; }
+/* ── Portfolio Table ── */
+.ptable{width:100%;border-collapse:collapse}
+.ptable thead th{text-align:right;padding:8px 10px;font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);border-bottom:1px solid var(--b1);font-weight:600}
+.ptable tbody tr{cursor:pointer;transition:background .15s}
+.ptable tbody tr:hover td{background:rgba(79,142,247,.05)}
+.ptable tbody tr:hover .pname{color:var(--blue)}
+.ptable td{padding:13px 10px;border-bottom:1px solid rgba(28,37,53,.8);vertical-align:middle}
+.ptable tr:last-child td{border-bottom:none}
+.pemoji{font-size:22px}
+.pname{font-weight:700;font-size:14px;transition:color .15s}
+.pstrat{font-size:10px;color:var(--muted);margin-top:2px}
+.val-gross{font-size:15px;font-weight:800}
+.val-net{font-size:11px;color:var(--muted);margin-top:2px}
+.chg{font-size:13px;font-weight:700;padding:3px 8px;border-radius:6px;display:inline-block}
+.chg-up{color:var(--green);background:rgba(34,197,94,.1)}
+.chg-dn{color:var(--red);background:rgba(240,82,82,.1)}
+.chg-flat{color:var(--muted);background:rgba(90,106,130,.1)}
+.ptarget{font-size:11px;color:var(--muted)}
+.pbar-wrap{width:80px;height:5px;background:var(--b1);border-radius:3px;overflow:hidden;margin-top:4px}
+.pbar{height:100%;border-radius:3px}
+.arrow-btn{color:var(--muted);font-size:12px}
 
-    /* Agents */
-    .agents-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
-    .agent { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 12px; }
-    .agent-head { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
-    .agent-icon { font-size: 22px; }
-    .agent-info { flex: 1; }
-    .agent-name { font-weight: 700; font-size: 14px; }
-    .agent-role { font-size: 11px; color: var(--muted); }
-    .status-tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; margin-top: 6px; }
-    .s-learn { background: rgba(59,130,246,.15); color: var(--accent); }
-    .s-ready { background: rgba(34,197,94,.12); color: var(--green); }
-    .s-active { background: rgba(168,85,247,.15); color: var(--purple); }
-    .s-back { background: rgba(234,179,8,.12); color: var(--yellow); }
-    .agent-desc { font-size: 11px; color: var(--muted); line-height: 1.5; }
+/* ── Alerts ── */
+.alerts-wrap{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+.alert{display:flex;align-items:flex-start;gap:10px;background:var(--s2);border:1px solid var(--b1);border-radius:8px;padding:10px 12px}
+.alert-icon{font-size:16px;flex-shrink:0}
+.alert-body{flex:1}
+.alert-agent{font-size:10px;font-weight:700;margin-bottom:3px}
+.alert-text{font-size:12px;line-height:1.5;color:var(--text)}
+.alert-time{font-size:10px;color:var(--muted);margin-top:2px}
+.alert.warn{border-color:rgba(234,179,8,.25);background:rgba(234,179,8,.04)}
+.alert.info{border-color:rgba(79,142,247,.2);background:rgba(79,142,247,.04)}
 
-    /* Strategy table */
-    .strat-table { width: 100%; border-collapse: collapse; font-size: 13px; }
-    .strat-table th { text-align: right; padding: 8px; color: var(--muted); font-size: 10px; font-weight: 600; text-transform: uppercase; border-bottom: 1px solid var(--border); }
-    .strat-table td { padding: 9px 8px; border-bottom: 1px solid rgba(30,45,69,.6); vertical-align: middle; }
-    .strat-table tr:last-child td { border-bottom: none; }
-    .strat-table tr:hover td { background: rgba(255,255,255,.02); }
-    .tag { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; }
-    .t-test { background: rgba(59,130,246,.15); color: var(--accent); }
-    .t-prop { background: rgba(168,85,247,.15); color: var(--purple); }
-    .t-pend { background: rgba(234,179,8,.12); color: var(--yellow); }
-    .t-ok { background: rgba(34,197,94,.12); color: var(--green); }
+/* ── Detail View ── */
+.back-btn{display:flex;align-items:center;gap:6px;color:var(--blue);font-size:12px;font-weight:600;cursor:pointer;margin-bottom:14px;width:fit-content}
+.back-btn:hover{opacity:.8}
+.d-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:16px}
+.d-emoji{font-size:36px;line-height:1}
+.d-name{font-size:22px;font-weight:800}
+.d-strat{font-size:12px;color:var(--muted);margin-top:2px}
+.d-desc{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
 
-    /* Hunter feed */
-    .feed-item { display: flex; gap: 10px; padding: 9px 0; border-bottom: 1px solid rgba(30,45,69,.6); }
-    .feed-item:last-child { border-bottom: none; }
-    .feed-dot { width: 7px; height: 7px; border-radius: 50%; margin-top: 5px; flex-shrink: 0; }
-    .feed-text { font-size: 12px; line-height: 1.5; flex: 1; }
-    .feed-meta { font-size: 10px; color: var(--muted); margin-top: 3px; }
+.d-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:16px}
+.d-card{background:var(--s2);border:1px solid var(--b1);border-radius:8px;padding:14px}
+.d-card-label{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin-bottom:6px}
+.d-card-val{font-size:22px;font-weight:800}
+.d-card-sub{font-size:10px;color:var(--muted);margin-top:3px}
 
-    /* Footer */
-    .footer { border-top: 1px solid var(--border); padding: 10px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 10px; color: var(--dim); }
+.d-row{display:grid;grid-template-columns:1.2fr 1fr;gap:12px;margin-bottom:12px}
+.card{background:var(--s2);border:1px solid var(--b1);border-radius:8px;padding:14px}
 
-    @media(max-width: 900px) {
-      .grid { grid-template-columns: repeat(2,1fr); padding: 12px; gap: 10px; }
-      .col3,.col4 { grid-column: span 2; }
-      .agents-grid { grid-template-columns: repeat(2,1fr); }
-    }
-    @media(max-width: 500px) {
-      .grid { grid-template-columns: 1fr; gap: 8px; }
-      .col2,.col3,.col4 { grid-column: span 1; }
-      .agents-grid { grid-template-columns: 1fr; }
-      .pilot-track { display: none; }
-    }
-  </style>
+/* Sector chart */
+.sector-list{margin-top:8px}
+.sector-item{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(28,37,53,.6)}
+.sector-item:last-child{border:none}
+.sector-dot{width:8px;height:8px;border-radius:2px;flex-shrink:0}
+.sector-name{flex:1;font-size:12px}
+.sector-pct{font-size:12px;font-weight:700;color:var(--text)}
+.sector-bar-bg{flex:2;height:4px;background:var(--b1);border-radius:2px;overflow:hidden}
+.sector-bar{height:100%;border-radius:2px}
+
+/* Asset table */
+.atable{width:100%;border-collapse:collapse;font-size:12px}
+.atable th{text-align:right;padding:6px 8px;font-size:10px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);border-bottom:1px solid var(--b1);font-weight:600}
+.atable td{padding:9px 8px;border-bottom:1px solid rgba(28,37,53,.6);vertical-align:middle}
+.atable tr:last-child td{border:none}
+.asset-name{font-weight:600}
+.asset-type{font-size:10px;color:var(--muted);margin-top:1px}
+
+/* Formula box */
+.formula-box{background:rgba(168,85,247,.06);border:1px solid rgba(168,85,247,.2);border-radius:8px;padding:12px 14px;margin-top:12px}
+.formula-title{font-size:10px;text-transform:uppercase;letter-spacing:.8px;color:var(--purple);margin-bottom:8px}
+.formula-render{display:flex;align-items:center;justify-content:center;padding:6px 0;font-size:13px}
+.formula-vals{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}
+.fval{text-align:center}
+.fval-n{font-size:16px;font-weight:800}
+.fval-l{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* Family Banner */
+.family-banner{background:linear-gradient(135deg,rgba(79,142,247,.08),rgba(168,85,247,.08));border:1px solid rgba(79,142,247,.15);border-radius:10px;padding:16px;margin-top:16px;text-align:center}
+.family-emoji{font-size:28px;margin-bottom:8px}
+.family-title{font-size:16px;font-weight:800;margin-bottom:4px}
+.family-sub{font-size:12px;color:var(--muted);line-height:1.6}
+.family-names{display:flex;justify-content:center;gap:12px;margin-top:10px;flex-wrap:wrap}
+.fname{font-size:12px;background:rgba(79,142,247,.1);border:1px solid rgba(79,142,247,.2);color:var(--blue);padding:3px 10px;border-radius:20px;font-weight:600}
+
+/* Chart */
+.chart-wrap{position:relative;height:180px;margin-top:8px}
+
+/* Footer */
+.footer{border-top:1px solid var(--b1);padding:10px 20px;display:flex;justify-content:space-between;align-items:center;font-size:10px;color:var(--dim);margin-top:20px}
+.footer a{color:var(--blue);text-decoration:none}
+
+/* Responsive */
+@media(max-width:700px){
+  .d-grid{grid-template-columns:1fr 1fr}
+  .d-row{grid-template-columns:1fr}
+  .formula-vals{grid-template-columns:repeat(2,1fr)}
+  .wrap{padding:12px}
+}
+@media(max-width:500px){
+  .d-grid{grid-template-columns:1fr}
+  .hdr-sub,.clock{display:none}
+}
+</style>
 </head>
 <body>
 
-<div class="header">
-  <div class="logo">
-    <div class="logo-icon">📈</div>
+<!-- Header -->
+<div class="hdr">
+  <div class="hdr-logo" onclick="showMain()">
+    <div class="hdr-logo-icon">📈</div>
     <div>
-      <div class="logo-name">InvestOS</div>
-      <div class="logo-sub">מערכת ניהול השקעות חכמה</div>
+      <div class="hdr-title">InvestOS</div>
+      <div class="hdr-sub">פיילוט · ₪500,000 × 5 תיקים</div>
     </div>
   </div>
-  <div class="header-right">
-    <div class="badge-live"><div class="dot-live"></div>מערכת פעילה</div>
+  <div class="hdr-r">
+    <div class="badge-on"><div class="pulse"></div>מערכת פעילה</div>
     <div class="clock" id="clock">--:--:--</div>
   </div>
 </div>
 
-<div class="pilot">
-  <span>🧪</span>
-  <span class="pilot-label"><strong>פיילוט למידה — חודש 1</strong> · בדיקה וכיוונון. אין עסקאות ללא אישור.</span>
-  <div class="pilot-track"><div class="pilot-fill" id="pilotFill" style="width:3%"></div></div>
-  <span class="pilot-pct" id="pilotTxt">יום 1/30</span>
+<!-- 100K Target Bar -->
+<div class="target-bar">
+  <div class="target-top">
+    <div class="target-label">🎯 יעד: ₪100,000 רווח נקי</div>
+    <div class="target-family" id="targetFamily">עבור רן, איתי, נוגה ואלון</div>
+  </div>
+  <div class="target-track"><div class="target-fill" id="targetFill" style="width:0%"></div></div>
+  <div class="target-stats">
+    <div class="tstat">רווח נטו עד כה: <span id="tNetProfit">₪0</span></div>
+    <div class="tstat">נותר: <span id="tRemaining">₪100,000</span></div>
+    <div class="tstat">התקדמות: <span id="tPct">0%</span></div>
+    <div class="tstat">יום פיילוט: <span id="tDay">1/30</span></div>
+  </div>
 </div>
 
-<div class="grid">
+<!-- MAIN VIEW -->
+<div class="view active" id="viewMain">
+<div class="wrap">
 
-  <!-- KPI -->
-  <div class="card">
-    <div class="card-title">💰 שווי פורטפוליו</div>
-    <div class="card-value" id="kpi-value" style="color:var(--accent)">—</div>
-    <div class="card-sub">ממתין לנתוני פיילוט</div>
-  </div>
-  <div class="card">
-    <div class="card-title">📈 תשואה מצטברת</div>
-    <div class="card-value" id="kpi-return" style="color:var(--muted)">—%</div>
-    <div class="card-sub">Backtesting בתהליך</div>
-  </div>
-  <div class="card">
-    <div class="card-title">🔒 חשיפת מט"ח</div>
-    <div class="card-value" id="kpi-fx" style="color:var(--green)">0%</div>
-    <div class="card-sub">ניטרול מלא (NIS-Hedged) ✓</div>
-  </div>
-  <div class="card">
-    <div class="card-title">⚡ Sharpe Ratio</div>
-    <div class="card-value" id="kpi-sharpe" style="color:var(--muted)">—</div>
-    <div class="card-sub">יעד: ≥ 1.5</div>
-  </div>
-
-  <!-- AI Insight -->
-  <div class="card col2">
-    <div class="card-title">🧠 AI Insight — Vibe</div>
-    <div class="insight-wrap" id="insightBox">
-      <div class="insight-top">
-        <span>💡</span>
-        <span class="insight-tag">Vibe</span>
-        <span class="insight-ts" id="insightTs">—</span>
-      </div>
-      <div class="insight-body" id="insightText">טוען...</div>
-    </div>
-  </div>
-
-  <!-- Net Calc -->
-  <div class="card col2">
-    <div class="card-title">🧾 חישוב נטו — Ledger</div>
-    <div>
-      <div class="net-row"><span class="net-lbl">Gross (ברוטו)</span><span class="net-val" id="net-gross">—</span></div>
-      <div class="net-row"><span class="net-lbl">מס רווח הון 25%</span><span class="net-val" style="color:var(--red)" id="net-tax">—</span></div>
-      <div class="net-row"><span class="net-lbl">עמלות</span><span class="net-val" style="color:var(--red)" id="net-fees">—</span></div>
-      <div class="net-row"><span class="net-lbl" style="font-weight:700;color:var(--text)">נטו שקלי</span><span class="net-total-val" id="net-total">—</span></div>
-    </div>
-    <div style="margin-top:10px;font-size:10px;color:var(--muted)">
-      Net = Gross − (Profit × 0.25) − Fees &nbsp;|&nbsp; יעד: ₪100,000
-    </div>
-  </div>
-
-  <!-- Agents -->
-  <div class="card col4">
-    <div class="card-title">🤖 סוכני המערכת</div>
-    <div class="agents-grid">
-      <div class="agent">
-        <div class="agent-head">
-          <div class="agent-icon">🔭</div>
-          <div class="agent-info">
-            <div class="agent-name">Hunter</div>
-            <div class="agent-role">סורק שוק שקלי</div>
-            <span class="status-tag s-learn" id="hunter-status">לומד</span>
-          </div>
-        </div>
-        <div class="agent-desc">סריקת מדדי ת"א מול גלובליים · זיהוי Arbitrage ופערי עמלות</div>
-      </div>
-      <div class="agent">
-        <div class="agent-head">
-          <div class="agent-icon">📐</div>
-          <div class="agent-info">
-            <div class="agent-name">Trader</div>
-            <div class="agent-role">מנהל אסטרטגיה</div>
-            <span class="status-tag s-back" id="trader-status">Backtest</span>
-          </div>
-        </div>
-        <div class="agent-desc">אסטרטגיה דינמית · Backtest חובה · סנטימנט + מאקרו</div>
-      </div>
-      <div class="agent">
-        <div class="agent-head">
-          <div class="agent-icon">📒</div>
-          <div class="agent-info">
-            <div class="agent-name">Ledger</div>
-            <div class="agent-role">חשבונאות שקלית</div>
-            <span class="status-tag s-ready" id="ledger-status">מוכן</span>
-          </div>
-        </div>
-        <div class="agent-desc">נטו לכל עסקה · P&L חודשי · דו"ח מס רווח הון</div>
-      </div>
-      <div class="agent">
-        <div class="agent-head">
-          <div class="agent-icon">⚙️</div>
-          <div class="agent-info">
-            <div class="agent-name">InvestOS</div>
-            <div class="agent-role">מתאם מערכת</div>
-            <span class="status-tag s-active" id="investos-status">פעיל</span>
-          </div>
-        </div>
-        <div class="agent-desc">Hunt→Analyze→Backtest→Propose→<strong>Approve</strong>→Execute</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Strategy -->
-  <div class="card col2">
-    <div class="card-title">🗂 מועמדי אסטרטגיה</div>
-    <table class="strat-table" id="stratTable">
-      <thead><tr><th>אסטרטגיה</th><th>סוג</th><th>סטטוס</th><th>Backtest</th></tr></thead>
-      <tbody id="stratBody">
-        <tr><td colspan="4" style="color:var(--muted);text-align:center;padding:16px">טוען...</td></tr>
-      </tbody>
+  <!-- Portfolios Table -->
+  <div class="sec-title">📊 חמשת התיקים</div>
+  <div style="background:var(--s1);border:1px solid var(--b1);border-radius:10px;overflow:hidden">
+    <table class="ptable">
+      <thead>
+        <tr>
+          <th>תיק</th>
+          <th>ערך נוכחי (Gross / Net)</th>
+          <th>שינוי יומי</th>
+          <th>יעד 30י'</th>
+          <th>התקדמות</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="ptableBody"></tbody>
     </table>
   </div>
 
-  <!-- Hunter Feed -->
-  <div class="card col2">
-    <div class="card-title">🔭 Hunter — תובנות</div>
-    <div id="hunterFeed">
-      <div style="color:var(--muted);font-size:12px">טוען...</div>
+  <!-- Alerts from Synergy/Vibe -->
+  <div style="margin-top:20px">
+    <div class="sec-title">🧠 תובנות מערכת</div>
+    <div class="alerts-wrap" id="alertsWrap">
+      <div class="alert info">
+        <div class="alert-icon">💡</div>
+        <div class="alert-body">
+          <div class="alert-agent" style="color:var(--blue)">Synergy</div>
+          <div class="alert-text">המערכת בשלב Backtesting. Synergy זיהה: אין מתחרה AI רציני לשוק ת"א — InvestOS נכנס לנישה כמעט ריקה. המלצה ראשונית: קרנות מחקות S&P500 NIS-Hedged כבסיס לתיק Solid.</div>
+          <div class="alert-time">היום · יום 1 פיילוט</div>
+        </div>
+      </div>
+      <div class="alert warn">
+        <div class="alert-icon">⚠️</div>
+        <div class="alert-body">
+          <div class="alert-agent" style="color:var(--yellow)">Trader</div>
+          <div class="alert-text">תיק Super-Agg: ריכוזיות גבוהה בסקטור קריפטו (20%). Backtest נדרש לפני הפעלה. Drawdown מקסימלי מותר: 10%.</div>
+          <div class="alert-time">היום · ממתין לאישור</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Family Banner -->
+  <div class="family-banner">
+    <div class="family-emoji">👨‍👩‍👧‍👦</div>
+    <div class="family-title">המטרה מאחורי המספרים</div>
+    <div class="family-sub">₪100,000 רווח נקי עבור המשפחה.<br>כל ₪ שנצבר — מחושב לאחר מס ועמלות.</div>
+    <div class="family-names">
+      <span class="fname">רן</span>
+      <span class="fname">איתי</span>
+      <span class="fname">נוגה</span>
+      <span class="fname">אלון</span>
+    </div>
+  </div>
+
+  <!-- Net Formula -->
+  <div class="formula-box" style="margin-top:16px">
+    <div class="formula-title">📐 פורמולת Ledger</div>
+    <div class="formula-render" id="formulaRender"></div>
+    <div class="formula-vals" id="formulaVals">
+      <div class="fval"><div class="fval-n" style="color:var(--text)" id="fGross">₪500,000</div><div class="fval-l">Gross (ברוטו)</div></div>
+      <div class="fval"><div class="fval-n" style="color:var(--red)" id="fTax">₪0</div><div class="fval-l">מס 25%</div></div>
+      <div class="fval"><div class="fval-n" style="color:var(--red)" id="fFees">₪0</div><div class="fval-l">עמלות</div></div>
+      <div class="fval"><div class="fval-n" style="color:var(--green)" id="fNet">₪500,000</div><div class="fval-l">Net (נטו)</div></div>
     </div>
   </div>
 
 </div>
+</div><!-- /viewMain -->
+
+<!-- DETAIL VIEW -->
+<div class="view" id="viewDetail">
+<div class="wrap">
+  <div class="back-btn" onclick="showMain()">← חזרה לכלל התיקים</div>
+
+  <div class="d-header">
+    <div class="d-emoji" id="dEmoji">🐢</div>
+    <div>
+      <div class="d-name" id="dName">Solid</div>
+      <div class="d-strat" id="dStrat">שמרני</div>
+      <div class="d-desc" id="dDesc">—</div>
+    </div>
+  </div>
+
+  <!-- KPI cards -->
+  <div class="d-grid">
+    <div class="d-card">
+      <div class="d-card-label">💰 Gross</div>
+      <div class="d-card-val" id="dGross">—</div>
+      <div class="d-card-sub">ערך שוק נוכחי</div>
+    </div>
+    <div class="d-card">
+      <div class="d-card-label">✅ Net</div>
+      <div class="d-card-val" style="color:var(--green)" id="dNet">—</div>
+      <div class="d-card-sub">אחרי מס 25% + עמלות</div>
+    </div>
+    <div class="d-card">
+      <div class="d-card-label">📈 שינוי יומי</div>
+      <div class="d-card-val" id="dDaily">—</div>
+      <div class="d-card-sub">24 שעות אחרונות</div>
+    </div>
+  </div>
+
+  <!-- Chart + Sectors -->
+  <div class="d-row">
+    <div class="card">
+      <div class="sec-title">📉 ביצועים מול בנצ'מרק (<span id="dBenchmark">—</span>)</div>
+      <div class="chart-wrap"><canvas id="dChart"></canvas></div>
+    </div>
+    <div class="card">
+      <div class="sec-title">🥧 פילוח סקטורים</div>
+      <div class="sector-list" id="dSectors"></div>
+    </div>
+  </div>
+
+  <!-- Assets -->
+  <div class="card">
+    <div class="sec-title">🗂 הרכב נכסים</div>
+    <table class="atable">
+      <thead>
+        <tr>
+          <th>נכס</th>
+          <th>סקטור</th>
+          <th>ערך</th>
+          <th>הקצאה</th>
+          <th>שינוי יומי</th>
+          <th>תשואה</th>
+        </tr>
+      </thead>
+      <tbody id="dAssets"></tbody>
+    </table>
+  </div>
+
+  <!-- Formula detail -->
+  <div class="formula-box">
+    <div class="formula-title">📐 חישוב נטו — <span id="dPortName">—</span></div>
+    <div class="formula-render" id="dFormulaRender"></div>
+    <div class="formula-vals" id="dFormulaVals"></div>
+  </div>
+
+</div>
+</div><!-- /viewDetail -->
 
 <div class="footer">
-  <span>InvestOS v0.1 · Pilot Phase · כל ביצוע מחייב אישור נועם · <a href="index.html" style="color:var(--accent);text-decoration:none">← BankOS</a></span>
+  <span>InvestOS v0.1 · Pilot · כל ביצוע מחייב אישור נועם ·
+    <a href="index.html">← BankOS</a></span>
   <span id="footerDate"></span>
 </div>
 
 <script>
+// ─── Constants ─────────────────────────────────
 const BASE = 'data/investos/';
+const SECTOR_COLORS = ['#4f8ef7','#a855f7','#22c55e','#eab308','#22d3ee','#f05252','#fb923c','#e879f9'];
+let portfolios = [];
+let detailChart = null;
 
-// Clock
+// ─── Helpers ────────────────────────────────────
+const ils = v => v == null ? '—' : '₪' + Math.round(v).toLocaleString('he-IL');
+const pct = (v, digits=2) => v == null ? '—' : (v > 0 ? '+' : '') + v.toFixed(digits) + '%';
+const load = async f => { try { const r = await fetch(BASE+f+'?t='+Date.now()); return r.ok?r.json():null; } catch { return null; } };
+
+// ─── Clock ───────────────────────────────────────
 function tick() {
   const now = new Date();
-  document.getElementById('clock').textContent = now.toLocaleTimeString('he-IL');
-  document.getElementById('footerDate').textContent = now.toLocaleDateString('he-IL', {weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('clock').textContent = now.toLocaleTimeString('he-IL',{hour:'2-digit',minute:'2-digit',second:'2-digit'});
+  document.getElementById('footerDate').textContent = now.toLocaleDateString('he-IL',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
 }
-setInterval(tick, 1000); tick();
+setInterval(tick,1000); tick();
 
-// Load JSON helper
-async function load(file) {
-  try {
-    const r = await fetch(BASE + file + '?t=' + Date.now());
-    return r.ok ? r.json() : null;
-  } catch { return null; }
-}
-
-// Format ILS
-function ils(v) { return v == null ? '—' : '₪' + Number(v).toLocaleString('he-IL'); }
-function pct(v) { return v == null ? '—%' : (v > 0 ? '+' : '') + v.toFixed(2) + '%'; }
-
-// Status tag maps
-const statusMap = {
-  learning: ['s-learn','לומד'], backtesting: ['s-back','Backtest'],
-  ready: ['s-ready','מוכן'], active: ['s-active','פעיל'], idle: ['s-learn','עצור']
-};
-const stratStatusMap = {
-  backtesting: ['t-test','בבדיקה'], proposed: ['t-prop','הוצע'],
-  pending: ['t-pend','ממתין'], approved: ['t-ok','אושר'], active: ['t-ok','פעיל']
-};
-const typeMap = { passive: 'פסיבי', balanced: 'מאוזן', ai_active: 'AI-Active', advanced: 'מתקדם' };
-
-// Render state
-async function renderState() {
-  const d = await load('state.json');
-  if (!d) return;
-  const day = d.pilot_day || 1, total = d.pilot_total_days || 30;
-  const pct_fill = Math.min(100, (day / total) * 100);
-  document.getElementById('pilotFill').style.width = pct_fill + '%';
-  document.getElementById('pilotTxt').textContent = `יום ${day}/${total}`;
-  const p = d.portfolio;
-  document.getElementById('kpi-value').textContent = ils(p.current_value);
-  document.getElementById('kpi-fx').textContent = (p.fx_exposure_pct || 0) + '%';
-  const agents = d.agents || {};
-  ['hunter','trader','ledger','investos'].forEach(id => {
-    const el = document.getElementById(id + '-status');
-    if (!el || !agents[id]) return;
-    const [cls, label] = statusMap[agents[id].status] || ['s-learn', agents[id].status];
-    el.className = 'status-tag ' + cls;
-    el.textContent = label;
-  });
+// ─── KaTeX formula ───────────────────────────────
+function renderFormula(el) {
+  if (!el) return;
+  try { katex.render('\\text{Net} = \\text{Gross} - (\\text{Profit} \\times 0.25) - \\text{Fees}', el, {throwOnError:false}); }
+  catch { el.textContent = 'Net = Gross − (Profit × 0.25) − Fees'; }
 }
 
-// Render insights
-async function renderInsights() {
-  const d = await load('insights.json');
-  if (!d || !d.latest) return;
-  const l = d.latest;
-  document.getElementById('insightTs').textContent = l.timestamp ? new Date(l.timestamp).toLocaleString('he-IL') : '';
-  document.getElementById('insightText').innerHTML = l.text.replace(/«(.+?)»/g, '<em>$1</em>');
+// ─── Change badge ────────────────────────────────
+function chgBadge(v) {
+  if (v === 0 || v == null) return `<span class="chg chg-flat">0.00%</span>`;
+  return v > 0
+    ? `<span class="chg chg-up">▲ ${pct(v)}</span>`
+    : `<span class="chg chg-dn">▼ ${pct(v)}</span>`;
 }
 
-// Render ledger
-async function renderLedger() {
-  const d = await load('ledger.json');
-  if (!d) return;
-  const last = d.monthly_summary?.slice(-1)[0];
-  document.getElementById('net-gross').textContent = ils(last?.gross);
-  document.getElementById('net-tax').textContent = last?.tax ? '−' + ils(last.tax) : '—';
-  document.getElementById('net-fees').textContent = last?.fees ? '−' + ils(last.fees) : '—';
-  document.getElementById('net-total').textContent = ils(last?.net);
+// ─── Compute net ─────────────────────────────────
+function computeNet(p) {
+  const profit = Math.max(0, p.gross - p.initial_capital);
+  const tax = profit * 0.25;
+  const fees = p.fees || 0;
+  return { gross: p.gross, profit, tax, fees, net: p.gross - tax - fees };
 }
 
-// Render strategies
-async function renderStrategies() {
-  const d = await load('strategies.json');
-  if (!d) return;
-  const tbody = document.getElementById('stratBody');
-  tbody.innerHTML = d.candidates.map(s => {
-    const [cls, label] = stratStatusMap[s.status] || ['t-pend', s.status];
-    const bt = s.backtest_result;
-    const btStr = bt ? `${bt.return_pct > 0 ? '+' : ''}${bt.return_pct.toFixed(1)}% / Sharpe ${bt.sharpe}` : '—';
-    return `<tr>
-      <td>${s.name}</td>
-      <td style="color:var(--muted)">${typeMap[s.type] || s.type}</td>
-      <td><span class="tag ${cls}">${label}</span></td>
-      <td style="color:var(--muted)">${btStr}</td>
+// ─── Target Bar ──────────────────────────────────
+function renderTarget(data) {
+  const netProfit = data.net_profit_to_date || 0;
+  const target = data.target_net_profit || 100000;
+  const pctVal = Math.min(100, (netProfit / target) * 100);
+  document.getElementById('targetFill').style.width = pctVal + '%';
+  document.getElementById('tNetProfit').textContent = ils(netProfit);
+  document.getElementById('tRemaining').textContent = ils(Math.max(0, target - netProfit));
+  document.getElementById('tPct').textContent = pctVal.toFixed(1) + '%';
+  document.getElementById('tDay').textContent = (data.pilot_day||1) + '/30';
+  // Global formula
+  const totalGross = data.portfolios?.reduce((s,p)=>s+p.gross,0)||500000;
+  const totalNetCalc = data.portfolios?.reduce((s,p)=>s+computeNet(p).net,0)||500000;
+  const totalProfit = data.portfolios?.reduce((s,p)=>s+computeNet(p).profit,0)||0;
+  const totalTax = totalProfit * 0.25;
+  const totalFees = data.portfolios?.reduce((s,p)=>s+(p.fees||0),0)||0;
+  document.getElementById('fGross').textContent = ils(totalGross);
+  document.getElementById('fTax').textContent = '−' + ils(totalTax);
+  document.getElementById('fFees').textContent = '−' + ils(totalFees);
+  document.getElementById('fNet').textContent = ils(totalNetCalc);
+}
+
+// ─── Portfolio Table ──────────────────────────────
+function renderTable(data) {
+  portfolios = data.portfolios;
+  const tbody = document.getElementById('ptableBody');
+  tbody.innerHTML = portfolios.map((p, i) => {
+    const {gross, net, tax, fees} = computeNet(p);
+    const progress = Math.max(0, ((gross - p.initial_capital) / (p.initial_capital * p.target_30d_pct / 100)) * 100);
+    const barColor = progress > 75 ? 'var(--green)' : progress > 30 ? 'var(--blue)' : 'var(--yellow)';
+    return `<tr onclick="showDetail(${i})">
+      <td>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="pemoji">${p.emoji}</div>
+          <div>
+            <div class="pname">${p.name}</div>
+            <div class="pstrat">${p.strategy}</div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="val-gross">${ils(gross)}</div>
+        <div class="val-net">(${ils(net)} נטו)</div>
+      </td>
+      <td>${chgBadge(p.daily_change_pct)}</td>
+      <td>
+        <div class="ptarget" style="color:var(--text)">${pct(p.target_30d_pct,0)}</div>
+        <div class="ptarget">${p.benchmark}</div>
+      </td>
+      <td>
+        <div class="ptarget">${progress.toFixed(0)}% מהיעד</div>
+        <div class="pbar-wrap"><div class="pbar" style="width:${Math.min(100,progress)}%;background:${barColor}"></div></div>
+      </td>
+      <td class="arrow-btn">›</td>
     </tr>`;
   }).join('');
 }
 
-// Render hunter feed
-async function renderHunter() {
-  const d = await load('hunter-feed.json');
-  if (!d) return;
-  const feed = document.getElementById('hunterFeed');
-  const items = [...(d.arbitrage_opportunities || []), ...(d.benchmark_insights || [])];
-  if (!items.length) { feed.innerHTML = '<div style="color:var(--muted);font-size:12px">ממתין לסריקה ראשונה...</div>'; return; }
-  const colors = { fee_advantage: 'var(--green)', arbitrage: 'var(--accent)', benchmark: 'var(--yellow)', info: 'var(--purple)' };
-  feed.innerHTML = items.map(i => `
-    <div class="feed-item">
-      <div class="feed-dot" style="background:${colors[i.type] || 'var(--muted)'}"></div>
-      <div class="feed-text">${i.insight || i.description}
-        <div class="feed-meta">${i.source || ''} · ${i.date || ''}</div>
-      </div>
+// ─── Detail View ─────────────────────────────────
+function showDetail(idx) {
+  const p = portfolios[idx];
+  if (!p) return;
+  document.getElementById('viewMain').classList.remove('active');
+  document.getElementById('viewDetail').classList.add('active');
+  window.scrollTo(0,0);
+  const {gross, net, tax, fees, profit} = computeNet(p);
+
+  document.getElementById('dEmoji').textContent = p.emoji;
+  document.getElementById('dName').textContent = p.name;
+  document.getElementById('dStrat').textContent = p.strategy;
+  document.getElementById('dDesc').textContent = p.description;
+  document.getElementById('dGross').textContent = ils(gross);
+  document.getElementById('dNet').textContent = ils(net);
+  document.getElementById('dDaily').innerHTML = chgBadge(p.daily_change_pct);
+  document.getElementById('dBenchmark').textContent = p.benchmark;
+  document.getElementById('dPortName').textContent = p.name;
+
+  // Sectors
+  const secs = Object.entries(p.sectors||{});
+  document.getElementById('dSectors').innerHTML = secs.map(([name,pctV],i)=>`
+    <div class="sector-item">
+      <div class="sector-dot" style="background:${SECTOR_COLORS[i%SECTOR_COLORS.length]}"></div>
+      <div class="sector-name">${name}</div>
+      <div class="sector-bar-bg"><div class="sector-bar" style="width:${pctV}%;background:${SECTOR_COLORS[i%SECTOR_COLORS.length]}"></div></div>
+      <div class="sector-pct">${pctV}%</div>
     </div>`).join('');
+
+  // Assets table
+  document.getElementById('dAssets').innerHTML = (p.assets||[]).map(a=>{
+    const ret = ((a.value - a.cost_basis) / a.cost_basis) * 100;
+    return `<tr>
+      <td><div class="asset-name">${a.name}</div><div class="asset-type">${a.ticker}</div></td>
+      <td style="color:var(--muted)">${a.sector}</td>
+      <td>${ils(a.value)}</td>
+      <td>${a.allocation_pct}%</td>
+      <td>${chgBadge(a.daily_change_pct||0)}</td>
+      <td style="color:${ret>=0?'var(--green)':'var(--red)'}">${pct(ret)}</td>
+    </tr>`;
+  }).join('');
+
+  // Formula
+  renderFormula(document.getElementById('dFormulaRender'));
+  document.getElementById('dFormulaVals').innerHTML = `
+    <div class="fval"><div class="fval-n" style="color:var(--text)">${ils(gross)}</div><div class="fval-l">Gross</div></div>
+    <div class="fval"><div class="fval-n" style="color:var(--red)">−${ils(tax)}</div><div class="fval-l">מס 25%</div></div>
+    <div class="fval"><div class="fval-n" style="color:var(--red)">−${ils(fees)}</div><div class="fval-l">עמלות</div></div>
+    <div class="fval"><div class="fval-n" style="color:var(--green)">${ils(net)}</div><div class="fval-l">Net</div></div>`;
+
+  // Performance chart
+  buildChart(p);
 }
 
-// Init
+function buildChart(p) {
+  const ctx = document.getElementById('dChart');
+  if (detailChart) { detailChart.destroy(); detailChart=null; }
+  const history = p.performance_history || [{date:'2026-02-23',value:p.initial_capital}];
+  const labels = history.map(h => h.date);
+  const vals = history.map(h => h.value);
+  const benchVals = history.map(h => p.initial_capital); // flat benchmark for day 1
+  detailChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: p.name, data: vals, borderColor: '#4f8ef7', backgroundColor: 'rgba(79,142,247,.08)', borderWidth: 2, pointRadius: 3, tension: 0.4, fill: true },
+        { label: p.benchmark, data: benchVals, borderColor: '#a855f7', borderWidth: 1.5, borderDash: [4,3], pointRadius: 0, tension: 0.4 }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { labels: { color:'#5a6a82', font:{size:10} } }, tooltip: { callbacks: { label: ctx => ils(ctx.parsed.y) } } },
+      scales: {
+        x: { ticks: { color:'#5a6a82', font:{size:9} }, grid: { color:'rgba(28,37,53,.8)' } },
+        y: { ticks: { color:'#5a6a82', font:{size:9}, callback: v => '₪'+Math.round(v/1000)+'K' }, grid: { color:'rgba(28,37,53,.8)' } }
+      }
+    }
+  });
+}
+
+function showMain() {
+  document.getElementById('viewDetail').classList.remove('active');
+  document.getElementById('viewMain').classList.add('active');
+  window.scrollTo(0,0);
+}
+
+// ─── Init ─────────────────────────────────────────
 async function init() {
-  await Promise.all([renderState(), renderInsights(), renderLedger(), renderStrategies(), renderHunter()]);
+  const data = await load('portfolios.json');
+  if (!data) return;
+  renderTarget(data);
+  renderTable(data);
+  renderFormula(document.getElementById('formulaRender'));
 }
 init();
-// Auto-refresh every 5 min
-setInterval(init, 300000);
+setInterval(init, 300000); // refresh every 5 min
 </script>
 </body>
 </html>

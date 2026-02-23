@@ -1,0 +1,115 @@
+{
+  "updated_at": "2026-02-23T16:00:00+02:00",
+  "pilot_day": 1,
+  "total_capital": 500000,
+  "target_net_profit": 100000,
+  "net_profit_to_date": 0,
+  "portfolios": [
+    {
+      "id": "solid",
+      "name": "Solid",
+      "emoji": "🐢",
+      "strategy": "שמרני",
+      "description": "מכשירים יציבים, תנודתיות נמוכה, הגנה על הקרן",
+      "target_30d_pct": 2,
+      "initial_capital": 100000,
+      "gross": 100000,
+      "fees": 0,
+      "daily_change_pct": 0,
+      "assets": [
+        { "name": "קרן מחקה ת\"א 125", "ticker": "MTFA", "type": "index", "sector": "מדד", "value": 40000, "allocation_pct": 40, "cost_basis": 40000, "daily_change_pct": 0 },
+        { "name": "קרן מחקה S&P500 NIS-Hedged", "ticker": "SPXNIS", "type": "index", "sector": "מדד", "value": 35000, "allocation_pct": 35, "cost_basis": 35000, "daily_change_pct": 0 },
+        { "name": "תל-בונד 60", "ticker": "TELBOND60", "type": "bond", "sector": "אג\"ח", "value": 20000, "allocation_pct": 20, "cost_basis": 20000, "daily_change_pct": 0 },
+        { "name": "מזומן", "ticker": "CASH", "type": "cash", "sector": "מזומן", "value": 5000, "allocation_pct": 5, "cost_basis": 5000, "daily_change_pct": 0 }
+      ],
+      "sectors": { "מדד": 75, "אג\"ח": 20, "מזומן": 5 },
+      "benchmark": "ת\"א 125",
+      "performance_history": [{"date":"2026-02-23","value":100000}]
+    },
+    {
+      "id": "aggressive",
+      "name": "Aggressive",
+      "emoji": "🦁",
+      "strategy": "אלפא",
+      "description": "מניות צמיחה, חיפוש אלפא מעל הבנצ'מרק",
+      "target_30d_pct": 6,
+      "initial_capital": 100000,
+      "gross": 100000,
+      "fees": 0,
+      "daily_change_pct": 0,
+      "assets": [
+        { "name": "NVIDIA Corp", "ticker": "NVDA", "type": "stock", "sector": "טכנולוגיה", "value": 25000, "allocation_pct": 25, "cost_basis": 25000, "daily_change_pct": 0 },
+        { "name": "Microsoft", "ticker": "MSFT", "type": "stock", "sector": "טכנולוגיה", "value": 20000, "allocation_pct": 20, "cost_basis": 20000, "daily_change_pct": 0 },
+        { "name": "קרן מחקה נאסד\"ק NIS-Hedged", "ticker": "NASNIS", "type": "index", "sector": "מדד", "value": 30000, "allocation_pct": 30, "cost_basis": 30000, "daily_change_pct": 0 },
+        { "name": "Check Point Technologies", "ticker": "CHKP", "type": "stock", "sector": "טכנולוגיה", "value": 15000, "allocation_pct": 15, "cost_basis": 15000, "daily_change_pct": 0 },
+        { "name": "מזומן", "ticker": "CASH", "type": "cash", "sector": "מזומן", "value": 10000, "allocation_pct": 10, "cost_basis": 10000, "daily_change_pct": 0 }
+      ],
+      "sectors": { "טכנולוגיה": 60, "מדד": 30, "מזומן": 10 },
+      "benchmark": "נאסד\"ק 100",
+      "performance_history": [{"date":"2026-02-23","value":100000}]
+    },
+    {
+      "id": "super_agg",
+      "name": "Super-Agg",
+      "emoji": "🚀",
+      "strategy": "ירח",
+      "description": "פוטנציאל תשואה גבוה, סיכון גבוה — אופציות ומינוף מבוקר",
+      "target_30d_pct": 18,
+      "initial_capital": 100000,
+      "gross": 100000,
+      "fees": 0,
+      "daily_change_pct": 0,
+      "assets": [
+        { "name": "QQQ 3x Leveraged ETF", "ticker": "TQQQ", "type": "leveraged", "sector": "ממונף", "value": 30000, "allocation_pct": 30, "cost_basis": 30000, "daily_change_pct": 0 },
+        { "name": "Tesla Inc", "ticker": "TSLA", "type": "stock", "sector": "רכב/אנרגיה", "value": 25000, "allocation_pct": 25, "cost_basis": 25000, "daily_change_pct": 0 },
+        { "name": "Solana (SOL)", "ticker": "SOL", "type": "crypto", "sector": "קריפטו", "value": 20000, "allocation_pct": 20, "cost_basis": 20000, "daily_change_pct": 0 },
+        { "name": "מזומן + אופציות שמור", "ticker": "CASH", "type": "cash", "sector": "מזומן", "value": 25000, "allocation_pct": 25, "cost_basis": 25000, "daily_change_pct": 0 }
+      ],
+      "sectors": { "ממונף": 30, "רכב/אנרגיה": 25, "קריפטו": 20, "מזומן": 25 },
+      "benchmark": "S&P 500",
+      "performance_history": [{"date":"2026-02-23","value":100000}]
+    },
+    {
+      "id": "speculative",
+      "name": "Speculative",
+      "emoji": "🎯",
+      "strategy": "קטליסטים",
+      "description": "עסקאות מבוססות אירועים: רגולציה, M&A, תוצאות רבעוניות",
+      "target_30d_pct": 10,
+      "initial_capital": 100000,
+      "gross": 100000,
+      "fees": 0,
+      "daily_change_pct": 0,
+      "assets": [
+        { "name": "מניות ביוטק ישראלי", "ticker": "IBIOMED", "type": "stock", "sector": "ביוטק", "value": 30000, "allocation_pct": 30, "cost_basis": 30000, "daily_change_pct": 0 },
+        { "name": "נדל\"ן מניב ת\"א", "ticker": "REITA", "type": "reit", "sector": "נדל\"ן", "value": 25000, "allocation_pct": 25, "cost_basis": 25000, "daily_change_pct": 0 },
+        { "name": "Palantir Technologies", "ticker": "PLTR", "type": "stock", "sector": "AI/ביטחון", "value": 20000, "allocation_pct": 20, "cost_basis": 20000, "daily_change_pct": 0 },
+        { "name": "מזומן — ממתין לקטליסט", "ticker": "CASH", "type": "cash", "sector": "מזומן", "value": 25000, "allocation_pct": 25, "cost_basis": 25000, "daily_change_pct": 0 }
+      ],
+      "sectors": { "ביוטק": 30, "נדל\"ן": 25, "AI/ביטחון": 20, "מזומן": 25 },
+      "benchmark": "ת\"א 90",
+      "performance_history": [{"date":"2026-02-23","value":100000}]
+    },
+    {
+      "id": "creative",
+      "name": "Creative",
+      "emoji": "🎨",
+      "strategy": "קונטרריאן",
+      "description": "השקעה נגד הזרם — מניות מוכות עם פוטנציאל התאוששות",
+      "target_30d_pct": 5,
+      "initial_capital": 100000,
+      "gross": 100000,
+      "fees": 0,
+      "daily_change_pct": 0,
+      "assets": [
+        { "name": "אנרגיה מתחדשת — ת\"א", "ticker": "ENERGTA", "type": "stock", "sector": "אנרגיה", "value": 35000, "allocation_pct": 35, "cost_basis": 35000, "daily_change_pct": 0 },
+        { "name": "בנקים ישראלים ETF", "ticker": "BANKIL", "type": "index", "sector": "פיננסים", "value": 30000, "allocation_pct": 30, "cost_basis": 30000, "daily_change_pct": 0 },
+        { "name": "מניות קונטרריאן גלובלי", "ticker": "CONTRA", "type": "index", "sector": "גלובלי", "value": 25000, "allocation_pct": 25, "cost_basis": 25000, "daily_change_pct": 0 },
+        { "name": "מזומן", "ticker": "CASH", "type": "cash", "sector": "מזומן", "value": 10000, "allocation_pct": 10, "cost_basis": 10000, "daily_change_pct": 0 }
+      ],
+      "sectors": { "אנרגיה": 35, "פיננסים": 30, "גלובלי": 25, "מזומן": 10 },
+      "benchmark": "ת\"א 35",
+      "performance_history": [{"date":"2026-02-23","value":100000}]
+    }
+  ]
+}
