@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-02-23T20:02:13.596300",
+  "updated_at": "2026-02-23T20:09:10.597071",
   "latest": {
     "agent": "InvestOS",
     "level": "info",
     "text": "המערכת בשלב אתחול. Backtesting בתהליך.",
-    "timestamp": "2026-02-23T20:02:13.596296",
+    "timestamp": "2026-02-23T20:09:10.597059",
     "action_taken": null,
     "confidence": null
   },

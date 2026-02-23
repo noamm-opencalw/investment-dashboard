@@ -1,78 +1,10 @@
 {
-  "updated_at": "2026-02-23T20:02:13.595359",
+  "updated_at": "2026-02-23T20:09:10.589370",
   "pilot_day": 1,
   "total_capital": 500000.0,
   "target_net_profit": 100000,
   "net_profit_to_date": 0.0,
   "portfolios": [
-    {
-      "id": "aggressive",
-      "name": "Aggressive",
-      "emoji": "🦁",
-      "strategy": "אלפא",
-      "description": "מניות צמיחה, חיפוש אלפא",
-      "target_30d_pct": 6.0,
-      "initial_capital": 100000.0,
-      "gross": 100000.0,
-      "fees": 0,
-      "daily_change_pct": 0.0,
-      "assets": [
-        {
-          "name": "מזומן",
-          "ticker": "CASH",
-          "type": "cash",
-          "sector": "מזומן",
-          "value": 100000.0,
-          "allocation_pct": 100.0,
-          "cost_basis": 100000.0,
-          "daily_change_pct": 0
-        }
-      ],
-      "sectors": {
-        "מזומן": 100.0
-      },
-      "benchmark": "נאסד\"ק 100",
-      "performance_history": [
-        {
-          "date": "2026-02-23",
-          "value": 100000.0
-        }
-      ]
-    },
-    {
-      "id": "creative",
-      "name": "Creative",
-      "emoji": "🎨",
-      "strategy": "קונטרריאן",
-      "description": "השקעה נגד הזרם",
-      "target_30d_pct": 5.0,
-      "initial_capital": 100000.0,
-      "gross": 100000.0,
-      "fees": 0,
-      "daily_change_pct": 0.0,
-      "assets": [
-        {
-          "name": "מזומן",
-          "ticker": "CASH",
-          "type": "cash",
-          "sector": "מזומן",
-          "value": 100000.0,
-          "allocation_pct": 100.0,
-          "cost_basis": 100000.0,
-          "daily_change_pct": 0
-        }
-      ],
-      "sectors": {
-        "מזומן": 100.0
-      },
-      "benchmark": "ת\"א 35",
-      "performance_history": [
-        {
-          "date": "2026-02-23",
-          "value": 100000.0
-        }
-      ]
-    },
     {
       "id": "solid",
       "name": "Solid",
@@ -82,18 +14,21 @@
       "target_30d_pct": 2.0,
       "initial_capital": 100000.0,
       "gross": 100000.0,
-      "fees": 0,
+      "fees": 0.0,
       "daily_change_pct": 0.0,
       "assets": [
         {
-          "name": "מזומן",
           "ticker": "CASH",
-          "type": "cash",
+          "name": "מזומן",
+          "asset_type": "cash",
           "sector": "מזומן",
+          "quantity": "100000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
           "value": 100000.0,
-          "allocation_pct": 100.0,
           "cost_basis": 100000.0,
-          "daily_change_pct": 0
+          "daily_change_pct": 0.0,
+          "allocation_pct": 100.0
         }
       ],
       "sectors": {
@@ -108,32 +43,35 @@
       ]
     },
     {
-      "id": "speculative",
-      "name": "Speculative",
-      "emoji": "🎯",
-      "strategy": "קטליסטים",
-      "description": "עסקאות מבוססות אירועים",
-      "target_30d_pct": 10.0,
+      "id": "aggressive",
+      "name": "Aggressive",
+      "emoji": "🦁",
+      "strategy": "אלפא",
+      "description": "מניות צמיחה, חיפוש אלפא",
+      "target_30d_pct": 6.0,
       "initial_capital": 100000.0,
       "gross": 100000.0,
-      "fees": 0,
+      "fees": 0.0,
       "daily_change_pct": 0.0,
       "assets": [
         {
-          "name": "מזומן",
           "ticker": "CASH",
-          "type": "cash",
+          "name": "מזומן",
+          "asset_type": "cash",
           "sector": "מזומן",
+          "quantity": "100000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
           "value": 100000.0,
-          "allocation_pct": 100.0,
           "cost_basis": 100000.0,
-          "daily_change_pct": 0
+          "daily_change_pct": 0.0,
+          "allocation_pct": 100.0
         }
       ],
       "sectors": {
         "מזומן": 100.0
       },
-      "benchmark": "ת\"א 90",
+      "benchmark": "נאסד\"ק 100",
       "performance_history": [
         {
           "date": "2026-02-23",
@@ -150,24 +88,101 @@
       "target_30d_pct": 18.0,
       "initial_capital": 100000.0,
       "gross": 100000.0,
-      "fees": 0,
+      "fees": 0.0,
       "daily_change_pct": 0.0,
       "assets": [
         {
-          "name": "מזומן",
           "ticker": "CASH",
-          "type": "cash",
+          "name": "מזומן",
+          "asset_type": "cash",
           "sector": "מזומן",
+          "quantity": "100000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
           "value": 100000.0,
-          "allocation_pct": 100.0,
           "cost_basis": 100000.0,
-          "daily_change_pct": 0
+          "daily_change_pct": 0.0,
+          "allocation_pct": 100.0
         }
       ],
       "sectors": {
         "מזומן": 100.0
       },
       "benchmark": "S&P 500",
+      "performance_history": [
+        {
+          "date": "2026-02-23",
+          "value": 100000.0
+        }
+      ]
+    },
+    {
+      "id": "speculative",
+      "name": "Speculative",
+      "emoji": "🎯",
+      "strategy": "קטליסטים",
+      "description": "עסקאות מבוססות אירועים",
+      "target_30d_pct": 10.0,
+      "initial_capital": 100000.0,
+      "gross": 100000.0,
+      "fees": 0.0,
+      "daily_change_pct": 0.0,
+      "assets": [
+        {
+          "ticker": "CASH",
+          "name": "מזומן",
+          "asset_type": "cash",
+          "sector": "מזומן",
+          "quantity": "100000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
+          "value": 100000.0,
+          "cost_basis": 100000.0,
+          "daily_change_pct": 0.0,
+          "allocation_pct": 100.0
+        }
+      ],
+      "sectors": {
+        "מזומן": 100.0
+      },
+      "benchmark": "ת\"א 90",
+      "performance_history": [
+        {
+          "date": "2026-02-23",
+          "value": 100000.0
+        }
+      ]
+    },
+    {
+      "id": "creative",
+      "name": "Creative",
+      "emoji": "🎨",
+      "strategy": "קונטרריאן",
+      "description": "השקעה נגד הזרם",
+      "target_30d_pct": 5.0,
+      "initial_capital": 100000.0,
+      "gross": 100000.0,
+      "fees": 0.0,
+      "daily_change_pct": 0.0,
+      "assets": [
+        {
+          "ticker": "CASH",
+          "name": "מזומן",
+          "asset_type": "cash",
+          "sector": "מזומן",
+          "quantity": "100000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
+          "value": 100000.0,
+          "cost_basis": 100000.0,
+          "daily_change_pct": 0.0,
+          "allocation_pct": 100.0
+        }
+      ],
+      "sectors": {
+        "מזומן": 100.0
+      },
+      "benchmark": "ת\"א 35",
       "performance_history": [
         {
           "date": "2026-02-23",
