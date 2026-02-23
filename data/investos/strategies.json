@@ -1,35 +1,57 @@
 {
-  "updated_at": "2026-02-23T20:14:11.574609",
+  "updated_at": "2026-02-23T20:17:27.111121",
   "candidates": [
     {
-      "id": 1,
-      "portfolio_id": "all",
-      "name": "קרן מחקה S&P500 NIS-Hedged",
-      "type": "passive",
-      "status": "backtesting",
+      "id": 4,
+      "portfolio_id": "super_agg",
+      "name": "Regime-Adaptive Ensemble",
+      "type": "advanced",
+      "status": "proposed",
       "backtest_return_pct": null,
       "backtest_sharpe": null,
-      "backtest_max_drawdown": null
-    },
-    {
-      "id": 2,
-      "portfolio_id": "all",
-      "name": "תל-בונד 60 + ת\"א 90",
-      "type": "balanced",
-      "status": "backtesting",
-      "backtest_return_pct": null,
-      "backtest_sharpe": null,
-      "backtest_max_drawdown": null
+      "backtest_max_drawdown": null,
+      "approved_by": null,
+      "notes": "TQQQ (3x Nasdaq): 2023 +198%, 2024 +58%, אך 2022: -79%. SSO (2x S&P500): 2023 +46.7%, 2024 +43.5%, אך 2022: -39%. Leveraged ETFs עם drawdown קטסטרופלי בשנות דוב — חייבים regime detection מוכח לפני שימוש. Numerai ensemble models נדרשים. ⚠️ ממתין לאישור נועם. אין לפרוס ללא backtest מלא.",
+      "created_at": "2026-02-23 20:17:07.448827+02:00"
     },
     {
       "id": 3,
-      "portfolio_id": "all",
-      "name": "Momentum + סנטימנט חדשות",
+      "portfolio_id": "aggressive",
+      "name": "Momentum + Sentiment TASE",
       "type": "ai_active",
       "status": "proposed",
       "backtest_return_pct": null,
       "backtest_sharpe": null,
-      "backtest_max_drawdown": null
+      "backtest_max_drawdown": null,
+      "approved_by": null,
+      "notes": "Momentum מוכח אקדמית גלובלית (Jegadeesh-Titman 1993, AQR). שוק ת\"א קטן יחסית — אנומליות מומנטום עשויות להיות חזקות יותר. Sentiment ישראלי (מדיה) נדרש לניתוח NLP מקומי. Sharpe תיאורטי: 0.8-1.3. נדרש: backtest מלא עם נתוני tick TASE. ⚠️ ממתין לאישור נועם לפיילוט.",
+      "created_at": "2026-02-23 20:17:07.448424+02:00"
+    },
+    {
+      "id": 2,
+      "portfolio_id": "solid",
+      "name": "Balanced TASE 60/40",
+      "type": "balanced",
+      "status": "backtesting",
+      "backtest_return_pct": "7.35",
+      "backtest_sharpe": "0.78",
+      "backtest_max_drawdown": "6.60",
+      "approved_by": null,
+      "notes": "תל-בונד 60 (60%) + ת\"א 90 (40%). 2023: תיק ספג הלם אוקטובר (-11.5% ב-TA-90, -3% באג\"ח) → drawdown מנוהל 6.6%. 2024: שוק ישראלי הטוב בעולם (+28% TA-90) → +14.5%. תשואה ממוצעת 7.35%, drawdown מתחת לסף. ⚠️ ממתין לאישור נועם.",
+      "created_at": "2026-02-23 20:17:07.447912+02:00"
+    },
+    {
+      "id": 1,
+      "portfolio_id": "solid",
+      "name": "Passive NIS-Hedged S&P500",
+      "type": "passive",
+      "status": "rejected",
+      "backtest_return_pct": "25.66",
+      "backtest_sharpe": "1.58",
+      "backtest_max_drawdown": "10.30",
+      "approved_by": null,
+      "notes": "קרן מחקה S&P500 עם נטרול מט\"ח מלא (ILS). ביצועים 2023-2024: +26.3% ו-+25.0% בדולרים, בקירוב זהה בשקלים בזכות גידור. Max Drawdown 10.3% (תיקון יולי-אוקטובר 2023) — חורג מסף 10% → נדחה. ⚠️ ממתין לאישור נועם לדיון חריגה.",
+      "created_at": "2026-02-23 20:17:07.443895+02:00"
     }
   ],
   "selected_strategy": null,
