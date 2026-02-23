@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-23T23:47:01.639063",
+  "updated_at": "2026-02-24T00:05:18.532502",
   "pilot_day": 1,
   "total_capital": 500000.0,
   "target_net_profit": 100000,
@@ -77,7 +77,7 @@
       "description": "מניות צמיחה, חיפוש אלפא",
       "target_30d_pct": 6.0,
       "initial_capital": 100000.0,
-      "gross": 90000.0,
+      "gross": 100000.0,
       "fees": 85.0,
       "daily_change_pct": 0.0,
       "assets": [
@@ -92,7 +92,7 @@
           "value": 40000.0,
           "cost_basis": 40000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 44.4
+          "allocation_pct": 40.0
         },
         {
           "ticker": "CHKP",
@@ -105,7 +105,7 @@
           "value": 30000.0,
           "cost_basis": 30000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 33.3
+          "allocation_pct": 30.0
         },
         {
           "ticker": "NVDA",
@@ -118,27 +118,27 @@
           "value": 15000.0,
           "cost_basis": 15000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 16.7
+          "allocation_pct": 15.0
         },
         {
           "ticker": "CASH",
           "name": "מזומן רזרבה",
           "asset_type": "cash",
           "sector": "מזומן",
-          "quantity": "5000.0000",
+          "quantity": "15000.0000",
           "avg_cost": "1.0000",
           "current_price": "1.0000",
-          "value": 5000.0,
-          "cost_basis": 5000.0,
+          "value": 15000.0,
+          "cost_basis": 15000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 5.6
+          "allocation_pct": 15.0
         }
       ],
       "sectors": {
-        "טכנולוגיה": 44.4,
-        "סייבר": 33.3,
-        "AI/GPU": 16.7,
-        "מזומן": 5.6
+        "טכנולוגיה": 40.0,
+        "סייבר": 30.0,
+        "AI/GPU": 15.0,
+        "מזומן": 15.0
       },
       "benchmark": "נאסד\"ק 100",
       "performance_history": [
@@ -156,7 +156,7 @@
       "description": "ממונף, קריפטו, אופציות",
       "target_30d_pct": 18.0,
       "initial_capital": 100000.0,
-      "gross": 75000.0,
+      "gross": 100000.0,
       "fees": 55.0,
       "daily_change_pct": 0.0,
       "assets": [
@@ -171,7 +171,7 @@
           "value": 30000.0,
           "cost_basis": 30000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 40.0
+          "allocation_pct": 30.0
         },
         {
           "ticker": "TSLA",
@@ -184,26 +184,26 @@
           "value": 25000.0,
           "cost_basis": 25000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 33.3
+          "allocation_pct": 25.0
         },
         {
           "ticker": "CASH",
           "name": "מזומן — ממתין להזדמנות",
           "asset_type": "cash",
           "sector": "מזומן",
-          "quantity": "20000.0000",
+          "quantity": "45000.0000",
           "avg_cost": "1.0000",
           "current_price": "1.0000",
-          "value": 20000.0,
-          "cost_basis": 20000.0,
+          "value": 45000.0,
+          "cost_basis": 45000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 26.7
+          "allocation_pct": 45.0
         }
       ],
       "sectors": {
-        "ממונף": 40.0,
-        "EV/אנרגיה": 33.3,
-        "מזומן": 26.7
+        "ממונף": 30.0,
+        "EV/אנרגיה": 25.0,
+        "מזומן": 45.0
       },
       "benchmark": "S&P 500",
       "performance_history": [
