@@ -1,16 +1,26 @@
 {
-  "updated_at": "2026-02-24T13:21:53.145931",
+  "updated_at": "2026-02-24T13:57:51.674589",
   "latest": {
-    "id": 26,
+    "id": 27,
     "agent": "InvestOS",
     "level": "info",
     "portfolio_id": null,
-    "text": "Reset בוצע 24/2/2026 — כל תיקים אתחלו ל-₪100,000 עם מחירי yfinance ריאליים. baseline נקי.",
+    "text": "Reset v2 — 24/2/2026: תיקים עברו לניירות אמיתיים בת\"א + גלובלי. מחירי yfinance + .TA. baseline ₪100,000.",
     "action_taken": null,
     "confidence": "1.00",
-    "timestamp": "2026-02-24T09:55:27.216323+02:00"
+    "timestamp": "2026-02-24T13:57:09.864313+02:00"
   },
   "history": [
+    {
+      "id": 26,
+      "agent": "InvestOS",
+      "level": "info",
+      "portfolio_id": null,
+      "text": "Reset בוצע 24/2/2026 — כל תיקים אתחלו ל-₪100,000 עם מחירי yfinance ריאליים. baseline נקי.",
+      "action_taken": null,
+      "confidence": "1.00",
+      "timestamp": "2026-02-24T09:55:27.216323+02:00"
+    },
     {
       "id": 9,
       "agent": "InvestOS",
