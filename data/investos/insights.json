@@ -1,126 +1,16 @@
 {
-  "updated_at": "2026-02-24T09:04:26.170593",
+  "updated_at": "2026-02-24T09:55:40.311983",
   "latest": {
-    "id": 17,
-    "agent": "Hunter",
-    "level": "alert",
-    "portfolio_id": "solid",
-    "text": "CSPX: $733.54 מול עלות init $400 — פער +83.4%. עלות האתחול הייתה פיקטיבית; מחיר שוק אמיתי מבסס baseline ריאלי. CSPX עוקב S&P500 — חשיפה גלובלית בתיק Solid.",
-    "action_taken": "baseline_correction",
-    "confidence": "0.95",
-    "timestamp": "2026-02-24T09:04:16.652712+02:00"
+    "id": 26,
+    "agent": "InvestOS",
+    "level": "info",
+    "portfolio_id": null,
+    "text": "Reset בוצע 24/2/2026 — כל תיקים אתחלו ל-₪100,000 עם מחירי yfinance ריאליים. baseline נקי.",
+    "action_taken": null,
+    "confidence": "1.00",
+    "timestamp": "2026-02-24T09:55:27.216323+02:00"
   },
   "history": [
-    {
-      "id": 16,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": null,
-      "text": "שוק אמריקאי ירד אתמול (23/02): S&P500 -1.04%, Nasdaq -1.13%, Dow -1.66%. VIX קפץ +10% ל-21. רקע: לחץ מקרו-כלכלי + ספקות סביב AI valuations. TASE טרם פתחה (9:00 AM).",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-02-24T09:04:16.652712+02:00"
-    },
-    {
-      "id": 24,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "IBIOMED (ביוטק ישראלי ETF): +3.0% מ-init. Biotech ישראלי נהנה ממגמות AI-Drug-Discovery. ת\"א טרם נפתחה — נדרשת אישור בפתיחה.",
-      "action_taken": null,
-      "confidence": "0.70",
-      "timestamp": "2026-02-24T09:04:16.652712+02:00"
-    },
-    {
-      "id": 23,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "CHKP: $154.73 מול init $200 — פער -22.6%. HighTower Advisors מכרה מניות CHKP לאחרונה. ת\"א-Tech בלחץ קל. Cybersecurity sector נחלש.",
-      "action_taken": "monitor_only",
-      "confidence": "0.78",
-      "timestamp": "2026-02-24T09:04:16.652712+02:00"
-    },
-    {
-      "id": 22,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "VXUS: $82.93 מול init $62.50 — פער +32.7%. גלובל Intl ETF מצב טוב; שווקים בינ\"ל מתאוששים יחסית. אירופה בולטת.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-02-24T09:04:16.652712+02:00"
-    },
-    {
-      "id": 21,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "PLTR: $135.24 מול init $100 — פער +35.2%. Palantir ממשיך לצמוח; גוברות חוזי ממשל אמריקאי ו-AI government contracts. מומנטום חיובי בתיק Speculative.",
-      "action_taken": null,
-      "confidence": "0.82",
-      "timestamp": "2026-02-24T09:04:16.652712+02:00"
-    },
-    {
-      "id": 20,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "TSLA: $399.83 מול init $250 — פער +59.9%. ירידה בשבוע האחרון (FSD data issues). TSLA מאזנת חלקית את ההפסד בTQQQ בתיק Super-Agg.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-02-24T09:04:16.652712+02:00"
-    },
-    {
-      "id": 19,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ 3x Leveraged Nasdaq: $48.24 מול init $150 — פער -67.8%. ב-3x, כל -1% בנאסד\"ק = -3% בTQQQ. בסביבת עצבנות (VIX=21), סיכון decay מוגבר. Super-Agg חשופה בסיכון גבוה.",
-      "action_taken": "risk_flag",
-      "confidence": "0.92",
-      "timestamp": "2026-02-24T09:04:16.652712+02:00"
-    },
-    {
-      "id": 18,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "NVDA: $191.55 מול עלות init $600 — פער -68.1%. מחיר NVDA הנוכחי משקף ירידה של ~50% מהשיא ($503 ב-2024). חשיפת Aggressive גבוהה לטכנולוגיה בסביבת VIX=21. שקול צמצום חשיפה.",
-      "action_taken": "monitor_only",
-      "confidence": "0.85",
-      "timestamp": "2026-02-24T09:04:16.652712+02:00"
-    },
-    {
-      "id": 25,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "סריקת בוקר ראשונה הושלמה. כל מחירי init היו פיקטיביים — baseline ריאלי נקבע היום. Ledger: סה\"כ gross 531,572 | net 517,531. הבדלים גדולים מינית בין init לשוק — אינם P&L אמיתי.",
-      "action_taken": "first_baseline",
-      "confidence": "1.00",
-      "timestamp": "2026-02-24T09:04:16.652712+02:00"
-    },
-    {
-      "id": 15,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": null,
-      "text": "S&P 500 בהתנגדות טכנית קריטית 6,900 נקודות — ~4 חודשים בטווח צר. סיכון תיקון עונתי. מאתגר את תיקי CSPX, NASNIS, TQQQ, NVDA.",
-      "action_taken": null,
-      "confidence": "0.88",
-      "timestamp": "2026-02-23T23:47:01.428529+02:00"
-    },
-    {
-      "id": 14,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": null,
-      "text": "S&P 500 ב-23/2/2026: ירידה 0.34%. נאסד\"ק -0.39%. דאו -0.81%. שוק האמריקאי מתמודד עם אי-ודאות מכסים (tariff uncertainty). סיגנל ריסק-אוף קצר-טווח — שים לב לתיקי NVDA, CHKP, TQQQ.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-02-23T23:47:01.428529+02:00"
-    },
     {
       "id": 9,
       "agent": "InvestOS",
@@ -130,76 +20,6 @@
       "action_taken": null,
       "confidence": "1.00",
       "timestamp": "2026-02-23T23:44:25.397393+02:00"
-    },
-    {
-      "id": 8,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "Momentum + Sentiment TASE: עדות אקדמית חזקה לאפקט מומנטום בשווקים גלובליים. נדרש backtest מלא עם נתוני TASE היסטוריים לפני אישור.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-02-23T20:17:19.765495+02:00"
-    },
-    {
-      "id": 7,
-      "agent": "Trader",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "Regime-Adaptive עם TQQQ/SSO: אסור לפרוס ללא regime detection מוכח — drawdown היסטורי -79% (TQQQ 2022). Strategy בסטטוס proposed בלבד.",
-      "action_taken": null,
-      "confidence": "0.95",
-      "timestamp": "2026-02-23T20:17:19.765495+02:00"
-    },
-    {
-      "id": 6,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": "solid",
-      "text": "Backtest מחזור 1 הושלם. Balanced TASE 60/40 (תל-בונד 60% + ת\"א 90 40%) עוברת את סף ה-Drawdown עם 6.6% ותשואה ממוצעת 7.35% (2023-2024). Passive NIS-Hedged S&P500 הניבה 25.66% אך נדחתה בגלל drawdown 10.3% > 10% (גבולי — מומלץ לשקול הרחבת סף). ⚠️ ממתין לאישור נועם.",
-      "action_taken": null,
-      "confidence": "0.82",
-      "timestamp": "2026-02-23T20:17:19.765495+02:00"
-    },
-    {
-      "id": 1,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "ת\"א 125 סיים 2025 עם עלייה של 51%, ות\"א 90 עם 46.6% — ביצועים חריגים לעומת S&P 500 שעלה 16.9% ונאסד\"ק 100 שעלה 21% באותה שנה. YTD 2026 (נכון לפברואר 23): ת\"א 125 +~0.5% (מתנודד סביב שיא כל הזמנים), S&P 500 +1.11%.",
-      "action_taken": null,
-      "confidence": "0.88",
-      "timestamp": "2026-02-23T20:14:03.550397+02:00"
-    },
-    {
-      "id": 2,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "פערי עמלות קרנות מחקות S&P 500: קרנות ישראליות מובילות (קסם 5124482, הראל 5129275, א.ש 5139100) גובות 0% ניהול + ~0.1-0.13% TER כולל. לעומת VOO/IVV אמריקאיות ב-0.03% TER בלבד. פער של ~0.07-0.1% לשנה — מתוקזז ע\"י עלויות המרת מט\"ח (~0.3-0.5% per transaction) בקנייה ישירה.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-02-23T20:14:03.550397+02:00"
-    },
-    {
-      "id": 5,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "ת\"א 90 YTD 2026: ~+1-2% (אומדן, נתון נכון לפברואר 23). המדד כולל mid-cap ישראלי שנהנה מתשתיות ובנייה לאחר הפסקת אש. פוטנציאל upside ב-2026 בהינתן קיצוצי ריבית בנק ישראל הצפויים.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-02-23T20:14:03.550397+02:00"
-    },
-    {
-      "id": 4,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "הזדמנות Cost Arbitrage: קרנות איריות (BlackRock CSPX) הנסחרות בבורסת ת\"א בשקלים — TER 0.07%, מיסוי דיבידנד 15% (אמנת מס אירלנד-ארה\"ב) לעומת 25% לקרנות ישראליות. חיסכון מיסויי של ~10% על תשואת דיבידנד S&P (~1.3% yield = ~0.13% לשנה). מכשיר זה עדיף לטווח ארוך גם על VOO האמריקאי.",
-      "action_taken": null,
-      "confidence": "0.87",
-      "timestamp": "2026-02-23T20:14:03.550397+02:00"
     }
   ]
 }
