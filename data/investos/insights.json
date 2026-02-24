@@ -1,16 +1,96 @@
 {
-  "updated_at": "2026-02-24T14:07:12.502169",
+  "updated_at": "2026-02-24T18:02:36.265376",
   "latest": {
-    "id": 27,
-    "agent": "InvestOS",
+    "id": 35,
+    "agent": "Trader",
     "level": "info",
-    "portfolio_id": null,
-    "text": "Reset v2 — 24/2/2026: תיקים עברו לניירות אמיתיים בת\"א + גלובלי. מחירי yfinance + .TA. baseline ₪100,000.",
+    "portfolio_id": "aggressive",
+    "text": "Aggressive: CHKP +0.49%, NVDA +0.44%, NICE +0.74%. SPEN -1.60%. ביצועים טובים — סה\"כ +0.19%.",
     "action_taken": null,
-    "confidence": "1.00",
-    "timestamp": "2026-02-24T13:57:09.864313+02:00"
+    "confidence": "0.85",
+    "timestamp": "2026-02-24T18:02:30.305564+02:00"
   },
   "history": [
+    {
+      "id": 32,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "Creative: RSEL -5.77% — ירידה חדה. ENRG -1.92%. TSLA +1.26% מחפה חלק. VXUS +0.49%. סה\"כ +0.02%.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+    },
+    {
+      "id": 33,
+      "agent": "Trader",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "RSEL.TA ירד 5.77% היום — ירידה חדה. מחיר 13.38 vs עלות 13.31. לצפייה — אם <12.5 שקול exit.",
+      "action_taken": "monitoring",
+      "confidence": "0.77",
+      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+    },
+    {
+      "id": 34,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": "solid",
+      "text": "Solid: כל הנכסים חיוביים. CSPX +0.50%, LUMI -1.56% (noise), POLI -2.39% (noise). סה\"כ +0.24%. אסטרטגיה passive על מסלולה.",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+    },
+    {
+      "id": 28,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": null,
+      "text": "סקירת ערב 24/02: כל 5 תיקים בטווח תקין. אין חריגות drawdown מ-12%. ללא rebalance נדרש.",
+      "action_taken": "daily_check",
+      "confidence": "0.98",
+      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+    },
+    {
+      "id": 29,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "Super-Agg: TQQQ +2.71% היום (נאסד\"ק recovery). VIX ירד — משתפר לכיוון regime=bull. ESLT -0.50% — noise, לא סיגנל.",
+      "action_taken": null,
+      "confidence": "0.82",
+      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+    },
+    {
+      "id": 30,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "Speculative: PLTR -1.69% → קמה ממודל 130.6 עלות ל-128.39. AMOT -3.44% (נדל\"ן ת\"א לחץ). TEVA +0.86% — פוזיטיבי. ממשיכים לצפות לקטליסט.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+    },
+    {
+      "id": 31,
+      "agent": "Trader",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "PLTR ירד מתחת לעלות הממוצעת (130.60). Current: 128.39 (-1.7%). אם ימשיך <125 — שקול להקטין פוזיציה.",
+      "action_taken": "monitoring",
+      "confidence": "0.78",
+      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+    },
+    {
+      "id": 27,
+      "agent": "InvestOS",
+      "level": "info",
+      "portfolio_id": null,
+      "text": "Reset v2 — 24/2/2026: תיקים עברו לניירות אמיתיים בת\"א + גלובלי. מחירי yfinance + .TA. baseline ₪100,000.",
+      "action_taken": null,
+      "confidence": "1.00",
+      "timestamp": "2026-02-24T13:57:09.864313+02:00"
+    },
     {
       "id": 26,
       "agent": "InvestOS",

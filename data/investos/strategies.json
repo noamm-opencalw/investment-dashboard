@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-02-24T14:07:12.514601",
+  "updated_at": "2026-02-24T18:02:36.277193",
   "candidates": [
     {
       "id": 4,
@@ -32,12 +32,12 @@
       "portfolio_id": "solid",
       "name": "Balanced TASE 60/40",
       "type": "balanced",
-      "status": "approved",
+      "status": "active",
       "backtest_return_pct": "7.35",
       "backtest_sharpe": "0.78",
       "backtest_max_drawdown": "6.60",
       "approved_by": null,
-      "notes": "אושר: drawdown 6.6%, Sharpe 0.78. מתאים לתיקים שמרניים.",
+      "notes": "אושר: drawdown 6.6%, Sharpe 0.78. מתאים לתיקים שמרניים.\n[2026-02-24 18:00] Evening review: portfolio funded and live. Drawdown 0%. Status promoted to active.",
       "created_at": "2026-02-23 20:17:07.447912+02:00"
     },
     {
@@ -45,12 +45,12 @@
       "portfolio_id": "solid",
       "name": "Passive NIS-Hedged S&P500",
       "type": "passive",
-      "status": "approved",
+      "status": "active",
       "backtest_return_pct": "25.66",
       "backtest_sharpe": "1.58",
       "backtest_max_drawdown": "10.30",
       "approved_by": null,
-      "notes": "אושר: drawdown 10.3% מתחת לסף מורחב 12% למכשירים פסיביים. Sharpe 1.58.",
+      "notes": "אושר: drawdown 10.3% מתחת לסף מורחב 12% למכשירים פסיביים. Sharpe 1.58.\n[2026-02-24 18:00] Evening review: portfolio funded and live. Drawdown 0%. Status promoted to active.",
       "created_at": "2026-02-23 20:17:07.443895+02:00"
     }
   ],
