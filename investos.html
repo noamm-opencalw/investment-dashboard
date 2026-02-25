@@ -21,6 +21,18 @@ html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font);min-height:100vh;font-size:14px}
 
 /* ── Header ── */
+/* ── Asset Modal ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:1000;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-box{background:var(--s2);border:1px solid var(--b2);border-radius:14px;padding:24px 22px 20px;max-width:420px;width:100%;position:relative;direction:rtl}
+.modal-close{position:absolute;top:12px;left:14px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer;line-height:1}
+.modal-close:hover{color:var(--text)}
+.modal-title{font-size:16px;font-weight:800;color:var(--text);margin-bottom:10px;padding-left:24px}
+.modal-desc{font-size:13px;color:#b0bec5;line-height:1.65;margin-bottom:12px}
+.modal-why{font-size:12px;color:var(--cyan);background:rgba(34,211,238,.07);border:1px solid rgba(34,211,238,.18);border-radius:8px;padding:9px 12px;line-height:1.6}
+.asset-row{cursor:pointer;transition:background .15s}
+.asset-row:hover{background:rgba(79,142,247,.06)}
+.info-hint{color:var(--blue);font-size:10px;opacity:.7;margin-right:3px}
 .hdr{background:var(--s1);border-bottom:1px solid var(--b1);padding:12px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200;backdrop-filter:blur(12px)}
 .hdr-logo{display:flex;align-items:center;gap:10px;cursor:pointer}
 .hdr-logo-icon{width:32px;height:32px;background:linear-gradient(135deg,#4f8ef7,#a855f7);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:15px}
@@ -459,8 +471,8 @@ function showDetail(idx) {
   // Assets table
   document.getElementById('dAssets').innerHTML = (p.assets||[]).map(a=>{
     const ret = ((a.value - a.cost_basis) / a.cost_basis) * 100;
-    return `<tr>
-      <td><div class="asset-name">${a.name}</div><div class="asset-type">${a.ticker}</div></td>
+    return `<tr class="asset-row" onclick="showAssetInfo('${a.ticker}','${a.name.replace(/'/g,"\\'")}')">
+      <td><div class="asset-name">${a.name}</div><div class="asset-type">${a.ticker} <span class="info-hint">ℹ</span></div></td>
       <td style="color:var(--muted)">${a.sector}</td>
       <td>${ils(a.value)}</td>
       <td>${a.allocation_pct}%</td>
@@ -554,6 +566,127 @@ async function init() {
 }
 init();
 setInterval(init, 300000); // refresh every 5 min
+
+// ─── Asset Info Modal ──────────────────────────────
+const STOCK_INFO = {
+  CSPX: {
+    title: "iShares Core S&P 500 UCITS ETF",
+    desc: "תעודת סל אירית העוקבת אחר 500 החברות הגדולות בארה\"ב. נסחרת בבורסת לונדון בדולרים, ומספקת חשיפה לכלכלה האמריקאית בעמלת ניהול של 0.07% בלבד.",
+    why: "נבחרה בגלל יתרון מיסויי: מס דיבידנד 15% בלבד (אמנת מס אירלנד–ארה\"ב) לעומת 25% בקרן ישראלית — חיסכון של כ-0.13% לשנה."
+  },
+  LUMI: {
+    title: "בנק לאומי לישראל",
+    desc: "הבנק השני בגודלו בישראל, עם נוכחות בינלאומית בארה\"ב ואירופה. מציע שירותי בנקאות קמעונאית, עסקית והשקעות.",
+    why: "נבחר כמרכיב שמרני בתיק Solid — בנקים ישראליים נהנים מסביבת ריבית גבוהה ומסיכון מינימלי של פשיטת רגל."
+  },
+  POLI: {
+    title: "בנק הפועלים",
+    desc: "הבנק הגדול ביותר בישראל במונחי נכסים, עם נתח שוק של כ-30%. מציע שירותים פיננסיים מלאים לפרטיים ועסקים.",
+    why: "מגוון עם לאומי כדי לפרוס על שני הבנקים הגדולים — הפחתת סיכון ספציפי תוך שמירה על חשיפה לסקטור הפיננסי הישראלי."
+  },
+  CHKP: {
+    title: "Check Point Software Technologies",
+    desc: "חברת אבטחת סייבר ישראלית בראשית. מפתחת מוצרי הגנה לרשתות, ענן ונקודות קצה. מעל 100,000 לקוחות ארגוניים ברחבי העולם.",
+    why: "נבחרה בגלל פרופיל הרווחיות הגבוה (מרווח נקי ~30%) ויציבות הכנסות חוזרות מרישיונות. הגנה טבעית בעתות אי-ודאות."
+  },
+  NVDA: {
+    title: "NVIDIA Corporation",
+    desc: "חברת שבבים אמריקאית המובילה את שוק ה-GPU לבינה מלאכותית, מחשוב ענן ומשחקי מחשב. מעבדי H100 ו-A100 שלה הם הסטנדרט התעשייתי ל-AI.",
+    why: "חשיפה ישירה לגל ה-AI — כל חברה גדולה שבונה מודלי שפה צורכת NVDA GPUs. פוטנציאל צמיחה גבוה עם תנודתיות גבוהה בהתאם."
+  },
+  NICE: {
+    title: "NICE Systems",
+    desc: "חברת תוכנה ישראלית עם התמחות ב-CX (חוויית לקוח), אנליטיקת קול ותוכנות ציות פיננסי. פועלת ב-150+ מדינות, הכנסות שנתיות של $2.3 מיליארד.",
+    why: "חברת SaaS ישראלית בוגרת עם כ-90% הכנסות חוזרות — מאזנת את סיכון NVDA עם יציבות תזרימית בתיק האגרסיבי."
+  },
+  SPEN: {
+    title: "Sapiens International Corporation",
+    desc: "חברת תוכנה ישראלית המתמחה בפתרונות לחברות ביטוח ופיננסים. מציעה מערכות ליבה לחיתום, תביעות ועסקי ביטוח חיים.",
+    why: "Fintech ישראלי עם חשיפה לשוק הביטוח הגלובלי — פוטנציאל צמיחה בדיגיטציה של חברות ביטוח מסורתיות."
+  },
+  TEVA: {
+    title: "Teva Pharmaceutical Industries",
+    desc: "חברת התרופות הגנריות הגדולה בעולם, מקורה בישראל. מוכרת תרופות ב-60+ מדינות עם מוצרי דגל כולל Copaxone ו-AJOVY לטיפול במיגרנה.",
+    why: "מסחר קונטרריאני — Teva עברה תהליך ארוך של הורדת חוב ושיקום. פוטנציאל rebound עם קטלוג תרופות גנריות חזק."
+  },
+  AMOT: {
+    title: "אמות השקעות (REIT)",
+    desc: "קרן השקעות נדל\"ן מניב הגדולה בישראל. מחזיקה ב-3.5 מיליון מ\"ר של נכסים מסחריים, לוגיסטיים ומשרדים, בעיקר במרכז הארץ.",
+    why: "מרכיב נדל\"ן יציב בתיק הספקולטיבי — הכנסות שכירות קבועות מגנות בתקופות חולשה בשוק המניות."
+  },
+  PLTR: {
+    title: "Palantir Technologies",
+    desc: "חברת ניתוח נתונים ובינה מלאכותית אמריקאית. מוצרי הדגל (Gotham, Foundry, AIP) משמשים ממשלות, צבאות ותאגידים לניתוח מידע מורכב.",
+    why: "חשיפה ל-AI ביטחוני — הביקוש למוצריה גדל עם גל האינטגרציה של AI בקבלת החלטות ממשלתיות ועסקיות."
+  },
+  TQQQ: {
+    title: "ProShares UltraPro QQQ (3x Leveraged)",
+    desc: "תעודת סל ממונפת המכפילה פי 3 את תשואת מדד נאסד\"ק 100 יומית. מכילה בעיקר חברות טכנולוגיה גדולות (Apple, NVDA, Microsoft).",
+    why: "מנוע צמיחה אגרסיבי ל-Super-Agg — מנצל תקופות bull market בנאסד\"ק. מנוהל עם ניטור הדוק בגלל decay בתנודתיות גבוהה."
+  },
+  ESLT: {
+    title: "Elbit Systems",
+    desc: "ענקית הביטחון הישראלית. מפתחת ומייצרת מערכות אלקטרוניקה לצבאות — מזל\"טים, מערכות שדה קרב, אלקטרו-אופטיקה ותקשורת טקטית.",
+    why: "מנצלת ביקוש עולמי גובר לציוד ביטחוני — לקוחות ב-100+ מדינות. מגן טבעי בתיק ב-Super-Agg בזמן אי-יציבות גיאופוליטית."
+  },
+  ENRG: {
+    title: "Energix Renewable Energy",
+    desc: "חברת אנרגיה מתחדשת ישראלית המפתחת ומפעילה שדות רוח ואנרגיה סולארית. פועלת בישראל, ארה\"ב, פולין ואוקראינה.",
+    why: "חשיפה לגל האנרגיה הירוקה הגלובלי — הכנסות חוזרות מחוזי PPA ארוכי-טווח מעניקות צפיות תזרימית גבוהה."
+  },
+  RSEL: {
+    title: "Rafael Development Corporation",
+    desc: "זרוע מסחרית של רפאל — תעשיית הביטחון הממשלתית הישראלית. מפתחת טכנולוגיות ביטחוניות כולל כיפת ברזל, ספייק ומערכות ים.",
+    why: "חשיפה ייחודית לתעשיית הביטחון הישראלית עם קשרי ממשלה חזקים ופיפליין הזמנות ארוך."
+  },
+  VXUS: {
+    title: "Vanguard Total International Stock ETF",
+    desc: "תעודת סל של Vanguard המכסה ~8,000 מניות מחוץ לארה\"ב — אירופה, אסיה, שווקים מתעוררים. עמלת ניהול 0.07%.",
+    why: "גיוון גיאוגרפי — מגן מפני ריכוז-יתר בשוק האמריקאי ומנצל צמיחה בשווקים בינלאומיים."
+  },
+  TSLA: {
+    title: "Tesla Inc",
+    desc: "יצרנית רכב חשמלי ואנרגיה. מוכרת Model S/3/X/Y/Cybertruck, מערכות אחסון אנרגיה (Powerwall) ופאנלים סולאריים. מוביל שוק ה-EV.",
+    why: "קונטרריאן — מניה תנודתית עם beta גבוה שמניעה את תיק Creative בעליות. מנוע תשואה עם גידור חלקי ב-CASH."
+  },
+  CASH: {
+    title: "מזומן ₪",
+    desc: "רזרבת מזומן בשקלים ישראלים הממתינה להזדמנויות השקעה.",
+    why: "שומר על גמישות לניצול ירידות חדות ומקטין תנודתיות כוללת של התיק."
+  }
+};
+
+function showAssetInfo(ticker, name) {
+  const info = STOCK_INFO[ticker];
+  const modal = document.getElementById('assetModal');
+  const title = document.getElementById('modalTitle');
+  const desc = document.getElementById('modalDesc');
+  const why = document.getElementById('modalWhy');
+
+  title.textContent = info ? info.title : name;
+  desc.textContent = info ? info.desc : 'מידע לא זמין עבור נייר זה.';
+  why.textContent = info ? '💡 ' + info.why : '';
+  why.style.display = info ? 'block' : 'none';
+
+  modal.classList.add('open');
+}
+
+document.getElementById('assetModal').addEventListener('click', function(e) {
+  if (e.target === this || e.target.classList.contains('modal-close')) {
+    this.classList.remove('open');
+  }
+});
 </script>
+
+<!-- Asset Info Modal -->
+<div id="assetModal" class="modal-overlay">
+  <div class="modal-box">
+    <button class="modal-close" aria-label="סגור">×</button>
+    <div id="modalTitle" class="modal-title"></div>
+    <div id="modalDesc" class="modal-desc"></div>
+    <div id="modalWhy" class="modal-why"></div>
+  </div>
+</div>
+
 </body>
 </html>
