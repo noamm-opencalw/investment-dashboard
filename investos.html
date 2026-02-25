@@ -671,17 +671,18 @@ function showAssetInfo(ticker, name) {
   modal.classList.add('open');
 }
 
-document.getElementById('assetModal').addEventListener('click', function(e) {
-  if (e.target === this || e.target.classList.contains('modal-close')) {
-    this.classList.remove('open');
-  }
+function closeAssetModal() {
+  document.getElementById('assetModal').classList.remove('open');
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeAssetModal();
 });
 </script>
 
 <!-- Asset Info Modal -->
-<div id="assetModal" class="modal-overlay">
+<div id="assetModal" class="modal-overlay" onclick="if(event.target===this)closeAssetModal()">
   <div class="modal-box">
-    <button class="modal-close" aria-label="סגור">×</button>
+    <button class="modal-close" onclick="closeAssetModal()" aria-label="סגור">×</button>
     <div id="modalTitle" class="modal-title"></div>
     <div id="modalDesc" class="modal-desc"></div>
     <div id="modalWhy" class="modal-why"></div>
