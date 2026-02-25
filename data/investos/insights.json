@@ -1,16 +1,36 @@
 {
-  "updated_at": "2026-02-25T09:03:22.858312",
+  "updated_at": "2026-02-25T18:01:40.748306",
   "latest": {
-    "id": 39,
-    "agent": "hunter",
-    "level": "warn",
-    "portfolio_id": "aggressive",
-    "text": "CHKP: ירידה יומית -1.97% (155.495 → 152.44 USD) — קרוב לסף ה-2%. רווח מצטבר שלילי: -369.84 USD (-1.48% מעלות). לנטר בפתיחת מסחר.",
-    "action_taken": null,
-    "confidence": "0.78",
-    "timestamp": "2026-02-25T09:03:13.320778+02:00"
+    "id": 40,
+    "agent": "Trader",
+    "level": "info",
+    "portfolio_id": null,
+    "text": "סריקת Drawdown ערב 25/02/26: כל 5 תיקים ב-100% מזומן. Drawdown=0%. אין חריגה מ-12%. אין Rebalance נדרש.",
+    "action_taken": "none_required",
+    "confidence": "0.99",
+    "timestamp": "2026-02-25T18:01:32.387105+02:00"
   },
   "history": [
+    {
+      "id": 41,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": null,
+      "text": "פיילוט יום 3 — טרם בוצעו עסקאות. 3 אסטרטגיות ב-backtesting, 3 ב-proposed. ממתינים לאישור לפני כניסה לשוק.",
+      "action_taken": "strategies_updated",
+      "confidence": "0.95",
+      "timestamp": "2026-02-25T18:01:32.387105+02:00"
+    },
+    {
+      "id": 39,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "CHKP: ירידה יומית -1.97% (155.495 → 152.44 USD) — קרוב לסף ה-2%. רווח מצטבר שלילי: -369.84 USD (-1.48% מעלות). לנטר בפתיחת מסחר.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-02-25T09:03:13.320778+02:00"
+    },
     {
       "id": 38,
       "agent": "hunter",
@@ -42,26 +62,6 @@
       "timestamp": "2026-02-25T09:03:13.318037+02:00"
     },
     {
-      "id": 31,
-      "agent": "Trader",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "PLTR ירד מתחת לעלות הממוצעת (130.60). Current: 128.39 (-1.7%). אם ימשיך <125 — שקול להקטין פוזיציה.",
-      "action_taken": "monitoring",
-      "confidence": "0.78",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
-      "id": 33,
-      "agent": "Trader",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "RSEL.TA ירד 5.77% היום — ירידה חדה. מחיר 13.38 vs עלות 13.31. לצפייה — אם <12.5 שקול exit.",
-      "action_taken": "monitoring",
-      "confidence": "0.77",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
       "id": 34,
       "agent": "Trader",
       "level": "info",
@@ -82,13 +82,13 @@
       "timestamp": "2026-02-24T18:02:30.305564+02:00"
     },
     {
-      "id": 32,
+      "id": 33,
       "agent": "Trader",
-      "level": "info",
+      "level": "warn",
       "portfolio_id": "creative",
-      "text": "Creative: RSEL -5.77% — ירידה חדה. ENRG -1.92%. TSLA +1.26% מחפה חלק. VXUS +0.49%. סה\"כ +0.02%.",
-      "action_taken": null,
-      "confidence": "0.75",
+      "text": "RSEL.TA ירד 5.77% היום — ירידה חדה. מחיר 13.38 vs עלות 13.31. לצפייה — אם <12.5 שקול exit.",
+      "action_taken": "monitoring",
+      "confidence": "0.77",
       "timestamp": "2026-02-24T18:02:30.305564+02:00"
     },
     {
@@ -119,6 +119,26 @@
       "text": "Speculative: PLTR -1.69% → קמה ממודל 130.6 עלות ל-128.39. AMOT -3.44% (נדל\"ן ת\"א לחץ). TEVA +0.86% — פוזיטיבי. ממשיכים לצפות לקטליסט.",
       "action_taken": null,
       "confidence": "0.80",
+      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+    },
+    {
+      "id": 31,
+      "agent": "Trader",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "PLTR ירד מתחת לעלות הממוצעת (130.60). Current: 128.39 (-1.7%). אם ימשיך <125 — שקול להקטין פוזיציה.",
+      "action_taken": "monitoring",
+      "confidence": "0.78",
+      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+    },
+    {
+      "id": 32,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "Creative: RSEL -5.77% — ירידה חדה. ENRG -1.92%. TSLA +1.26% מחפה חלק. VXUS +0.49%. סה\"כ +0.02%.",
+      "action_taken": null,
+      "confidence": "0.75",
       "timestamp": "2026-02-24T18:02:30.305564+02:00"
     },
     {
