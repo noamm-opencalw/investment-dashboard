@@ -394,10 +394,12 @@ function renderTarget(data) {
   document.getElementById('tDay').textContent = (data.pilot_day||1) + '/30';
   // Global formula
   const totalGross = data.portfolios?.reduce((s,p)=>s+p.gross,0)||500000;
-  const totalNetCalc = data.portfolios?.reduce((s,p)=>s+computeNet(p).net,0)||500000;
-  const totalProfit = data.portfolios?.reduce((s,p)=>s+computeNet(p).profit,0)||0;
-  const totalTax = totalProfit * 0.25;
+  const totalCapital = data.portfolios?.reduce((s,p)=>s+p.initial_capital,0)||500000;
   const totalFees = data.portfolios?.reduce((s,p)=>s+(p.fees||0),0)||0;
+  // מס מחושב ברמת האגרגט — הפסדים בתיק אחד מקזזים רווחים בתיק אחר
+  const totalProfit = Math.max(0, totalGross - totalCapital);
+  const totalTax = totalProfit * 0.25;
+  const totalNetCalc = totalGross - totalTax - totalFees;
   document.getElementById('fGross').textContent = ils(totalGross);
   document.getElementById('fTax').textContent = '−' + ils(totalTax);
   document.getElementById('fFees').textContent = '−' + ils(totalFees);
