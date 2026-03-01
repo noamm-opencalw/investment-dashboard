@@ -1,205 +1,65 @@
 {
-  "updated_at": "2026-03-01T09:43:41.956250",
+  "updated_at": "2026-03-01T18:02:09.196938",
   "latest": {
-    "id": 47,
-    "agent": "Hunter",
-    "level": "alert",
-    "portfolio_id": "aggressive",
-    "text": "NVDA ירד 9.39% (195.56 → 177.19 USD). ירידה חדה — בדוק חדשות ספציפיות. עלות ממוצעת 191.55, הפסד שאינו ממומש: -1,499 USD.",
-    "action_taken": null,
-    "confidence": "0.90",
-    "timestamp": "2026-03-01T09:02:05.324969+02:00"
+    "id": 6,
+    "agent": "Trader",
+    "level": "info",
+    "portfolio_id": null,
+    "text": "סקירת ערב 01-03-2026: כל 5 תיקים — drawdown=0.00% (100% מזומן). אין חריגה מ-12%. לא נדרש rebalance. אסטרטגיות super_agg/speculative/creative עברו proposed→backtesting. אסטרטגיות solid הופעלו (approved→active).",
+    "action_taken": "daily-snapshot saved | strategies updated | no rebalance",
+    "confidence": 1.0,
+    "created_at": "2026-03-01 16:00:38"
   },
   "history": [
     {
-      "id": 51,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI (בנק לאומי) עלה 2.17% (74.16 → 75.77 ILS). חיובי — רווח שאינו ממומש: +634 ILS. בנקים ישראלים מתאוששים.",
-      "action_taken": null,
-      "confidence": "0.78",
-      "timestamp": "2026-03-01T09:02:05.324969+02:00"
-    },
-    {
-      "id": 50,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "ESLT (אלביט מערכות) עלה 2.52% (2340 → 2398.90 ILS). רווח שאינו ממומש: +665 ILS. שקול לנעול חלקית.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-01T09:02:05.324969+02:00"
-    },
-    {
-      "id": 49,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "RSEL (Rafael Development) ירד 4.26% (13.38 → 12.81 ILS). מגמה שלילית במניות ביטחוניות קטנות. הפסד שאינו ממומש: -939 ILS.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-01T09:02:05.324969+02:00"
-    },
-    {
-      "id": 48,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "CHKP ירד 2.51% (155.99 → 152.07 USD). שבירת רמת 155. עלות ממוצעת 154.73 — עדיין מעט מתחת לעלות.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-01T09:02:05.324969+02:00"
-    },
-    {
-      "id": 43,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "TSLA עלה +4.39% מעלות הכניסה (399.83→417.40). המשך מומנטום חיובי. RSEL (רפאל) +3.68% — ביקוש לתעשיית הביטחון.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-02-26T09:01:36.206215+02:00"
-    },
-    {
-      "id": 46,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "NVDA עלה +2.09% (191.55→195.56). מגמה חיובית בשבבים, S&P500 צפוי +10% עד סוף 2026 לפי Reuters.",
-      "action_taken": null,
-      "confidence": "0.70",
-      "timestamp": "2026-02-26T09:01:36.206215+02:00"
-    },
-    {
-      "id": 45,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "PLTR עלה +2.75% מעלות הכניסה (130.60→134.19). סנטימנט חיובי ב-AI/Defense stocks.",
-      "action_taken": null,
-      "confidence": "0.72",
-      "timestamp": "2026-02-26T09:01:36.206215+02:00"
-    },
-    {
-      "id": 44,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "SPEN ירד -3.87% מעלות הכניסה (33.09→31.81). חשיפה לסיכון הגדל. שקול שינוי אלוקציה.",
-      "action_taken": null,
-      "confidence": "0.78",
-      "timestamp": "2026-02-26T09:01:36.206215+02:00"
-    },
-    {
-      "id": 42,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ עלה +7.52% מעלות הכניסה (48.24→51.87). תנופה חזקה ב-Nasdaq 3x. שקול לממש חלק מהרווח או להגדיל stop-loss.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-02-26T09:01:36.206215+02:00"
-    },
-    {
-      "id": 40,
+      "id": 3,
       "agent": "Trader",
       "level": "info",
       "portfolio_id": null,
-      "text": "סריקת Drawdown ערב 25/02/26: כל 5 תיקים ב-100% מזומן. Drawdown=0%. אין חריגה מ-12%. אין Rebalance נדרש.",
+      "text": "סקירת ערב 26-02-2026: כל 5 התיקים — drawdown=0.00% (100% מזומן). אין חריגה מ-12%. לא נדרש rebalance.",
+      "action_taken": "daily-snapshot saved",
+      "confidence": 1.0,
+      "created_at": "2026-02-26 16:00:42"
+    },
+    {
+      "id": 4,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "אסטרטגיית Momentum ת\"א 35 + לוריאן 90 עברה לסטטוס active. המתנה לאישור כניסה ראשונה.",
+      "action_taken": "status→active",
+      "confidence": 0.85,
+      "created_at": "2026-02-26 16:00:42"
+    },
+    {
+      "id": 5,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": "solid",
+      "text": "שתי אסטרטגיות solid (KSML, תל-בונד 60) אושרו. ממתינות לפקודת רכישה.",
+      "action_taken": "status→approved",
+      "confidence": 0.9,
+      "created_at": "2026-02-26 16:00:42"
+    },
+    {
+      "id": 1,
+      "agent": "Trader",
+      "level": "info",
+      "portfolio_id": null,
+      "text": "סריקת Drawdown ערב 25/02/26: כל 5 תיקים ב-100% מזומן. Drawdown = 0%. אין חריגה מ-12%. אין צורך ב-Rebalance.",
       "action_taken": "none_required",
-      "confidence": "0.99",
-      "timestamp": "2026-02-25T18:01:32.387105+02:00"
+      "confidence": 0.99,
+      "created_at": "2026-02-25 16:00:59"
     },
     {
-      "id": 41,
+      "id": 2,
       "agent": "Trader",
       "level": "info",
       "portfolio_id": null,
-      "text": "פיילוט יום 3 — טרם בוצעו עסקאות. 3 אסטרטגיות ב-backtesting, 3 ב-proposed. ממתינים לאישור לפני כניסה לשוק.",
+      "text": "פיילוט יום 3 — טרם בוצעו עסקאות. אסטרטגיות: 3 ב-backtesting, 3 ב-proposed. ממתינים לאישור Backtesting לפני כניסה לשוק.",
       "action_taken": "strategies_updated",
-      "confidence": "0.95",
-      "timestamp": "2026-02-25T18:01:32.387105+02:00"
-    },
-    {
-      "id": 39,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "CHKP: ירידה יומית -1.97% (155.495 → 152.44 USD) — קרוב לסף ה-2%. רווח מצטבר שלילי: -369.84 USD (-1.48% מעלות). לנטר בפתיחת מסחר.",
-      "action_taken": null,
-      "confidence": "0.78",
-      "timestamp": "2026-02-25T09:03:13.320778+02:00"
-    },
-    {
-      "id": 38,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ: שינוי מצטבר +3.19% מעלות ממוצעת (48.24 → 49.78 USD). רווח לא ממומש: +958.03 USD — הנכס הרווחי ביותר בתיק. נייר 3x ממונף — volatility גבוה צפוי.",
-      "action_taken": "מעקב. אין פעולה ללא אישור נועם.",
-      "confidence": "0.85",
-      "timestamp": "2026-02-25T09:03:13.320476+02:00"
-    },
-    {
-      "id": 37,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "TSLA: שינוי מצטבר +2.39% מעלות ממוצעת (399.83 → 409.38 USD). רווח לא ממומש: +238.75 USD. שינוי יומי: +1.11%. שוקל Take-Profit חלקי.",
-      "action_taken": "ממתין לאישור נועם לפני כל פעולה",
-      "confidence": "0.75",
-      "timestamp": "2026-02-25T09:03:13.319522+02:00"
-    },
-    {
-      "id": 36,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": null,
-      "text": "TASE TA-35 ירד 1.75% אתמול — חולשה מערכתית בת\"א. השפעה אפשרית על ESLT, LUMI, POLI, ENRG, AMOT, SPEN, RSEL, TEVA, NICE. שוק ת\"א טרם נפתח (09:00). מחירי TASE מיום שישי.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-02-25T09:03:13.318037+02:00"
-    },
-    {
-      "id": 34,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": "solid",
-      "text": "Solid: כל הנכסים חיוביים. CSPX +0.50%, LUMI -1.56% (noise), POLI -2.39% (noise). סה\"כ +0.24%. אסטרטגיה passive על מסלולה.",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
-      "id": 33,
-      "agent": "Trader",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "RSEL.TA ירד 5.77% היום — ירידה חדה. מחיר 13.38 vs עלות 13.31. לצפייה — אם <12.5 שקול exit.",
-      "action_taken": "monitoring",
-      "confidence": "0.77",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
-      "id": 32,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "Creative: RSEL -5.77% — ירידה חדה. ENRG -1.92%. TSLA +1.26% מחפה חלק. VXUS +0.49%. סה\"כ +0.02%.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
-      "id": 31,
-      "agent": "Trader",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "PLTR ירד מתחת לעלות הממוצעת (130.60). Current: 128.39 (-1.7%). אם ימשיך <125 — שקול להקטין פוזיציה.",
-      "action_taken": "monitoring",
-      "confidence": "0.78",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
+      "confidence": 0.95,
+      "created_at": "2026-02-25 16:00:59"
     }
   ]
 }
