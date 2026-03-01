@@ -1,16 +1,66 @@
 {
-  "updated_at": "2026-02-26T18:00:51.445667",
+  "updated_at": "2026-03-01T09:43:41.956250",
   "latest": {
-    "id": 42,
+    "id": 47,
     "agent": "Hunter",
     "level": "alert",
-    "portfolio_id": "super_agg",
-    "text": "TQQQ עלה +7.52% מעלות הכניסה (48.24→51.87). תנופה חזקה ב-Nasdaq 3x. שקול לממש חלק מהרווח או להגדיל stop-loss.",
+    "portfolio_id": "aggressive",
+    "text": "NVDA ירד 9.39% (195.56 → 177.19 USD). ירידה חדה — בדוק חדשות ספציפיות. עלות ממוצעת 191.55, הפסד שאינו ממומש: -1,499 USD.",
     "action_taken": null,
-    "confidence": "0.85",
-    "timestamp": "2026-02-26T09:01:36.206215+02:00"
+    "confidence": "0.90",
+    "timestamp": "2026-03-01T09:02:05.324969+02:00"
   },
   "history": [
+    {
+      "id": 51,
+      "agent": "Hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "LUMI (בנק לאומי) עלה 2.17% (74.16 → 75.77 ILS). חיובי — רווח שאינו ממומש: +634 ILS. בנקים ישראלים מתאוששים.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-01T09:02:05.324969+02:00"
+    },
+    {
+      "id": 50,
+      "agent": "Hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "ESLT (אלביט מערכות) עלה 2.52% (2340 → 2398.90 ILS). רווח שאינו ממומש: +665 ILS. שקול לנעול חלקית.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-01T09:02:05.324969+02:00"
+    },
+    {
+      "id": 49,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "RSEL (Rafael Development) ירד 4.26% (13.38 → 12.81 ILS). מגמה שלילית במניות ביטחוניות קטנות. הפסד שאינו ממומש: -939 ILS.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-01T09:02:05.324969+02:00"
+    },
+    {
+      "id": 48,
+      "agent": "Hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "CHKP ירד 2.51% (155.99 → 152.07 USD). שבירת רמת 155. עלות ממוצעת 154.73 — עדיין מעט מתחת לעלות.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-01T09:02:05.324969+02:00"
+    },
+    {
+      "id": 43,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "TSLA עלה +4.39% מעלות הכניסה (399.83→417.40). המשך מומנטום חיובי. RSEL (רפאל) +3.68% — ביקוש לתעשיית הביטחון.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-02-26T09:01:36.206215+02:00"
+    },
     {
       "id": 46,
       "agent": "Hunter",
@@ -42,13 +92,13 @@
       "timestamp": "2026-02-26T09:01:36.206215+02:00"
     },
     {
-      "id": 43,
+      "id": 42,
       "agent": "Hunter",
       "level": "alert",
-      "portfolio_id": "creative",
-      "text": "TSLA עלה +4.39% מעלות הכניסה (399.83→417.40). המשך מומנטום חיובי. RSEL (רפאל) +3.68% — ביקוש לתעשיית הביטחון.",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ עלה +7.52% מעלות הכניסה (48.24→51.87). תנופה חזקה ב-Nasdaq 3x. שקול לממש חלק מהרווח או להגדיל stop-loss.",
       "action_taken": null,
-      "confidence": "0.80",
+      "confidence": "0.85",
       "timestamp": "2026-02-26T09:01:36.206215+02:00"
     },
     {
@@ -112,26 +162,6 @@
       "timestamp": "2026-02-25T09:03:13.318037+02:00"
     },
     {
-      "id": 28,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "סקירת ערב 24/02: כל 5 תיקים בטווח תקין. אין חריגות drawdown מ-12%. ללא rebalance נדרש.",
-      "action_taken": "daily_check",
-      "confidence": "0.98",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
-      "id": 35,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "Aggressive: CHKP +0.49%, NVDA +0.44%, NICE +0.74%. SPEN -1.60%. ביצועים טובים — סה\"כ +0.19%.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
       "id": 34,
       "agent": "Trader",
       "level": "info",
@@ -170,36 +200,6 @@
       "action_taken": "monitoring",
       "confidence": "0.78",
       "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
-      "id": 30,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "Speculative: PLTR -1.69% → קמה ממודל 130.6 עלות ל-128.39. AMOT -3.44% (נדל\"ן ת\"א לחץ). TEVA +0.86% — פוזיטיבי. ממשיכים לצפות לקטליסט.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
-      "id": 29,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "Super-Agg: TQQQ +2.71% היום (נאסד\"ק recovery). VIX ירד — משתפר לכיוון regime=bull. ESLT -0.50% — noise, לא סיגנל.",
-      "action_taken": null,
-      "confidence": "0.82",
-      "timestamp": "2026-02-24T18:02:30.305564+02:00"
-    },
-    {
-      "id": 27,
-      "agent": "InvestOS",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "Reset v2 — 24/2/2026: תיקים עברו לניירות אמיתיים בת\"א + גלובלי. מחירי yfinance + .TA. baseline ₪100,000.",
-      "action_taken": null,
-      "confidence": "1.00",
-      "timestamp": "2026-02-24T13:57:09.864313+02:00"
     }
   ]
 }
