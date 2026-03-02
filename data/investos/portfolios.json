@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-01T21:20:04.992197",
+  "updated_at": "2026-03-02T09:02:54.420634",
   "pilot_day": 1,
   "total_capital": 500000.0,
   "target_net_profit": 100000,
@@ -15,7 +15,7 @@
       "initial_capital": 100000.0,
       "gross": 99806.16,
       "fees": 0.0,
-      "daily_change_pct": -0.699,
+      "daily_change_pct": 0.0,
       "assets": [
         {
           "ticker": "CSPX",
@@ -92,6 +92,10 @@
         {
           "date": "2026-03-01",
           "value": 99806.16
+        },
+        {
+          "date": "2026-03-02",
+          "value": 99806.16
         }
       ]
     },
@@ -105,7 +109,7 @@
       "initial_capital": 100000.0,
       "gross": 98000.978,
       "fees": 0.0,
-      "daily_change_pct": -1.2381,
+      "daily_change_pct": 0.0,
       "assets": [
         {
           "ticker": "NVDA",
@@ -197,6 +201,10 @@
         {
           "date": "2026-03-01",
           "value": 98000.98
+        },
+        {
+          "date": "2026-03-02",
+          "value": 98000.98
         }
       ]
     },
@@ -210,7 +218,7 @@
       "initial_capital": 100000.0,
       "gross": 101474.622,
       "fees": 0.0,
-      "daily_change_pct": -0.3748,
+      "daily_change_pct": 0.0,
       "assets": [
         {
           "ticker": "TQQQ",
@@ -274,6 +282,10 @@
         {
           "date": "2026-03-01",
           "value": 101474.62
+        },
+        {
+          "date": "2026-03-02",
+          "value": 101474.62
         }
       ]
     },
@@ -287,7 +299,7 @@
       "initial_capital": 100000.0,
       "gross": 101532.256,
       "fees": 0.0,
-      "daily_change_pct": 0.6634,
+      "daily_change_pct": 0.0,
       "assets": [
         {
           "ticker": "PLTR",
@@ -365,6 +377,10 @@
         {
           "date": "2026-03-01",
           "value": 101532.26
+        },
+        {
+          "date": "2026-03-02",
+          "value": 101532.26
         }
       ]
     },
@@ -378,7 +394,7 @@
       "initial_capital": 100000.0,
       "gross": 97165.443,
       "fees": 0.0,
-      "daily_change_pct": -4.471,
+      "daily_change_pct": 0.1161,
       "assets": [
         {
           "ticker": "TSLA",
@@ -470,6 +486,10 @@
         {
           "date": "2026-03-01",
           "value": 97052.75
+        },
+        {
+          "date": "2026-03-02",
+          "value": 97165.44
         }
       ]
     }
