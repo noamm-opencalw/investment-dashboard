@@ -1,75 +1,205 @@
 {
-  "updated_at": "2026-03-02T18:02:04.336668",
+  "updated_at": "2026-03-03T09:01:32.711353",
   "latest": {
-    "id": 7,
-    "agent": "Trader",
-    "level": "info",
-    "portfolio_id": null,
-    "text": "סקירת ערב 02-03-2026 (יום 8): כל 5 תיקים — drawdown=0.00% (100% מזומן). אין חריגה מ-12%. לא נדרש rebalance. אסטרטגיות active (solid x2, aggressive) שומרות הון מלא. backtesting (super_agg, speculative, creative) יום 2. אין עסקאות לדיווח.",
-    "action_taken": "daily-snapshot-saved | drawdown-checked | no-rebalance | strategies-updated",
-    "confidence": 1.0,
-    "timestamp": "2026-03-02 16:01:33"
+    "id": 62,
+    "agent": "Hunter",
+    "level": "alert",
+    "portfolio_id": "solid",
+    "text": "בנק לאומי (LUMI) +3.53% — בנקים ישראלים עולים חזק. TA35 +4.6% אתמול. LUMI נהנה מהסנטימנט החיובי.",
+    "action_taken": null,
+    "confidence": "0.80",
+    "timestamp": "2026-03-03T09:01:25.583609+02:00"
   },
   "history": [
     {
-      "id": 6,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "סקירת ערב 01-03-2026: כל 5 תיקים — drawdown=0.00% (100% מזומן). אין חריגה מ-12%. לא נדרש rebalance. אסטרטגיות super_agg/speculative/creative עברו proposed→backtesting. אסטרטגיות solid הופעלו (approved→active).",
-      "action_taken": "daily-snapshot saved | strategies updated | no rebalance",
-      "confidence": 1.0,
-      "timestamp": "2026-03-01 16:00:38"
-    },
-    {
-      "id": 3,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "סקירת ערב 26-02-2026: כל 5 התיקים — drawdown=0.00% (100% מזומן). אין חריגה מ-12%. לא נדרש rebalance.",
-      "action_taken": "daily-snapshot saved",
-      "confidence": 1.0,
-      "timestamp": "2026-02-26 16:00:42"
-    },
-    {
-      "id": 4,
-      "agent": "Trader",
-      "level": "info",
+      "id": 60,
+      "agent": "Hunter",
+      "level": "alert",
       "portfolio_id": "aggressive",
-      "text": "אסטרטגיית Momentum ת\"א 35 + לוריאן 90 עברה לסטטוס active. המתנה לאישור כניסה ראשונה.",
-      "action_taken": "status→active",
-      "confidence": 0.85,
-      "timestamp": "2026-02-26 16:00:42"
+      "text": "Sapiens (SPEN) +4.11% — עלייה חדה. נראה מנייה מחקה דפוס ריצת ביטחון-פינטק ישראלי.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
     },
     {
-      "id": 5,
-      "agent": "Trader",
-      "level": "info",
+      "id": 59,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "NVIDIA (NVDA) -4.74% היום — ירידה על רקע לחץ גיאו-פוליטי וחשש מהאטה בביקוש. שים לב לפוזיציה.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 61,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "Rafael Development (RSEL) +3.38% — ענף הביטחון ישראלי ממריא בעקבות המבצע. ייתכן המשך מומנטום.",
+      "action_taken": null,
+      "confidence": "0.82",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 65,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "Elbit Systems (ESLT) +8.44% — ריצת ביטחון קלאסית. חברת הביטחון הישראלית נהנית ישירות מהתחממות הזירה הצבאית.",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 58,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "NICE Systems (NICE.TA) +3.20% היום — עלייה חדה על רקע ריצת ביטחון-טכנולוגיה אחרי מתקפה על איראן. כיסוי גבוה מ-2%.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 66,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ (3x Nasdaq) +3.03% — מנוף חיובי. Nasdaq עלה בזכות NVDA +3%. ריצת TQQQ תואמת ציפיות.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 64,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "Palantir (PLTR) +11.16% — קפיצה חדה! הכי גדולה בתיק. S&P 500 מדרג אותה בין המובילות. שוק מתמחר ביקוש גבוה לכלי AI ביטחוניים.",
+      "action_taken": null,
+      "confidence": "0.92",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 63,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "AMOT REIT +2.55% — מעל סף 2%. עלייה מתונה בנדל'ן מניב על רקע ירידת פרמיית סיכון.",
+      "action_taken": null,
+      "confidence": "0.72",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 57,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "📉 ירידה של -3.3% ב-RSEL מאז כניסה (עלות ממוצעת 13.31 → כעת 12.87). השפעה על תיק creative: ₪-826.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-02T09:02:45.049610+02:00"
+    },
+    {
+      "id": 54,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "📈 עלייה של +5.0% ב-PLTR מאז כניסה (עלות ממוצעת 130.60 → כעת 137.19). השפעה על תיק speculative: ₪+1,257.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-02T09:02:45.049610+02:00"
+    },
+    {
+      "id": 55,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "📈 עלייה של +2.7% ב-ESLT מאז כניסה (עלות ממוצעת 2336.70 → כעת 2398.90). השפעה על תיק super_agg: ₪+666.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-02T09:02:45.049610+02:00"
+    },
+    {
+      "id": 53,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "📈 עלייה של +2.7% ב-TQQQ מאז כניסה (עלות ממוצעת 48.24 → כעת 49.52). השפעה על תיק super_agg: ₪+796.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-02T09:02:45.049610+02:00"
+    },
+    {
+      "id": 56,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "📉 ירידה של -7.6% ב-ENRG מאז כניסה (עלות ממוצעת 21.65 → כעת 20.00). השפעה על תיק creative: ₪-2,286.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-02T09:02:45.049610+02:00"
+    },
+    {
+      "id": 52,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "📉 ירידה של -7.5% ב-NVDA מאז כניסה (עלות ממוצעת 191.55 → כעת 177.19). השפעה על תיק aggressive: ₪-1,499.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-02T09:02:45.049610+02:00"
+    },
+    {
+      "id": 50,
+      "agent": "Hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "ESLT (אלביט מערכות) עלה 2.52% (2340 → 2398.90 ILS). רווח שאינו ממומש: +665 ILS. שקול לנעול חלקית.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-01T09:02:05.324969+02:00"
+    },
+    {
+      "id": 49,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "RSEL (Rafael Development) ירד 4.26% (13.38 → 12.81 ILS). מגמה שלילית במניות ביטחוניות קטנות. הפסד שאינו ממומש: -939 ILS.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-01T09:02:05.324969+02:00"
+    },
+    {
+      "id": 51,
+      "agent": "Hunter",
+      "level": "warn",
       "portfolio_id": "solid",
-      "text": "שתי אסטרטגיות solid (KSML, תל-בונד 60) אושרו. ממתינות לפקודת רכישה.",
-      "action_taken": "status→approved",
-      "confidence": 0.9,
-      "timestamp": "2026-02-26 16:00:42"
+      "text": "LUMI (בנק לאומי) עלה 2.17% (74.16 → 75.77 ILS). חיובי — רווח שאינו ממומש: +634 ILS. בנקים ישראלים מתאוששים.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-01T09:02:05.324969+02:00"
     },
     {
-      "id": 1,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "סריקת Drawdown ערב 25/02/26: כל 5 תיקים ב-100% מזומן. Drawdown = 0%. אין חריגה מ-12%. אין צורך ב-Rebalance.",
-      "action_taken": "none_required",
-      "confidence": 0.99,
-      "timestamp": "2026-02-25 16:00:59"
+      "id": 47,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "NVDA ירד 9.39% (195.56 → 177.19 USD). ירידה חדה — בדוק חדשות ספציפיות. עלות ממוצעת 191.55, הפסד שאינו ממומש: -1,499 USD.",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-03-01T09:02:05.324969+02:00"
     },
     {
-      "id": 2,
-      "agent": "Trader",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "פיילוט יום 3 — טרם בוצעו עסקאות. אסטרטגיות: 3 ב-backtesting, 3 ב-proposed. ממתינים לאישור Backtesting לפני כניסה לשוק.",
-      "action_taken": "strategies_updated",
-      "confidence": 0.95,
-      "timestamp": "2026-02-25 16:00:59"
+      "id": 48,
+      "agent": "Hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "CHKP ירד 2.51% (155.99 → 152.07 USD). שבירת רמת 155. עלות ממוצעת 154.73 — עדיין מעט מתחת לעלות.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-01T09:02:05.324969+02:00"
     }
   ]
 }
