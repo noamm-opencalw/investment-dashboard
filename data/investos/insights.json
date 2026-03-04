@@ -1,16 +1,56 @@
 {
-  "updated_at": "2026-03-03T09:01:32.711353",
+  "updated_at": "2026-03-04T09:01:45.708015",
   "latest": {
-    "id": 62,
-    "agent": "Hunter",
-    "level": "alert",
-    "portfolio_id": "solid",
-    "text": "בנק לאומי (LUMI) +3.53% — בנקים ישראלים עולים חזק. TA35 +4.6% אתמול. LUMI נהנה מהסנטימנט החיובי.",
-    "action_taken": null,
-    "confidence": "0.80",
-    "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    "id": 69,
+    "agent": "hunter",
+    "level": "warn",
+    "portfolio_id": "aggressive",
+    "text": "NVDA -6.00% vs avg cost ($180.05 vs $191.55). מגמה שלילית מתמשכת על רקע לחץ גלובלי בשווקים.",
+    "action_taken": "monitor",
+    "confidence": "0.75",
+    "timestamp": "2026-03-04T09:01:39.802998+02:00"
   },
   "history": [
+    {
+      "id": 71,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": null,
+      "text": "TASE שיא כל הזמנים — עלה 5.83% ב-3.3 (890 נקודות). S&P500 ירד 0.94% ל-6,816. מלחמת ישראל-איראן מייצרת דיכוטומיה: TASE מוביל, שווקים גלובליים נחלשים.",
+      "action_taken": "market context logged",
+      "confidence": "0.90",
+      "timestamp": "2026-03-04T09:01:39.802998+02:00"
+    },
+    {
+      "id": 67,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "PLTR +12.73% vs avg cost ($147.22 vs $130.60). פוזיציה ב-Speculative בעלייה חדה — שקול לממש חלק מהרווח.",
+      "action_taken": "flagged for review",
+      "confidence": "0.85",
+      "timestamp": "2026-03-04T09:01:39.802998+02:00"
+    },
+    {
+      "id": 68,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "ESLT +8.44% vs avg cost (₪2,534 vs ₪2,336.70). אלביט עולה חזק — סביר בגלל מלחמת איראן. TASE בשיא כל הזמנים.",
+      "action_taken": "no action",
+      "confidence": "0.80",
+      "timestamp": "2026-03-04T09:01:39.802998+02:00"
+    },
+    {
+      "id": 70,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "VXUS -4.06% vs avg cost ($79.56 vs $82.93). אינדקס גלובלי נחלש — לחץ מהמלחמה באיראן על שווקים בינ\"ל.",
+      "action_taken": "monitor",
+      "confidence": "0.70",
+      "timestamp": "2026-03-04T09:01:39.802998+02:00"
+    },
     {
       "id": 60,
       "agent": "Hunter",
@@ -19,26 +59,6 @@
       "text": "Sapiens (SPEN) +4.11% — עלייה חדה. נראה מנייה מחקה דפוס ריצת ביטחון-פינטק ישראלי.",
       "action_taken": null,
       "confidence": "0.78",
-      "timestamp": "2026-03-03T09:01:25.583609+02:00"
-    },
-    {
-      "id": 59,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "NVIDIA (NVDA) -4.74% היום — ירידה על רקע לחץ גיאו-פוליטי וחשש מהאטה בביקוש. שים לב לפוזיציה.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-03T09:01:25.583609+02:00"
-    },
-    {
-      "id": 61,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "Rafael Development (RSEL) +3.38% — ענף הביטחון ישראלי ממריא בעקבות המבצע. ייתכן המשך מומנטום.",
-      "action_taken": null,
-      "confidence": "0.82",
       "timestamp": "2026-03-03T09:01:25.583609+02:00"
     },
     {
@@ -62,13 +82,13 @@
       "timestamp": "2026-03-03T09:01:25.583609+02:00"
     },
     {
-      "id": 66,
+      "id": 63,
       "agent": "Hunter",
       "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ (3x Nasdaq) +3.03% — מנוף חיובי. Nasdaq עלה בזכות NVDA +3%. ריצת TQQQ תואמת ציפיות.",
+      "portfolio_id": "speculative",
+      "text": "AMOT REIT +2.55% — מעל סף 2%. עלייה מתונה בנדל'ן מניב על רקע ירידת פרמיית סיכון.",
       "action_taken": null,
-      "confidence": "0.80",
+      "confidence": "0.72",
       "timestamp": "2026-03-03T09:01:25.583609+02:00"
     },
     {
@@ -82,14 +102,64 @@
       "timestamp": "2026-03-03T09:01:25.583609+02:00"
     },
     {
-      "id": 63,
+      "id": 59,
       "agent": "Hunter",
       "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "AMOT REIT +2.55% — מעל סף 2%. עלייה מתונה בנדל'ן מניב על רקע ירידת פרמיית סיכון.",
+      "portfolio_id": "aggressive",
+      "text": "NVIDIA (NVDA) -4.74% היום — ירידה על רקע לחץ גיאו-פוליטי וחשש מהאטה בביקוש. שים לב לפוזיציה.",
       "action_taken": null,
-      "confidence": "0.72",
+      "confidence": "0.80",
       "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 62,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "solid",
+      "text": "בנק לאומי (LUMI) +3.53% — בנקים ישראלים עולים חזק. TA35 +4.6% אתמול. LUMI נהנה מהסנטימנט החיובי.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 66,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ (3x Nasdaq) +3.03% — מנוף חיובי. Nasdaq עלה בזכות NVDA +3%. ריצת TQQQ תואמת ציפיות.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 61,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "Rafael Development (RSEL) +3.38% — ענף הביטחון ישראלי ממריא בעקבות המבצע. ייתכן המשך מומנטום.",
+      "action_taken": null,
+      "confidence": "0.82",
+      "timestamp": "2026-03-03T09:01:25.583609+02:00"
+    },
+    {
+      "id": 56,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "📉 ירידה של -7.6% ב-ENRG מאז כניסה (עלות ממוצעת 21.65 → כעת 20.00). השפעה על תיק creative: ₪-2,286.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-02T09:02:45.049610+02:00"
+    },
+    {
+      "id": 53,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "📈 עלייה של +2.7% ב-TQQQ מאז כניסה (עלות ממוצעת 48.24 → כעת 49.52). השפעה על תיק super_agg: ₪+796.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-02T09:02:45.049610+02:00"
     },
     {
       "id": 57,
@@ -122,26 +192,6 @@
       "timestamp": "2026-03-02T09:02:45.049610+02:00"
     },
     {
-      "id": 53,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "📈 עלייה של +2.7% ב-TQQQ מאז כניסה (עלות ממוצעת 48.24 → כעת 49.52). השפעה על תיק super_agg: ₪+796.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-02T09:02:45.049610+02:00"
-    },
-    {
-      "id": 56,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "📉 ירידה של -7.6% ב-ENRG מאז כניסה (עלות ממוצעת 21.65 → כעת 20.00). השפעה על תיק creative: ₪-2,286.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-02T09:02:45.049610+02:00"
-    },
-    {
       "id": 52,
       "agent": "hunter",
       "level": "alert",
@@ -150,56 +200,6 @@
       "action_taken": null,
       "confidence": "0.85",
       "timestamp": "2026-03-02T09:02:45.049610+02:00"
-    },
-    {
-      "id": 50,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "ESLT (אלביט מערכות) עלה 2.52% (2340 → 2398.90 ILS). רווח שאינו ממומש: +665 ILS. שקול לנעול חלקית.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-01T09:02:05.324969+02:00"
-    },
-    {
-      "id": 49,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "RSEL (Rafael Development) ירד 4.26% (13.38 → 12.81 ILS). מגמה שלילית במניות ביטחוניות קטנות. הפסד שאינו ממומש: -939 ILS.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-01T09:02:05.324969+02:00"
-    },
-    {
-      "id": 51,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI (בנק לאומי) עלה 2.17% (74.16 → 75.77 ILS). חיובי — רווח שאינו ממומש: +634 ILS. בנקים ישראלים מתאוששים.",
-      "action_taken": null,
-      "confidence": "0.78",
-      "timestamp": "2026-03-01T09:02:05.324969+02:00"
-    },
-    {
-      "id": 47,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "NVDA ירד 9.39% (195.56 → 177.19 USD). ירידה חדה — בדוק חדשות ספציפיות. עלות ממוצעת 191.55, הפסד שאינו ממומש: -1,499 USD.",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-01T09:02:05.324969+02:00"
-    },
-    {
-      "id": 48,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "CHKP ירד 2.51% (155.99 → 152.07 USD). שבירת רמת 155. עלות ממוצעת 154.73 — עדיין מעט מתחת לעלות.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-01T09:02:05.324969+02:00"
     }
   ]
 }
