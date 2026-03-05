@@ -1,39 +1,39 @@
 {
-  "updated_at": "2026-03-02T18:02:04.340291",
+  "updated_at": "2026-03-05T18:01:01.204868",
   "date": "2026-03-02",
   "currency": "ILS",
   "portfolios": [
     {
       "portfolio_id": "aggressive",
-      "date": "2026-03-02",
+      "date": "2026-03-05",
       "gross_value": 100000.0,
       "net_value": 100000.0,
       "daily_change_pct": 0.0
     },
     {
       "portfolio_id": "creative",
-      "date": "2026-03-02",
+      "date": "2026-03-05",
       "gross_value": 100000.0,
       "net_value": 100000.0,
       "daily_change_pct": 0.0
     },
     {
       "portfolio_id": "solid",
-      "date": "2026-03-02",
+      "date": "2026-03-05",
       "gross_value": 100000.0,
       "net_value": 100000.0,
       "daily_change_pct": 0.0
     },
     {
       "portfolio_id": "speculative",
-      "date": "2026-03-02",
+      "date": "2026-03-05",
       "gross_value": 100000.0,
       "net_value": 100000.0,
       "daily_change_pct": 0.0
     },
     {
       "portfolio_id": "super_agg",
-      "date": "2026-03-02",
+      "date": "2026-03-05",
       "gross_value": 100000.0,
       "net_value": 100000.0,
       "daily_change_pct": 0.0
