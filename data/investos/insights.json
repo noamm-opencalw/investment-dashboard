@@ -1,16 +1,186 @@
 {
-  "updated_at": "2026-03-05T18:01:07.995639",
+  "updated_at": "2026-03-08T18:01:22.204983",
   "latest": {
-    "id": 72,
+    "id": 90,
     "agent": "hunter",
-    "level": "alert",
+    "level": "warn",
     "portfolio_id": "aggressive",
-    "text": "NICE (Aggressive): עלה 7.38% ביום אחד (364.60 → 391.50). P&L לא-ממומש: +2703.03",
+    "text": "NVDA ירדה 3% ביום שישי (177.82) — -5% YTD 2026. OpenAI השקעה נתקעה, לחץ ריבית. AI demand חזק אבל שוק מתמחר מחדש. שקול הוספה בהדרגה.",
     "action_taken": null,
-    "confidence": "0.90",
-    "timestamp": "2026-03-05T09:02:11.687410+02:00"
+    "confidence": "0.80",
+    "timestamp": "2026-03-08T09:01:46.439469+02:00"
   },
   "history": [
+    {
+      "id": 91,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": null,
+      "text": "מאקרו: S&P500 הושפע מקונפליקט אירן ב-2 מרץ (-1.1%), שחזר ב-4 מרץ (+0.78%). שוק תנודתי — גיאופוליטיקה גורם. TASE 52-week high 17,280 — שוק ישראלי חזק יחסית.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-08T09:01:46.439469+02:00"
+    },
+    {
+      "id": 84,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "RSEL: +18.8% מעל עלות ממוצעת (15.81 vs 13.31 ILS). מומנטום חיובי.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-08T09:01:28.982894+02:00"
+    },
+    {
+      "id": 89,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "Creative: +2.4% יום — הטוב ביום. RSEL ו-TSLA תומכים.",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-03-08T09:01:28.982894+02:00"
+    },
+    {
+      "id": 86,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA: -7.2% מתחת לעלות ממוצעת (177.82 vs 191.55 USD). לשקול הוספה בירידה.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-08T09:01:28.982894+02:00"
+    },
+    {
+      "id": 85,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "NICE: +13.7% מעל עלות ממוצעת (401.7 vs 353.3 ILS). ביצועים טובים.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-08T09:01:28.982894+02:00"
+    },
+    {
+      "id": 83,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "ESLT: +19.3% מעל עלות ממוצעת (2788 vs 2336.7 ILS). ביצועים חזקים מאוד.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-08T09:01:28.982894+02:00"
+    },
+    {
+      "id": 82,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "PLTR: +20.3% מעל עלות ממוצעת (157.16 vs 130.60). נסיקה חדה — שקול לממש חלק.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-08T09:01:28.982894+02:00"
+    },
+    {
+      "id": 87,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "תיק Solid: ירד 1.2% מהסנאפשוט האחרון. CSPX ו-POLI בלחץ קל.",
+      "action_taken": null,
+      "confidence": "0.70",
+      "timestamp": "2026-03-08T09:01:28.982894+02:00"
+    },
+    {
+      "id": 88,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "Aggressive: +2.1% יום — עבר יעד 2%. NICE ו-SPEN מובילים.",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-03-08T09:01:28.982894+02:00"
+    },
+    {
+      "id": 75,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "RSEL (Creative): עלה 8.28% ביום אחד (13.76 → 14.90). P&L לא-ממומש: +2986.50",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-03-05T09:02:11.687410+02:00"
+    },
+    {
+      "id": 76,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "TSLA (Creative): עלה 3.44% ביום אחד (392.43 → 405.94). P&L לא-ממומש: +152.75",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-05T09:02:11.687410+02:00"
+    },
+    {
+      "id": 73,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "SPEN (Aggressive): עלה 2.26% ביום אחד (34.45 → 35.23). P&L לא-ממומש: +970.08",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-05T09:02:11.687410+02:00"
+    },
+    {
+      "id": 74,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG (Creative): ירד 4.96% ביום אחד (21.59 → 20.52). P&L לא-ממומש: -1565.84",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-05T09:02:11.687410+02:00"
+    },
+    {
+      "id": 72,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "NICE (Aggressive): עלה 7.38% ביום אחד (364.60 → 391.50). P&L לא-ממומש: +2703.03",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-03-05T09:02:11.687410+02:00"
+    },
+    {
+      "id": 79,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA (Speculative): ירד 3.82% ביום אחד (104.60 → 100.60). P&L לא-ממומש: -1199.94",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-05T09:02:11.687410+02:00"
+    },
+    {
+      "id": 78,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "PLTR (Speculative): עלה 4.06% ביום אחד (147.22 → 153.19). P&L לא-ממומש: +4310.17",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-05T09:02:11.687410+02:00"
+    },
+    {
+      "id": 80,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "ESLT (Super-Agg): עלה 4.97% ביום אחד (2534.00 → 2660.00). P&L לא-ממומש: +3459.31",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-05T09:02:11.687410+02:00"
+    },
     {
       "id": 81,
       "agent": "hunter",
@@ -30,176 +200,6 @@
       "action_taken": null,
       "confidence": "0.75",
       "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 76,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA (Creative): עלה 3.44% ביום אחד (392.43 → 405.94). P&L לא-ממומש: +152.75",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 78,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "PLTR (Speculative): עלה 4.06% ביום אחד (147.22 → 153.19). P&L לא-ממומש: +4310.17",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 75,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "RSEL (Creative): עלה 8.28% ביום אחד (13.76 → 14.90). P&L לא-ממומש: +2986.50",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 79,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA (Speculative): ירד 3.82% ביום אחד (104.60 → 100.60). P&L לא-ממומש: -1199.94",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 80,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "ESLT (Super-Agg): עלה 4.97% ביום אחד (2534.00 → 2660.00). P&L לא-ממומש: +3459.31",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 74,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG (Creative): ירד 4.96% ביום אחד (21.59 → 20.52). P&L לא-ממומש: -1565.84",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 73,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "SPEN (Aggressive): עלה 2.26% ביום אחד (34.45 → 35.23). P&L לא-ממומש: +970.08",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 68,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "ESLT +8.44% vs avg cost (₪2,534 vs ₪2,336.70). אלביט עולה חזק — סביר בגלל מלחמת איראן. TASE בשיא כל הזמנים.",
-      "action_taken": "no action",
-      "confidence": "0.80",
-      "timestamp": "2026-03-04T09:01:39.802998+02:00"
-    },
-    {
-      "id": 69,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA -6.00% vs avg cost ($180.05 vs $191.55). מגמה שלילית מתמשכת על רקע לחץ גלובלי בשווקים.",
-      "action_taken": "monitor",
-      "confidence": "0.75",
-      "timestamp": "2026-03-04T09:01:39.802998+02:00"
-    },
-    {
-      "id": 67,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "PLTR +12.73% vs avg cost ($147.22 vs $130.60). פוזיציה ב-Speculative בעלייה חדה — שקול לממש חלק מהרווח.",
-      "action_taken": "flagged for review",
-      "confidence": "0.85",
-      "timestamp": "2026-03-04T09:01:39.802998+02:00"
-    },
-    {
-      "id": 71,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "TASE שיא כל הזמנים — עלה 5.83% ב-3.3 (890 נקודות). S&P500 ירד 0.94% ל-6,816. מלחמת ישראל-איראן מייצרת דיכוטומיה: TASE מוביל, שווקים גלובליים נחלשים.",
-      "action_taken": "market context logged",
-      "confidence": "0.90",
-      "timestamp": "2026-03-04T09:01:39.802998+02:00"
-    },
-    {
-      "id": 70,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "VXUS -4.06% vs avg cost ($79.56 vs $82.93). אינדקס גלובלי נחלש — לחץ מהמלחמה באיראן על שווקים בינ\"ל.",
-      "action_taken": "monitor",
-      "confidence": "0.70",
-      "timestamp": "2026-03-04T09:01:39.802998+02:00"
-    },
-    {
-      "id": 65,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "Elbit Systems (ESLT) +8.44% — ריצת ביטחון קלאסית. חברת הביטחון הישראלית נהנית ישירות מהתחממות הזירה הצבאית.",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-03T09:01:25.583609+02:00"
-    },
-    {
-      "id": 58,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "NICE Systems (NICE.TA) +3.20% היום — עלייה חדה על רקע ריצת ביטחון-טכנולוגיה אחרי מתקפה על איראן. כיסוי גבוה מ-2%.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-03T09:01:25.583609+02:00"
-    },
-    {
-      "id": 63,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "AMOT REIT +2.55% — מעל סף 2%. עלייה מתונה בנדל'ן מניב על רקע ירידת פרמיית סיכון.",
-      "action_taken": null,
-      "confidence": "0.72",
-      "timestamp": "2026-03-03T09:01:25.583609+02:00"
-    },
-    {
-      "id": 60,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "Sapiens (SPEN) +4.11% — עלייה חדה. נראה מנייה מחקה דפוס ריצת ביטחון-פינטק ישראלי.",
-      "action_taken": null,
-      "confidence": "0.78",
-      "timestamp": "2026-03-03T09:01:25.583609+02:00"
-    },
-    {
-      "id": 61,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "Rafael Development (RSEL) +3.38% — ענף הביטחון ישראלי ממריא בעקבות המבצע. ייתכן המשך מומנטום.",
-      "action_taken": null,
-      "confidence": "0.82",
-      "timestamp": "2026-03-03T09:01:25.583609+02:00"
     }
   ]
 }
