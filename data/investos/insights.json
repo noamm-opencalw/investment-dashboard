@@ -1,16 +1,76 @@
 {
-  "updated_at": "2026-03-09T09:02:53.586466",
+  "updated_at": "2026-03-10T18:00:52.475046",
   "latest": {
-    "id": 92,
+    "id": 102,
     "agent": "hunter",
-    "level": "alert",
-    "portfolio_id": "speculative",
-    "text": "PLTR +20.3% vs avg cost ($130.60->$157.16). S&P fell ~2% last week; PLTR holding strong. Consider partial profit-taking.",
+    "level": "warn",
+    "portfolio_id": "aggressive",
+    "text": "CHKP ירדה 2.6% (160.85 מ-165.22) — מניית סייבר ישראלית נסוגה. עדיין ברווח 4% מהכניסה.",
     "action_taken": null,
-    "confidence": "0.85",
-    "timestamp": "2026-03-09T09:02:41.166248+02:00"
+    "confidence": "0.75",
+    "timestamp": "2026-03-10T09:02:25.634280+02:00"
   },
   "history": [
+    {
+      "id": 97,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "TEVA ירדה 4.8% (94.25 ILS מ-99.02). הסימן החזק ביותר היום — שקול הפחתת חשיפה. עמדה בהפסד 10% מהכניסה.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-10T09:02:25.634280+02:00"
+    },
+    {
+      "id": 100,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA עלה 2.7% (182.65 מ-177.82) — שוק ה-AI ממשיך להתאושש. עדיין בהפסד 4.7% מהכניסה.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-10T09:02:25.634280+02:00"
+    },
+    {
+      "id": 101,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "LUMI ירדה 2.7% (75.18 מ-77.30) ו-POLI ירדה 2.6% (76.37 מ-78.39) — לחץ על מניות הפיננסים בישראל.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-10T09:02:25.634280+02:00"
+    },
+    {
+      "id": 103,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "RSEL עלה 2.0% (16.13 מ-15.81) — מגמה חיובית, ריווח 21% מהכניסה. אחת מעמדות הליבה הטובות.",
+      "action_taken": null,
+      "confidence": "0.72",
+      "timestamp": "2026-03-10T09:02:25.634280+02:00"
+    },
+    {
+      "id": 99,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ עלה 3.9% (49.39 מ-47.54) — תנועה חיובית ב-NASDAQ, מכפיל פי 3. Super-Agg נהנה.",
+      "action_taken": null,
+      "confidence": "0.82",
+      "timestamp": "2026-03-10T09:02:25.634280+02:00"
+    },
+    {
+      "id": 98,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "NICE ירדה 2.8% (390.50 ILS מ-401.70) — תיקון לאחר עליות. עדיין בריווח 10.5% מהכניסה.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-10T09:02:25.634280+02:00"
+    },
     {
       "id": 96,
       "agent": "hunter",
@@ -19,16 +79,6 @@
       "text": "VXUS -5.97% vs avg cost ($82.93->$77.98). Dollar strength + tariff fears weighing on ex-US equities. Consider averaging down if thesis intact.",
       "action_taken": null,
       "confidence": "0.65",
-      "timestamp": "2026-03-09T09:02:41.166248+02:00"
-    },
-    {
-      "id": 95,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA -7.17% vs avg cost ($191.55->$177.82). Nasdaq down ~1.2% last week. CPI+PCE data due this week. Hold recommended — AI/datacenter fundamentals intact.",
-      "action_taken": null,
-      "confidence": "0.70",
       "timestamp": "2026-03-09T09:02:41.166248+02:00"
     },
     {
@@ -42,6 +92,16 @@
       "timestamp": "2026-03-09T09:02:41.166248+02:00"
     },
     {
+      "id": 92,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "PLTR +20.3% vs avg cost ($130.60->$157.16). S&P fell ~2% last week; PLTR holding strong. Consider partial profit-taking.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-09T09:02:41.166248+02:00"
+    },
+    {
       "id": 93,
       "agent": "hunter",
       "level": "alert",
@@ -49,6 +109,16 @@
       "text": "ESLT (Elbit Systems) +19.3% vs avg cost (NIS 2336.7->2788). Global defense demand continues; TA-35 slightly weak but ESLT resilient.",
       "action_taken": null,
       "confidence": "0.80",
+      "timestamp": "2026-03-09T09:02:41.166248+02:00"
+    },
+    {
+      "id": 95,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA -7.17% vs avg cost ($191.55->$177.82). Nasdaq down ~1.2% last week. CPI+PCE data due this week. Hold recommended — AI/datacenter fundamentals intact.",
+      "action_taken": null,
+      "confidence": "0.70",
       "timestamp": "2026-03-09T09:02:41.166248+02:00"
     },
     {
@@ -70,16 +140,6 @@
       "action_taken": null,
       "confidence": "0.80",
       "timestamp": "2026-03-08T09:01:46.439469+02:00"
-    },
-    {
-      "id": 82,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "PLTR: +20.3% מעל עלות ממוצעת (157.16 vs 130.60). נסיקה חדה — שקול לממש חלק.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-08T09:01:28.982894+02:00"
     },
     {
       "id": 85,
@@ -112,6 +172,16 @@
       "timestamp": "2026-03-08T09:01:28.982894+02:00"
     },
     {
+      "id": 82,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "PLTR: +20.3% מעל עלות ממוצעת (157.16 vs 130.60). נסיקה חדה — שקול לממש חלק.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-08T09:01:28.982894+02:00"
+    },
+    {
       "id": 87,
       "agent": "hunter",
       "level": "warn",
@@ -130,76 +200,6 @@
       "action_taken": null,
       "confidence": "0.90",
       "timestamp": "2026-03-08T09:01:28.982894+02:00"
-    },
-    {
-      "id": 86,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA: -7.2% מתחת לעלות ממוצעת (177.82 vs 191.55 USD). לשקול הוספה בירידה.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-08T09:01:28.982894+02:00"
-    },
-    {
-      "id": 83,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "ESLT: +19.3% מעל עלות ממוצעת (2788 vs 2336.7 ILS). ביצועים חזקים מאוד.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-08T09:01:28.982894+02:00"
-    },
-    {
-      "id": 74,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG (Creative): ירד 4.96% ביום אחד (21.59 → 20.52). P&L לא-ממומש: -1565.84",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 73,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "SPEN (Aggressive): עלה 2.26% ביום אחד (34.45 → 35.23). P&L לא-ממומש: +970.08",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 75,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "RSEL (Creative): עלה 8.28% ביום אחד (13.76 → 14.90). P&L לא-ממומש: +2986.50",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 76,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA (Creative): עלה 3.44% ביום אחד (392.43 → 405.94). P&L לא-ממומש: +152.75",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
-    },
-    {
-      "id": 72,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "NICE (Aggressive): עלה 7.38% ביום אחד (364.60 → 391.50). P&L לא-ממומש: +2703.03",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-05T09:02:11.687410+02:00"
     }
   ]
 }
