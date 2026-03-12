@@ -1,34 +1,84 @@
 {
-  "updated_at": "2026-03-11T09:01:55.186753",
+  "updated_at": "2026-03-12T09:02:11.129850",
   "latest": {
-    "id": 104,
-    "agent": "hunter",
+    "id": 113,
+    "agent": "Hunter",
     "level": "alert",
-    "portfolio_id": "speculative",
-    "text": "PLTR +15.73% מעל עלות בסיס (130.60→151.14 USD). פוזיציה רווחית ₪28,837. שקול Take-Profit חלקי.",
+    "portfolio_id": "creative",
+    "text": "RSEL (Rafael Development) +11.8% — תאגיד ביטחוני ישראלי. מגמה זהה ל-ESLT. רווח לא ממומש: ₪2,949.",
     "action_taken": null,
-    "confidence": "0.85",
-    "timestamp": "2026-03-11T09:01:45.783331+02:00"
+    "confidence": "0.80",
+    "timestamp": "2026-03-12T09:01:55.594061+02:00"
   },
   "history": [
     {
-      "id": 105,
-      "agent": "hunter",
+      "id": 112,
+      "agent": "Hunter",
       "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "ESLT (אלביט) +15.68% מעל עלות בסיס (2336→2703 ILS). מניות ביטחון ממשיכות לעלות בגל הגנה ישראלי. ₪28,922.",
+      "portfolio_id": "speculative",
+      "text": "PLTR (Palantir) +16.1% מעלות. חוזי AI ממשלתיים חדשים, ביקוש מואץ מצד DoD ואיחוד אירופי. רווח לא ממומש: ,007.",
       "action_taken": null,
       "confidence": "0.82",
-      "timestamp": "2026-03-11T09:01:45.783331+02:00"
+      "timestamp": "2026-03-12T09:01:55.594061+02:00"
     },
     {
-      "id": 109,
-      "agent": "hunter",
+      "id": 111,
+      "agent": "Hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "ESLT (Elbit Systems) +16.9% מעלות. ביקוש ביטחוני גבוה — ייצוא נשק ישראלי ממשיך לשיאים. שווי נוכחי: ₪2,732/מנייה. רווח לא ממומש: ₪4,230.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-12T09:01:55.594061+02:00"
+    },
+    {
+      "id": 115,
+      "agent": "Hunter",
       "level": "warn",
-      "portfolio_id": "solid",
-      "text": "POLI (בנק הפועלים) -3.18% מתחת עלות (80.25→77.70 ILS). מניות בנקים ישראלים תחת לחץ — ריבית+אי-ודאות ביטחונית.",
+      "portfolio_id": "speculative",
+      "text": "TEVA (Teva TASE) -8.9% מתחת לבסיס. תיק גנריקים תחת לחץ, תחרות בשוק האמריקני. הפסד לא ממומש: ₪2,657.",
+      "action_taken": null,
+      "confidence": "0.77",
+      "timestamp": "2026-03-12T09:01:55.594061+02:00"
+    },
+    {
+      "id": 117,
+      "agent": "Hunter",
+      "level": "info",
+      "portfolio_id": null,
+      "text": "S&P 500 יציב — CSPX.L מסמן .75. TASE בסגמנט ביטחוני חזק (ESLT, RSEL). שוק אמריקאי ממשיך מגמה מעורבת.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-12T09:01:55.594061+02:00"
+    },
+    {
+      "id": 114,
+      "agent": "Hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG (Energix) -9.6% מתחת לבסיס — אנרגיה מתחדשת ישראלית סובלת מריביות גבוהות ועלויות מימון. הפסד לא ממומש: ₪2,882.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-12T09:01:55.594061+02:00"
+    },
+    {
+      "id": 116,
+      "agent": "Hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA -2.9% מתחת לבסיס. רוטציה מ-AI chips לאחר ריצה ממושכת. שוק עדיין חזק — ייתכן תיקון טכני.",
       "action_taken": null,
       "confidence": "0.70",
+      "timestamp": "2026-03-12T09:01:55.594061+02:00"
+    },
+    {
+      "id": 108,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA -3.54% מתחת עלות בסיס (191.55→184.77 USD). חולשה בסמיקונדקטור. מאקרו AI spending concerns.",
+      "action_taken": null,
+      "confidence": "0.72",
       "timestamp": "2026-03-11T09:01:45.783331+02:00"
     },
     {
@@ -42,23 +92,23 @@
       "timestamp": "2026-03-11T09:01:45.783331+02:00"
     },
     {
-      "id": 110,
+      "id": 104,
       "agent": "hunter",
       "level": "alert",
-      "portfolio_id": "creative",
-      "text": "Creative portfolio: ירידה חדה של -4.30% היום. ENRG ו-VXUS מושכים מטה. שקול בחינת תמהיל.",
+      "portfolio_id": "speculative",
+      "text": "PLTR +15.73% מעל עלות בסיס (130.60→151.14 USD). פוזיציה רווחית ₪28,837. שקול Take-Profit חלקי.",
       "action_taken": null,
-      "confidence": "0.80",
+      "confidence": "0.85",
       "timestamp": "2026-03-11T09:01:45.783331+02:00"
     },
     {
-      "id": 108,
+      "id": 105,
       "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA -3.54% מתחת עלות בסיס (191.55→184.77 USD). חולשה בסמיקונדקטור. מאקרו AI spending concerns.",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "ESLT (אלביט) +15.68% מעל עלות בסיס (2336→2703 ILS). מניות ביטחון ממשיכות לעלות בגל הגנה ישראלי. ₪28,922.",
       "action_taken": null,
-      "confidence": "0.72",
+      "confidence": "0.82",
       "timestamp": "2026-03-11T09:01:45.783331+02:00"
     },
     {
@@ -70,6 +120,46 @@
       "action_taken": null,
       "confidence": "0.78",
       "timestamp": "2026-03-11T09:01:45.783331+02:00"
+    },
+    {
+      "id": 109,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "POLI (בנק הפועלים) -3.18% מתחת עלות (80.25→77.70 ILS). מניות בנקים ישראלים תחת לחץ — ריבית+אי-ודאות ביטחונית.",
+      "action_taken": null,
+      "confidence": "0.70",
+      "timestamp": "2026-03-11T09:01:45.783331+02:00"
+    },
+    {
+      "id": 110,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "Creative portfolio: ירידה חדה של -4.30% היום. ENRG ו-VXUS מושכים מטה. שקול בחינת תמהיל.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-11T09:01:45.783331+02:00"
+    },
+    {
+      "id": 98,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "NICE ירדה 2.8% (390.50 ILS מ-401.70) — תיקון לאחר עליות. עדיין בריווח 10.5% מהכניסה.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-10T09:02:25.634280+02:00"
+    },
+    {
+      "id": 97,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "TEVA ירדה 4.8% (94.25 ILS מ-99.02). הסימן החזק ביותר היום — שקול הפחתת חשיפה. עמדה בהפסד 10% מהכניסה.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-10T09:02:25.634280+02:00"
     },
     {
       "id": 99,
@@ -110,96 +200,6 @@
       "action_taken": null,
       "confidence": "0.72",
       "timestamp": "2026-03-10T09:02:25.634280+02:00"
-    },
-    {
-      "id": 101,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI ירדה 2.7% (75.18 מ-77.30) ו-POLI ירדה 2.6% (76.37 מ-78.39) — לחץ על מניות הפיננסים בישראל.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-10T09:02:25.634280+02:00"
-    },
-    {
-      "id": 97,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "TEVA ירדה 4.8% (94.25 ILS מ-99.02). הסימן החזק ביותר היום — שקול הפחתת חשיפה. עמדה בהפסד 10% מהכניסה.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-10T09:02:25.634280+02:00"
-    },
-    {
-      "id": 98,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "NICE ירדה 2.8% (390.50 ILS מ-401.70) — תיקון לאחר עליות. עדיין בריווח 10.5% מהכניסה.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-10T09:02:25.634280+02:00"
-    },
-    {
-      "id": 96,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "VXUS -5.97% vs avg cost ($82.93->$77.98). Dollar strength + tariff fears weighing on ex-US equities. Consider averaging down if thesis intact.",
-      "action_taken": null,
-      "confidence": "0.65",
-      "timestamp": "2026-03-09T09:02:41.166248+02:00"
-    },
-    {
-      "id": 92,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "PLTR +20.3% vs avg cost ($130.60->$157.16). S&P fell ~2% last week; PLTR holding strong. Consider partial profit-taking.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-09T09:02:41.166248+02:00"
-    },
-    {
-      "id": 93,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "ESLT (Elbit Systems) +19.3% vs avg cost (NIS 2336.7->2788). Global defense demand continues; TA-35 slightly weak but ESLT resilient.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-09T09:02:41.166248+02:00"
-    },
-    {
-      "id": 94,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "RSEL +18.8% vs avg cost (NIS 13.31->15.81). Large 1878-share position (~NIS 29,696). Consider setting partial profit target.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-09T09:02:41.166248+02:00"
-    },
-    {
-      "id": 95,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA -7.17% vs avg cost ($191.55->$177.82). Nasdaq down ~1.2% last week. CPI+PCE data due this week. Hold recommended — AI/datacenter fundamentals intact.",
-      "action_taken": null,
-      "confidence": "0.70",
-      "timestamp": "2026-03-09T09:02:41.166248+02:00"
-    },
-    {
-      "id": 91,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "מאקרו: S&P500 הושפע מקונפליקט אירן ב-2 מרץ (-1.1%), שחזר ב-4 מרץ (+0.78%). שוק תנודתי — גיאופוליטיקה גורם. TASE 52-week high 17,280 — שוק ישראלי חזק יחסית.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-08T09:01:46.439469+02:00"
     }
   ]
 }
