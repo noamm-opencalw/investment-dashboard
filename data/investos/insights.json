@@ -1,52 +1,52 @@
 {
-  "updated_at": "2026-03-16T00:34:36.883860",
+  "updated_at": "2026-03-16T09:03:26.404405",
   "latest": {
-    "id": 124,
+    "id": 132,
     "agent": "hunter",
     "level": "warn",
-    "portfolio_id": "super_agg",
-    "text": "TQQQ: -4.79% vs cost basis (avg=48.24, now=45.93) — loss",
+    "portfolio_id": "speculative",
+    "text": "TEVA -2.49% יום זה ($28.57). ירידה רצופה 5 ימים: $31.5 → $28.57 (-9.3% בשבוע). אחזקה: 285.7 מניות × $28.57 = $8,162. הפסד מנייתי: -$21,779 ממחיר ממוצע $104.80. מגמה שלילית ממשיכה — שקול עצירת הפסדים.",
     "action_taken": null,
-    "confidence": null,
-    "timestamp": "2026-03-16T00:28:13.229490+02:00"
+    "confidence": "0.80",
+    "timestamp": "2026-03-16T09:02:51.916469+02:00"
   },
   "history": [
     {
-      "id": 118,
+      "id": 135,
       "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA: -72.74% vs cost basis (avg=104.80, now=28.57) — significant loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 126,
-      "agent": "hunter",
-      "level": "warn",
+      "level": "info",
       "portfolio_id": "creative",
-      "text": "ENRG: -12.19% vs cost basis (avg=21.65, now=19.01) — significant loss",
+      "text": "RSEL +1.30% היום (15.60). רפאל פיתוח ממשיך מגמה חיובית. Creative: 1878.3 מניות × 15.60 = ₪29,301 (+17.2% ממחיר ממוצע 13.31).",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
+      "confidence": "0.72",
+      "timestamp": "2026-03-16T09:02:51.916469+02:00"
     },
     {
-      "id": 123,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA: -5.90% vs cost basis (avg=191.55, now=180.25) — loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 129,
+      "id": 133,
       "agent": "hunter",
       "level": "warn",
       "portfolio_id": "solid",
-      "text": "POLI: -3.07% vs cost basis (avg=80.25, now=77.79) — loss",
+      "text": "CSPX -2.69% ביחס לתמחור הקודם (714.33). S&P500 בלחץ — ירידה שבועית ~2.5%. תיק Solid נושא 54.5 יחידות × £714.33 = ₪38,931 בסיכון יחסית נמוך אך מגמה שלילית.",
+      "action_taken": null,
+      "confidence": "0.70",
+      "timestamp": "2026-03-16T09:02:51.916469+02:00"
+    },
+    {
+      "id": 134,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "ESLT +1.55% היום (2749). אלביט מובילה את TASE מדפנסיב — ביקוש ביטחוני גבוה. תיק Super-Agg: 10.7 מניות × 2749 = ₪29,414 (+17.6% ממחיר ממוצע). חוזק יחסי.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-16T09:02:51.916469+02:00"
+    },
+    {
+      "id": 128,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "LUMI: -4.29% vs cost basis (avg=76.19, now=72.92) — loss",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
@@ -62,11 +62,21 @@
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
     },
     {
-      "id": 127,
+      "id": 129,
       "agent": "hunter",
       "level": "warn",
       "portfolio_id": "solid",
-      "text": "CSPX: -2.69% vs cost basis (avg=734.09, now=714.33) — loss",
+      "text": "POLI: -3.07% vs cost basis (avg=80.25, now=77.79) — loss",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-16T00:28:13.229490+02:00"
+    },
+    {
+      "id": 126,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG: -12.19% vs cost basis (avg=21.65, now=19.01) — significant loss",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
@@ -82,16 +92,6 @@
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
     },
     {
-      "id": 130,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN: +3.17% vs cost basis (avg=33.09, now=34.14) — gain",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
       "id": 125,
       "agent": "hunter",
       "level": "warn",
@@ -102,11 +102,11 @@
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
     },
     {
-      "id": 128,
+      "id": 124,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI: -4.29% vs cost basis (avg=76.19, now=72.92) — loss",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ: -4.79% vs cost basis (avg=48.24, now=45.93) — loss",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
@@ -142,6 +142,46 @@
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
     },
     {
+      "id": 118,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA: -72.74% vs cost basis (avg=104.80, now=28.57) — significant loss",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-16T00:28:13.229490+02:00"
+    },
+    {
+      "id": 127,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "CSPX: -2.69% vs cost basis (avg=734.09, now=714.33) — loss",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-16T00:28:13.229490+02:00"
+    },
+    {
+      "id": 123,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA: -5.90% vs cost basis (avg=191.55, now=180.25) — loss",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-16T00:28:13.229490+02:00"
+    },
+    {
+      "id": 130,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "SPEN: +3.17% vs cost basis (avg=33.09, now=34.14) — gain",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-16T00:28:13.229490+02:00"
+    },
+    {
       "id": 115,
       "agent": "Hunter",
       "level": "warn",
@@ -159,46 +199,6 @@
       "text": "NVDA -2.9% מתחת לבסיס. רוטציה מ-AI chips לאחר ריצה ממושכת. שוק עדיין חזק — ייתכן תיקון טכני.",
       "action_taken": null,
       "confidence": "0.70",
-      "timestamp": "2026-03-12T09:01:55.594061+02:00"
-    },
-    {
-      "id": 117,
-      "agent": "Hunter",
-      "level": "info",
-      "portfolio_id": null,
-      "text": "S&P 500 יציב — CSPX.L מסמן .75. TASE בסגמנט ביטחוני חזק (ESLT, RSEL). שוק אמריקאי ממשיך מגמה מעורבת.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-12T09:01:55.594061+02:00"
-    },
-    {
-      "id": 111,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "ESLT (Elbit Systems) +16.9% מעלות. ביקוש ביטחוני גבוה — ייצוא נשק ישראלי ממשיך לשיאים. שווי נוכחי: ₪2,732/מנייה. רווח לא ממומש: ₪4,230.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-12T09:01:55.594061+02:00"
-    },
-    {
-      "id": 112,
-      "agent": "Hunter",
-      "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "PLTR (Palantir) +16.1% מעלות. חוזי AI ממשלתיים חדשים, ביקוש מואץ מצד DoD ואיחוד אירופי. רווח לא ממומש: ,007.",
-      "action_taken": null,
-      "confidence": "0.82",
-      "timestamp": "2026-03-12T09:01:55.594061+02:00"
-    },
-    {
-      "id": 114,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG (Energix) -9.6% מתחת לבסיס — אנרגיה מתחדשת ישראלית סובלת מריביות גבוהות ועלויות מימון. הפסד לא ממומש: ₪2,882.",
-      "action_taken": null,
-      "confidence": "0.78",
       "timestamp": "2026-03-12T09:01:55.594061+02:00"
     }
   ]
