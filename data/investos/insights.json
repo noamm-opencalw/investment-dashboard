@@ -1,16 +1,126 @@
 {
-  "updated_at": "2026-03-16T09:03:26.404405",
+  "updated_at": "2026-03-17T09:02:14.106083",
   "latest": {
-    "id": 132,
+    "id": 141,
     "agent": "hunter",
-    "level": "warn",
-    "portfolio_id": "speculative",
-    "text": "TEVA -2.49% יום זה ($28.57). ירידה רצופה 5 ימים: $31.5 → $28.57 (-9.3% בשבוע). אחזקה: 285.7 מניות × $28.57 = $8,162. הפסד מנייתי: -$21,779 ממחיר ממוצע $104.80. מגמה שלילית ממשיכה — שקול עצירת הפסדים.",
+    "level": "alert",
+    "portfolio_id": "super_agg",
+    "text": "ESLT ▲ 18.80% vs cost (2336.7000 → 2776.0000)",
     "action_taken": null,
-    "confidence": "0.80",
-    "timestamp": "2026-03-16T09:02:51.916469+02:00"
+    "confidence": "0.85",
+    "timestamp": "2026-03-17T09:01:59.631823+02:00"
   },
   "history": [
+    {
+      "id": 147,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "RSEL ▲ 24.49% vs cost (13.3100 → 16.5700)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 143,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "POLI ▼ 5.79% vs cost (80.2500 → 75.6000)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 136,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "NVDA ▼ 4.35% vs cost (191.5500 → 183.2200)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 137,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "PLTR ▲ 16.94% vs cost (130.6000 → 152.7200)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 138,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "VXUS ▼ 5.62% vs cost (82.9300 → 78.2700)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 140,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "NICE ▲ 4.47% vs cost (353.3000 → 369.1000)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 139,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "solid",
+      "text": "CSPX ▼ 2.21% vs cost (734.0900 → 717.8700)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 142,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "LUMI ▼ 5.62% vs cost (76.1900 → 71.9100)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 144,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "TEVA ▼ 13.17% vs cost (104.8000 → 91.0000)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 146,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "SPEN ▲ 2.87% vs cost (33.0900 → 34.0400)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 145,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "ENRG ▼ 12.70% vs cost (21.6500 → 18.9000)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
     {
       "id": 135,
       "agent": "hunter",
@@ -19,6 +129,16 @@
       "text": "RSEL +1.30% היום (15.60). רפאל פיתוח ממשיך מגמה חיובית. Creative: 1878.3 מניות × 15.60 = ₪29,301 (+17.2% ממחיר ממוצע 13.31).",
       "action_taken": null,
       "confidence": "0.72",
+      "timestamp": "2026-03-16T09:02:51.916469+02:00"
+    },
+    {
+      "id": 132,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA -2.49% יום זה ($28.57). ירידה רצופה 5 ימים: $31.5 → $28.57 (-9.3% בשבוע). אחזקה: 285.7 מניות × $28.57 = $8,162. הפסד מנייתי: -$21,779 ממחיר ממוצע $104.80. מגמה שלילית ממשיכה — שקול עצירת הפסדים.",
+      "action_taken": null,
+      "confidence": "0.80",
       "timestamp": "2026-03-16T09:02:51.916469+02:00"
     },
     {
@@ -42,86 +162,6 @@
       "timestamp": "2026-03-16T09:02:51.916469+02:00"
     },
     {
-      "id": 128,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI: -4.29% vs cost basis (avg=76.19, now=72.92) — loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 121,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "RSEL: +17.21% vs cost basis (avg=13.31, now=15.60) — gain",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 129,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "POLI: -3.07% vs cost basis (avg=80.25, now=77.79) — loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 126,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG: -12.19% vs cost basis (avg=21.65, now=19.01) — significant loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 131,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA: -2.16% vs cost basis (avg=399.83, now=391.20) — loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 125,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "VXUS: -7.46% vs cost basis (avg=82.93, now=76.74) — loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 124,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ: -4.79% vs cost basis (avg=48.24, now=45.93) — loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 122,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "PLTR: +15.58% vs cost basis (avg=130.60, now=150.95) — gain",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
       "id": 119,
       "agent": "hunter",
       "level": "warn",
@@ -142,16 +182,6 @@
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
     },
     {
-      "id": 118,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA: -72.74% vs cost basis (avg=104.80, now=28.57) — significant loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
       "id": 127,
       "agent": "hunter",
       "level": "warn",
@@ -162,44 +192,14 @@
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
     },
     {
-      "id": 123,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA: -5.90% vs cost basis (avg=191.55, now=180.25) — loss",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 130,
+      "id": 121,
       "agent": "hunter",
       "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN: +3.17% vs cost basis (avg=33.09, now=34.14) — gain",
+      "portfolio_id": "creative",
+      "text": "RSEL: +17.21% vs cost basis (avg=13.31, now=15.60) — gain",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-16T00:28:13.229490+02:00"
-    },
-    {
-      "id": 115,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA (Teva TASE) -8.9% מתחת לבסיס. תיק גנריקים תחת לחץ, תחרות בשוק האמריקני. הפסד לא ממומש: ₪2,657.",
-      "action_taken": null,
-      "confidence": "0.77",
-      "timestamp": "2026-03-12T09:01:55.594061+02:00"
-    },
-    {
-      "id": 116,
-      "agent": "Hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA -2.9% מתחת לבסיס. רוטציה מ-AI chips לאחר ריצה ממושכת. שוק עדיין חזק — ייתכן תיקון טכני.",
-      "action_taken": null,
-      "confidence": "0.70",
-      "timestamp": "2026-03-12T09:01:55.594061+02:00"
     }
   ]
 }
