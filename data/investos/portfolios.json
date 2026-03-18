@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-03-18T09:03:22.514787",
+  "updated_at": "2026-03-18T18:01:13.075769",
   "pilot_day": 1,
   "total_capital": 500000.0,
   "target_net_profit": 100000,
-  "net_profit_to_date": 7288.83,
+  "net_profit_to_date": 0.0,
   "portfolios": [
     {
       "id": "solid",
@@ -13,7 +13,7 @@
       "description": "מכשירים יציבים, תנודתיות נמוכה",
       "target_30d_pct": 2.0,
       "initial_capital": 100000.0,
-      "gross": 97215.116,
+      "gross": 97684.159,
       "fees": 0.0,
       "daily_change_pct": 0.6737,
       "assets": [
@@ -37,11 +37,11 @@
           "sector": "גלובלי",
           "quantity": "54.5000",
           "avg_cost": "734.0900",
-          "current_price": "721.9600",
-          "value": 39346.82,
+          "current_price": "717.5000",
+          "value": 39103.75,
           "cost_basis": 40007.905,
           "daily_change_pct": 0.0,
-          "allocation_pct": 40.5
+          "allocation_pct": 40.0
         },
         {
           "ticker": "LUMI",
@@ -50,11 +50,11 @@
           "sector": "פיננסים",
           "quantity": "393.7000",
           "avg_cost": "76.1900",
-          "current_price": "72.2700",
-          "value": 28452.699,
+          "current_price": "73.6800",
+          "value": 29007.816,
           "cost_basis": 29996.003,
           "daily_change_pct": 0.0,
-          "allocation_pct": 29.3
+          "allocation_pct": 29.7
         },
         {
           "ticker": "POLI",
@@ -63,17 +63,17 @@
           "sector": "פיננסים",
           "quantity": "186.9000",
           "avg_cost": "80.2500",
-          "current_price": "77.1300",
-          "value": 14415.597,
+          "current_price": "77.9700",
+          "value": 14572.593,
           "cost_basis": 14998.725,
           "daily_change_pct": 0.0,
-          "allocation_pct": 14.8
+          "allocation_pct": 14.9
         }
       ],
       "sectors": {
         "מזומן": 15.4,
-        "גלובלי": 40.5,
-        "פיננסים": 44.1
+        "גלובלי": 40.0,
+        "פיננסים": 44.6
       },
       "benchmark": "ת\"א 125",
       "performance_history": [
@@ -151,7 +151,7 @@
       "description": "מניות צמיחה, חיפוש אלפא",
       "target_30d_pct": 6.0,
       "initial_capital": 100000.0,
-      "gross": 100755.3098,
+      "gross": 99712.2365,
       "fees": 0.0,
       "daily_change_pct": 0.3955,
       "assets": [
@@ -166,7 +166,7 @@
           "value": 15000.0,
           "cost_basis": 15000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 14.9
+          "allocation_pct": 15.0
         },
         {
           "ticker": "NVDA",
@@ -175,11 +175,11 @@
           "sector": "AI/GPU",
           "quantity": "104.4000",
           "avg_cost": "191.5500",
-          "current_price": "181.9300",
-          "value": 18993.492,
+          "current_price": "182.4060",
+          "value": 19043.1864,
           "cost_basis": 19997.82,
           "daily_change_pct": 0.0,
-          "allocation_pct": 18.9
+          "allocation_pct": 19.1
         },
         {
           "ticker": "CHKP",
@@ -188,11 +188,11 @@
           "sector": "סייבר",
           "quantity": "161.5000",
           "avg_cost": "154.7300",
-          "current_price": "153.9500",
-          "value": 24862.925,
+          "current_price": "153.2800",
+          "value": 24754.72,
           "cost_basis": 24988.895,
           "daily_change_pct": 0.0,
-          "allocation_pct": 24.7
+          "allocation_pct": 24.8
         },
         {
           "ticker": "NICE",
@@ -201,11 +201,11 @@
           "sector": "תוכנה",
           "quantity": "70.7600",
           "avg_cost": "353.3000",
-          "current_price": "373.8000",
-          "value": 26450.088,
+          "current_price": "366.1000",
+          "value": 25905.236,
           "cost_basis": 24999.508,
           "daily_change_pct": 0.0,
-          "allocation_pct": 26.3
+          "allocation_pct": 26.0
         },
         {
           "ticker": "SPEN",
@@ -214,19 +214,19 @@
           "sector": "פינטק",
           "quantity": "453.3100",
           "avg_cost": "33.0900",
-          "current_price": "34.0800",
-          "value": 15448.8048,
+          "current_price": "33.1100",
+          "value": 15009.0941,
           "cost_basis": 15000.0279,
           "daily_change_pct": 0.0,
-          "allocation_pct": 15.3
+          "allocation_pct": 15.1
         }
       ],
       "sectors": {
-        "מזומן": 14.9,
-        "AI/GPU": 18.9,
-        "סייבר": 24.7,
-        "תוכנה": 26.3,
-        "פינטק": 15.3
+        "מזומן": 15.0,
+        "AI/GPU": 19.1,
+        "סייבר": 24.8,
+        "תוכנה": 26.0,
+        "פינטק": 15.1
       },
       "benchmark": "נאסד\"ק 100",
       "performance_history": [
@@ -304,7 +304,7 @@
       "description": "ממונף, קריפטו, אופציות",
       "target_30d_pct": 18.0,
       "initial_capital": 100000.0,
-      "gross": 107916.336,
+      "gross": 106412.2345,
       "fees": 0.0,
       "daily_change_pct": 3.5386,
       "assets": [
@@ -319,7 +319,7 @@
           "value": 45000.0,
           "cost_basis": 45000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 41.7
+          "allocation_pct": 42.3
         },
         {
           "ticker": "TQQQ",
@@ -328,11 +328,11 @@
           "sector": "ממונף",
           "quantity": "622.1000",
           "avg_cost": "48.2400",
-          "current_price": "48.1600",
-          "value": 29960.336,
+          "current_price": "47.4450",
+          "value": 29515.5345,
           "cost_basis": 30010.104,
           "daily_change_pct": 0.0,
-          "allocation_pct": 27.8
+          "allocation_pct": 27.7
         },
         {
           "ticker": "ESLT",
@@ -341,17 +341,17 @@
           "sector": "ביטחון",
           "quantity": "10.7000",
           "avg_cost": "2336.7000",
-          "current_price": "3080.0000",
-          "value": 32956.0,
+          "current_price": "2981.0000",
+          "value": 31896.7,
           "cost_basis": 25002.69,
           "daily_change_pct": 0.0,
-          "allocation_pct": 30.5
+          "allocation_pct": 30.0
         }
       ],
       "sectors": {
-        "מזומן": 41.7,
-        "ממונף": 27.8,
-        "ביטחון": 30.5
+        "מזומן": 42.3,
+        "ממונף": 27.7,
+        "ביטחון": 30.0
       },
       "benchmark": "S&P 500",
       "performance_history": [
@@ -429,7 +429,7 @@
       "description": "עסקאות מבוססות אירועים",
       "target_30d_pct": 10.0,
       "initial_capital": 100000.0,
-      "gross": 101234.111,
+      "gross": 100981.681,
       "fees": 0.0,
       "daily_change_pct": 1.4412,
       "assets": [
@@ -453,11 +453,11 @@
           "sector": "AI/ביטחון",
           "quantity": "190.8000",
           "avg_cost": "130.6000",
-          "current_price": "155.0800",
-          "value": 29589.264,
+          "current_price": "154.1050",
+          "value": 29403.234,
           "cost_basis": 24918.48,
           "daily_change_pct": 0.0,
-          "allocation_pct": 29.2
+          "allocation_pct": 29.1
         },
         {
           "ticker": "TEVA",
@@ -466,11 +466,11 @@
           "sector": "ביוטק/פארמה",
           "quantity": "285.7000",
           "avg_cost": "104.8000",
-          "current_price": "93.9100",
-          "value": 26830.087,
+          "current_price": "92.7500",
+          "value": 26498.675,
           "cost_basis": 29941.36,
           "daily_change_pct": 0.0,
-          "allocation_pct": 26.5
+          "allocation_pct": 26.2
         },
         {
           "ticker": "AMOT",
@@ -479,18 +479,18 @@
           "sector": "נדל\"ן",
           "quantity": "1204.6000",
           "avg_cost": "20.7700",
-          "current_price": "20.6000",
-          "value": 24814.76,
+          "current_price": "20.8200",
+          "value": 25079.772,
           "cost_basis": 25019.542,
           "daily_change_pct": 0.0,
-          "allocation_pct": 24.5
+          "allocation_pct": 24.8
         }
       ],
       "sectors": {
         "מזומן": 19.8,
-        "AI/ביטחון": 29.2,
-        "ביוטק/פארמה": 26.5,
-        "נדל\"ן": 24.5
+        "AI/ביטחון": 29.1,
+        "ביוטק/פארמה": 26.2,
+        "נדל\"ן": 24.8
       },
       "benchmark": "ת\"א 90",
       "performance_history": [
@@ -568,23 +568,10 @@
       "description": "השקעה נגד הזרם",
       "target_30d_pct": 5.0,
       "initial_capital": 100000.0,
-      "gross": 102597.567,
+      "gross": NaN,
       "fees": 0.0,
       "daily_change_pct": 1.5005,
       "assets": [
-        {
-          "ticker": "RSEL",
-          "name": "Rafael Development Corp",
-          "asset_type": "stock",
-          "sector": "ביטחון",
-          "quantity": "1878.3000",
-          "avg_cost": "13.3100",
-          "current_price": "17.1000",
-          "value": 32118.93,
-          "cost_basis": 25000.173,
-          "daily_change_pct": 0.0,
-          "allocation_pct": 31.3
-        },
         {
           "ticker": "CASH",
           "name": "מזומן",
@@ -596,7 +583,7 @@
           "value": 15000.0,
           "cost_basis": 15000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": 14.6
+          "allocation_pct": NaN
         },
         {
           "ticker": "TSLA",
@@ -605,11 +592,11 @@
           "sector": "EV/אנרגיה",
           "quantity": "25.0000",
           "avg_cost": "399.8300",
-          "current_price": "399.2700",
-          "value": 9981.75,
+          "current_price": "NaN",
+          "value": NaN,
           "cost_basis": 9995.75,
           "daily_change_pct": 0.0,
-          "allocation_pct": 9.7
+          "allocation_pct": NaN
         },
         {
           "ticker": "VXUS",
@@ -618,11 +605,11 @@
           "sector": "גלובלי",
           "quantity": "241.2000",
           "avg_cost": "82.9300",
-          "current_price": "78.6100",
-          "value": 18960.732,
+          "current_price": "77.9500",
+          "value": 18801.54,
           "cost_basis": 20002.716,
           "daily_change_pct": 0.0,
-          "allocation_pct": 18.5
+          "allocation_pct": NaN
         },
         {
           "ticker": "ENRG",
@@ -635,15 +622,28 @@
           "value": 26536.155,
           "cost_basis": 30000.405,
           "daily_change_pct": 0.0,
-          "allocation_pct": 25.9
+          "allocation_pct": NaN
+        },
+        {
+          "ticker": "RSEL",
+          "name": "Rafael Development Corp",
+          "asset_type": "stock",
+          "sector": "ביטחון",
+          "quantity": "1878.3000",
+          "avg_cost": "13.3100",
+          "current_price": "22.5100",
+          "value": 42280.533,
+          "cost_basis": 25000.173,
+          "daily_change_pct": 0.0,
+          "allocation_pct": NaN
         }
       ],
       "sectors": {
-        "ביטחון": 31.3,
-        "מזומן": 14.6,
-        "EV/אנרגיה": 9.7,
-        "גלובלי": 18.5,
-        "אנרגיה": 25.9
+        "מזומן": NaN,
+        "EV/אנרגיה": NaN,
+        "גלובלי": NaN,
+        "אנרגיה": NaN,
+        "ביטחון": NaN
       },
       "benchmark": "ת\"א 35",
       "performance_history": [
