@@ -1,25 +1,55 @@
 {
-  "updated_at": "2026-03-17T18:03:17.246561",
+  "updated_at": "2026-03-18T09:02:41.984743",
   "latest": {
-    "id": 150,
-    "agent": "trader",
-    "level": "info",
+    "id": 157,
+    "agent": "hunter",
+    "level": "alert",
     "portfolio_id": "super_agg",
-    "text": "Super-Agg: מוביל +4.23% מהבסיס. שתי אסטרטגיות Regime+Thematic הועברו לbacktesting. יום +1.20%.",
-    "action_taken": "strategy_to_backtesting",
-    "confidence": "0.90",
-    "timestamp": "2026-03-17T18:01:50.067412+02:00"
+    "text": "⚠️ ESLT is +31.8% vs cost basis (2336.70 → 3080.00) — deep gain position",
+    "action_taken": null,
+    "confidence": null,
+    "timestamp": "2026-03-18T09:01:48.491985+02:00"
   },
   "history": [
     {
-      "id": 152,
-      "agent": "trader",
-      "level": "info",
+      "id": 154,
+      "agent": "hunter",
+      "level": "alert",
       "portfolio_id": "speculative",
-      "text": "Speculative: יציב, drawdown 4.20% מהשיא. אסטרטגיית IPO+M&A Arb הועברה לbacktesting.",
-      "action_taken": "strategy_to_backtesting",
-      "confidence": "0.80",
-      "timestamp": "2026-03-17T18:01:50.067412+02:00"
+      "text": "📉 TEVA moved -68.0% today (93.91 → 30.09) — significant move",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:01:48.491985+02:00"
+    },
+    {
+      "id": 153,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "📉 NICE moved -68.2% today (373.80 → 118.87) — significant move",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:01:48.491985+02:00"
+    },
+    {
+      "id": 155,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "⚠️ NICE is -66.4% vs cost basis (353.30 → 118.87) — deep loss position",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:01:48.491985+02:00"
+    },
+    {
+      "id": 156,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "⚠️ TEVA is -71.3% vs cost basis (104.80 → 30.09) — deep loss position",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:01:48.491985+02:00"
     },
     {
       "id": 149,
@@ -32,12 +62,32 @@
       "timestamp": "2026-03-17T18:01:50.067412+02:00"
     },
     {
+      "id": 150,
+      "agent": "trader",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "Super-Agg: מוביל +4.23% מהבסיס. שתי אסטרטגיות Regime+Thematic הועברו לbacktesting. יום +1.20%.",
+      "action_taken": "strategy_to_backtesting",
+      "confidence": "0.90",
+      "timestamp": "2026-03-17T18:01:50.067412+02:00"
+    },
+    {
       "id": 151,
       "agent": "trader",
       "level": "info",
       "portfolio_id": "creative",
       "text": "Creative: יום מצוין +2.17%. drawdown 3.20% בלבד מהשיא. אסטרטגיית קונטרריאן עדיין proposed.",
       "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-17T18:01:50.067412+02:00"
+    },
+    {
+      "id": 152,
+      "agent": "trader",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "Speculative: יציב, drawdown 4.20% מהשיא. אסטרטגיית IPO+M&A Arb הועברה לbacktesting.",
+      "action_taken": "strategy_to_backtesting",
       "confidence": "0.80",
       "timestamp": "2026-03-17T18:01:50.067412+02:00"
     },
@@ -62,21 +112,21 @@
       "timestamp": "2026-03-17T09:01:59.631823+02:00"
     },
     {
-      "id": 146,
+      "id": 145,
       "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN ▲ 2.87% vs cost (33.0900 → 34.0400)",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "ENRG ▼ 12.70% vs cost (21.6500 → 18.9000)",
       "action_taken": null,
       "confidence": "0.85",
       "timestamp": "2026-03-17T09:01:59.631823+02:00"
     },
     {
-      "id": 138,
+      "id": 146,
       "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "VXUS ▼ 5.62% vs cost (82.9300 → 78.2700)",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "SPEN ▲ 2.87% vs cost (33.0900 → 34.0400)",
       "action_taken": null,
       "confidence": "0.85",
       "timestamp": "2026-03-17T09:01:59.631823+02:00"
@@ -102,61 +152,11 @@
       "timestamp": "2026-03-17T09:01:59.631823+02:00"
     },
     {
-      "id": 139,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "solid",
-      "text": "CSPX ▼ 2.21% vs cost (734.0900 → 717.8700)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 145,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "ENRG ▼ 12.70% vs cost (21.6500 → 18.9000)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 136,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "NVDA ▼ 4.35% vs cost (191.5500 → 183.2200)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 140,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "NICE ▲ 4.47% vs cost (353.3000 → 369.1000)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 143,
+      "id": 138,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "solid",
-      "text": "POLI ▼ 5.79% vs cost (80.2500 → 75.6000)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 144,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "TEVA ▼ 13.17% vs cost (104.8000 → 91.0000)",
+      "portfolio_id": "creative",
+      "text": "VXUS ▼ 5.62% vs cost (82.9300 → 78.2700)",
       "action_taken": null,
       "confidence": "0.85",
       "timestamp": "2026-03-17T09:01:59.631823+02:00"
@@ -172,34 +172,34 @@
       "timestamp": "2026-03-17T09:01:59.631823+02:00"
     },
     {
-      "id": 135,
+      "id": 139,
       "agent": "hunter",
       "level": "info",
-      "portfolio_id": "creative",
-      "text": "RSEL +1.30% היום (15.60). רפאל פיתוח ממשיך מגמה חיובית. Creative: 1878.3 מניות × 15.60 = ₪29,301 (+17.2% ממחיר ממוצע 13.31).",
-      "action_taken": null,
-      "confidence": "0.72",
-      "timestamp": "2026-03-16T09:02:51.916469+02:00"
-    },
-    {
-      "id": 132,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA -2.49% יום זה ($28.57). ירידה רצופה 5 ימים: $31.5 → $28.57 (-9.3% בשבוע). אחזקה: 285.7 מניות × $28.57 = $8,162. הפסד מנייתי: -$21,779 ממחיר ממוצע $104.80. מגמה שלילית ממשיכה — שקול עצירת הפסדים.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-16T09:02:51.916469+02:00"
-    },
-    {
-      "id": 133,
-      "agent": "hunter",
-      "level": "warn",
       "portfolio_id": "solid",
-      "text": "CSPX -2.69% ביחס לתמחור הקודם (714.33). S&P500 בלחץ — ירידה שבועית ~2.5%. תיק Solid נושא 54.5 יחידות × £714.33 = ₪38,931 בסיכון יחסית נמוך אך מגמה שלילית.",
+      "text": "CSPX ▼ 2.21% vs cost (734.0900 → 717.8700)",
       "action_taken": null,
-      "confidence": "0.70",
-      "timestamp": "2026-03-16T09:02:51.916469+02:00"
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 144,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "TEVA ▼ 13.17% vs cost (104.8000 → 91.0000)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
+    },
+    {
+      "id": 136,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "NVDA ▼ 4.35% vs cost (191.5500 → 183.2200)",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-17T09:01:59.631823+02:00"
     }
   ]
 }
