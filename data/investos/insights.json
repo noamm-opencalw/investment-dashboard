@@ -1,16 +1,56 @@
 {
-  "updated_at": "2026-03-18T09:02:41.984743",
+  "updated_at": "2026-03-18T09:03:22.522311",
   "latest": {
-    "id": 157,
+    "id": 161,
     "agent": "hunter",
-    "level": "alert",
-    "portfolio_id": "super_agg",
-    "text": "⚠️ ESLT is +31.8% vs cost basis (2336.70 → 3080.00) — deep gain position",
+    "level": "warn",
+    "portfolio_id": "creative",
+    "text": "ENRG is -11.5% vs cost basis (₪21.65 → ₪19.15) — below entry price",
     "action_taken": null,
     "confidence": null,
-    "timestamp": "2026-03-18T09:01:48.491985+02:00"
+    "timestamp": "2026-03-18T09:03:13.278349+02:00"
   },
   "history": [
+    {
+      "id": 159,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "ESLT is +31.8% vs cost basis (₪2,336.70 → ₪3,080.00) — major gain position",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:03:13.278349+02:00"
+    },
+    {
+      "id": 162,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA is -10.4% vs cost basis (₪104.80 → ₪93.91) — moderate loss",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:03:13.278349+02:00"
+    },
+    {
+      "id": 160,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "RSEL is +28.5% vs cost basis (₪13.31 → ₪17.10) — significant gain",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:03:13.278349+02:00"
+    },
+    {
+      "id": 158,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "PLTR is +18.7% vs cost basis (₪130.60 → ₪155.08) — strong gain, consider partial profit-taking",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:03:13.278349+02:00"
+    },
     {
       "id": 154,
       "agent": "hunter",
@@ -22,21 +62,31 @@
       "timestamp": "2026-03-18T09:01:48.491985+02:00"
     },
     {
-      "id": 153,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "📉 NICE moved -68.2% today (373.80 → 118.87) — significant move",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-18T09:01:48.491985+02:00"
-    },
-    {
       "id": 155,
       "agent": "hunter",
       "level": "alert",
       "portfolio_id": "aggressive",
       "text": "⚠️ NICE is -66.4% vs cost basis (353.30 → 118.87) — deep loss position",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:01:48.491985+02:00"
+    },
+    {
+      "id": 157,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "⚠️ ESLT is +31.8% vs cost basis (2336.70 → 3080.00) — deep gain position",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:01:48.491985+02:00"
+    },
+    {
+      "id": 153,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "📉 NICE moved -68.2% today (373.80 → 118.87) — significant move",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-18T09:01:48.491985+02:00"
@@ -82,16 +132,6 @@
       "timestamp": "2026-03-17T18:01:50.067412+02:00"
     },
     {
-      "id": 152,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "Speculative: יציב, drawdown 4.20% מהשיא. אסטרטגיית IPO+M&A Arb הועברה לbacktesting.",
-      "action_taken": "strategy_to_backtesting",
-      "confidence": "0.80",
-      "timestamp": "2026-03-17T18:01:50.067412+02:00"
-    },
-    {
       "id": 148,
       "agent": "trader",
       "level": "warn",
@@ -99,6 +139,16 @@
       "text": "Solid: drawdown 4.77% מהשיא (₪101,399→₪96,565). 3 ימי ירידה רצופים. אין rebalance — מתחת לסף 12%.",
       "action_taken": "monitor",
       "confidence": "0.85",
+      "timestamp": "2026-03-17T18:01:50.067412+02:00"
+    },
+    {
+      "id": 152,
+      "agent": "trader",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "Speculative: יציב, drawdown 4.20% מהשיא. אסטרטגיית IPO+M&A Arb הועברה לbacktesting.",
+      "action_taken": "strategy_to_backtesting",
+      "confidence": "0.80",
       "timestamp": "2026-03-17T18:01:50.067412+02:00"
     },
     {
@@ -147,56 +197,6 @@
       "level": "warn",
       "portfolio_id": "solid",
       "text": "LUMI ▼ 5.62% vs cost (76.1900 → 71.9100)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 138,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "VXUS ▼ 5.62% vs cost (82.9300 → 78.2700)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 137,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "PLTR ▲ 16.94% vs cost (130.6000 → 152.7200)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 139,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "solid",
-      "text": "CSPX ▼ 2.21% vs cost (734.0900 → 717.8700)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 144,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "TEVA ▼ 13.17% vs cost (104.8000 → 91.0000)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 136,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "NVDA ▼ 4.35% vs cost (191.5500 → 183.2200)",
       "action_taken": null,
       "confidence": "0.85",
       "timestamp": "2026-03-17T09:01:59.631823+02:00"
