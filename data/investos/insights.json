@@ -1,22 +1,102 @@
 {
-  "updated_at": "2026-03-18T18:01:13.083200",
+  "updated_at": "2026-03-19T09:03:21.115545",
   "latest": {
-    "id": 161,
+    "id": 163,
     "agent": "hunter",
-    "level": "warn",
+    "level": "alert",
     "portfolio_id": "creative",
-    "text": "ENRG is -11.5% vs cost basis (₪21.65 → ₪19.15) — below entry price",
+    "text": "RSEL +69.1% vs cost basis (₪13.31 → ₪22.51) — extraordinary gain on massive volume (547K shares March 18). Position value ₪42,281. Consider profit-taking review.",
     "action_taken": null,
-    "confidence": null,
-    "timestamp": "2026-03-18T09:03:13.278349+02:00"
+    "confidence": "0.90",
+    "timestamp": "2026-03-19T09:03:12.825200+02:00"
   },
   "history": [
     {
-      "id": 159,
+      "id": 167,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "CSPX -2.4% vs cost (£734.09 → £716.48), POLI -2.8% (₪80.25 → ₪77.97), LUMI -3.3% (₪76.19 → ₪73.68) — Solid portfolio below cost across equities. TASE domestics soft.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-19T09:03:12.825200+02:00"
+    },
+    {
+      "id": 165,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "PLTR +17.0% vs cost basis ($130.60 → $152.77) — strong gain. Position value ₪29,149. Momentum intact despite -1.5% session pullback.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-19T09:03:12.825200+02:00"
+    },
+    {
+      "id": 164,
       "agent": "hunter",
       "level": "alert",
       "portfolio_id": "super_agg",
-      "text": "ESLT is +31.8% vs cost basis (₪2,336.70 → ₪3,080.00) — major gain position",
+      "text": "ESLT +27.6% vs cost basis (₪2,336.70 → ₪2,981.00) — major gain sustained. Position value ₪31,897. Watch for resistance at current levels.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-19T09:03:12.825200+02:00"
+    },
+    {
+      "id": 171,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG -11.6% vs cost (₪21.65 → ₪19.15) — energy stock weak. RSEL gains offset significantly.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-19T09:03:12.825200+02:00"
+    },
+    {
+      "id": 170,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA -11.5% vs cost (₪104.80 → ₪92.75) — persistent underperformance. Generic drug pricing headwinds continue.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-19T09:03:12.825200+02:00"
+    },
+    {
+      "id": 168,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ -4.4% vs cost ($48.24 → $46.10) — leveraged QQQ position underwater. US tech selloff risk. Watch $44 support.",
+      "action_taken": null,
+      "confidence": "0.82",
+      "timestamp": "2026-03-19T09:03:12.825200+02:00"
+    },
+    {
+      "id": 169,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA -5.8% vs cost ($191.55 → $180.40) — continued weakness. AI spending concerns persist. Monitor $175 support.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-19T09:03:12.825200+02:00"
+    },
+    {
+      "id": 166,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "NICE +3.6% vs cost basis (₪353.30 → ₪366.10) — mild gain. NVDA -5.8% vs cost still a drag on portfolio.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-19T09:03:12.825200+02:00"
+    },
+    {
+      "id": 161,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG is -11.5% vs cost basis (₪21.65 → ₪19.15) — below entry price",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-18T09:03:13.278349+02:00"
@@ -32,6 +112,16 @@
       "timestamp": "2026-03-18T09:03:13.278349+02:00"
     },
     {
+      "id": 158,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "speculative",
+      "text": "PLTR is +18.7% vs cost basis (₪130.60 → ₪155.08) — strong gain, consider partial profit-taking",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:03:13.278349+02:00"
+    },
+    {
       "id": 160,
       "agent": "hunter",
       "level": "warn",
@@ -42,11 +132,11 @@
       "timestamp": "2026-03-18T09:03:13.278349+02:00"
     },
     {
-      "id": 158,
+      "id": 159,
       "agent": "hunter",
       "level": "alert",
-      "portfolio_id": "speculative",
-      "text": "PLTR is +18.7% vs cost basis (₪130.60 → ₪155.08) — strong gain, consider partial profit-taking",
+      "portfolio_id": "super_agg",
+      "text": "ESLT is +31.8% vs cost basis (₪2,336.70 → ₪3,080.00) — major gain position",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-18T09:03:13.278349+02:00"
@@ -62,21 +152,21 @@
       "timestamp": "2026-03-18T09:01:48.491985+02:00"
     },
     {
-      "id": 155,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "aggressive",
-      "text": "⚠️ NICE is -66.4% vs cost basis (353.30 → 118.87) — deep loss position",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-18T09:01:48.491985+02:00"
-    },
-    {
       "id": 157,
       "agent": "hunter",
       "level": "alert",
       "portfolio_id": "super_agg",
       "text": "⚠️ ESLT is +31.8% vs cost basis (2336.70 → 3080.00) — deep gain position",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-18T09:01:48.491985+02:00"
+    },
+    {
+      "id": 155,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "aggressive",
+      "text": "⚠️ NICE is -66.4% vs cost basis (353.30 → 118.87) — deep loss position",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-18T09:01:48.491985+02:00"
@@ -102,36 +192,6 @@
       "timestamp": "2026-03-18T09:01:48.491985+02:00"
     },
     {
-      "id": 149,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "Aggressive: drawdown 4.87% מהשיא. אסטרטגיית Momentum ת\"א 35 אושרה (approved). ביצועים יציבים.",
-      "action_taken": "strategy_promoted",
-      "confidence": "0.90",
-      "timestamp": "2026-03-17T18:01:50.067412+02:00"
-    },
-    {
-      "id": 150,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "Super-Agg: מוביל +4.23% מהבסיס. שתי אסטרטגיות Regime+Thematic הועברו לbacktesting. יום +1.20%.",
-      "action_taken": "strategy_to_backtesting",
-      "confidence": "0.90",
-      "timestamp": "2026-03-17T18:01:50.067412+02:00"
-    },
-    {
-      "id": 151,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "Creative: יום מצוין +2.17%. drawdown 3.20% בלבד מהשיא. אסטרטגיית קונטרריאן עדיין proposed.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-17T18:01:50.067412+02:00"
-    },
-    {
       "id": 148,
       "agent": "trader",
       "level": "warn",
@@ -140,66 +200,6 @@
       "action_taken": "monitor",
       "confidence": "0.85",
       "timestamp": "2026-03-17T18:01:50.067412+02:00"
-    },
-    {
-      "id": 152,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "Speculative: יציב, drawdown 4.20% מהשיא. אסטרטגיית IPO+M&A Arb הועברה לbacktesting.",
-      "action_taken": "strategy_to_backtesting",
-      "confidence": "0.80",
-      "timestamp": "2026-03-17T18:01:50.067412+02:00"
-    },
-    {
-      "id": 147,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "RSEL ▲ 24.49% vs cost (13.3100 → 16.5700)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 145,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "ENRG ▼ 12.70% vs cost (21.6500 → 18.9000)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 146,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN ▲ 2.87% vs cost (33.0900 → 34.0400)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 141,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "ESLT ▲ 18.80% vs cost (2336.7000 → 2776.0000)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
-    },
-    {
-      "id": 142,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI ▼ 5.62% vs cost (76.1900 → 71.9100)",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-17T09:01:59.631823+02:00"
     }
   ]
 }
