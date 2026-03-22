@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-22T09:05:01.478913",
+  "updated_at": "2026-03-22T18:01:36.845145",
   "pilot_day": 1,
   "total_capital": 500000.0,
   "target_net_profit": 100000,
@@ -17,19 +17,6 @@
       "fees": 0.0,
       "daily_change_pct": -0.9482,
       "assets": [
-        {
-          "ticker": "CASH",
-          "name": "מזומן",
-          "asset_type": "cash",
-          "sector": "מזומן",
-          "quantity": "15000.0000",
-          "avg_cost": "1.0000",
-          "current_price": "1.0000",
-          "value": 15000.0,
-          "cost_basis": 15000.0,
-          "daily_change_pct": 0.0,
-          "allocation_pct": 15.5
-        },
         {
           "ticker": "CSPX",
           "name": "iShares Core S&P500 Irish ETF",
@@ -68,12 +55,25 @@
           "cost_basis": 14998.725,
           "daily_change_pct": 0.0,
           "allocation_pct": 14.8
+        },
+        {
+          "ticker": "CASH",
+          "name": "מזומן",
+          "asset_type": "cash",
+          "sector": "מזומן",
+          "quantity": "15000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
+          "value": 15000.0,
+          "cost_basis": 15000.0,
+          "daily_change_pct": 0.0,
+          "allocation_pct": 15.5
         }
       ],
       "sectors": {
-        "מזומן": 15.5,
         "גלובלי": 39.7,
-        "פיננסים": 44.8
+        "פיננסים": 44.8,
+        "מזומן": 15.5
       },
       "benchmark": "ת\"א 125",
       "performance_history": [
@@ -164,19 +164,6 @@
       "daily_change_pct": 0.88,
       "assets": [
         {
-          "ticker": "CASH",
-          "name": "מזומן",
-          "asset_type": "cash",
-          "sector": "מזומן",
-          "quantity": "15000.0000",
-          "avg_cost": "1.0000",
-          "current_price": "1.0000",
-          "value": 15000.0,
-          "cost_basis": 15000.0,
-          "daily_change_pct": 0.0,
-          "allocation_pct": 14.9
-        },
-        {
           "ticker": "NVDA",
           "name": "NVIDIA Corp",
           "asset_type": "stock",
@@ -227,14 +214,27 @@
           "cost_basis": 15000.0279,
           "daily_change_pct": 0.0,
           "allocation_pct": 16.8
+        },
+        {
+          "ticker": "CASH",
+          "name": "מזומן",
+          "asset_type": "cash",
+          "sector": "מזומן",
+          "quantity": "15000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
+          "value": 15000.0,
+          "cost_basis": 15000.0,
+          "daily_change_pct": 0.0,
+          "allocation_pct": 14.9
         }
       ],
       "sectors": {
-        "מזומן": 14.9,
         "AI/GPU": 18.0,
         "סייבר": 24.6,
         "תוכנה": 25.7,
-        "פינטק": 16.8
+        "פינטק": 16.8,
+        "מזומן": 14.9
       },
       "benchmark": "נאסד\"ק 100",
       "performance_history": [
@@ -325,19 +325,6 @@
       "daily_change_pct": -2.7322,
       "assets": [
         {
-          "ticker": "CASH",
-          "name": "מזומן",
-          "asset_type": "cash",
-          "sector": "מזומן",
-          "quantity": "45000.0000",
-          "avg_cost": "1.0000",
-          "current_price": "1.0000",
-          "value": 45000.0,
-          "cost_basis": 45000.0,
-          "daily_change_pct": 0.0,
-          "allocation_pct": 43.8
-        },
-        {
           "ticker": "TQQQ",
           "name": "ProShares UltraPro QQQ 3x",
           "asset_type": "leveraged",
@@ -362,12 +349,25 @@
           "cost_basis": 25002.69,
           "daily_change_pct": 0.0,
           "allocation_pct": 30.1
+        },
+        {
+          "ticker": "CASH",
+          "name": "מזומן",
+          "asset_type": "cash",
+          "sector": "מזומן",
+          "quantity": "45000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
+          "value": 45000.0,
+          "cost_basis": 45000.0,
+          "daily_change_pct": 0.0,
+          "allocation_pct": 43.8
         }
       ],
       "sectors": {
-        "מזומן": 43.8,
         "ממונף": 26.1,
-        "ביטחון": 30.1
+        "ביטחון": 30.1,
+        "מזומן": 43.8
       },
       "benchmark": "S&P 500",
       "performance_history": [
@@ -458,19 +458,6 @@
       "daily_change_pct": -1.3394,
       "assets": [
         {
-          "ticker": "CASH",
-          "name": "מזומן",
-          "asset_type": "cash",
-          "sector": "מזומן",
-          "quantity": "20000.0000",
-          "avg_cost": "1.0000",
-          "current_price": "1.0000",
-          "value": 20000.0,
-          "cost_basis": 20000.0,
-          "daily_change_pct": 0.0,
-          "allocation_pct": 20.1
-        },
-        {
           "ticker": "PLTR",
           "name": "Palantir Technologies",
           "asset_type": "stock",
@@ -508,13 +495,26 @@
           "cost_basis": 25019.542,
           "daily_change_pct": 0.0,
           "allocation_pct": 24.5
+        },
+        {
+          "ticker": "CASH",
+          "name": "מזומן",
+          "asset_type": "cash",
+          "sector": "מזומן",
+          "quantity": "20000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
+          "value": 20000.0,
+          "cost_basis": 20000.0,
+          "daily_change_pct": 0.0,
+          "allocation_pct": 20.1
         }
       ],
       "sectors": {
-        "מזומן": 20.1,
         "AI/ביטחון": 28.9,
         "ביוטק/פארמה": 26.5,
-        "נדל\"ן": 24.5
+        "נדל\"ן": 24.5,
+        "מזומן": 20.1
       },
       "benchmark": "ת\"א 90",
       "performance_history": [
@@ -605,19 +605,6 @@
       "daily_change_pct": -1.3325,
       "assets": [
         {
-          "ticker": "CASH",
-          "name": "מזומן",
-          "asset_type": "cash",
-          "sector": "מזומן",
-          "quantity": "15000.0000",
-          "avg_cost": "1.0000",
-          "current_price": "1.0000",
-          "value": 15000.0,
-          "cost_basis": 15000.0,
-          "daily_change_pct": 0.0,
-          "allocation_pct": 13.5
-        },
-        {
           "ticker": "TSLA",
           "name": "Tesla Inc",
           "asset_type": "stock",
@@ -668,14 +655,27 @@
           "cost_basis": 25000.173,
           "daily_change_pct": 0.0,
           "allocation_pct": 35.6
+        },
+        {
+          "ticker": "CASH",
+          "name": "מזומן",
+          "asset_type": "cash",
+          "sector": "מזומן",
+          "quantity": "15000.0000",
+          "avg_cost": "1.0000",
+          "current_price": "1.0000",
+          "value": 15000.0,
+          "cost_basis": 15000.0,
+          "daily_change_pct": 0.0,
+          "allocation_pct": 13.5
         }
       ],
       "sectors": {
-        "מזומן": 13.5,
         "EV/אנרגיה": 8.3,
         "גלובלי": 16.3,
         "אנרגיה": 26.2,
-        "ביטחון": 35.6
+        "ביטחון": 35.6,
+        "מזומן": 13.5
       },
       "benchmark": "ת\"א 35",
       "performance_history": [
