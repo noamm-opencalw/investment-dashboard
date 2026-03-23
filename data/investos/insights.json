@@ -1,34 +1,104 @@
 {
-  "updated_at": "2026-03-22T18:01:36.852084",
+  "updated_at": "2026-03-23T09:03:09.455678",
   "latest": {
-    "id": 183,
+    "id": 188,
     "agent": "hunter",
     "level": "info",
-    "portfolio_id": "aggressive",
-    "text": "NICE: מחיר עודכן ל-365 NIS (NICE.TA). avg_cost 353.30 NIS → +3.3% unrealized profit. ה-DB הקודם היה עם מחיר מיושן.",
-    "action_taken": "תיקון מחיר NICE.TA בDB",
-    "confidence": "0.95",
-    "timestamp": "2026-03-22T09:04:55.229898+02:00"
+    "portfolio_id": "speculative",
+    "text": "PLTR +15.4% מעלות ממוצעת ($130.60 → $150.68). רווח לא ממומש ~₪12,060 לפי FX 3.15.",
+    "action_taken": null,
+    "confidence": "0.82",
+    "timestamp": "2026-03-23T09:02:58.955718+02:00"
   },
   "history": [
     {
-      "id": 174,
+      "id": 186,
       "agent": "hunter",
       "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN עלה 12.17% (37.14 ₪). פוזיציה קטנה (453 מניות @ avg 33.09). שינוי חיובי ביחס לcost-basis.",
+      "portfolio_id": "creative",
+      "text": "RSEL (Rafael Dev) +57.9% מעלות ממוצעת (₪13.31 → ₪21.02). רווח לא ממומש ₪14,474 — ביקוש ביטחוני.",
       "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
+      "confidence": "0.85",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
     },
     {
-      "id": 179,
+      "id": 189,
       "agent": "hunter",
       "level": "warn",
       "portfolio_id": "speculative",
-      "text": "AMOT ירד 3.03% (20.19 ₪). 1,204 מניות — REIT ישראלי, ירידה קלה. avg_cost 20.77, כמעט break-even.",
+      "text": "TEVA -12.1% מעלות ממוצעת (₪104.80 → ₪92.08). הפסד לא ממומש ₪3,626.",
       "action_taken": null,
-      "confidence": "0.72",
+      "confidence": "0.80",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 187,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "TSLA -8.0% מעלות ממוצעת ($399.83 → $367.96). הפסד לא ממומש ~₪2,510 לפי FX 3.15.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 191,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ -10.7% מעלות ממוצעת ($48.24 → $43.09). הפסד לא ממומש ~₪10,100 לפי FX 3.15 — 3x leverage בלחץ.",
+      "action_taken": null,
+      "confidence": "0.77",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 190,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "ESLT (Elbit) +23.6% מעלות ממוצעת (₪2,336 → ₪2,887). רווח לא ממומש ₪5,889 — ביטחון גלובלי מוביל.",
+      "action_taken": null,
+      "confidence": "0.88",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 184,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA בירידה של 9.7% מעלות ממוצעת ($191.55 → $172.93). הפסד לא ממומש ~₪10,340 לפי FX 3.15. AI/chip-stocks תחת לחץ.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 185,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "SPEN (Sapiens) +12.2% מעלות ממוצעת (₪33.09 → ₪37.14). רווח לא ממומש ₪1,836 — פינטק ישראלי חזק.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 183,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "NICE: מחיר עודכן ל-365 NIS (NICE.TA). avg_cost 353.30 NIS → +3.3% unrealized profit. ה-DB הקודם היה עם מחיר מיושן.",
+      "action_taken": "תיקון מחיר NICE.TA בDB",
+      "confidence": "0.95",
+      "timestamp": "2026-03-22T09:04:55.229898+02:00"
+    },
+    {
+      "id": 177,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "RSEL ירד 6.62% (21.02 ₪). 1,878 מניות @ avg 13.31 — עדיין ברווח משמעותי (+57.9%) אך ירידה שבועית.",
+      "action_taken": null,
+      "confidence": "0.75",
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
     },
     {
@@ -39,6 +109,26 @@
       "text": "ESLT ירד 3.15% (2,887 ₪). 10.7 מניות @ avg 2,336.70 — עדיין +23.5% unrealized profit.",
       "action_taken": null,
       "confidence": "0.85",
+      "timestamp": "2026-03-22T09:04:14.336766+02:00"
+    },
+    {
+      "id": 181,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ ירד 6.55% (43.08$). מינוף x3 על Nasdaq. 622 מניות @ avg 48.24 — ירידה שבועית מצטברת חדה.",
+      "action_taken": null,
+      "confidence": "0.88",
+      "timestamp": "2026-03-22T09:04:14.336766+02:00"
+    },
+    {
+      "id": 178,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "VXUS ירד 3.29% (74.71$). 241 מניות @ avg 82.93 — ביצועי חסר vs US market.",
+      "action_taken": null,
+      "confidence": "0.70",
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
     },
     {
@@ -62,33 +152,23 @@
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
     },
     {
-      "id": 182,
+      "id": 179,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "Super-Agg: תיק ירד 2.73% שבועית (105,575→102,691). TQQQ + ESLT שניהם בלחץ.",
+      "portfolio_id": "speculative",
+      "text": "AMOT ירד 3.03% (20.19 ₪). 1,204 מניות — REIT ישראלי, ירידה קלה. avg_cost 20.77, כמעט break-even.",
       "action_taken": null,
-      "confidence": "0.85",
+      "confidence": "0.72",
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
     },
     {
-      "id": 178,
+      "id": 174,
       "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "VXUS ירד 3.29% (74.71$). 241 מניות @ avg 82.93 — ביצועי חסר vs US market.",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "SPEN עלה 12.17% (37.14 ₪). פוזיציה קטנה (453 מניות @ avg 33.09). שינוי חיובי ביחס לcost-basis.",
       "action_taken": null,
-      "confidence": "0.70",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 181,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ ירד 6.55% (43.08$). מינוף x3 על Nasdaq. 622 מניות @ avg 48.24 — ירידה שבועית מצטברת חדה.",
-      "action_taken": null,
-      "confidence": "0.88",
+      "confidence": "0.75",
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
     },
     {
@@ -102,34 +182,14 @@
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
     },
     {
-      "id": 177,
+      "id": 182,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "creative",
-      "text": "RSEL ירד 6.62% (21.02 ₪). 1,878 מניות @ avg 13.31 — עדיין ברווח משמעותי (+57.9%) אך ירידה שבועית.",
+      "portfolio_id": "super_agg",
+      "text": "Super-Agg: תיק ירד 2.73% שבועית (105,575→102,691). TQQQ + ESLT שניהם בלחץ.",
       "action_taken": null,
-      "confidence": "0.75",
+      "confidence": "0.85",
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 165,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "PLTR +17.0% vs cost basis ($130.60 → $152.77) — strong gain. Position value ₪29,149. Momentum intact despite -1.5% session pullback.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-19T09:03:12.825200+02:00"
-    },
-    {
-      "id": 170,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA -11.5% vs cost (₪104.80 → ₪92.75) — persistent underperformance. Generic drug pricing headwinds continue.",
-      "action_taken": null,
-      "confidence": "0.78",
-      "timestamp": "2026-03-19T09:03:12.825200+02:00"
     },
     {
       "id": 169,
@@ -139,66 +199,6 @@
       "text": "NVDA -5.8% vs cost ($191.55 → $180.40) — continued weakness. AI spending concerns persist. Monitor $175 support.",
       "action_taken": null,
       "confidence": "0.80",
-      "timestamp": "2026-03-19T09:03:12.825200+02:00"
-    },
-    {
-      "id": 166,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "NICE +3.6% vs cost basis (₪353.30 → ₪366.10) — mild gain. NVDA -5.8% vs cost still a drag on portfolio.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-19T09:03:12.825200+02:00"
-    },
-    {
-      "id": 164,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "super_agg",
-      "text": "ESLT +27.6% vs cost basis (₪2,336.70 → ₪2,981.00) — major gain sustained. Position value ₪31,897. Watch for resistance at current levels.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-19T09:03:12.825200+02:00"
-    },
-    {
-      "id": 171,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG -11.6% vs cost (₪21.65 → ₪19.15) — energy stock weak. RSEL gains offset significantly.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-19T09:03:12.825200+02:00"
-    },
-    {
-      "id": 163,
-      "agent": "hunter",
-      "level": "alert",
-      "portfolio_id": "creative",
-      "text": "RSEL +69.1% vs cost basis (₪13.31 → ₪22.51) — extraordinary gain on massive volume (547K shares March 18). Position value ₪42,281. Consider profit-taking review.",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-19T09:03:12.825200+02:00"
-    },
-    {
-      "id": 167,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "CSPX -2.4% vs cost (£734.09 → £716.48), POLI -2.8% (₪80.25 → ₪77.97), LUMI -3.3% (₪76.19 → ₪73.68) — Solid portfolio below cost across equities. TASE domestics soft.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-19T09:03:12.825200+02:00"
-    },
-    {
-      "id": 168,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ -4.4% vs cost ($48.24 → $46.10) — leveraged QQQ position underwater. US tech selloff risk. Watch $44 support.",
-      "action_taken": null,
-      "confidence": "0.82",
       "timestamp": "2026-03-19T09:03:12.825200+02:00"
     }
   ]

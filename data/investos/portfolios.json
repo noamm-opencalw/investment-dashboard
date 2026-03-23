@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-03-22T18:01:36.845145",
+  "updated_at": "2026-03-23T09:03:09.449777",
   "pilot_day": 1,
   "total_capital": 500000.0,
   "target_net_profit": 100000,
-  "net_profit_to_date": 7427.76,
+  "net_profit_to_date": 7448.1,
   "portfolios": [
     {
       "id": "solid",
@@ -15,7 +15,7 @@
       "initial_capital": 100000.0,
       "gross": 96702.822,
       "fees": 0.0,
-      "daily_change_pct": -0.9482,
+      "daily_change_pct": 0.0,
       "assets": [
         {
           "ticker": "CSPX",
@@ -148,6 +148,10 @@
         {
           "date": "2026-03-22",
           "value": 96702.82
+        },
+        {
+          "date": "2026-03-23",
+          "value": 96702.82
         }
       ]
     },
@@ -159,9 +163,9 @@
       "description": "מניות צמיחה, חיפוש אלפא",
       "target_30d_pct": 6.0,
       "initial_capital": 100000.0,
-      "gross": 100359.1084,
+      "gross": 100383.1204,
       "fees": 0.0,
-      "daily_change_pct": 0.88,
+      "daily_change_pct": 0.02,
       "assets": [
         {
           "ticker": "NVDA",
@@ -170,8 +174,8 @@
           "sector": "AI/GPU",
           "quantity": "104.4000",
           "avg_cost": "191.5500",
-          "current_price": "172.7000",
-          "value": 18029.88,
+          "current_price": "172.9300",
+          "value": 18053.892,
           "cost_basis": 19997.82,
           "daily_change_pct": 0.0,
           "allocation_pct": 18.0
@@ -309,6 +313,10 @@
         {
           "date": "2026-03-22",
           "value": 100359.11
+        },
+        {
+          "date": "2026-03-23",
+          "value": 100383.12
         }
       ]
     },
@@ -320,9 +328,9 @@
       "description": "ממונף, קריפטו, אופציות",
       "target_30d_pct": 18.0,
       "initial_capital": 100000.0,
-      "gross": 102690.968,
+      "gross": 102694.0785,
       "fees": 0.0,
-      "daily_change_pct": -2.7322,
+      "daily_change_pct": 0.0,
       "assets": [
         {
           "ticker": "TQQQ",
@@ -331,8 +339,8 @@
           "sector": "ממונף",
           "quantity": "622.1000",
           "avg_cost": "48.2400",
-          "current_price": "43.0800",
-          "value": 26800.068,
+          "current_price": "43.0850",
+          "value": 26803.1785,
           "cost_basis": 30010.104,
           "daily_change_pct": 0.0,
           "allocation_pct": 26.1
@@ -442,6 +450,10 @@
         {
           "date": "2026-03-22",
           "value": 102690.97
+        },
+        {
+          "date": "2026-03-23",
+          "value": 102694.08
         }
       ]
     },
@@ -455,7 +467,7 @@
       "initial_capital": 100000.0,
       "gross": 99377.874,
       "fees": 0.0,
-      "daily_change_pct": -1.3394,
+      "daily_change_pct": 0.0,
       "assets": [
         {
           "ticker": "PLTR",
@@ -589,6 +601,10 @@
         {
           "date": "2026-03-22",
           "value": 99377.87
+        },
+        {
+          "date": "2026-03-23",
+          "value": 99377.87
         }
       ]
     },
@@ -602,7 +618,7 @@
       "initial_capital": 100000.0,
       "gross": 110772.90400000001,
       "fees": 0.0,
-      "daily_change_pct": -1.3325,
+      "daily_change_pct": 0.0,
       "assets": [
         {
           "ticker": "TSLA",
@@ -749,6 +765,10 @@
         },
         {
           "date": "2026-03-22",
+          "value": 110772.9
+        },
+        {
+          "date": "2026-03-23",
           "value": 110772.9
         }
       ]
