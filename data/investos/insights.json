@@ -1,16 +1,56 @@
 {
-  "updated_at": "2026-03-24T09:02:38.880118",
+  "updated_at": "2026-03-24T18:01:55.483231",
   "latest": {
-    "id": 192,
-    "agent": "hunter",
-    "level": "info",
-    "portfolio_id": "speculative",
-    "text": "PLTR: עלייה חדה +2.7% (156.55→160.84). השפעה על speculative: ₪+2,552",
+    "id": 195,
+    "agent": "trader",
+    "level": "warn",
+    "portfolio_id": "creative",
+    "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪164,650). ROI +64.6% gross. ENRG -5.39% בוקר — לעקוב. Contrarian approved.",
     "action_taken": null,
     "confidence": "0.80",
-    "timestamp": "2026-03-24T09:01:33.749174+02:00"
+    "timestamp": "2026-03-24T18:01:47.844820+02:00"
   },
   "history": [
+    {
+      "id": 196,
+      "agent": "trader",
+      "level": "info",
+      "portfolio_id": "solid",
+      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪178,414). ROI +78.4% gross. KSML + תל-בונד שתיהן activated.",
+      "action_taken": "strategy_updated",
+      "confidence": "0.95",
+      "timestamp": "2026-03-24T18:01:47.844820+02:00"
+    },
+    {
+      "id": 194,
+      "agent": "trader",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪191,219). ROI +91.2% gross. Momentum TA35 activated. No rebalance needed.",
+      "action_taken": "strategy_updated",
+      "confidence": "0.95",
+      "timestamp": "2026-03-24T18:01:47.844820+02:00"
+    },
+    {
+      "id": 197,
+      "agent": "trader",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪166,031). ROI +66% gross. PLTR momentum חזק (+23% רווח). IPO+M&A approved.",
+      "action_taken": "strategy_updated",
+      "confidence": "0.88",
+      "timestamp": "2026-03-24T18:01:47.844820+02:00"
+    },
+    {
+      "id": 198,
+      "agent": "trader",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪161,844). ROI +61.8% gross. 27.8% CASH (₪45K) — שקול פריסה בהזדמנות הבאה.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-24T18:01:47.844820+02:00"
+    },
     {
       "id": 193,
       "agent": "hunter",
@@ -20,6 +60,56 @@
       "action_taken": null,
       "confidence": "0.80",
       "timestamp": "2026-03-24T09:01:33.749174+02:00"
+    },
+    {
+      "id": 192,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "PLTR: עלייה חדה +2.7% (156.55→160.84). השפעה על speculative: ₪+2,552",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-24T09:01:33.749174+02:00"
+    },
+    {
+      "id": 190,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "ESLT (Elbit) +23.6% מעלות ממוצעת (₪2,336 → ₪2,887). רווח לא ממומש ₪5,889 — ביטחון גלובלי מוביל.",
+      "action_taken": null,
+      "confidence": "0.88",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 187,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "TSLA -8.0% מעלות ממוצעת ($399.83 → $367.96). הפסד לא ממומש ~₪2,510 לפי FX 3.15.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 191,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ -10.7% מעלות ממוצעת ($48.24 → $43.09). הפסד לא ממומש ~₪10,100 לפי FX 3.15 — 3x leverage בלחץ.",
+      "action_taken": null,
+      "confidence": "0.77",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 184,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA בירידה של 9.7% מעלות ממוצעת ($191.55 → $172.93). הפסד לא ממומש ~₪10,340 לפי FX 3.15. AI/chip-stocks תחת לחץ.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
     },
     {
       "id": 186,
@@ -42,31 +132,11 @@
       "timestamp": "2026-03-23T09:02:58.955718+02:00"
     },
     {
-      "id": 191,
+      "id": 189,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ -10.7% מעלות ממוצעת ($48.24 → $43.09). הפסד לא ממומש ~₪10,100 לפי FX 3.15 — 3x leverage בלחץ.",
-      "action_taken": null,
-      "confidence": "0.77",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 190,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "ESLT (Elbit) +23.6% מעלות ממוצעת (₪2,336 → ₪2,887). רווח לא ממומש ₪5,889 — ביטחון גלובלי מוביל.",
-      "action_taken": null,
-      "confidence": "0.88",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 184,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA בירידה של 9.7% מעלות ממוצעת ($191.55 → $172.93). הפסד לא ממומש ~₪10,340 לפי FX 3.15. AI/chip-stocks תחת לחץ.",
+      "portfolio_id": "speculative",
+      "text": "TEVA -12.1% מעלות ממוצעת (₪104.80 → ₪92.08). הפסד לא ממומש ₪3,626.",
       "action_taken": null,
       "confidence": "0.80",
       "timestamp": "2026-03-23T09:02:58.955718+02:00"
@@ -79,26 +149,6 @@
       "text": "SPEN (Sapiens) +12.2% מעלות ממוצעת (₪33.09 → ₪37.14). רווח לא ממומש ₪1,836 — פינטק ישראלי חזק.",
       "action_taken": null,
       "confidence": "0.75",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 187,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA -8.0% מעלות ממוצעת ($399.83 → $367.96). הפסד לא ממומש ~₪2,510 לפי FX 3.15.",
-      "action_taken": null,
-      "confidence": "0.78",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 189,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA -12.1% מעלות ממוצעת (₪104.80 → ₪92.08). הפסד לא ממומש ₪3,626.",
-      "action_taken": null,
-      "confidence": "0.80",
       "timestamp": "2026-03-23T09:02:58.955718+02:00"
     },
     {
@@ -142,36 +192,6 @@
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
     },
     {
-      "id": 174,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN עלה 12.17% (37.14 ₪). פוזיציה קטנה (453 מניות @ avg 33.09). שינוי חיובי ביחס לcost-basis.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 178,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "VXUS ירד 3.29% (74.71$). 241 מניות @ avg 82.93 — ביצועי חסר vs US market.",
-      "action_taken": null,
-      "confidence": "0.70",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 175,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA ירד 6.32% (367.96$). 25 מניות @ avg 399.83$ — unrealized loss גדל. שמירה על מעקב.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
       "id": 176,
       "agent": "hunter",
       "level": "info",
@@ -179,26 +199,6 @@
       "text": "ENRG עלה 9.56% (20.98 ₪). 1,385 מניות @ avg 21.65 — מתקרב ל-cost basis. שיפור ניכר.",
       "action_taken": null,
       "confidence": "0.80",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 172,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA ירד 4.27% (172.70$). מחזיקים 104.4 מניות — ₪-17,834 unrealized impact. מומנטום שלילי מתמשך מ-191.55$ avg_cost.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 179,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "AMOT ירד 3.03% (20.19 ₪). 1,204 מניות — REIT ישראלי, ירידה קלה. avg_cost 20.77, כמעט break-even.",
-      "action_taken": null,
-      "confidence": "0.72",
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
     }
   ]
