@@ -1,16 +1,26 @@
 {
-  "updated_at": "2026-03-23T18:01:25.646516",
+  "updated_at": "2026-03-24T09:02:38.880118",
   "latest": {
-    "id": 188,
+    "id": 192,
     "agent": "hunter",
     "level": "info",
     "portfolio_id": "speculative",
-    "text": "PLTR +15.4% מעלות ממוצעת ($130.60 → $150.68). רווח לא ממומש ~₪12,060 לפי FX 3.15.",
+    "text": "PLTR: עלייה חדה +2.7% (156.55→160.84). השפעה על speculative: ₪+2,552",
     "action_taken": null,
-    "confidence": "0.82",
-    "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    "confidence": "0.80",
+    "timestamp": "2026-03-24T09:01:33.749174+02:00"
   },
   "history": [
+    {
+      "id": 193,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG: ירידה חדה -5.4% (20.98→19.85). השפעה על creative: ₪-1,566",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-24T09:01:33.749174+02:00"
+    },
     {
       "id": 186,
       "agent": "hunter",
@@ -22,23 +32,13 @@
       "timestamp": "2026-03-23T09:02:58.955718+02:00"
     },
     {
-      "id": 189,
+      "id": 188,
       "agent": "hunter",
-      "level": "warn",
+      "level": "info",
       "portfolio_id": "speculative",
-      "text": "TEVA -12.1% מעלות ממוצעת (₪104.80 → ₪92.08). הפסד לא ממומש ₪3,626.",
+      "text": "PLTR +15.4% מעלות ממוצעת ($130.60 → $150.68). רווח לא ממומש ~₪12,060 לפי FX 3.15.",
       "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 187,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA -8.0% מעלות ממוצעת ($399.83 → $367.96). הפסד לא ממומש ~₪2,510 לפי FX 3.15.",
-      "action_taken": null,
-      "confidence": "0.78",
+      "confidence": "0.82",
       "timestamp": "2026-03-23T09:02:58.955718+02:00"
     },
     {
@@ -82,6 +82,26 @@
       "timestamp": "2026-03-23T09:02:58.955718+02:00"
     },
     {
+      "id": 187,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "TSLA -8.0% מעלות ממוצעת ($399.83 → $367.96). הפסד לא ממומש ~₪2,510 לפי FX 3.15.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
+      "id": 189,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA -12.1% מעלות ממוצעת (₪104.80 → ₪92.08). הפסד לא ממומש ₪3,626.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-23T09:02:58.955718+02:00"
+    },
+    {
       "id": 183,
       "agent": "hunter",
       "level": "info",
@@ -122,6 +142,16 @@
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
     },
     {
+      "id": 174,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "SPEN עלה 12.17% (37.14 ₪). פוזיציה קטנה (453 מניות @ avg 33.09). שינוי חיובי ביחס לcost-basis.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-22T09:04:14.336766+02:00"
+    },
+    {
       "id": 178,
       "agent": "hunter",
       "level": "warn",
@@ -137,6 +167,16 @@
       "level": "warn",
       "portfolio_id": "creative",
       "text": "TSLA ירד 6.32% (367.96$). 25 מניות @ avg 399.83$ — unrealized loss גדל. שמירה על מעקב.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-22T09:04:14.336766+02:00"
+    },
+    {
+      "id": 176,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "ENRG עלה 9.56% (20.98 ₪). 1,385 מניות @ avg 21.65 — מתקרב ל-cost basis. שיפור ניכר.",
       "action_taken": null,
       "confidence": "0.80",
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
@@ -160,46 +200,6 @@
       "action_taken": null,
       "confidence": "0.72",
       "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 174,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN עלה 12.17% (37.14 ₪). פוזיציה קטנה (453 מניות @ avg 33.09). שינוי חיובי ביחס לcost-basis.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 176,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "ENRG עלה 9.56% (20.98 ₪). 1,385 מניות @ avg 21.65 — מתקרב ל-cost basis. שיפור ניכר.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 182,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "Super-Agg: תיק ירד 2.73% שבועית (105,575→102,691). TQQQ + ESLT שניהם בלחץ.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 169,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA -5.8% vs cost ($191.55 → $180.40) — continued weakness. AI spending concerns persist. Monitor $175 support.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-19T09:03:12.825200+02:00"
     }
   ]
 }
