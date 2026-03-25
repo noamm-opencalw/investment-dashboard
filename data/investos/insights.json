@@ -1,24 +1,174 @@
 {
-  "updated_at": "2026-03-24T18:01:55.483231",
+  "updated_at": "2026-03-25T09:02:04.697824",
   "latest": {
-    "id": 195,
-    "agent": "trader",
+    "id": 202,
+    "agent": "hunter",
     "level": "warn",
     "portfolio_id": "creative",
-    "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪164,650). ROI +64.6% gross. ENRG -5.39% בוקר — לעקוב. Contrarian approved.",
+    "text": "ENRG: ירידה 9.9% מעל cost basis — השפעה -2,979₪ (Creative)",
     "action_taken": null,
-    "confidence": "0.80",
-    "timestamp": "2026-03-24T18:01:47.844820+02:00"
+    "confidence": null,
+    "timestamp": "2026-03-25T09:01:49.977598+02:00"
   },
   "history": [
     {
-      "id": 196,
-      "agent": "trader",
+      "id": 210,
+      "agent": "hunter",
       "level": "info",
+      "portfolio_id": "speculative",
+      "text": "PLTR: עלייה 18.5% מעל cost basis — השפעה +14,394₪ (Speculative)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 213,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ: ירידה 9.6% מעל cost basis — השפעה -8,967₪ (Super-Agg)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 212,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "ESLT: עלייה 19.9% מעל cost basis — השפעה +4,968₪ (Super-Agg)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 206,
+      "agent": "hunter",
+      "level": "warn",
       "portfolio_id": "solid",
-      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪178,414). ROI +78.4% gross. KSML + תל-בונד שתיהן activated.",
-      "action_taken": "strategy_updated",
-      "confidence": "0.95",
+      "text": "CSPX: ירידה 3.7% מעל cost basis — השפעה -4,676₪ (Solid)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 209,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "AMOT: ירידה 3.3% מעל cost basis — השפעה -819₪ (Speculative)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 211,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA: ירידה 14.9% מעל cost basis — השפעה -4,457₪ (Speculative)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 200,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA: ירידה 8.5% מעל cost basis — השפעה -5,326₪ (Aggressive)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 203,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "RSEL: עלייה 36.4% מעל cost basis — השפעה +9,110₪ (Creative)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 199,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "CHKP: ירידה 6.6% מעל cost basis — השפעה -5,140₪ (Aggressive)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 201,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "SPEN: עלייה 10.0% מעל cost basis — השפעה +1,500₪ (Aggressive)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 205,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "VXUS: ירידה 8.4% מעל cost basis — השפעה -5,253₪ (Creative)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 207,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "LUMI: ירידה 4.7% מעל cost basis — השפעה -1,417₪ (Solid)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 208,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "POLI: ירידה 4.9% מעל cost basis — השפעה -736₪ (Solid)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 204,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "TSLA: ירידה 4.2% מעל cost basis — השפעה -1,310₪ (Creative)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 198,
+      "agent": "trader",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪161,844). ROI +61.8% gross. 27.8% CASH (₪45K) — שקול פריסה בהזדמנות הבאה.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-24T18:01:47.844820+02:00"
+    },
+    {
+      "id": 195,
+      "agent": "trader",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪164,650). ROI +64.6% gross. ENRG -5.39% בוקר — לעקוב. Contrarian approved.",
+      "action_taken": null,
+      "confidence": "0.80",
       "timestamp": "2026-03-24T18:01:47.844820+02:00"
     },
     {
@@ -32,6 +182,16 @@
       "timestamp": "2026-03-24T18:01:47.844820+02:00"
     },
     {
+      "id": 196,
+      "agent": "trader",
+      "level": "info",
+      "portfolio_id": "solid",
+      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪178,414). ROI +78.4% gross. KSML + תל-בונד שתיהן activated.",
+      "action_taken": "strategy_updated",
+      "confidence": "0.95",
+      "timestamp": "2026-03-24T18:01:47.844820+02:00"
+    },
+    {
       "id": 197,
       "agent": "trader",
       "level": "info",
@@ -40,166 +200,6 @@
       "action_taken": "strategy_updated",
       "confidence": "0.88",
       "timestamp": "2026-03-24T18:01:47.844820+02:00"
-    },
-    {
-      "id": 198,
-      "agent": "trader",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪161,844). ROI +61.8% gross. 27.8% CASH (₪45K) — שקול פריסה בהזדמנות הבאה.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-24T18:01:47.844820+02:00"
-    },
-    {
-      "id": 193,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG: ירידה חדה -5.4% (20.98→19.85). השפעה על creative: ₪-1,566",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-24T09:01:33.749174+02:00"
-    },
-    {
-      "id": 192,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "PLTR: עלייה חדה +2.7% (156.55→160.84). השפעה על speculative: ₪+2,552",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-24T09:01:33.749174+02:00"
-    },
-    {
-      "id": 190,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "ESLT (Elbit) +23.6% מעלות ממוצעת (₪2,336 → ₪2,887). רווח לא ממומש ₪5,889 — ביטחון גלובלי מוביל.",
-      "action_taken": null,
-      "confidence": "0.88",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 187,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA -8.0% מעלות ממוצעת ($399.83 → $367.96). הפסד לא ממומש ~₪2,510 לפי FX 3.15.",
-      "action_taken": null,
-      "confidence": "0.78",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 191,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ -10.7% מעלות ממוצעת ($48.24 → $43.09). הפסד לא ממומש ~₪10,100 לפי FX 3.15 — 3x leverage בלחץ.",
-      "action_taken": null,
-      "confidence": "0.77",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 184,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA בירידה של 9.7% מעלות ממוצעת ($191.55 → $172.93). הפסד לא ממומש ~₪10,340 לפי FX 3.15. AI/chip-stocks תחת לחץ.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 186,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "RSEL (Rafael Dev) +57.9% מעלות ממוצעת (₪13.31 → ₪21.02). רווח לא ממומש ₪14,474 — ביקוש ביטחוני.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 188,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "PLTR +15.4% מעלות ממוצעת ($130.60 → $150.68). רווח לא ממומש ~₪12,060 לפי FX 3.15.",
-      "action_taken": null,
-      "confidence": "0.82",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 189,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA -12.1% מעלות ממוצעת (₪104.80 → ₪92.08). הפסד לא ממומש ₪3,626.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 185,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN (Sapiens) +12.2% מעלות ממוצעת (₪33.09 → ₪37.14). רווח לא ממומש ₪1,836 — פינטק ישראלי חזק.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-23T09:02:58.955718+02:00"
-    },
-    {
-      "id": 183,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "NICE: מחיר עודכן ל-365 NIS (NICE.TA). avg_cost 353.30 NIS → +3.3% unrealized profit. ה-DB הקודם היה עם מחיר מיושן.",
-      "action_taken": "תיקון מחיר NICE.TA בDB",
-      "confidence": "0.95",
-      "timestamp": "2026-03-22T09:04:55.229898+02:00"
-    },
-    {
-      "id": 177,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "RSEL ירד 6.62% (21.02 ₪). 1,878 מניות @ avg 13.31 — עדיין ברווח משמעותי (+57.9%) אך ירידה שבועית.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 180,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "ESLT ירד 3.15% (2,887 ₪). 10.7 מניות @ avg 2,336.70 — עדיין +23.5% unrealized profit.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 181,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ ירד 6.55% (43.08$). מינוף x3 על Nasdaq. 622 מניות @ avg 48.24 — ירידה שבועית מצטברת חדה.",
-      "action_taken": null,
-      "confidence": "0.88",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
-    },
-    {
-      "id": 176,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "ENRG עלה 9.56% (20.98 ₪). 1,385 מניות @ avg 21.65 — מתקרב ל-cost basis. שיפור ניכר.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-22T09:04:14.336766+02:00"
     }
   ]
 }
