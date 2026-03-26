@@ -1,122 +1,172 @@
 {
-  "updated_at": "2026-03-25T09:02:04.697824",
+  "updated_at": "2026-03-26T09:04:14.412940",
   "latest": {
-    "id": 202,
+    "id": 225,
     "agent": "hunter",
     "level": "warn",
-    "portfolio_id": "creative",
-    "text": "ENRG: ירידה 9.9% מעל cost basis — השפעה -2,979₪ (Creative)",
+    "portfolio_id": "aggressive",
+    "text": "NICE.TA -5.3% מ-cost basis (₪353.3→₪334.6) | שווי ₪23,676 | לחץ על aggressive",
     "action_taken": null,
-    "confidence": null,
-    "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    "confidence": "0.75",
+    "timestamp": "2026-03-26T09:04:07.644186+02:00"
   },
   "history": [
     {
-      "id": 210,
+      "id": 214,
       "agent": "hunter",
       "level": "info",
-      "portfolio_id": "speculative",
-      "text": "PLTR: עלייה 18.5% מעל cost basis — השפעה +14,394₪ (Speculative)",
+      "portfolio_id": "creative",
+      "text": "RSEL.TA +28.9% מ-cost basis (₪13.31→₪17.15) | שווי נוכחי ₪32,213 | תרומה עיקרית לתיק יצירתי",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+      "confidence": "0.90",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
     },
     {
-      "id": 213,
+      "id": 221,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ: ירידה 9.6% מעל cost basis — השפעה -8,967₪ (Super-Agg)",
+      "portfolio_id": "aggressive",
+      "text": "CHKP -8.0% מ-cost basis ($154.73→$142.41) | שווי ₪22,999 | לחץ על aggressive",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+      "confidence": "0.85",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
     },
     {
-      "id": 212,
+      "id": 224,
       "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "ESLT: עלייה 19.9% מעל cost basis — השפעה +4,968₪ (Super-Agg)",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "AMOT.TA -5.4% מ-cost basis (₪20.77→₪19.64) | שווי ₪23,658 | נדל\"ן TASE בלחץ",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+      "confidence": "0.75",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
     },
     {
-      "id": 206,
+      "id": 228,
       "agent": "hunter",
       "level": "warn",
       "portfolio_id": "solid",
-      "text": "CSPX: ירידה 3.7% מעל cost basis — השפעה -4,676₪ (Solid)",
+      "text": "CSPX -3.4% מ-cost basis ($734.09→$709.45) | שווי ₪38,665 | S&P500 exposure down, הפוזיציה הגדולה ב-solid",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+      "confidence": "0.80",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
     },
     {
-      "id": 209,
+      "id": 219,
       "agent": "hunter",
       "level": "warn",
       "portfolio_id": "speculative",
-      "text": "AMOT: ירידה 3.3% מעל cost basis — השפעה -819₪ (Speculative)",
+      "text": "TEVA.TA -11.4% מ-cost basis (₪104.8→₪92.87) | שווי ₪26,533 | משמעותי ב-speculative",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+      "confidence": "0.85",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
     },
     {
-      "id": 211,
+      "id": 218,
       "agent": "hunter",
       "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG.TA -11.5% מ-cost basis (₪21.65→₪19.16) | שווי ₪26,550 | לחץ על תיק creative",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
+    },
+    {
+      "id": 220,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ -8.0% מ-cost basis ($48.24→$44.39) | שווי ₪27,615 | לחץ על super_agg, מאוזן ע\"י ESLT",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
+    },
+    {
+      "id": 222,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "VXUS -7.1% מ-cost basis ($82.93→$77.08) | שווי ₪18,592 | global equity exposure down",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
+    },
+    {
+      "id": 223,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA -6.7% מ-cost basis ($191.55→$178.68) | שווי ₪18,654 | AI sector weakness",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
+    },
+    {
+      "id": 226,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "LUMI.TA -5.1% מ-cost basis (₪76.19→₪72.32) | שווי ₪28,472 | לחץ על solid",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
+    },
+    {
+      "id": 227,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "solid",
+      "text": "POLI.TA -4.6% מ-cost basis (₪80.25→₪76.59) | שווי ₪14,315 | ביטוח TASE down",
+      "action_taken": null,
+      "confidence": "0.70",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
+    },
+    {
+      "id": 229,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "TSLA -3.5% מ-cost basis ($399.83→$385.95) | שווי ₪9,649 | רכב חשמלי בלחץ",
+      "action_taken": null,
+      "confidence": "0.70",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
+    },
+    {
+      "id": 216,
+      "agent": "hunter",
+      "level": "info",
       "portfolio_id": "speculative",
-      "text": "TEVA: ירידה 14.9% מעל cost basis — השפעה -4,457₪ (Speculative)",
+      "text": "PLTR +18.7% מ-cost basis ($130.6→$154.96) | שווי ₪29,566 | תרומה חיובית מרכזית ל-speculative",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+      "confidence": "0.90",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
     },
     {
-      "id": 200,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA: ירידה 8.5% מעל cost basis — השפעה -5,326₪ (Aggressive)",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
-    },
-    {
-      "id": 203,
+      "id": 215,
       "agent": "hunter",
       "level": "info",
-      "portfolio_id": "creative",
-      "text": "RSEL: עלייה 36.4% מעל cost basis — השפעה +9,110₪ (Creative)",
+      "portfolio_id": "super_agg",
+      "text": "ESLT.TA +20.6% מ-cost basis (₪2336.7→₪2819.0) | שווי ₪30,163 | מוביל ב-super_agg",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+      "confidence": "0.90",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
     },
     {
-      "id": 199,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "CHKP: ירידה 6.6% מעל cost basis — השפעה -5,140₪ (Aggressive)",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
-    },
-    {
-      "id": 201,
+      "id": 217,
       "agent": "hunter",
       "level": "info",
       "portfolio_id": "aggressive",
-      "text": "SPEN: עלייה 10.0% מעל cost basis — השפעה +1,500₪ (Aggressive)",
+      "text": "SPEN.TA +12.4% מ-cost basis (₪33.09→₪37.2) | שווי ₪16,863 | ממתן הפסדים ב-aggressive",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+      "confidence": "0.80",
+      "timestamp": "2026-03-26T09:04:07.644186+02:00"
     },
     {
-      "id": 205,
+      "id": 208,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "creative",
-      "text": "VXUS: ירידה 8.4% מעל cost basis — השפעה -5,253₪ (Creative)",
+      "portfolio_id": "solid",
+      "text": "POLI: ירידה 4.9% מעל cost basis — השפעה -736₪ (Solid)",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-25T09:01:49.977598+02:00"
@@ -132,74 +182,24 @@
       "timestamp": "2026-03-25T09:01:49.977598+02:00"
     },
     {
-      "id": 208,
+      "id": 209,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "solid",
-      "text": "POLI: ירידה 4.9% מעל cost basis — השפעה -736₪ (Solid)",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
-    },
-    {
-      "id": 204,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA: ירידה 4.2% מעל cost basis — השפעה -1,310₪ (Creative)",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-25T09:01:49.977598+02:00"
-    },
-    {
-      "id": 198,
-      "agent": "trader",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪161,844). ROI +61.8% gross. 27.8% CASH (₪45K) — שקול פריסה בהזדמנות הבאה.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-24T18:01:47.844820+02:00"
-    },
-    {
-      "id": 195,
-      "agent": "trader",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪164,650). ROI +64.6% gross. ENRG -5.39% בוקר — לעקוב. Contrarian approved.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-24T18:01:47.844820+02:00"
-    },
-    {
-      "id": 194,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪191,219). ROI +91.2% gross. Momentum TA35 activated. No rebalance needed.",
-      "action_taken": "strategy_updated",
-      "confidence": "0.95",
-      "timestamp": "2026-03-24T18:01:47.844820+02:00"
-    },
-    {
-      "id": 196,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "solid",
-      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪178,414). ROI +78.4% gross. KSML + תל-בונד שתיהן activated.",
-      "action_taken": "strategy_updated",
-      "confidence": "0.95",
-      "timestamp": "2026-03-24T18:01:47.844820+02:00"
-    },
-    {
-      "id": 197,
-      "agent": "trader",
-      "level": "info",
       "portfolio_id": "speculative",
-      "text": "Evening Review 24/03: drawdown=0.00% (ATH ₪166,031). ROI +66% gross. PLTR momentum חזק (+23% רווח). IPO+M&A approved.",
-      "action_taken": "strategy_updated",
-      "confidence": "0.88",
-      "timestamp": "2026-03-24T18:01:47.844820+02:00"
+      "text": "AMOT: ירידה 3.3% מעל cost basis — השפעה -819₪ (Speculative)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
+    },
+    {
+      "id": 205,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "VXUS: ירידה 8.4% מעל cost basis — השפעה -5,253₪ (Creative)",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-25T09:01:49.977598+02:00"
     }
   ]
 }
