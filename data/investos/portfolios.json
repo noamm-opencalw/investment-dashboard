@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-26T18:03:00.500446",
+  "updated_at": "2026-03-26T18:03:39.390540",
   "pilot_day": 1,
   "total_capital": 500000.0,
   "target_net_profit": 100000,
@@ -15,7 +15,7 @@
       "initial_capital": 100000.0,
       "gross": 95903.00200000001,
       "fees": 0.0,
-      "daily_change_pct": -3.55,
+      "daily_change_pct": -4.12,
       "assets": [
         {
           "ticker": "CSPX",
@@ -163,7 +163,7 @@
         },
         {
           "date": "2026-03-26",
-          "value": 96452.08
+          "value": 95903.0
         }
       ]
     },
@@ -175,23 +175,10 @@
       "description": "מניות צמיחה, חיפוש אלפא",
       "target_30d_pct": 6.0,
       "initial_capital": 100000.0,
-      "gross": NaN,
+      "gross": 98380.611,
       "fees": 0.0,
-      "daily_change_pct": -2.79,
+      "daily_change_pct": -1.62,
       "assets": [
-        {
-          "ticker": "NVDA",
-          "name": "NVIDIA Corp",
-          "asset_type": "stock",
-          "sector": "AI/GPU",
-          "quantity": "104.4000",
-          "avg_cost": "191.5500",
-          "current_price": "NaN",
-          "value": NaN,
-          "cost_basis": 19997.82,
-          "daily_change_pct": 0.0,
-          "allocation_pct": NaN
-        },
         {
           "ticker": "CHKP",
           "name": "Check Point Technologies",
@@ -203,7 +190,7 @@
           "value": 22953.995,
           "cost_basis": 24988.895,
           "daily_change_pct": 0.0,
-          "allocation_pct": NaN
+          "allocation_pct": 23.3
         },
         {
           "ticker": "NICE",
@@ -216,7 +203,7 @@
           "value": 24546.644,
           "cost_basis": 24999.508,
           "daily_change_pct": 0.0,
-          "allocation_pct": NaN
+          "allocation_pct": 25.0
         },
         {
           "ticker": "SPEN",
@@ -229,7 +216,20 @@
           "value": 17225.78,
           "cost_basis": 15000.0279,
           "daily_change_pct": 0.0,
-          "allocation_pct": NaN
+          "allocation_pct": 17.5
+        },
+        {
+          "ticker": "NVDA",
+          "name": "NVIDIA Corp",
+          "asset_type": "stock",
+          "sector": "AI/GPU",
+          "quantity": "104.4000",
+          "avg_cost": "191.5500",
+          "current_price": "178.6800",
+          "value": 18654.192,
+          "cost_basis": 19997.82,
+          "daily_change_pct": 0.0,
+          "allocation_pct": 19.0
         },
         {
           "ticker": "CASH",
@@ -242,15 +242,15 @@
           "value": 15000.0,
           "cost_basis": 15000.0,
           "daily_change_pct": 0.0,
-          "allocation_pct": NaN
+          "allocation_pct": 15.2
         }
       ],
       "sectors": {
-        "AI/GPU": NaN,
-        "סייבר": NaN,
-        "תוכנה": NaN,
-        "פינטק": NaN,
-        "מזומן": NaN
+        "סייבר": 23.3,
+        "תוכנה": 25.0,
+        "פינטק": 17.5,
+        "AI/GPU": 19.0,
+        "מזומן": 15.2
       },
       "benchmark": "נאסד\"ק 100",
       "performance_history": [
@@ -340,7 +340,7 @@
         },
         {
           "date": "2026-03-26",
-          "value": 97192.84
+          "value": 98380.61
         }
       ]
     },
@@ -354,7 +354,7 @@
       "initial_capital": 100000.0,
       "gross": 101989.30765,
       "fees": 0.0,
-      "daily_change_pct": 2.77,
+      "daily_change_pct": 2.78,
       "assets": [
         {
           "ticker": "TQQQ",
@@ -489,7 +489,7 @@
         },
         {
           "date": "2026-03-26",
-          "value": 102778.32
+          "value": 101989.31
         }
       ]
     },
@@ -503,7 +503,7 @@
       "initial_capital": 100000.0,
       "gross": 99116.451,
       "fees": 0.0,
-      "daily_change_pct": -0.12,
+      "daily_change_pct": -0.64,
       "assets": [
         {
           "ticker": "PLTR",
@@ -652,7 +652,7 @@
         },
         {
           "date": "2026-03-26",
-          "value": 99757.67
+          "value": 99116.45
         }
       ]
     },
@@ -666,7 +666,7 @@
       "initial_capital": 100000.0,
       "gross": 103308.41888000001,
       "fees": 0.0,
-      "daily_change_pct": 2.0,
+      "daily_change_pct": 3.31,
       "assets": [
         {
           "ticker": "TSLA",
@@ -829,7 +829,7 @@
         },
         {
           "date": "2026-03-26",
-          "value": 102003.3
+          "value": 103308.42
         }
       ]
     }
