@@ -1,25 +1,145 @@
 {
-  "updated_at": "2026-03-26T18:03:39.400089",
+  "updated_at": "2026-03-29T09:02:42.729593",
   "latest": {
-    "id": 231,
-    "agent": "trader",
+    "id": 237,
+    "agent": "hunter",
     "level": "warn",
-    "portfolio_id": "solid",
-    "text": "Daily -3.55% — worst single-day drop across all portfolios. CSPX -3.36%, LUMI -5.08%, POLI -4.56% all declining. Drawdown 4.9% from ATH. Passive strategy holding but monitoring required.",
+    "portfolio_id": "aggressive",
+    "text": "NICE -2.62% (₪346.9→₪337.8). Continued weakness.",
     "action_taken": null,
-    "confidence": "0.85",
-    "timestamp": "2026-03-26T18:02:49.814651+02:00"
+    "confidence": null,
+    "timestamp": "2026-03-29T09:02:24.742491+03:00"
   },
   "history": [
     {
-      "id": 234,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "Relatively stable -0.12%. PLTR +18.65% unrealized gain — strongest single position. TEVA -11.38% and AMOT -5.44% remain headwinds. Drawdown 4.2% ✅",
+      "id": 235,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA -6.25% (prev ₪178.68→₪167.52). Unrealized -12.5%. AI broad selloff.",
       "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-26T18:02:49.814651+02:00"
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 240,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG -3.48% (₪19.56→₪18.88). Ongoing weakness, unrealized -12.8%.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 243,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "PLTR -5.42% ($151.27→$143.06). Unrealized down to +9.5%.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 248,
+      "agent": "ledger",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "Creative nearly flat YTD: -0.13%. RSEL +26.6% offsetting ENRG/TSLA/VXUS.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 239,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "RSEL -5.18% (₪17.77→₪16.85). Down but still +26.6% unrealized.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 244,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA -2.72% (ILS 92.25→89.74). Unrealized -14.4%. Weak trend.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 238,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "TSLA -4.62% ($379.34→$361.83). Heavy selling day.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 241,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "LUMI -2.07% (₪72.07→₪70.58). Unrealized -7.4%.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 242,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "POLI -2.73% (₪76.22→₪74.14). TASE banking pressure.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 246,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "ESLT -4.59% (₪2835→₪2705). Unrealized still +15.8% from cost.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 245,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ -9.49% ($42.85→$38.78). 3× ETF under fire! Unrealized -19.6%. High risk.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 247,
+      "agent": "ledger",
+      "level": "warn",
+      "portfolio_id": "super_agg",
+      "text": "Super-Agg worst day: -3.84%. TQQQ drag. CASH 44% absorbing.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 236,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "CHKP -2.31% (₪142.13→₪138.84). TASE tech under pressure.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
     },
     {
       "id": 230,
@@ -32,11 +152,31 @@
       "timestamp": "2026-03-26T18:02:49.814651+02:00"
     },
     {
+      "id": 231,
+      "agent": "trader",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "Daily -3.55% — worst single-day drop across all portfolios. CSPX -3.36%, LUMI -5.08%, POLI -4.56% all declining. Drawdown 4.9% from ATH. Passive strategy holding but monitoring required.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-26T18:02:49.814651+02:00"
+    },
+    {
       "id": 232,
       "agent": "trader",
       "level": "info",
       "portfolio_id": "super_agg",
       "text": "Leading portfolio today: +2.77%. ESLT holding strong at +20.64% unrealized gain. ₪45K CASH (43.8%) remains idle — consider deployment if bullish regime confirmed.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-26T18:02:49.814651+02:00"
+    },
+    {
+      "id": 234,
+      "agent": "trader",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "Relatively stable -0.12%. PLTR +18.65% unrealized gain — strongest single position. TEVA -11.38% and AMOT -5.44% remain headwinds. Drawdown 4.2% ✅",
       "action_taken": null,
       "confidence": "0.80",
       "timestamp": "2026-03-26T18:02:49.814651+02:00"
@@ -59,146 +199,6 @@
       "text": "TSLA -3.5% מ-cost basis ($399.83→$385.95) | שווי ₪9,649 | רכב חשמלי בלחץ",
       "action_taken": null,
       "confidence": "0.70",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 226,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI.TA -5.1% מ-cost basis (₪76.19→₪72.32) | שווי ₪28,472 | לחץ על solid",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 228,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "CSPX -3.4% מ-cost basis ($734.09→$709.45) | שווי ₪38,665 | S&P500 exposure down, הפוזיציה הגדולה ב-solid",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 223,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA -6.7% מ-cost basis ($191.55→$178.68) | שווי ₪18,654 | AI sector weakness",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 222,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "VXUS -7.1% מ-cost basis ($82.93→$77.08) | שווי ₪18,592 | global equity exposure down",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 224,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "AMOT.TA -5.4% מ-cost basis (₪20.77→₪19.64) | שווי ₪23,658 | נדל\"ן TASE בלחץ",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 227,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "solid",
-      "text": "POLI.TA -4.6% מ-cost basis (₪80.25→₪76.59) | שווי ₪14,315 | ביטוח TASE down",
-      "action_taken": null,
-      "confidence": "0.70",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 220,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ -8.0% מ-cost basis ($48.24→$44.39) | שווי ₪27,615 | לחץ על super_agg, מאוזן ע\"י ESLT",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 217,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN.TA +12.4% מ-cost basis (₪33.09→₪37.2) | שווי ₪16,863 | ממתן הפסדים ב-aggressive",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 215,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "ESLT.TA +20.6% מ-cost basis (₪2336.7→₪2819.0) | שווי ₪30,163 | מוביל ב-super_agg",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 218,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG.TA -11.5% מ-cost basis (₪21.65→₪19.16) | שווי ₪26,550 | לחץ על תיק creative",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 214,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "RSEL.TA +28.9% מ-cost basis (₪13.31→₪17.15) | שווי נוכחי ₪32,213 | תרומה עיקרית לתיק יצירתי",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 219,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA.TA -11.4% מ-cost basis (₪104.8→₪92.87) | שווי ₪26,533 | משמעותי ב-speculative",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 216,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "PLTR +18.7% מ-cost basis ($130.6→$154.96) | שווי ₪29,566 | תרומה חיובית מרכזית ל-speculative",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
-    },
-    {
-      "id": 221,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "CHKP -8.0% מ-cost basis ($154.73→$142.41) | שווי ₪22,999 | לחץ על aggressive",
-      "action_taken": null,
-      "confidence": "0.85",
       "timestamp": "2026-03-26T09:04:07.644186+02:00"
     }
   ]
