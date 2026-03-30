@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-29T18:02:37.367063",
+  "updated_at": "2026-03-30T09:05:20.710776",
   "pilot_day": 1,
   "total_capital": 500000.0,
   "target_net_profit": 100000,
@@ -15,7 +15,7 @@
       "initial_capital": 100000.0,
       "gross": 94185.89199999999,
       "fees": 0.0,
-      "daily_change_pct": -1.79,
+      "daily_change_pct": -1.9506,
       "assets": [
         {
           "ticker": "CASH",
@@ -168,6 +168,10 @@
         {
           "date": "2026-03-29",
           "value": 94186.0
+        },
+        {
+          "date": "2026-03-30",
+          "value": 174517.79
         }
       ]
     },
@@ -181,7 +185,7 @@
       "initial_capital": 100000.0,
       "gross": 95831.7334,
       "fees": 0.0,
-      "daily_change_pct": -2.59,
+      "daily_change_pct": -2.5121,
       "assets": [
         {
           "ticker": "CASH",
@@ -349,6 +353,10 @@
         {
           "date": "2026-03-29",
           "value": 95832.0
+        },
+        {
+          "date": "2026-03-30",
+          "value": 181234.89
         }
       ]
     },
@@ -362,7 +370,7 @@
       "initial_capital": 100000.0,
       "gross": 98068.538,
       "fees": 0.0,
-      "daily_change_pct": -3.84,
+      "daily_change_pct": -6.229,
       "assets": [
         {
           "ticker": "CASH",
@@ -502,6 +510,10 @@
         {
           "date": "2026-03-29",
           "value": 98069.0
+        },
+        {
+          "date": "2026-03-30",
+          "value": 149691.29
         }
       ]
     },
@@ -515,7 +527,7 @@
       "initial_capital": 100000.0,
       "gross": 97117.281,
       "fees": 0.0,
-      "daily_change_pct": -2.74,
+      "daily_change_pct": -3.893,
       "assets": [
         {
           "ticker": "CASH",
@@ -669,6 +681,10 @@
         {
           "date": "2026-03-29",
           "value": 96400.0
+        },
+        {
+          "date": "2026-03-30",
+          "value": 155524.94
         }
       ]
     },
@@ -682,7 +698,7 @@
       "initial_capital": 100000.0,
       "gross": 99872.349,
       "fees": 0.0,
-      "daily_change_pct": -3.33,
+      "daily_change_pct": -3.3008,
       "assets": [
         {
           "ticker": "CASH",
@@ -850,6 +866,10 @@
         {
           "date": "2026-03-29",
           "value": 99872.0
+        },
+        {
+          "date": "2026-03-30",
+          "value": 157777.43
         }
       ]
     }

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-03-29T18:02:37.381151",
+  "updated_at": "2026-03-30T09:05:20.725687",
   "formula": "Net = Gross - (Profit * 0.25) - Fees",
   "currency": "ILS",
   "target_net": 100000,

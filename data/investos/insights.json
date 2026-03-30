@@ -1,102 +1,82 @@
 {
-  "updated_at": "2026-03-29T18:02:37.374905",
+  "updated_at": "2026-03-30T09:05:20.718797",
   "latest": {
-    "id": 237,
+    "id": 253,
     "agent": "hunter",
-    "level": "warn",
-    "portfolio_id": "aggressive",
-    "text": "NICE -2.62% (₪346.9→₪337.8). Continued weakness.",
+    "level": "info",
+    "portfolio_id": "speculative",
+    "text": "PLTR +9.5% unrealized (₪143.06 vs ₪130.60 USD). החזקה חזקה — ₪85.7K שווי (44% מהתיק).",
     "action_taken": null,
-    "confidence": null,
-    "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    "confidence": "0.85",
+    "timestamp": "2026-03-30T09:05:12.189868+03:00"
   },
   "history": [
     {
-      "id": 235,
+      "id": 255,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "ESLT.TA +15.8% unrealized (₪2705 vs ₪2336.70). Super-Agg הולד — ₪28.9K שווי. שקול להגדיל חשיפה עם CASH הפנוי.",
+      "action_taken": null,
+      "confidence": "0.83",
+      "timestamp": "2026-03-30T09:05:12.189868+03:00"
+    },
+    {
+      "id": 250,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG.TA ירד -12.8% מעלות (₪18.88 vs ₪21.65). מגמת ירידה מתמשכת — לשקול stop-loss או הקטנת פוזיציה.",
+      "action_taken": null,
+      "confidence": "0.78",
+      "timestamp": "2026-03-30T09:05:12.189868+03:00"
+    },
+    {
+      "id": 252,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA.TA ירד -12.0% מעלות (₪92.25 vs ₪104.80). ₪26.4K בסיכון.",
+      "action_taken": null,
+      "confidence": "0.72",
+      "timestamp": "2026-03-30T09:05:12.189868+03:00"
+    },
+    {
+      "id": 251,
       "agent": "hunter",
       "level": "warn",
       "portfolio_id": "aggressive",
-      "text": "NVDA -6.25% (prev ₪178.68→₪167.52). Unrealized -12.5%. AI broad selloff.",
+      "text": "NVDA ירד -12.5% מעלות (₪167.52 vs ₪191.55 USD). חשיפה ₪54.9K. גורמי לחץ: AI-spend concerns + tariff fears.",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+      "confidence": "0.80",
+      "timestamp": "2026-03-30T09:05:12.189868+03:00"
     },
     {
-      "id": 240,
+      "id": 249,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG -3.48% (₪19.56→₪18.88). Ongoing weakness, unrealized -12.8%.",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ ירד -19.6% מהעלות הממוצעת (₪38.78 vs ₪48.24). לחשוב על הגדלת חשיפה עם ה-CASH המקרין של ₪45K, או להמתין לייצוב.",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+      "confidence": "0.82",
+      "timestamp": "2026-03-30T09:05:12.189868+03:00"
     },
     {
-      "id": 243,
+      "id": 254,
       "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "PLTR -5.42% ($151.27→$143.06). Unrealized down to +9.5%.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 248,
-      "agent": "ledger",
       "level": "info",
       "portfolio_id": "creative",
-      "text": "Creative nearly flat YTD: -0.13%. RSEL +26.6% offsetting ENRG/TSLA/VXUS.",
+      "text": "RSEL.TA +26.6% unrealized (₪16.85 vs ₪13.31). מפצה על ENRG — best performer בתיק Creative.",
       "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+      "confidence": "0.88",
+      "timestamp": "2026-03-30T09:05:12.189868+03:00"
     },
     {
-      "id": 239,
-      "agent": "hunter",
+      "id": 247,
+      "agent": "ledger",
       "level": "warn",
-      "portfolio_id": "creative",
-      "text": "RSEL -5.18% (₪17.77→₪16.85). Down but still +26.6% unrealized.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 244,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA -2.72% (ILS 92.25→89.74). Unrealized -14.4%. Weak trend.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 238,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA -4.62% ($379.34→$361.83). Heavy selling day.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 241,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI -2.07% (₪72.07→₪70.58). Unrealized -7.4%.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 242,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "POLI -2.73% (₪76.22→₪74.14). TASE banking pressure.",
+      "portfolio_id": "super_agg",
+      "text": "Super-Agg worst day: -3.84%. TQQQ drag. CASH 44% absorbing.",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-29T09:02:24.742491+03:00"
@@ -112,6 +92,26 @@
       "timestamp": "2026-03-29T09:02:24.742491+03:00"
     },
     {
+      "id": 248,
+      "agent": "ledger",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "Creative nearly flat YTD: -0.13%. RSEL +26.6% offsetting ENRG/TSLA/VXUS.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 242,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "POLI -2.73% (₪76.22→₪74.14). TASE banking pressure.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
       "id": 245,
       "agent": "hunter",
       "level": "warn",
@@ -122,11 +122,21 @@
       "timestamp": "2026-03-29T09:02:24.742491+03:00"
     },
     {
-      "id": 247,
-      "agent": "ledger",
+      "id": 241,
+      "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "Super-Agg worst day: -3.84%. TQQQ drag. CASH 44% absorbing.",
+      "portfolio_id": "solid",
+      "text": "LUMI -2.07% (₪72.07→₪70.58). Unrealized -7.4%.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 243,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "PLTR -5.42% ($151.27→$143.06). Unrealized down to +9.5%.",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-29T09:02:24.742491+03:00"
@@ -142,64 +152,54 @@
       "timestamp": "2026-03-29T09:02:24.742491+03:00"
     },
     {
-      "id": 230,
-      "agent": "trader",
+      "id": 238,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "TSLA -4.62% ($379.34→$361.83). Heavy selling day.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 239,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "RSEL -5.18% (₪17.77→₪16.85). Down but still +26.6% unrealized.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 237,
+      "agent": "hunter",
       "level": "warn",
       "portfolio_id": "aggressive",
-      "text": "Drawdown 7.9% — CHKP -7.96%, NVDA -6.72%, NICE -5.29% all below cost basis. Daily -2.79% — momentum strategy under pressure. Monitor for continued drawdown toward 12% threshold.",
+      "text": "NICE -2.62% (₪346.9→₪337.8). Continued weakness.",
       "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-26T18:02:49.814651+02:00"
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
     },
     {
-      "id": 231,
-      "agent": "trader",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "Daily -3.55% — worst single-day drop across all portfolios. CSPX -3.36%, LUMI -5.08%, POLI -4.56% all declining. Drawdown 4.9% from ATH. Passive strategy holding but monitoring required.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-26T18:02:49.814651+02:00"
-    },
-    {
-      "id": 232,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "Leading portfolio today: +2.77%. ESLT holding strong at +20.64% unrealized gain. ₪45K CASH (43.8%) remains idle — consider deployment if bullish regime confirmed.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-26T18:02:49.814651+02:00"
-    },
-    {
-      "id": 234,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "Relatively stable -0.12%. PLTR +18.65% unrealized gain — strongest single position. TEVA -11.38% and AMOT -5.44% remain headwinds. Drawdown 4.2% ✅",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-26T18:02:49.814651+02:00"
-    },
-    {
-      "id": 233,
-      "agent": "trader",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "Rebound day +2.00% despite ENRG at -11.50% unrealized. RSEL +28.85% offsetting losses. Contrarian thesis partially playing out.",
-      "action_taken": null,
-      "confidence": "0.75",
-      "timestamp": "2026-03-26T18:02:49.814651+02:00"
-    },
-    {
-      "id": 229,
+      "id": 240,
       "agent": "hunter",
-      "level": "info",
+      "level": "warn",
       "portfolio_id": "creative",
-      "text": "TSLA -3.5% מ-cost basis ($399.83→$385.95) | שווי ₪9,649 | רכב חשמלי בלחץ",
+      "text": "ENRG -3.48% (₪19.56→₪18.88). Ongoing weakness, unrealized -12.8%.",
       "action_taken": null,
-      "confidence": "0.70",
-      "timestamp": "2026-03-26T09:04:07.644186+02:00"
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+    },
+    {
+      "id": 235,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA -6.25% (prev ₪178.68→₪167.52). Unrealized -12.5%. AI broad selloff.",
+      "action_taken": null,
+      "confidence": null,
+      "timestamp": "2026-03-29T09:02:24.742491+03:00"
     }
   ]
 }
