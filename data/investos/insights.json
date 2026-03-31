@@ -1,16 +1,156 @@
 {
-  "updated_at": "2026-03-30T18:02:05.097445",
+  "updated_at": "2026-03-31T09:02:14.523207",
   "latest": {
-    "id": 253,
+    "id": 263,
     "agent": "hunter",
-    "level": "info",
-    "portfolio_id": "speculative",
-    "text": "PLTR +9.5% unrealized (₪143.06 vs ₪130.60 USD). החזקה חזקה — ₪85.7K שווי (44% מהתיק).",
+    "level": "warn",
+    "portfolio_id": "solid",
+    "text": "POLI ירד -11.8% (70.78 vs avg 80.25). בנק הפועלים בחולשה — רחוק מ-12% drawdown אבל כדאי לנטר.",
     "action_taken": null,
-    "confidence": "0.85",
-    "timestamp": "2026-03-30T09:05:12.189868+03:00"
+    "confidence": "0.80",
+    "timestamp": "2026-03-31T09:02:06.526379+03:00"
   },
   "history": [
+    {
+      "id": 266,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ ירד -21.5% מעלות הבסיס (37.89 vs avg 48.24). מינוף 3x חושף הפסד משמעותי — drawdown 10.3% מעלות. ממשיך להתקרב ל-12% מהשיא.",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 257,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "CHKP ירד -8.7% מעלות הבסיס (141.20 vs avg 154.73). לחץ על מניות טכנולוגיה ישראליות.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 262,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "LUMI ירד -11.2% מעלות הבסיס (67.69 vs avg 76.19). בנק לאומי בלחץ יחד עם כלל הבנקים.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 267,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "ESLT עלה +13.5% (2651.00 vs avg 2336.70) — אלביט מחזיק ביצועים חזקים.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 258,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "SPEN עלה +12.3% מעלות הבסיס (37.17 vs avg 33.09) — ביצועים חזקים יחסית.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 259,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "ENRG ירד -14.2% מעלות הבסיס (18.57 vs avg 21.65). חולשה בסקטור האנרגיה המתחדשת.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 256,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA ירד -13.8% מעלות הבסיס (165.17 vs avg 191.55). חולשה מתמשכת בסקטור ה-AI. שקול סיכון חשיפה.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 260,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "RSEL עלה +33.7% מעלות הבסיס (17.79 vs avg 13.31) — ביצוע יוצא דופן.",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 261,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "TSLA ירד -11.1% (355.28 vs avg 399.83). לחץ מתמשך על מניית הרכב החשמלי.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 265,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "PLTR עלה +5.3% (137.55 vs avg 130.60) — הפוזיציה רווחית.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 264,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA ירד -13.1% (91.05 vs avg 104.80). חולשה בסקטור הפארמה, ספקולטיבי.",
+      "action_taken": null,
+      "confidence": "0.75",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 251,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "aggressive",
+      "text": "NVDA ירד -12.5% מעלות (₪167.52 vs ₪191.55 USD). חשיפה ₪54.9K. גורמי לחץ: AI-spend concerns + tariff fears.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-30T09:05:12.189868+03:00"
+    },
+    {
+      "id": 252,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA.TA ירד -12.0% מעלות (₪92.25 vs ₪104.80). ₪26.4K בסיכון.",
+      "action_taken": null,
+      "confidence": "0.72",
+      "timestamp": "2026-03-30T09:05:12.189868+03:00"
+    },
+    {
+      "id": 253,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "PLTR +9.5% unrealized (₪143.06 vs ₪130.60 USD). החזקה חזקה — ₪85.7K שווי (44% מהתיק).",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-30T09:05:12.189868+03:00"
+    },
     {
       "id": 255,
       "agent": "hunter",
@@ -29,26 +169,6 @@
       "text": "ENRG.TA ירד -12.8% מעלות (₪18.88 vs ₪21.65). מגמת ירידה מתמשכת — לשקול stop-loss או הקטנת פוזיציה.",
       "action_taken": null,
       "confidence": "0.78",
-      "timestamp": "2026-03-30T09:05:12.189868+03:00"
-    },
-    {
-      "id": 252,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA.TA ירד -12.0% מעלות (₪92.25 vs ₪104.80). ₪26.4K בסיכון.",
-      "action_taken": null,
-      "confidence": "0.72",
-      "timestamp": "2026-03-30T09:05:12.189868+03:00"
-    },
-    {
-      "id": 251,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA ירד -12.5% מעלות (₪167.52 vs ₪191.55 USD). חשיפה ₪54.9K. גורמי לחץ: AI-spend concerns + tariff fears.",
-      "action_taken": null,
-      "confidence": "0.80",
       "timestamp": "2026-03-30T09:05:12.189868+03:00"
     },
     {
@@ -77,126 +197,6 @@
       "level": "warn",
       "portfolio_id": "super_agg",
       "text": "Super-Agg worst day: -3.84%. TQQQ drag. CASH 44% absorbing.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 246,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "ESLT -4.59% (₪2835→₪2705). Unrealized still +15.8% from cost.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 248,
-      "agent": "ledger",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "Creative nearly flat YTD: -0.13%. RSEL +26.6% offsetting ENRG/TSLA/VXUS.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 242,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "POLI -2.73% (₪76.22→₪74.14). TASE banking pressure.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 245,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ -9.49% ($42.85→$38.78). 3× ETF under fire! Unrealized -19.6%. High risk.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 241,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI -2.07% (₪72.07→₪70.58). Unrealized -7.4%.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 243,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "PLTR -5.42% ($151.27→$143.06). Unrealized down to +9.5%.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 236,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "CHKP -2.31% (₪142.13→₪138.84). TASE tech under pressure.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 238,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA -4.62% ($379.34→$361.83). Heavy selling day.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 239,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "RSEL -5.18% (₪17.77→₪16.85). Down but still +26.6% unrealized.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 237,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NICE -2.62% (₪346.9→₪337.8). Continued weakness.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 240,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG -3.48% (₪19.56→₪18.88). Ongoing weakness, unrealized -12.8%.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
-    },
-    {
-      "id": 235,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA -6.25% (prev ₪178.68→₪167.52). Unrealized -12.5%. AI broad selloff.",
       "action_taken": null,
       "confidence": null,
       "timestamp": "2026-03-29T09:02:24.742491+03:00"
