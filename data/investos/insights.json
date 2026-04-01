@@ -1,16 +1,106 @@
 {
-  "updated_at": "2026-03-31T09:02:14.523207",
+  "updated_at": "2026-04-01T09:03:16.283667",
   "latest": {
-    "id": 263,
+    "id": 268,
     "agent": "hunter",
     "level": "warn",
-    "portfolio_id": "solid",
-    "text": "POLI ירד -11.8% (70.78 vs avg 80.25). בנק הפועלים בחולשה — רחוק מ-12% drawdown אבל כדאי לנטר.",
+    "portfolio_id": "aggressive",
+    "text": "NVDA ירד -8.95% מעלות הכניסה (174.4 USD). המניה נסחרת מתחת לממוצע, שוק US בלחץ — מרץ היה חודש קשה לנאסד\"ק.",
     "action_taken": null,
-    "confidence": "0.80",
-    "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    "confidence": "0.85",
+    "timestamp": "2026-04-01T09:03:08.029742+03:00"
   },
   "history": [
+    {
+      "id": 274,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "speculative",
+      "text": "TEVA ירד -11.84% מעלות הכניסה (92.39 ILS). סיכון ביוטק מתממש — לשקול cutoff.",
+      "action_taken": null,
+      "confidence": "0.82",
+      "timestamp": "2026-04-01T09:03:08.029742+03:00"
+    },
+    {
+      "id": 277,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": null,
+      "text": "TASE סגור היום (1 אפריל 2026) — חג פסח. מחירי TASE הם מחירי סגירה מסשן האחרון.",
+      "action_taken": null,
+      "confidence": "0.99",
+      "timestamp": "2026-04-01T09:03:08.029742+03:00"
+    },
+    {
+      "id": 270,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "creative",
+      "text": "ENRG ירד -12.70% מעלות הכניסה (18.9 ILS). קרוב לרף drawdown — לעקוב.",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-04-01T09:03:08.029742+03:00"
+    },
+    {
+      "id": 273,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "PLTR +12.01% מעלות הכניסה (146.28 USD). ביצוע מצוין — Palantir חזק ב-2026.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-04-01T09:03:08.029742+03:00"
+    },
+    {
+      "id": 272,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "כל הפוזיציות ב-Solid מתחת לעלות הכניסה: CSPX -5.85%, LUMI -8.40%, POLI -8.64%. תיק שמרני בלחץ.",
+      "action_taken": null,
+      "confidence": "0.88",
+      "timestamp": "2026-04-01T09:03:08.029742+03:00"
+    },
+    {
+      "id": 271,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "RSEL עלה +16.15% מעלות הכניסה (15.46 ILS). פיצוי חזק על ENRG בתיק Creative.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-04-01T09:03:08.029742+03:00"
+    },
+    {
+      "id": 276,
+      "agent": "hunter",
+      "level": "alert",
+      "portfolio_id": "super_agg",
+      "text": "TQQQ ירד -13.60% מעלות הכניסה. ETF ממונף מתחת לעלות — שוק US בלחץ. 45K CASH עדיין idle (44%).",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-04-01T09:03:08.029742+03:00"
+    },
+    {
+      "id": 275,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "ESLT עלה +12.85% מעלות הכניסה (2637 ILS). אלביט ממשיך לחזק ב-2026.",
+      "action_taken": null,
+      "confidence": "0.88",
+      "timestamp": "2026-04-01T09:03:08.029742+03:00"
+    },
+    {
+      "id": 269,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "aggressive",
+      "text": "SPEN עלה +13.24% מעלות הכניסה (37.47 ILS). ביצוע חזק ביחס לשוק המקומי.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-04-01T09:03:08.029742+03:00"
+    },
     {
       "id": 266,
       "agent": "hunter",
@@ -19,96 +109,6 @@
       "text": "TQQQ ירד -21.5% מעלות הבסיס (37.89 vs avg 48.24). מינוף 3x חושף הפסד משמעותי — drawdown 10.3% מעלות. ממשיך להתקרב ל-12% מהשיא.",
       "action_taken": null,
       "confidence": "0.90",
-      "timestamp": "2026-03-31T09:02:06.526379+03:00"
-    },
-    {
-      "id": 257,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "CHKP ירד -8.7% מעלות הבסיס (141.20 vs avg 154.73). לחץ על מניות טכנולוגיה ישראליות.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-31T09:02:06.526379+03:00"
-    },
-    {
-      "id": 262,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "solid",
-      "text": "LUMI ירד -11.2% מעלות הבסיס (67.69 vs avg 76.19). בנק לאומי בלחץ יחד עם כלל הבנקים.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-31T09:02:06.526379+03:00"
-    },
-    {
-      "id": 267,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "ESLT עלה +13.5% (2651.00 vs avg 2336.70) — אלביט מחזיק ביצועים חזקים.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-31T09:02:06.526379+03:00"
-    },
-    {
-      "id": 258,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "aggressive",
-      "text": "SPEN עלה +12.3% מעלות הבסיס (37.17 vs avg 33.09) — ביצועים חזקים יחסית.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-31T09:02:06.526379+03:00"
-    },
-    {
-      "id": 259,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "ENRG ירד -14.2% מעלות הבסיס (18.57 vs avg 21.65). חולשה בסקטור האנרגיה המתחדשת.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-31T09:02:06.526379+03:00"
-    },
-    {
-      "id": 256,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "aggressive",
-      "text": "NVDA ירד -13.8% מעלות הבסיס (165.17 vs avg 191.55). חולשה מתמשכת בסקטור ה-AI. שקול סיכון חשיפה.",
-      "action_taken": null,
-      "confidence": "0.85",
-      "timestamp": "2026-03-31T09:02:06.526379+03:00"
-    },
-    {
-      "id": 260,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "RSEL עלה +33.7% מעלות הבסיס (17.79 vs avg 13.31) — ביצוע יוצא דופן.",
-      "action_taken": null,
-      "confidence": "0.90",
-      "timestamp": "2026-03-31T09:02:06.526379+03:00"
-    },
-    {
-      "id": 261,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "creative",
-      "text": "TSLA ירד -11.1% (355.28 vs avg 399.83). לחץ מתמשך על מניית הרכב החשמלי.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-31T09:02:06.526379+03:00"
-    },
-    {
-      "id": 265,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "PLTR עלה +5.3% (137.55 vs avg 130.60) — הפוזיציה רווחית.",
-      "action_taken": null,
-      "confidence": "0.85",
       "timestamp": "2026-03-31T09:02:06.526379+03:00"
     },
     {
@@ -122,84 +122,84 @@
       "timestamp": "2026-03-31T09:02:06.526379+03:00"
     },
     {
-      "id": 251,
+      "id": 265,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "speculative",
+      "text": "PLTR עלה +5.3% (137.55 vs avg 130.60) — הפוזיציה רווחית.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 267,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "super_agg",
+      "text": "ESLT עלה +13.5% (2651.00 vs avg 2336.70) — אלביט מחזיק ביצועים חזקים.",
+      "action_taken": null,
+      "confidence": "0.85",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 261,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "creative",
+      "text": "TSLA ירד -11.1% (355.28 vs avg 399.83). לחץ מתמשך על מניית הרכב החשמלי.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 260,
+      "agent": "hunter",
+      "level": "info",
+      "portfolio_id": "creative",
+      "text": "RSEL עלה +33.7% מעלות הבסיס (17.79 vs avg 13.31) — ביצוע יוצא דופן.",
+      "action_taken": null,
+      "confidence": "0.90",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 262,
+      "agent": "hunter",
+      "level": "warn",
+      "portfolio_id": "solid",
+      "text": "LUMI ירד -11.2% מעלות הבסיס (67.69 vs avg 76.19). בנק לאומי בלחץ יחד עם כלל הבנקים.",
+      "action_taken": null,
+      "confidence": "0.80",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
+    },
+    {
+      "id": 256,
       "agent": "hunter",
       "level": "warn",
       "portfolio_id": "aggressive",
-      "text": "NVDA ירד -12.5% מעלות (₪167.52 vs ₪191.55 USD). חשיפה ₪54.9K. גורמי לחץ: AI-spend concerns + tariff fears.",
-      "action_taken": null,
-      "confidence": "0.80",
-      "timestamp": "2026-03-30T09:05:12.189868+03:00"
-    },
-    {
-      "id": 252,
-      "agent": "hunter",
-      "level": "warn",
-      "portfolio_id": "speculative",
-      "text": "TEVA.TA ירד -12.0% מעלות (₪92.25 vs ₪104.80). ₪26.4K בסיכון.",
-      "action_taken": null,
-      "confidence": "0.72",
-      "timestamp": "2026-03-30T09:05:12.189868+03:00"
-    },
-    {
-      "id": 253,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "speculative",
-      "text": "PLTR +9.5% unrealized (₪143.06 vs ₪130.60 USD). החזקה חזקה — ₪85.7K שווי (44% מהתיק).",
+      "text": "NVDA ירד -13.8% מעלות הבסיס (165.17 vs avg 191.55). חולשה מתמשכת בסקטור ה-AI. שקול סיכון חשיפה.",
       "action_taken": null,
       "confidence": "0.85",
-      "timestamp": "2026-03-30T09:05:12.189868+03:00"
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
     },
     {
-      "id": 255,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "super_agg",
-      "text": "ESLT.TA +15.8% unrealized (₪2705 vs ₪2336.70). Super-Agg הולד — ₪28.9K שווי. שקול להגדיל חשיפה עם CASH הפנוי.",
-      "action_taken": null,
-      "confidence": "0.83",
-      "timestamp": "2026-03-30T09:05:12.189868+03:00"
-    },
-    {
-      "id": 250,
+      "id": 259,
       "agent": "hunter",
       "level": "warn",
       "portfolio_id": "creative",
-      "text": "ENRG.TA ירד -12.8% מעלות (₪18.88 vs ₪21.65). מגמת ירידה מתמשכת — לשקול stop-loss או הקטנת פוזיציה.",
+      "text": "ENRG ירד -14.2% מעלות הבסיס (18.57 vs avg 21.65). חולשה בסקטור האנרגיה המתחדשת.",
       "action_taken": null,
-      "confidence": "0.78",
-      "timestamp": "2026-03-30T09:05:12.189868+03:00"
+      "confidence": "0.85",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
     },
     {
-      "id": 249,
+      "id": 257,
       "agent": "hunter",
       "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "TQQQ ירד -19.6% מהעלות הממוצעת (₪38.78 vs ₪48.24). לחשוב על הגדלת חשיפה עם ה-CASH המקרין של ₪45K, או להמתין לייצוב.",
+      "portfolio_id": "aggressive",
+      "text": "CHKP ירד -8.7% מעלות הבסיס (141.20 vs avg 154.73). לחץ על מניות טכנולוגיה ישראליות.",
       "action_taken": null,
-      "confidence": "0.82",
-      "timestamp": "2026-03-30T09:05:12.189868+03:00"
-    },
-    {
-      "id": 254,
-      "agent": "hunter",
-      "level": "info",
-      "portfolio_id": "creative",
-      "text": "RSEL.TA +26.6% unrealized (₪16.85 vs ₪13.31). מפצה על ENRG — best performer בתיק Creative.",
-      "action_taken": null,
-      "confidence": "0.88",
-      "timestamp": "2026-03-30T09:05:12.189868+03:00"
-    },
-    {
-      "id": 247,
-      "agent": "ledger",
-      "level": "warn",
-      "portfolio_id": "super_agg",
-      "text": "Super-Agg worst day: -3.84%. TQQQ drag. CASH 44% absorbing.",
-      "action_taken": null,
-      "confidence": null,
-      "timestamp": "2026-03-29T09:02:24.742491+03:00"
+      "confidence": "0.80",
+      "timestamp": "2026-03-31T09:02:06.526379+03:00"
     }
   ]
 }
