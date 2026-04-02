@@ -1,42 +1,63 @@
 {
-  "updated_at": "2026-03-05T18:01:01.204868",
-  "date": "2026-03-02",
+  "updated_at": "2026-04-02T18:00:00",
+  "date": "2026-04-02",
   "currency": "ILS",
+  "usdils": 3.1236,
+  "total_gross": 835904.1,
+  "total_net": 835904.1,
+  "daily_change_ils": 6193.1,
+  "daily_change_pct": 0.7464,
+  "roi_from_initial": 67.1808,
   "portfolios": [
     {
-      "portfolio_id": "aggressive",
-      "date": "2026-03-05",
-      "gross_value": 100000.0,
-      "net_value": 100000.0,
-      "daily_change_pct": 0.0
-    },
-    {
-      "portfolio_id": "creative",
-      "date": "2026-03-05",
-      "gross_value": 100000.0,
-      "net_value": 100000.0,
-      "daily_change_pct": 0.0
-    },
-    {
       "portfolio_id": "solid",
-      "date": "2026-03-05",
-      "gross_value": 100000.0,
-      "net_value": 100000.0,
-      "daily_change_pct": 0.0
+      "date": "2026-04-02",
+      "gross_value": 176218.48,
+      "net_value": 176218.48,
+      "daily_change_ils": 1888.48,
+      "daily_change_pct": 1.0833,
+      "drawdown_from_ath_pct": -1.2307,
+      "roi_pct": 76.2185
     },
     {
-      "portfolio_id": "speculative",
-      "date": "2026-03-05",
-      "gross_value": 100000.0,
-      "net_value": 100000.0,
-      "daily_change_pct": 0.0
+      "portfolio_id": "aggressive",
+      "date": "2026-04-02",
+      "gross_value": 188599.49,
+      "net_value": 188599.49,
+      "daily_change_ils": 2591.49,
+      "daily_change_pct": 1.3932,
+      "drawdown_from_ath_pct": -1.37,
+      "roi_pct": 88.5995
     },
     {
       "portfolio_id": "super_agg",
-      "date": "2026-03-05",
-      "gross_value": 100000.0,
-      "net_value": 100000.0,
-      "daily_change_pct": 0.0
+      "date": "2026-04-02",
+      "gross_value": 156637.11,
+      "net_value": 156637.11,
+      "daily_change_ils": 2089.11,
+      "daily_change_pct": 1.3518,
+      "drawdown_from_ath_pct": -3.217,
+      "roi_pct": 56.6371
+    },
+    {
+      "portfolio_id": "speculative",
+      "date": "2026-04-02",
+      "gross_value": 157199.56,
+      "net_value": 157199.56,
+      "daily_change_ils": 93.56,
+      "daily_change_pct": 0.0596,
+      "drawdown_from_ath_pct": -5.3192,
+      "roi_pct": 57.1996
+    },
+    {
+      "portfolio_id": "creative",
+      "date": "2026-04-02",
+      "gross_value": 157249.45,
+      "net_value": 157249.45,
+      "daily_change_ils": -469.55,
+      "daily_change_pct": -0.2977,
+      "drawdown_from_ath_pct": -4.4949,
+      "roi_pct": 57.2494
     }
   ]
 }

@@ -1,17 +1,17 @@
 {
-  "updated_at": "2026-04-02T09:09:57.556447",
+  "updated_at": "2026-04-02T18:00:00",
   "candidates": [
     {
       "id": 9,
       "portfolio_id": "speculative",
       "name": "קטליסטים: IPO + M&A Arb",
       "type": "ai_active",
-      "status": "backtesting",
+      "status": "approved",
       "backtest_return_pct": null,
       "backtest_sharpe": null,
       "backtest_max_drawdown": null,
       "approved_by": null,
-      "notes": "Moved to backtesting: portfolio near initial -0.20%. 2026-03-17",
+      "notes": "Moved to backtesting: portfolio near initial -0.20%. 2026-03-17\n[2026-04-02 18:00] Status updated: backtesting → approved based on portfolio performance.",
       "created_at": "2026-02-25 18:01:32.348548+02:00"
     },
     {
@@ -45,12 +45,12 @@
       "portfolio_id": "aggressive",
       "name": "Momentum ת\"א 35 + לוריאן 90",
       "type": "ai_active",
-      "status": "approved",
+      "status": "active",
       "backtest_return_pct": null,
       "backtest_sharpe": null,
       "backtest_max_drawdown": null,
       "approved_by": null,
-      "notes": "Promoted from backtesting after 22+ days: aggressive portfolio +0.36% vs initial. 2026-03-17",
+      "notes": "Promoted from backtesting after 22+ days: aggressive portfolio +0.36% vs initial. 2026-03-17\n[2026-04-02 18:00] Status updated: approved → active based on portfolio performance.",
       "created_at": "2026-02-25 18:01:32.348548+02:00"
     },
     {
@@ -71,12 +71,12 @@
       "portfolio_id": "creative",
       "name": "קונטרריאן: סקטורים מוכים + ריבאונד",
       "type": "balanced",
-      "status": "proposed",
+      "status": "backtesting",
       "backtest_return_pct": null,
       "backtest_sharpe": null,
       "backtest_max_drawdown": null,
       "approved_by": null,
-      "notes": "בניגוד לשוק",
+      "notes": "בניגוד לשוק\n[2026-04-02 18:00] Status updated: proposed → backtesting based on portfolio performance.",
       "created_at": "2026-02-25 18:01:32.348548+02:00"
     },
     {

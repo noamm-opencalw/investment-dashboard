@@ -1,7 +1,15 @@
 {
-  "updated_at": "2026-04-02T09:09:57.550382",
+  "updated_at": "2026-04-02T18:00:00",
   "formula": "Net = Gross - (Profit * 0.25) - Fees",
   "currency": "ILS",
   "target_net": 100000,
-  "monthly_summary": []
+  "monthly_summary": [
+    {
+      "date": "2026-04-02",
+      "type": "evening_review",
+      "note": "Drawdown check: all portfolios within limits. No rebalance. Strategy updates: id=7 active, id=9 approved, id=10 backtesting.",
+      "total_gross": 835904.1,
+      "daily_pnl": 6193.1
+    }
+  ]
 }
